@@ -1,0 +1,184 @@
+# ============================================================
+# EG-VAN - Git Ignore
+# ============================================================
+
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# -------------------------
+# Virtual environments
+# -------------------------
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.*
+!.env.example
+
+# -------------------------
+# Jupyter / Colab
+# -------------------------
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# -------------------------
+# Python tooling
+# -------------------------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# -------------------------
+# IDE / Editors
+# -------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# -------------------------
+# OS files
+# -------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================================
+# DATASETS
+# ============================================================
+
+# Raw HAM10000 data
+data/raw/
+
+# Processed images are large dataset artifacts
+data/processed/images/
+
+# Keep processed metadata and split definitions
+!data/processed/
+!data/processed/metadata_clean.csv
+
+!data/splits/
+!data/splits/*.csv
+
+# -------------------------
+# External datasets
+# -------------------------
+
+# PH² dataset
+data/external/ph2/original/
+data/external/ph2/metadata/
+data/external/ph2/images/
+
+# Keep PH² documentation
+!data/external/ph2/
+!data/external/ph2/README.md
+!data/external/ph2/images/.gitkeep
+
+# Future external datasets
+data/external/isic2019/
+data/external/isic2020/
+
+# ============================================================
+# MODEL CHECKPOINTS
+# ============================================================
+
+# All trained model weights
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+*.bin
+
+# Experiment directories
+experiments/
+
+# But keep experiment documentation if added later
+!experiments/
+!experiments/**/
+!experiments/**/README.md
+
+# ============================================================
+# LOGS / TRAINING OUTPUT
+# ============================================================
+
+*.log
+logs/
+runs/
+wandb/
+mlruns/
+
+# TensorBoard
+tensorboard/
+events.out.tfevents.*
+
+# ============================================================
+# GENERATED RESULTS
+# ============================================================
+
+# Generated evaluation images
+outputs/
+results/
+reports/generated/
+
+# Grad-CAM generated images
+gradcam_outputs/
+
+# Prediction files
+predictions/
+*.pred
+*.prediction
+
+# ============================================================
+# TEMPORARY FILES
+# ============================================================
+
+*.tmp
+*.temp
+*.bak
+*.backup
+
+tmp/
+temp/
+
+# ============================================================
+# Downloaded archives
+# ============================================================
+
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# ============================================================
+# Secrets / credentials
+# ============================================================
+
+*.pem
+*.key
+*.crt
+
+credentials.json
+service-account.json
+google_credentials.json
+
+# ============================================================
+# Project-specific local files
+# ============================================================
+
+# Local configuration
+config.local.*
+settings.local.*
+
+# Local experiment notes
+LOCAL_NOTES.md

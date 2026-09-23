@@ -1,0 +1,35 @@
+{
+  "seed": 42,
+  "model": "EfficientNetV2S",
+  "pretrained_weight_source": "torchvision EfficientNet_V2_S_Weights.DEFAULT",
+  "image_size": 384,
+  "batch_size": 16,
+  "epochs": 25,
+  "optimizer": "Adamax",
+  "learning_rate": 0.001,
+  "focal_alpha": 0.25,
+  "focal_gamma": 2.0,
+  "scheduler": {
+    "name": "ReduceLROnPlateau",
+    "factor": 0.5,
+    "patience": 1
+  },
+  "mixed_precision": true,
+  "device": "cuda",
+  "split_csv": "split_leakage_aware.csv",
+  "classes": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "software": {
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "torch": "2.11.0+cu128",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39"
+  },
+  "early_stopping": false
+}
