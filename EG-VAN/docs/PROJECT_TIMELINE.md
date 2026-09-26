@@ -102,15 +102,15 @@ Next dependency: External validation and later full EG-VAN architecture work.
 
 Goal: Evaluate the frozen leakage-aware HAM10000 model on PH2 overlap classes without training on PH2.
 
-Work completed: PH2 secondary-mirror files are locally present. A 200-row manifest exists. Label distribution is common nevus 80, atypical nevus 80, melanoma 40. Mapping policy excludes atypical nevus.
+Work completed: A secondary-mirror PH² package audit found 200 original dermoscopic BMPs, 200 matching clinical labels (80 common nevus, 80 atypical nevus, 40 melanoma), and segmentation assets. The intended map excludes atypical nevus. Evaluator fixes passed 11 synthetic tests and a structural dry-run. Official chain of custody and reuse terms remain unverified.
 
 Files created/modified: `src/external_eval.py`, `data/external/ph2/`, `docs/PHASE_5_PH2_PLAN.md`, `docs/PHASE_5_PH2_EXTERNAL_VALIDATION_REPORT.md`.
 
-Result: Pre-run audit completed. No PH2 inference metrics were created.
+Result: Provenance/access audit documented in `docs/PHASE_8_PH2_PROVENANCE_AUDIT.md`. No PH² inference metrics were created.
 
-Status: BLOCKED before inference.
+Status: BLOCKED — DATA PROVENANCE INSUFFICIENT.
 
-Next dependency: CUDA-enabled Colab runtime with compatible torchvision.
+Next dependency: Obtain traceable source/revision and license/access evidence or the official ADDI package. Then provide a VERIFIED provenance record before inference.
 
 ## Remaining Research Extensions
 

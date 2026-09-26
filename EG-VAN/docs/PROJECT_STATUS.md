@@ -28,10 +28,10 @@ The source paper proposes EG-VAN: a dual-branch skin-lesion classifier combining
 | EfficientNetV2S naive baseline | Baseline on image-level split | ImageNet pretrained, seven-class head | `experiments/efficientnetv2s_naive/` | COMPLETE |
 | EfficientNetV2S leakage-aware baseline | Baseline on lesion-level split | Same frozen baseline configuration | `experiments/efficientnetv2s_leakage_aware/` | COMPLETE |
 | Stage A comparison | Describe split protocol difference | Accuracy, macro-F1, recalls, confusion matrices | `docs/PHASE_4C_STAGE_A_REPORT.md` | COMPLETE, descriptive |
-| PH² external-validation preparation | Audit secondary mirror/mapping | Common nevus→NV, melanoma→MEL, atypical nevus excluded | `docs/PHASE_5_PH2_PLAN.md`, PH² report and manifest | PREPARATION COMPLETE; evaluation BLOCKED |
+| PH² provenance/access audit | Assess official source, secondary mirror, labels, checkpoint, and readiness | Mirror structure/labels internally consistent; source chain/license unverified; evaluator synthetic tests/dry-run pass | `docs/PHASE_8_PH2_PROVENANCE_AUDIT.md` | BLOCKED — DATA PROVENANCE INSUFFICIENT |
 | Image Quality Assessment | Measure deterministic quality proxies and distributions | Eight proxies over all frozen rows | `experiments/image_quality/`, `docs/PHASE_6_IMAGE_QUALITY_ASSESSMENT.md` | COMPLETE |
 | Uncertainty Estimation | Post-hoc confidence, entropy, calibration, selective prediction | Frozen leakage-aware checkpoint inference in Colab; no training | `experiments/uncertainty/`, `docs/PHASE_7_UNCERTAINTY_ESTIMATION.md` | COMPLETE |
-| PH² external validation | Evaluate direct-overlap classes externally | Secondary mirror audited; no inference result | `docs/PHASE_5_PH2_EXTERNAL_VALIDATION_REPORT.md` | BLOCKED |
+| PH² external validation | Evaluate direct-overlap classes externally | No inference result; provenance/access unresolved; evaluator prepared | `docs/PHASE_8_PH2_PROVENANCE_AUDIT.md` | BLOCKED |
 | Full EG-VAN reconstruction | Implement SCGA, NLB, MFF, dual branch and fusion | Not implemented | No full architecture modules in `src/` | NOT STARTED |
 | Repeated-run stability | Quantify baseline/analysis run variability | No repeated runs performed | No repeat-run artifacts | NOT STARTED |
 | Final integrated analysis | Integrate baseline, quality, uncertainty and external findings | Not produced; PH² remains blocked and architecture incomplete | Phase reports are separate | NOT STARTED |
@@ -82,7 +82,7 @@ Checkpoint comparability caveat: Phase 7 used `best_checkpoint.pt` (epoch 6). Th
 
 **BLOCKED**
 
-- PH² external inference: no completed evaluation result; secondary mirror provenance/access caveats remain.
+- PH² external inference: no completed evaluation result; Kaggle URL/uploader/revision/license and traceability to official PH² are unavailable. Evaluator dry-run passes, but provenance and CUDA gates prevent inference.
 - A second CUDA run may be required for any approved analysis that cannot be reproduced locally; do not retrain baselines casually.
 
 **PLANNED**
@@ -98,4 +98,4 @@ Checkpoint comparability caveat: Phase 7 used `best_checkpoint.pt` (epoch 6). Th
 
 ## 10. Recommended Immediate Next Step
 
-First prepare a checkpoint-consistent evaluation plan for the existing leakage-aware best checkpoint versus the Stage A test artifact, since those currently represent different model states. If approved, perform inference-only evaluation in CUDA Colab without retraining or changing the checkpoint. Then revisit stability analysis; PH² remains blocked and full EG-VAN reconstruction remains a later, separate decision.
+First obtain traceable PH² source/revision and license/access evidence or the official ADDI package. If that cannot be established, decide whether to omit PH² rather than describe the secondary mirror as official. The evaluator is prepared, but inference remains gated until provenance is VERIFIED and CUDA is available. Do not launch PH² inference automatically; full EG-VAN reconstruction remains a later, separate decision.

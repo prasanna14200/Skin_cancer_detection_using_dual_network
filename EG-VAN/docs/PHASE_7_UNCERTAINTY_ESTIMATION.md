@@ -7,6 +7,8 @@ Status: COMPLETE. CUDA inference and artifact audits passed in Google Colab on T
 
 Estimate post-hoc predictive uncertainty for the existing leakage-aware EfficientNetV2S checkpoint without retraining, fine-tuning, changing labels, or changing frozen data/splits.
 
+For skin-lesion classification, confidence and predictive uncertainty can add information about how model outputs behave beyond the predicted label alone. They support descriptive reliability, calibration, and selective-prediction analysis; they do not establish clinical reliability or safety.
+
 ## Existing checkpoint and dataset
 
 - Checkpoint: `experiments/efficientnetv2s_leakage_aware/best_checkpoint.pt`

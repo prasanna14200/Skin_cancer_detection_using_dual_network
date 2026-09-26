@@ -22,7 +22,7 @@ NAIVE BASELINE: Accuracy = 88.38%, Macro F1 = 80.74%.
 
 LEAKAGE-AWARE BASELINE: Accuracy = 84.12%, Macro F1 = 71.14%.
 
-CURRENT BLOCKER: PH2 external inference remains blocked; official provenance/access and a compatible external-evaluation runtime are unresolved.
+CURRENT BLOCKER: PH² external validation is BLOCKED — DATA PROVENANCE INSUFFICIENT. The evaluator passes synthetic tests and dry-run; inference needs a VERIFIED provenance record and CUDA. See `docs/PHASE_8_PH2_PROVENANCE_AUDIT.md`.
 
 PHASE 6: Quality proxies and leakage-aware split distributions are complete for all 10,015 images. No images were removed or retrained.
 

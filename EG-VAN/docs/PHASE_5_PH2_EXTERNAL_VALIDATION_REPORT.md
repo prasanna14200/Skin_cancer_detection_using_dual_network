@@ -77,6 +77,6 @@ No metrics, predictions, or confusion matrix were created because inference did 
 
 ## Blocker and required manual action
 
-**BLOCKED:** The secondary mirror audit passes, but inference requires a CUDA-enabled Colab runtime with compatible torchvision. The single next action is to run `src/external_eval.py` in Colab using the preserved manifest and checkpoint.
+Phase 8 later audited the secondary mirror and classified provenance as **PARTIALLY VERIFIED**: expected IDs, labels, and package structure are present, but the Kaggle URL/uploader/revision, traceability to the official release, and license/permission evidence are missing. The current evaluator also has pre-inference issues documented in `docs/PHASE_8_PH2_PROVENANCE_AUDIT.md`. PH² inference remains **BLOCKED — DATA PROVENANCE INSUFFICIENT** and must not be run until provenance/access is resolved and the evaluator is corrected.
 
 No PH² result is reported, and no ISIC2019, calibration, ablation, or model-training work was started.

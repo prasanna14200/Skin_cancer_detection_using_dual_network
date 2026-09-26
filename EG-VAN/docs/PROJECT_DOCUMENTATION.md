@@ -185,7 +185,7 @@ Leakage-aware baseline:
 
 Accuracy difference: 0.04259042716761758, or 4.259 percentage points. Macro-F1 difference: 0.0959417059547136, or 9.594 percentage points. This is descriptive only because repeated runs were not performed. It does not prove a single causal explanation, does not disprove or reproduce the paper's final EG-VAN result, and does not compare the complete EG-VAN architecture.
 
-## 5. Current PH2 External Validation Status
+## 5. Current PH² External Validation Status
 
 PH2 external validation was proposed to test whether the frozen HAM10000 baseline generalizes to a different dermoscopic dataset on direct label overlap. PH2 contains common nevi, atypical nevi, and melanoma.
 
@@ -199,18 +199,17 @@ Intended mapping:
 
 Atypical nevus must not be force-mapped to `bkl` or any other HAM10000 label because the repository has no approved clinical mapping.
 
-Current local PH2 status:
+Current PH² status, verified in `docs/PHASE_8_PH2_PROVENANCE_AUDIT.md`:
 
-- `data/external/ph2/images/` contains 200 BMP images.
-- `data/external/ph2/metadata/ph2_manifest.csv` contains 200 rows.
-- Manifest distribution: 80 common nevus, 80 atypical nevus, 40 melanoma.
-- Valid overlap for evaluation would be 120 images after excluding atypical nevus.
-- `src/external_eval.py` exists and is inference-only.
-- Intended checkpoint: `experiments/efficientnetv2s_leakage_aware/best_checkpoint.pt`.
-- Inference was not performed.
-- Status: BLOCKED before inference because the local Windows context lacks the required CUDA/torchvision runtime.
+- The secondary mirror has 200 original BMP dermoscopic images, 200 matching clinical-label rows (80 common nevus, 80 atypical nevus, 40 melanoma), 200 lesion masks, and 50 ROI masks.
+- The prescribed mapping is common nevus -> `nv`, melanoma -> `mel`; atypical nevus is excluded, never mapped to `bkl`. Candidate overlap is 120 images, not an inference count.
+- The package is byte-for-byte preserved under `data/external/ph2/original/`, with derived originals and metadata copied separately.
+- Provenance is PARTIALLY VERIFIED: package structure/labels match the expected PH² layout, but Kaggle URL/uploader/revision, traceability to the official release, and license/access permission are not available locally.
+- The leakage-aware checkpoint exists and its static configuration/classifier dimensions match the seven-class EfficientNetV2S baseline.
+- `src/external_eval.py` now passes 11 synthetic tests and a structural dry-run. It has an explicit `other` prediction column, excludes atypical nevus, and uses a fixed 384x384 ImageNet transform. Normal inference remains gated on VERIFIED provenance and CUDA.
+- PH² inference was not performed. Status: BLOCKED — DATA PROVENANCE INSUFFICIENT.
 
-No PH2 accuracy, F1, AUROC, confusion matrix, prediction file, or sample-level result exists.
+No PH² accuracy, F1, confusion matrix, prediction file, or sample-level result exists.
 
 ## 6. Image Quality Assessment
 
@@ -348,7 +347,7 @@ python src/external_eval.py data/external/ph2/metadata/ph2_manifest.csv experime
 | Augmentation | Horizontal flip, vertical flip, rotation 15 degrees | APPROXIMATION | Paper mentions transformations but does not enumerate them reproducibly |
 | EG-VAN architecture | Not implemented | PLANNED | Current work is a baseline |
 | SCGA/NLB/MFF/fusion | Not implemented | PLANNED | Not in current source |
-| External validation | PH2 script and audit prepared; no inference | BLOCKED | CUDA runtime needed |
+| External validation | PH2 provenance audit and evaluator dry-run/synthetic tests passed; no inference | BLOCKED | Provenance/access unresolved; CUDA required |
 
 ## 12. Research Results So Far
 
@@ -412,7 +411,7 @@ These artifacts anchor reproducibility and research claims. Changing them would 
 
 The project has verified HAM10000 data, deterministic preprocessing, frozen naive and lesion-level splits, and completed EfficientNetV2S baseline experiments. The naive baseline reached 88.38% accuracy and 80.74% macro-F1. The leakage-aware baseline reached 84.12% accuracy and 71.14% macro-F1. This is a baseline comparison, not a full EG-VAN reproduction.
 
-PH2 external validation is prepared but not run. Image-quality proxies and post-hoc uncertainty analysis are implemented; neither is a clinical validation claim. The full EG-VAN architecture remains unimplemented.
+PH2 external validation is prepared but not run. The evaluator passes synthetic tests and dry-run, but provenance/access is insufficient and CUDA is required. Image-quality proxies and post-hoc uncertainty analysis are implemented; neither is a clinical validation claim. The full EG-VAN architecture remains unimplemented.
 
 ## 17. Next Steps
 
@@ -495,4 +494,4 @@ The HAM10000 dataset is under `data/raw/`; processed images are under `data/proc
 
 The last completed experiment is the naive versus leakage-aware EfficientNetV2S baseline comparison. Checkpoints and metrics are in `experiments/efficientnetv2s_naive/` and `experiments/efficientnetv2s_leakage_aware/`. The leakage-aware best checkpoint is also copied to `checkpoints/efficientnetv2s_leakage_aware_best.pt`.
 
-PH2 external validation is blocked before inference. Do not modify processed images, split files, labels, metadata, checkpoints, or result JSONs unless you are deliberately starting a new approved experiment. The next technical step is to run `src/external_eval.py` in a CUDA-enabled Colab runtime and document only the metrics that are actually produced.
+PH2 external validation is blocked by provenance/access. The evaluator dry-run and synthetic tests pass, but normal inference requires a VERIFIED provenance record and CUDA. Do not modify processed images, split files, labels, metadata, checkpoints, or result JSONs unless a separate experiment is approved.
