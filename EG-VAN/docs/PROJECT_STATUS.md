@@ -28,10 +28,10 @@ The source paper proposes EG-VAN: a dual-branch skin-lesion classifier combining
 | EfficientNetV2S naive baseline | Baseline on image-level split | ImageNet pretrained, seven-class head | `experiments/efficientnetv2s_naive/` | COMPLETE |
 | EfficientNetV2S leakage-aware baseline | Baseline on lesion-level split | Same frozen baseline configuration | `experiments/efficientnetv2s_leakage_aware/` | COMPLETE |
 | Stage A comparison | Describe split protocol difference | Accuracy, macro-F1, recalls, confusion matrices | `docs/PHASE_4C_STAGE_A_REPORT.md` | COMPLETE, descriptive |
-| PH² provenance/access audit | Assess official source, secondary mirror, labels, checkpoint, and readiness | Mirror structure/labels internally consistent; source chain/license unverified; evaluator synthetic tests/dry-run pass | `docs/PHASE_8_PH2_PROVENANCE_AUDIT.md` | BLOCKED — DATA PROVENANCE INSUFFICIENT |
+| PH² provenance/access audit | Assess official source, secondary mirror, labels, checkpoint, and readiness | Path A terms and source-identity evidence documented separately; evaluator validates scoped non-commercial research use | `docs/PHASE_8_PH2_PROVENANCE_AUDIT.md`, `data/external/ph2/metadata/verification_report.json` | VERIFIED FOR NON-COMMERCIAL ACADEMIC RESEARCH; exact archive chain remains incomplete |
 | Image Quality Assessment | Measure deterministic quality proxies and distributions | Eight proxies over all frozen rows | `experiments/image_quality/`, `docs/PHASE_6_IMAGE_QUALITY_ASSESSMENT.md` | COMPLETE |
 | Uncertainty Estimation | Post-hoc confidence, entropy, calibration, selective prediction | Frozen leakage-aware checkpoint inference in Colab; no training | `experiments/uncertainty/`, `docs/PHASE_7_UNCERTAINTY_ESTIMATION.md` | COMPLETE |
-| PH² external validation | Evaluate direct-overlap classes externally | No inference result; provenance/access unresolved; evaluator prepared | `docs/PHASE_8_PH2_PROVENANCE_AUDIT.md` | BLOCKED |
+| PH² external validation | Evaluate direct-overlap classes externally | No inference result; provenance gate verifies only scoped research/education use; target Colab runtime still requires dry-run and explicit user confirmation before inference | `docs/PHASE_8_PH2_PROVENANCE_AUDIT.md` | NOT RUN |
 | Full EG-VAN reconstruction | Implement SCGA, NLB, MFF, dual branch and fusion | Not implemented | No full architecture modules in `src/` | NOT STARTED |
 | Repeated-run stability | Quantify baseline/analysis run variability | No repeated runs performed | No repeat-run artifacts | NOT STARTED |
 | Final integrated analysis | Integrate baseline, quality, uncertainty and external findings | Not produced; PH² remains blocked and architecture incomplete | Phase reports are separate | NOT STARTED |
@@ -68,7 +68,7 @@ Selective prediction showed increasing accuracy at higher confidence thresholds 
 
 ## 7. PH² Status
 
-PH² remains a separate external-validation component and is not complete. The official University of Porto ADDI download workflow was problematic. A locally audited secondary Kaggle mirror exists, but it is not represented as an official University package, and its source URL/license provenance is incomplete. No PH² model inference metrics exist. Do not claim official PH² validation or substitute the mirror while calling it official.
+PH² remains a separate external-validation component and is not complete. Path A records the official PH² research/educational terms separately from Kaggle's `Other (specified in description)` field. Provenance is VERIFIED only for non-commercial academic research/external validation with citation; commercial use and redistribution are not permitted. Source identity and local package/manifest concordance are verified, while exact archive-byte linkage to Kaggle version 2 and the acquisition date remain unresolved. No PH² model inference metrics exist; do not describe an inference result before the gated run is explicitly approved and completed.
 
 ## 8. Current Research Contribution
 
@@ -82,7 +82,7 @@ Checkpoint comparability caveat: Phase 7 used `best_checkpoint.pt` (epoch 6). Th
 
 **BLOCKED**
 
-- PH² external inference: no completed evaluation result; Kaggle URL/uploader/revision/license and traceability to official PH² are unavailable. Evaluator dry-run passes, but provenance and CUDA gates prevent inference.
+- PH² external inference: no completed evaluation result. Provenance now passes only for scoped non-commercial academic research; the local runtime has no CUDA, and the Colab dry-run plus explicit confirmation are still required before inference.
 - A second CUDA run may be required for any approved analysis that cannot be reproduced locally; do not retrain baselines casually.
 
 **PLANNED**
@@ -98,4 +98,4 @@ Checkpoint comparability caveat: Phase 7 used `best_checkpoint.pt` (epoch 6). Th
 
 ## 10. Recommended Immediate Next Step
 
-First obtain traceable PH² source/revision and license/access evidence or the official ADDI package. If that cannot be established, decide whether to omit PH² rather than describe the secondary mirror as official. The evaluator is prepared, but inference remains gated until provenance is VERIFIED and CUDA is available. Do not launch PH² inference automatically; full EG-VAN reconstruction remains a later, separate decision.
+Run the structural dry-run in the target CUDA Colab runtime and confirm `provenance.status == VERIFIED`, `cuda_available == true`, and `inference_ready == true`. Stop after dry-run and wait for explicit user confirmation before executing PH² inference. Do not characterize the Kaggle listing as a license or claim commercial/redistribution permission; full EG-VAN reconstruction remains a later, separate decision.

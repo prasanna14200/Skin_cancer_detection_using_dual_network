@@ -5,6 +5,8 @@ from __future__ import annotations
 import sys
 import tempfile
 import unittest
+import json
+import hashlib
 from pathlib import Path
 
 import numpy as np
@@ -20,6 +22,7 @@ from external_eval import (  # noqa: E402
     binary_metrics,
     build_eval_transform,
     map_ph2_label,
+    provenance_status,
 )
 
 
@@ -112,6 +115,100 @@ class TransformTests(unittest.TestCase):
         second = transform(image)
         self.assertEqual(tuple(first.shape), (3, 384, 384))
         self.assertTrue(np.array_equal(first.numpy(), second.numpy()))
+
+
+class ProvenanceTests(unittest.TestCase):
+    def valid_record(self):
+        return {
+            "status": "VERIFIED",
+            "dataset_url": "https://www.kaggle.com/datasets/spacesurfer/ph2-dataset",
+            "dataset_name": "PH2 Dataset",
+            "uploader": "Dmitrii K (spacesurfer)",
+            "revision": "Kaggle dataset version 2",
+            "download_date": None,
+            "explicit_permission_verified": False,
+            "kaggle_secondary_source": {
+                "url": "https://www.kaggle.com/datasets/spacesurfer/ph2-dataset",
+                "dataset_id": 6220095,
+                "ref": "spacesurfer/ph2-dataset",
+                "uploader": "Dmitrii K (spacesurfer)",
+                "version": 2,
+                "license_field": "Other (specified in description)",
+                "license_url": None,
+            },
+            "original_dataset_provenance": {
+                "status": "DOCUMENTED",
+                "source_url": "https://www.fc.up.pt/addi/ph2%20database.html",
+                "access_reuse_evidence": {
+                    "quotations": [
+                        "The data included in the PH2 database can be used for research and educational purposes.",
+                        "It is important to note that redistribution and commercial use is not allowed.",
+                    ],
+                    "commercial_use_permitted": False,
+                    "redistribution_permitted": False,
+                    "citation_required": "Cite the PH2 database paper in publications.",
+                },
+            },
+            "source_traceability": {
+                "status": "VERIFIED",
+                "evidence": ["Official identity and local package concordance are recorded."],
+                "integrity_report": "verification_report.json",
+            },
+            "intended_use": {
+                "scope": "non-commercial academic research and external validation",
+                "commercial_use": False,
+                "redistribution": False,
+            },
+        }
+
+    def check_record(self, record):
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "provenance.json"
+            report_path = path.parent / "verification_report.json"
+            report_path.write_text(json.dumps({
+                "C_local_file_integrity": {
+                    "status": "VERIFIED",
+                    "source_traceability_status": "VERIFIED FOR PH2 SOURCE IDENTITY",
+                },
+                "D_metadata_label_integrity": {"status": "VERIFIED"},
+            }), encoding="utf-8")
+            record["source_traceability"]["integrity_report_sha256"] = hashlib.sha256(
+                report_path.read_bytes()
+            ).hexdigest()
+            path.write_text(json.dumps(record), encoding="utf-8")
+            return provenance_status(path)
+
+    def test_documented_research_use_passes_without_claiming_license(self):
+        result = self.check_record(self.valid_record())
+        self.assertEqual(result["status"], "VERIFIED")
+        self.assertFalse(result["record"]["explicit_permission_verified"])
+        self.assertEqual(
+            result["record"]["kaggle_secondary_source"]["license_field"],
+            "Other (specified in description)",
+        )
+        self.assertTrue(result["warnings"])
+
+    def test_missing_authoritative_terms_remains_partial(self):
+        record = self.valid_record()
+        record["original_dataset_provenance"]["access_reuse_evidence"]["quotations"] = []
+        self.assertEqual(self.check_record(record)["status"], "PARTIALLY VERIFIED")
+
+    def test_commercial_or_redistribution_use_remains_partial(self):
+        for field in ("commercial_use", "redistribution"):
+            with self.subTest(field=field):
+                record = self.valid_record()
+                record["intended_use"][field] = True
+                self.assertEqual(self.check_record(record)["status"], "PARTIALLY VERIFIED")
+
+    def test_kaggle_other_field_is_not_a_license_grant(self):
+        record = self.valid_record()
+        record["kaggle_secondary_source"]["license_field"] = "CC0"
+        self.assertEqual(self.check_record(record)["status"], "PARTIALLY VERIFIED")
+
+    def test_unverified_source_traceability_remains_partial(self):
+        record = self.valid_record()
+        record["source_traceability"]["status"] = "PARTIALLY VERIFIED"
+        self.assertEqual(self.check_record(record)["status"], "PARTIALLY VERIFIED")
 
 
 if __name__ == "__main__":

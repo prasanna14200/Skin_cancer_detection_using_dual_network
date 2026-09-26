@@ -259,13 +259,111 @@ def checkpoint_audit(checkpoint_path: Path, project_root: Path) -> dict:
 def provenance_status(path: Path) -> dict:
     if not path.is_file():
         return {"status": "PARTIALLY VERIFIED", "record": None, "missing": ["source URL/name", "uploader/revision", "license/access permission", "traceability evidence"]}
-    record = json.loads(path.read_text(encoding="utf-8"))
-    required = ("dataset_url", "dataset_name", "uploader", "revision", "download_date", "license_or_terms", "traceability_evidence")
-    missing = [key for key in required if not record.get(key)]
-    status = str(record.get("status", "")).upper()
-    if status != "VERIFIED" or missing:
-        return {"status": "PARTIALLY VERIFIED", "record": record, "missing": missing or ["status must be VERIFIED"]}
-    return {"status": "VERIFIED", "record": record, "missing": []}
+    try:
+        record = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return {"status": "PARTIALLY VERIFIED", "record": None, "missing": [f"unreadable provenance record: {exc}"]}
+
+    missing = []
+    if str(record.get("status", "")).upper() != "VERIFIED":
+        missing.append("status must be VERIFIED")
+
+    kaggle = record.get("kaggle_secondary_source", {})
+    if (
+        kaggle.get("url") != "https://www.kaggle.com/datasets/spacesurfer/ph2-dataset"
+        or kaggle.get("dataset_id") != 6220095
+        or kaggle.get("ref") != "spacesurfer/ph2-dataset"
+        or kaggle.get("uploader") != "Dmitrii K (spacesurfer)"
+        or kaggle.get("version") != 2
+    ):
+        missing.append("Kaggle secondary-source identity is incomplete or does not match the audited dataset")
+    if (
+        record.get("dataset_url") != kaggle.get("url")
+        or record.get("dataset_name") != "PH2 Dataset"
+        or record.get("uploader") != kaggle.get("uploader")
+        or record.get("revision") != "Kaggle dataset version 2"
+    ):
+        missing.append("top-level dataset identity must match the documented Kaggle source")
+    if kaggle.get("license_field") != "Other (specified in description)" or kaggle.get("license_url") is not None:
+        missing.append("Kaggle license metadata must remain recorded as Other with no invented license URL")
+
+    original = record.get("original_dataset_provenance", {})
+    terms = original.get("access_reuse_evidence", {})
+    quotations = terms.get("quotations", [])
+    has_research_terms = any("research and educational purposes" in str(quote).lower() for quote in quotations)
+    has_commercial_restriction = any("commercial use is not allowed" in str(quote).lower() for quote in quotations)
+    has_redistribution_restriction = any("redistribution" in str(quote).lower() and "not allowed" in str(quote).lower() for quote in quotations)
+    if (
+        original.get("source_url") != "https://www.fc.up.pt/addi/ph2%20database.html"
+        or str(original.get("status", "")).upper() != "DOCUMENTED"
+        or not has_research_terms
+        or not has_commercial_restriction
+        or not has_redistribution_restriction
+        or terms.get("commercial_use_permitted") is not False
+        or terms.get("redistribution_permitted") is not False
+        or not terms.get("citation_required")
+    ):
+        missing.append("authoritative PH2 research/educational terms and their restrictions are not fully documented")
+
+    traceability = record.get("source_traceability", {})
+    trace_evidence = traceability.get("evidence", [])
+    if (
+        str(traceability.get("status", "")).upper() != "VERIFIED"
+        or not isinstance(trace_evidence, list)
+        or not trace_evidence
+        or not traceability.get("integrity_report_sha256")
+    ):
+        missing.append("verified source-identity traceability and linked integrity report are required")
+    else:
+        report_ref = Path(traceability.get("integrity_report", ""))
+        report_candidates = [path.parent / report_ref]
+        if not report_ref.is_absolute():
+            report_candidates.extend(
+                repo_root / report_ref
+                for repo_root in Path(__file__).resolve().parents[:3]
+            )
+        report_path = next((candidate for candidate in report_candidates if candidate.is_file()), None)
+        if report_path is None:
+            missing.append("linked local integrity report is missing")
+        else:
+            report_digest = hashlib.sha256(report_path.read_bytes()).hexdigest()
+            if report_digest != traceability.get("integrity_report_sha256"):
+                missing.append("linked local integrity report SHA256 does not match provenance")
+            else:
+                try:
+                    integrity_report = json.loads(report_path.read_text(encoding="utf-8"))
+                    if (
+                        integrity_report.get("C_local_file_integrity", {}).get("status") != "VERIFIED"
+                        or not str(integrity_report.get("C_local_file_integrity", {}).get("source_traceability_status", "")).startswith("VERIFIED")
+                        or integrity_report.get("D_metadata_label_integrity", {}).get("status") != "VERIFIED"
+                    ):
+                        missing.append("linked local integrity report does not verify package and metadata concordance")
+                except (OSError, json.JSONDecodeError, AttributeError) as exc:
+                    missing.append(f"linked local integrity report is unreadable: {exc}")
+
+    intended_use = record.get("intended_use", {})
+    if (
+        intended_use.get("scope") != "non-commercial academic research and external validation"
+        or intended_use.get("commercial_use") is not False
+        or intended_use.get("redistribution") is not False
+    ):
+        missing.append("intended use must be limited to non-commercial academic research without redistribution")
+
+    if record.get("explicit_permission_verified") is not False:
+        missing.append("do not claim an explicit license grant that the evidence does not establish")
+
+    if missing:
+        return {"status": "PARTIALLY VERIFIED", "record": record, "missing": missing}
+    warnings = []
+    if not record.get("download_date"):
+        warnings.append("download date is not recorded; this does not replace the documented source-identity evidence")
+    return {
+        "status": "VERIFIED",
+        "record": record,
+        "missing": [],
+        "authorization_scope": intended_use["scope"],
+        "warnings": warnings,
+    }
 
 
 def audit_project(project_root: str | Path, checkpoint_path: str | Path, manifest_override: str | Path | None = None) -> dict:

@@ -136,3 +136,28 @@ After provenance/access is resolved and the provenance record is verified, run t
 ```
 
 This command will stop before inference unless provenance is verified and CUDA is available. No PH² metrics exist.
+
+## 13. Path A Provenance Decision Addendum
+
+Date: 2026-09-26
+Decision: **VERIFIED for non-commercial academic research and external validation only**. This scoped decision supersedes the earlier evaluator-gate status above; the earlier audit findings remain as the history of why the original gate blocked.
+
+### Evidence recorded separately
+
+- **Original PH² source:** the official University of Porto ADDI PH² page identifies the dataset and says it may be used for research and educational purposes. It also says redistribution and commercial use are not allowed and publications using the dataset must cite the specified PH² paper. The same page says download follows a registration form.
+- **Browser documentation:** the task-provided quotation states that the PH² database and Browser are only available for research and educational purposes. The official page links `PH2BrowserTutorial.pdf`; automated PDF text extraction was unavailable in this environment, so the quote is retained as supplied evidence rather than represented as independently extracted here.
+- **Kaggle secondary listing:** Kaggle metadata identifies `spacesurfer/ph2-dataset`, dataset ID `6220095`, uploader Dmitrii K, version 2 dated 2024-12-03. Its license field remains exactly `Other (specified in description)` with no license URL. This field is not treated as a license or as the basis for research permission.
+- **Source traceability:** VERIFIED for PH² source identity and local package/manifest concordance using the original metadata, matching image IDs and class counts, local file-integrity audit, Kaggle listing identity, and the linked report hash. The exact Kaggle archive bytes and local acquisition date are not retained, so byte-level linkage to version 2 remains unresolved.
+
+### Gate change and limits
+
+The former evaluator required a non-empty download date and generic `license_or_terms` value. That schema could not represent authoritative PH²-specific research/educational terms separately from Kaggle's `Other` metadata. The gate now validates the official PH² terms and restrictions, Kaggle identity and license-field literal, source-traceability evidence and report SHA256, citation requirement, and the narrow intended-use scope.
+
+No explicit license grant is claimed. No commercial-use permission or redistribution permission is claimed. The new `VERIFIED` decision applies only to non-commercial academic research/external validation subject to the PH² citation requirement; it is not an unrestricted license or legal opinion.
+
+### Validation and current readiness
+
+- Synthetic evaluator tests: 16/16 PASS, including positive scoped-use evidence and negative missing-evidence/commercial/redistribution cases.
+- Local structural dry-run: PASS; provenance `VERIFIED`; checkpoint architecture audit PASS; no forward pass or PH² inference.
+- Runtime used for this dry-run: PyTorch 2.11.0+cpu, CUDA unavailable; `inference_ready: false`.
+- Frozen HAM10000 data, splits, and checkpoint: not modified.
