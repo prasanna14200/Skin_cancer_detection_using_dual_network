@@ -1,0 +1,162 @@
+{
+  "brightness": {
+    "quantile_0": {
+      "count": 338,
+      "accuracy": 0.8402366863905325,
+      "macro_f1": 0.5893877813635708,
+      "quality_range": "[7.536, 47.427]"
+    },
+    "quantile_1": {
+      "count": 338,
+      "accuracy": 0.8313609467455622,
+      "macro_f1": 0.5194997964740823,
+      "quality_range": "[47.427, 66.976]"
+    },
+    "quantile_2": {
+      "count": 338,
+      "accuracy": 0.7248520710059172,
+      "macro_f1": 0.574604887698957,
+      "quality_range": "[66.976, 129.982]"
+    }
+  },
+  "contrast": {
+    "quantile_0": {
+      "count": 338,
+      "accuracy": 0.7899408284023669,
+      "macro_f1": 0.5711023999042432,
+      "quality_range": "[26.165, 44.597]"
+    },
+    "quantile_1": {
+      "count": 338,
+      "accuracy": 0.742603550295858,
+      "macro_f1": 0.5149606322446522,
+      "quality_range": "[44.597, 51.895]"
+    },
+    "quantile_2": {
+      "count": 338,
+      "accuracy": 0.863905325443787,
+      "macro_f1": 0.6925833969951617,
+      "quality_range": "[51.895, 78.927]"
+    }
+  },
+  "sharpness": {
+    "quantile_0": {
+      "count": 338,
+      "accuracy": 0.7988165680473372,
+      "macro_f1": 0.6132477037992636,
+      "quality_range": "[27.349, 299.984]"
+    },
+    "quantile_1": {
+      "count": 338,
+      "accuracy": 0.8136094674556213,
+      "macro_f1": 0.5666561958462702,
+      "quality_range": "[299.984, 598.624]"
+    },
+    "quantile_2": {
+      "count": 338,
+      "accuracy": 0.7840236686390533,
+      "macro_f1": 0.6488062422341795,
+      "quality_range": "[598.624, 4550.671]"
+    }
+  },
+  "saturation": {
+    "quantile_0": {
+      "count": 338,
+      "accuracy": 0.7544378698224852,
+      "macro_f1": 0.6068428072214648,
+      "quality_range": "[29.190, 83.562]"
+    },
+    "quantile_1": {
+      "count": 338,
+      "accuracy": 0.8609467455621301,
+      "macro_f1": 0.6531489332368249,
+      "quality_range": "[83.562, 99.876]"
+    },
+    "quantile_2": {
+      "count": 338,
+      "accuracy": 0.7810650887573964,
+      "macro_f1": 0.4957790695986821,
+      "quality_range": "[99.876, 224.571]"
+    }
+  },
+  "dark_pixel_ratio": {
+    "quantile_0": {
+      "count": 338,
+      "accuracy": 0.7189349112426036,
+      "macro_f1": 0.5618690590156638,
+      "quality_range": "[0.012, 0.203]"
+    },
+    "quantile_1": {
+      "count": 338,
+      "accuracy": 0.834319526627219,
+      "macro_f1": 0.516747204628978,
+      "quality_range": "[0.203, 0.477]"
+    },
+    "quantile_2": {
+      "count": 338,
+      "accuracy": 0.8431952662721893,
+      "macro_f1": 0.6168741415214808,
+      "quality_range": "[0.477, 0.971]"
+    }
+  },
+  "bright_pixel_ratio": {
+    "quantile_0": {
+      "count": 338,
+      "accuracy": 0.7514792899408284,
+      "macro_f1": 0.5923107935947766,
+      "quality_range": "[0.005, 0.016]"
+    },
+    "quantile_1": {
+      "count": 339,
+      "accuracy": 0.7728613569321534,
+      "macro_f1": 0.6153509716977209,
+      "quality_range": "[0.016, 0.020]"
+    },
+    "quantile_2": {
+      "count": 337,
+      "accuracy": 0.8724035608308606,
+      "macro_f1": 0.6821109546225738,
+      "quality_range": "[0.020, 0.057]"
+    }
+  },
+  "entropy": {
+    "quantile_0": {
+      "count": 338,
+      "accuracy": 0.8579881656804734,
+      "macro_f1": 0.5933798329458365,
+      "quality_range": "[3.388, 6.562]"
+    },
+    "quantile_1": {
+      "count": 338,
+      "accuracy": 0.8254437869822485,
+      "macro_f1": 0.5024739908180546,
+      "quality_range": "[6.562, 7.179]"
+    },
+    "quantile_2": {
+      "count": 338,
+      "accuracy": 0.7130177514792899,
+      "macro_f1": 0.548171972725504,
+      "quality_range": "[7.179, 7.892]"
+    }
+  },
+  "illumination_variation": {
+    "quantile_0": {
+      "count": 338,
+      "accuracy": 0.6982248520710059,
+      "macro_f1": 0.5583397925077235,
+      "quality_range": "[0.231, 0.670]"
+    },
+    "quantile_1": {
+      "count": 338,
+      "accuracy": 0.8284023668639053,
+      "macro_f1": 0.53571648941746,
+      "quality_range": "[0.670, 0.947]"
+    },
+    "quantile_2": {
+      "count": 338,
+      "accuracy": 0.8698224852071006,
+      "macro_f1": 0.6217862242140297,
+      "quality_range": "[0.947, 3.120]"
+    }
+  }
+}

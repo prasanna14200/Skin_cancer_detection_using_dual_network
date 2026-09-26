@@ -94,6 +94,7 @@ This is an EfficientNetV2S baseline comparison, not a comparison of the complete
 - Repeat runs were not performed, so statistical stability of the observed delta has not been established.
 - Only one baseline architecture was compared.
 - No external validation, calibration, ablation, efficiency benchmarking, or EG-VAN attention modules were evaluated.
+- The runner's Stage A `test_metrics.json` is computed on the final in-memory epoch model (epoch 25), whereas `best_checkpoint.pt` is selected by validation loss (epoch 6 for leakage-aware). Phase 7 uncertainty results using the best checkpoint are therefore not a like-for-like test-score comparison with the Stage A final-epoch metric.
 
 ## 9. Stage A gate and decision
 

@@ -31,19 +31,19 @@ COMPLETED:
 - EfficientNetV2S baseline training on both split protocols.
 - Descriptive leakage-aware comparison.
 - PH2 secondary-mirror pre-run audit and external-evaluation script.
+- Image-quality proxy extraction and descriptive distributions.
+- Post-hoc softmax uncertainty, entropy, ECE, selective prediction, and quality-uncertainty analysis.
 
 BLOCKED:
 
-- PH2 external inference is blocked until a CUDA-enabled Colab runtime with compatible torchvision is used.
+- PH2 external inference remains blocked; the local package is a secondary mirror and no PH2 inference result exists.
 
 PLANNED / NOT YET IMPLEMENTED:
 
-- Image quality assessment.
-- Uncertainty estimation.
 - Full EG-VAN modules such as SCGA, NLB, MFF, dual-branch fusion, and paper-level architecture comparison.
 - Repeated-run stability analysis.
 
-Baseline experiments matter because they separate a working, auditable comparison from claims about the complete EG-VAN architecture. Leakage-aware evaluation matters because HAM10000 contains multiple images for some lesions; image-level random splitting can put related lesion images in train and validation/test partitions. PH2 external validation is intended to test cross-dataset behavior on direct class overlap only. Uncertainty estimation and image quality assessment remain future research objectives.
+Baseline experiments matter because they separate a working, auditable comparison from claims about the complete EG-VAN architecture. Leakage-aware evaluation matters because HAM10000 contains multiple images for some lesions; image-level random splitting can put related lesion images in train and validation/test partitions. PH2 external validation is intended to test cross-dataset behavior on direct class overlap only. Image-quality and uncertainty analyses are implemented; full EG-VAN modules and repeated-run stability work remain future work.
 
 ## 3. Complete Project Architecture
 
@@ -61,9 +61,9 @@ Raw Dataset
     -> Metrics
     -> Research Analysis
     -> Additional Validation
-        -> Image Quality Assessment (planned)
+        -> Image Quality Assessment (descriptive analysis complete; error-link analysis integrated later)
         -> PH2 External Validation (blocked before inference)
-        -> Uncertainty Estimation (planned)
+        -> Uncertainty Estimation (completed for frozen test predictions)
 ```
 
 Raw Dataset: `data/raw/HAM10000_metadata.csv` and HAM10000 image directories provide the starting point. Metadata includes `lesion_id`, `image_id`, `dx`, `dx_type`, `age`, `sex`, and `localization`.
@@ -214,15 +214,17 @@ No PH2 accuracy, F1, AUROC, confusion matrix, prediction file, or sample-level r
 
 ## 6. Image Quality Assessment
 
-NOT YET IMPLEMENTED / PLANNED.
+Phase 6 is complete. `src/image_quality.py` computes deterministic brightness, contrast, sharpness, saturation, dark/bright pixel ratios, entropy, and illumination-variation proxies. `src/run_quality_analysis.py` creates a strict quality table, descriptive split/class statistics, and plots under `experiments/image_quality/`.
 
-No repository source file or result artifact implementing image quality assessment was found. The current preprocessing pipeline does not score images by quality and does not alter training/evaluation based on quality.
+All 10,015 frozen leakage-aware rows were analyzed. No images were removed, labels changed, splits changed, preprocessing rerun, or baseline retrained. These are image-quality proxies, not clinical quality labels.
+
+Quality extraction and distribution analysis were completed locally. Phase 7 later added a Colab inference-only test-set prediction table and descriptive quality-versus-confidence/entropy/error terciles; these remain associations only, not causal evidence.
 
 ## 7. Uncertainty Estimation
 
-NOT YET IMPLEMENTED / PLANNED.
+Phase 7 is complete. The existing leakage-aware checkpoint was evaluated post hoc in Colab without retraining. Outputs include per-image softmax probabilities, confidence, predictive entropy, ten-bin ECE, reliability plot, selective prediction tables, per-class summaries, and quality-uncertainty joins. Corrected ECE is recorded in `docs/PHASE_7_UNCERTAINTY_ESTIMATION.md`. This is predictive uncertainty from softmax, not Bayesian or epistemic uncertainty.
 
-No uncertainty-estimation method, Monte Carlo dropout inference, calibration report, entropy output, or uncertainty metric artifact was found in the current repository.
+The Phase 7 predictions use the validation-selected best checkpoint (epoch 6). The Stage A `test_metrics.json` was produced by evaluating the final in-memory epoch (epoch 25), as the runner does not reload the best checkpoint before testing. Their test scores are not directly comparable as the same model state; both historical results remain unchanged.
 
 ## 8. Repository Structure
 
@@ -246,6 +248,8 @@ EG-VAN/
 │   ├── prepare_metadata.py
 │   ├── preprocessing.py
 │   ├── run_baseline.py
+│   ├── run_quality_analysis.py
+│   ├── run_uncertainty_analysis.py
 │   └── train.py
 ├── build_splits.py
 └── prepare_metadata.py
@@ -400,23 +404,23 @@ These artifacts anchor reproducibility and research claims. Changing them would 
 | Leakage-aware baseline | COMPLETED | `experiments/efficientnetv2s_leakage_aware/test_metrics.json` |
 | PH2 preparation | PARTIALLY COMPLETED | `data/external/ph2/metadata/ph2_manifest.csv`, `src/external_eval.py` |
 | PH2 inference | BLOCKED | No `experiments/ph2_external_eval/` metrics |
-| Image quality assessment | PLANNED | No implementation found |
-| Uncertainty | PLANNED | No implementation found |
+| Image quality assessment | COMPLETED | `experiments/image_quality/`, `docs/PHASE_6_IMAGE_QUALITY_ASSESSMENT.md`; quality/error relationship explored descriptively in Phase 7 |
+| Uncertainty estimation | COMPLETED | `experiments/uncertainty/`, `docs/PHASE_7_UNCERTAINTY_ESTIMATION.md` |
 | Full EG-VAN | PLANNED | No SCGA/NLB/MFF/full architecture source found |
 
 ## 16. What We Can Honestly Tell the Guide
 
 The project has verified HAM10000 data, deterministic preprocessing, frozen naive and lesion-level splits, and completed EfficientNetV2S baseline experiments. The naive baseline reached 88.38% accuracy and 80.74% macro-F1. The leakage-aware baseline reached 84.12% accuracy and 71.14% macro-F1. This is a baseline comparison, not a full EG-VAN reproduction.
 
-PH2 external validation is prepared but not run. Image quality assessment, uncertainty estimation, and the full EG-VAN architecture remain planned.
+PH2 external validation is prepared but not run. Image-quality proxies and post-hoc uncertainty analysis are implemented; neither is a clinical validation claim. The full EG-VAN architecture remains unimplemented.
 
 ## 17. Next Steps
 
 Immediate:
 
-1. Run PH2 inference-only evaluation in Colab using the leakage-aware checkpoint.
-2. Save PH2 metrics, predictions, confusion matrix, and evaluation config under `experiments/ph2_external_eval/`.
-3. Update documentation with verified PH2 results only after files exist.
+1. Resolve PH2 provenance/access and runtime conditions before deciding whether a PH2 external evaluation is appropriate.
+2. Consider repeated-run stability or statistical analysis only under a separately approved protocol.
+3. Plan full EG-VAN reconstruction only after choosing and documenting the next research gate.
 
 After PH2 access/runtime:
 

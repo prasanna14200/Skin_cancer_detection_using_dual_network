@@ -1,0 +1,172 @@
+{
+  "status": "COMPLETE",
+  "test_samples": 1014,
+  "accuracy": 0.7988165680473372,
+  "macro_f1": 0.6201368398477792,
+  "mean_confidence": 0.7755111562312237,
+  "median_confidence": 0.8195773065090179,
+  "mean_entropy": 0.5802945969745708,
+  "median_entropy": 0.5426918864250183,
+  "correct_confidence": 0.8284780717190401,
+  "incorrect_confidence": 0.5652013447354821,
+  "correct_entropy": 0.47187217525838887,
+  "incorrect_entropy": 1.0107953890829402,
+  "ece": 0.05242056577398463,
+  "confusion_matrix": [
+    [
+      27,
+      3,
+      5,
+      0,
+      0,
+      5,
+      0
+    ],
+    [
+      5,
+      35,
+      7,
+      1,
+      1,
+      5,
+      4
+    ],
+    [
+      18,
+      2,
+      35,
+      0,
+      23,
+      25,
+      1
+    ],
+    [
+      0,
+      2,
+      0,
+      6,
+      0,
+      3,
+      0
+    ],
+    [
+      5,
+      1,
+      8,
+      0,
+      45,
+      42,
+      6
+    ],
+    [
+      1,
+      2,
+      8,
+      0,
+      17,
+      647,
+      1
+    ],
+    [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      15
+    ]
+  ],
+  "per_class": {
+    "akiec": {
+      "count": 40,
+      "mean_confidence": 0.6786604948341847,
+      "mean_entropy": 0.9162076435983181,
+      "accuracy": 0.675
+    },
+    "bcc": {
+      "count": 58,
+      "mean_confidence": 0.6311694337376232,
+      "mean_entropy": 0.9795794636653415,
+      "accuracy": 0.603448275862069
+    },
+    "bkl": {
+      "count": 104,
+      "mean_confidence": 0.5836458177520678,
+      "mean_entropy": 0.9830408970323893,
+      "accuracy": 0.33653846153846156
+    },
+    "df": {
+      "count": 11,
+      "mean_confidence": 0.7162328226999803,
+      "mean_entropy": 0.838078027421778,
+      "accuracy": 0.5454545454545454
+    },
+    "mel": {
+      "count": 107,
+      "mean_confidence": 0.621846887831376,
+      "mean_entropy": 0.8668141303775466,
+      "accuracy": 0.4205607476635514
+    },
+    "nv": {
+      "count": 676,
+      "mean_confidence": 0.8459655494820437,
+      "mean_entropy": 0.42037226408086276,
+      "accuracy": 0.9571005917159763
+    },
+    "vasc": {
+      "count": 18,
+      "mean_confidence": 0.8681117180320952,
+      "mean_entropy": 0.3654962574235267,
+      "accuracy": 0.8333333333333334
+    }
+  },
+  "selective_prediction": [
+    {
+      "threshold": 0.5,
+      "retained": 892,
+      "coverage": 0.8796844181459567,
+      "accuracy": 0.8632286995515696
+    },
+    {
+      "threshold": 0.6,
+      "retained": 794,
+      "coverage": 0.7830374753451677,
+      "accuracy": 0.9055415617128464
+    },
+    {
+      "threshold": 0.7,
+      "retained": 659,
+      "coverage": 0.6499013806706114,
+      "accuracy": 0.9423368740515933
+    },
+    {
+      "threshold": 0.8,
+      "retained": 535,
+      "coverage": 0.5276134122287969,
+      "accuracy": 0.9551401869158879
+    },
+    {
+      "threshold": 0.9,
+      "retained": 388,
+      "coverage": 0.3826429980276134,
+      "accuracy": 0.9742268041237113
+    },
+    {
+      "threshold": 0.95,
+      "retained": 291,
+      "coverage": 0.2869822485207101,
+      "accuracy": 0.9862542955326461
+    }
+  ],
+  "checkpoint_sha256": "f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848",
+  "runtime": {
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "gpu": "Tesla T4",
+    "python": "3.13.15"
+  },
+  "calibration_bin_count": 10,
+  "calibration_bin_sample_total": 1014,
+  "postprocessing_note": "Calibration bins, ECE, and quality tercile analysis recomputed from saved predictions; model inference was not rerun."
+}

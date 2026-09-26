@@ -112,16 +112,34 @@ Status: BLOCKED before inference.
 
 Next dependency: CUDA-enabled Colab runtime with compatible torchvision.
 
-## Planned Research Extensions
+## Remaining Research Extensions
 
-Goal: Add image quality assessment, uncertainty estimation, and full EG-VAN components only after explicit approval.
+Image quality assessment and post-hoc uncertainty estimation have been implemented and documented in Phases 6 and 7. Remaining work includes the full EG-VAN architecture and repeated-run stability/statistical analysis. PH² external inference remains blocked/unavailable; no official PH² validation result exists.
 
-Work completed: No implementation found in the current repository.
+Status: PLANNED or BLOCKED as specified in `docs/PROJECT_STATUS.md`.
 
-Files created/modified: None verified.
+## Phase 6 - Image Quality Assessment
 
-Result: These remain future work.
+Goal: Measure deterministic image-quality proxies and investigate their relationship to model errors without changing frozen data or baselines.
 
-Status: PLANNED / NOT YET IMPLEMENTED.
+Work completed: Quality features, a strict leakage-aware quality table, split/class descriptive statistics, and plots were generated for all 10,015 processed images.
 
-Next dependency: Separate approved implementation plan.
+Files created/modified: `src/image_quality.py`, `src/run_quality_analysis.py`, `experiments/image_quality/`, `docs/PHASE_6_IMAGE_QUALITY_ASSESSMENT.md`.
+
+Result: Quality extraction, distributions, and subsequent checkpoint-linked quality/uncertainty terciles are complete. The model-error inference was executed in Phase 7 Colab, not on the local Windows runtime.
+
+Status: COMPLETE.
+
+Next dependency: Interpret descriptively only; do not filter or retrain without approval.
+
+## Phase 7 - Uncertainty Estimation
+
+Goal: Estimate post-hoc confidence, entropy, calibration, selective-prediction behavior, and optional quality/uncertainty associations for the existing leakage-aware EfficientNetV2S checkpoint.
+
+Work completed: Inference-only uncertainty analysis ran in Colab on the frozen leakage-aware test set, producing predictions, softmax confidence, predictive entropy, 10-bin calibration, selective prediction, per-class summaries, and Phase 6 quality-uncertainty terciles.
+
+Result: 1,014 aligned test predictions; accuracy 0.798817, macro-F1 0.620137, mean confidence 0.775511, mean predictive entropy 0.580295, corrected ECE 0.052421. Correct-vs-incorrect and quality-tercile comparisons are descriptive only.
+
+Status: COMPLETE.
+
+Next dependency: Choose the next research gate based on the existing roadmap; no retraining occurred in Phase 7.

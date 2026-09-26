@@ -22,9 +22,13 @@ NAIVE BASELINE: Accuracy = 88.38%, Macro F1 = 80.74%.
 
 LEAKAGE-AWARE BASELINE: Accuracy = 84.12%, Macro F1 = 71.14%.
 
-CURRENT BLOCKER: PH2 external validation has local secondary-mirror PH2 files and a manifest, but inference is blocked until the CUDA/torchvision Colab runtime is used.
+CURRENT BLOCKER: PH2 external inference remains blocked; official provenance/access and a compatible external-evaluation runtime are unresolved.
 
-NEXT: Run inference-only PH2 evaluation in Colab using `src/external_eval.py`, the verified manifest, and the leakage-aware checkpoint. Do not train on PH2.
+PHASE 6: Quality proxies and leakage-aware split distributions are complete for all 10,015 images. No images were removed or retrained.
+
+PHASE 7: COMPLETE in Colab. 1,014 leakage-aware test predictions; accuracy 79.88%, macro-F1 62.01%, mean confidence 0.7755, mean entropy 0.5803, corrected 10-bin ECE 0.0524.
+
+NEXT: Decide the next research gate. Do not retrain baselines or equate the secondary PH2 mirror with official external validation.
 
 Tiny architecture:
 

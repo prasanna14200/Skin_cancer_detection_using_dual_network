@@ -112,6 +112,8 @@ Dependencies: PIL, PyTorch Dataset, split CSV, processed images.
 
 Called by: `src/train.py`, `src/run_baseline.py`, and `src/evaluate.py`.
 
+src/run_uncertainty_analysis.py
+  -> frozen leakage-aware test inference and post-hoc uncertainty/quality analysis
 Example: The training runner creates `HAM10000Dataset(..., "train", train_transform)` and passes it to a `DataLoader`.
 
 ## `src/models/baseline_effnet.py`
@@ -137,6 +139,26 @@ Example: `model, weights = build_model(pretrained=True)` creates the ImageNet-pr
 Why it exists: Holds approved training configuration and shared helpers.
 
 Where execution starts: There is no training loop here; it is imported by `src/run_baseline.py`.
+
+## `src/run_uncertainty_analysis.py`
+
+Why it exists: Computes post-hoc softmax confidence, predictive entropy, calibration-bin/ECE summaries, selective-prediction results, and optional joins to Phase 6 quality proxies from the frozen leakage-aware checkpoint.
+
+Where execution starts: `main()`; `--postprocess-existing` recomputes calibration/quality-derived artifacts from saved predictions without running model inference.
+
+Important functions:
+
+`calibration_bins(records, bin_count=10)`: computes equal-width confidence-bin counts, mean confidence, empirical accuracy, and absolute gaps.
+
+`selective_prediction(records)`: computes coverage and retained-sample accuracy at fixed confidence thresholds.
+
+`quality_uncertainty_rows(root, output_dir, records)`: calculates descriptive equal-count quality terciles by feature and summarizes accuracy, confidence, and predictive entropy.
+
+`run_inference(root, checkpoint_path, output_dir)`: validates 1,014 frozen test rows and image files, enforces CUDA, loads the frozen checkpoint in eval mode, and runs inference only.
+
+Dependencies: existing checkpoint, leakage-aware split, processed images, Phase 6 quality table, PyTorch/torchvision, NumPy; Matplotlib is used for plots.
+
+Phase 7 outputs: `experiments/uncertainty/`. Verified result details and the exact Colab command are in `docs/PHASE_7_UNCERTAINTY_ESTIMATION.md`.
 
 Important functions:
 

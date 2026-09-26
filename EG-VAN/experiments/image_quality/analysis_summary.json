@@ -1,0 +1,18 @@
+{
+  "images_analyzed": 10015,
+  "quality_features": [
+    "brightness",
+    "contrast",
+    "sharpness",
+    "saturation",
+    "dark_pixel_ratio",
+    "bright_pixel_ratio",
+    "entropy",
+    "illumination_variation"
+  ],
+  "error_analysis": "BLOCKED: CUDA unavailable; model-error analysis was not run locally.",
+  "split": "split_leakage_aware.csv",
+  "runtime": {
+    "python": "3.10.11"
+  }
+}

@@ -92,6 +92,17 @@ PH2 evaluation command shape, not yet run:
 python src/external_eval.py data/external/ph2/metadata/ph2_manifest.csv experiments/efficientnetv2s_leakage_aware/best_checkpoint.pt experiments/ph2_external_eval
 ```
 
+Phase 7 uncertainty inference was completed in Google Colab using the existing leakage-aware checkpoint, without training or weight updates:
+
+```bash
+PYTHONPATH=src python -u src/run_uncertainty_analysis.py \
+	--project-root /content/drive/MyDrive/EG-VAN \
+	--checkpoint /content/drive/MyDrive/EG-VAN/experiments/efficientnetv2s_leakage_aware/best_checkpoint.pt \
+	--output-dir /content/drive/MyDrive/EG-VAN/experiments/uncertainty
+```
+
+The verified runtime was Tesla T4, CUDA 12.8, PyTorch 2.11.0+cu128, Python 3.13.15. Outputs are in `experiments/uncertainty/`. The saved predictions were postprocessed once to correct the final calibration-bin boundary and quality-tercile feature collision; model inference was not rerun. Corrected results are documented in `docs/PHASE_7_UNCERTAINTY_ESTIMATION.md`.
+
 ## Result Locations
 
 | Result | Location |
@@ -102,10 +113,15 @@ python src/external_eval.py data/external/ph2/metadata/ph2_manifest.csv experime
 | Leakage-aware metrics | `experiments/efficientnetv2s_leakage_aware/test_metrics.json` |
 | Leakage-aware config | `experiments/efficientnetv2s_leakage_aware/config.json` |
 | Leakage-aware training history | `experiments/efficientnetv2s_leakage_aware/training_history.json` |
+| Phase 7 predictions | `experiments/uncertainty/predictions.csv` |
+| Phase 7 uncertainty summary | `experiments/uncertainty/uncertainty_summary.json` |
+| Phase 7 calibration bins | `experiments/uncertainty/calibration_bins.csv` |
 
 ## Not Available / Unverified
 
 - No pinned `requirements.txt`, `pyproject.toml`, or conda environment file was found.
 - Official PH2 source package authenticity and license permission are not established by the local secondary mirror.
 - PH2 accuracy, macro-F1, AUROC, per-class recall, predictions, and confusion matrix do not exist.
+- Phase 7 ECE is a ten-equal-width-bin estimate and depends on the specified binning convention.
+- Confidence and entropy are softmax predictive uncertainty measures; they are not Bayesian/epistemic estimates or clinically validated uncertainty.
 - Repeated baseline runs were not performed, so stability statistics are unavailable.
