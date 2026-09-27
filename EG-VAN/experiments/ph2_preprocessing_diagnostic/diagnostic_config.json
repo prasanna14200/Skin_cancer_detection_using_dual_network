@@ -1,0 +1,68 @@
+{
+  "checkpoint_path": "/content/drive/MyDrive/EG-VAN/experiments/efficientnetv2s_leakage_aware/best_checkpoint.pt",
+  "checkpoint_sha256": "f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848",
+  "model_architecture": "torchvision EfficientNetV2S",
+  "checkpoint_epoch": 6,
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "raw_preprocessing": {
+    "source": "original PH2 BMP",
+    "operations": [
+      "PIL open",
+      "convert RGB",
+      "torchvision Resize((384, 384))",
+      "ToTensor",
+      "ImageNet normalization"
+    ]
+  },
+  "ham_matched_preprocessing": {
+    "source": "same original PH2 BMP files",
+    "operations": [
+      "decode original as RGB",
+      "convert RGB to BGR for src/preprocessing.py",
+      "blackhat hair mask and Telea inpainting (kernel=17, threshold=10, radius=1.0)",
+      "Gray World channel balancing",
+      "multi-scale Retinex (sigmas=15,80,250; equal weights; per-channel 1st-99th percentile normalization)",
+      "in-memory JPEG encode/decode with OpenCV default JPEG settings to match saved HAM JPG representation",
+      "convert BGR to RGB",
+      "torchvision Resize((384, 384))",
+      "ToTensor",
+      "ImageNet normalization"
+    ],
+    "augmentation": "none",
+    "masks_or_roi": "not used"
+  },
+  "input_count": 120,
+  "ph2_manifest_path": "/content/drive/MyDrive/EG-VAN/data/external/ph2/metadata/ph2_manifest.csv",
+  "existing_predictions_path": "/content/drive/MyDrive/EG-VAN/experiments/ph2_external_eval/predictions.csv",
+  "runtime": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "gpu": "Tesla T4"
+  },
+  "timestamp_utc": "2026-09-27T04:43:27.207888+00:00",
+  "source_code_files": [
+    "experiments/ph2_preprocessing_diagnostic/run_diagnostic.py",
+    "src/preprocessing.py",
+    "src/dataset.py",
+    "src/train.py",
+    "src/external_eval.py",
+    "src/models/baseline_effnet.py"
+  ],
+  "output_directory": "/content/drive/MyDrive/EG-VAN/experiments/ph2_preprocessing_diagnostic",
+  "raw_reproduction": {
+    "status": "PASS",
+    "matched_ids": 120
+  },
+  "training_performed": false,
+  "checkpoint_modified": false,
+  "existing_evaluation_artifacts_modified": false
+}
