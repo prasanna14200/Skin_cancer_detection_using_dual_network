@@ -446,7 +446,10 @@ def run_evaluation(audit: dict, project_root: str | Path, checkpoint_path: str |
                 predicted_label = HAM_CLASSES[predicted_index]
                 binary_label = predicted_label if predicted_label in PH2_CLASSES else "other"
                 predictions.append({"image_id": image_id, "true_label": actual, "predicted_ham10000_label": predicted_label, "binary_prediction": binary_label})
-    matrix = binary_confusion_matrix([row["true_label"] for row in predictions], [row["binary_prediction"] for row in predictions])
+    matrix = binary_confusion_matrix(
+        [row["true_label"] for row in predictions],
+        [row["predicted_ham10000_label"] for row in predictions],
+    )
     metrics = binary_metrics(matrix)
     pred_counts = Counter(row["predicted_ham10000_label"] for row in predictions)
     output.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,181 @@
+{
+  "checkpoint": {
+    "path": "/content/drive/MyDrive/EG-VAN/experiments/efficientnetv2s_leakage_aware/best_checkpoint.pt",
+    "size_bytes": 81652547,
+    "sha256": "f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848",
+    "model": "EfficientNetV2S",
+    "classes": [
+      "akiec",
+      "bcc",
+      "bkl",
+      "df",
+      "mel",
+      "nv",
+      "vasc"
+    ],
+    "classifier_weight_shape": [
+      7,
+      1280
+    ],
+    "classifier_bias_shape": [
+      7
+    ],
+    "checkpoint_epoch": 6,
+    "strict_architecture_load": true,
+    "preprocessing": {
+      "resize": [
+        384,
+        384
+      ],
+      "resize_policy": "torchvision transforms.Resize((384, 384))",
+      "to_tensor": true,
+      "normalization": {
+        "mean": [
+          0.485,
+          0.456,
+          0.406
+        ],
+        "std": [
+          0.229,
+          0.224,
+          0.225
+        ]
+      },
+      "augmentation": "none; evaluation only",
+      "phase4b_rerun": false
+    }
+  },
+  "preprocessing": {
+    "resize": [
+      384,
+      384
+    ],
+    "resize_policy": "torchvision transforms.Resize((384, 384))",
+    "to_tensor": true,
+    "normalization": {
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    },
+    "augmentation": "none; evaluation only",
+    "phase4b_rerun": false
+  },
+  "mapping": {
+    "common nevus": "nv",
+    "melanoma": "mel",
+    "atypical nevus": null
+  },
+  "provenance": {
+    "status": "VERIFIED",
+    "record": {
+      "access_date": "2026-09-26",
+      "audit_trail": {
+        "previous_status": "PARTIALLY VERIFIED",
+        "status_change_reason": "The former evaluator required a non-empty download_date and generic license_or_terms field, so it could not represent official PH2-specific research/educational terms separately from Kaggle license metadata. The revised gate validates the exact authoritative terms, verified source-identity evidence, Kaggle metadata, citation, and narrow non-commercial/no-redistribution intended use. It does not treat Kaggle Other as a license.",
+        "status_scope": "This is a use-scoped provenance determination, not a legal opinion or unrestricted license determination."
+      },
+      "commercial_permission_verified": false,
+      "dataset_name": "PH2 Dataset",
+      "dataset_url": "https://www.kaggle.com/datasets/spacesurfer/ph2-dataset",
+      "download_date": null,
+      "explicit_permission_verified": false,
+      "inference_allowed": true,
+      "intended_use": {
+        "citation_required": "Teresa Mendon\u00e7a, Pedro M. Ferreira, Jorge S. Marques, Andre R. S. Marcal, Jorge Rozeira. PH\u00b2 - A dermoscopic image database for research and benchmarking. 2013 IEEE Engineering in Medicine and Biology Society (EMBC), DOI: 10.1109/EMBC.2013.6610779.",
+        "commercial_use": false,
+        "redistribution": false,
+        "scope": "non-commercial academic research and external validation"
+      },
+      "kaggle_secondary_source": {
+        "dataset_id": 6220095,
+        "license_field": "Other (specified in description)",
+        "license_url": null,
+        "metadata_scope": "Kaggle listing metadata only; not a PH2 license or permission grant.",
+        "ref": "spacesurfer/ph2-dataset",
+        "title": "PH2 Dataset",
+        "uploader": "Dmitrii K (spacesurfer)",
+        "url": "https://www.kaggle.com/datasets/spacesurfer/ph2-dataset",
+        "version": 2,
+        "version_date": "2024-12-03",
+        "version_notes": "Update 2024-12-03"
+      },
+      "license_or_terms": "Original PH2 terms document research/educational use and prohibit commercial use and redistribution; citation is required. Kaggle license field remains Other (specified in description). No license URL or unrestricted license is claimed.",
+      "original_dataset": "PH\u00b2 Database",
+      "original_dataset_provenance": {
+        "access_reuse_evidence": {
+          "benchmarking_context_documented": true,
+          "browser_document_url": "https://www.fc.up.pt/addi/PH2BrowserTutorial.pdf",
+          "browser_quote_source_note": "Exact quotation supplied by the user; official ADDI page links the tutorial PDF. PDF text extraction was unavailable in this environment.",
+          "citation_required": "Teresa Mendon\u00e7a, Pedro M. Ferreira, Jorge S. Marques, Andre R. S. Marcal, Jorge Rozeira. PH\u00b2 - A dermoscopic image database for research and benchmarking. 2013 IEEE Engineering in Medicine and Biology Society (EMBC), DOI: 10.1109/EMBC.2013.6610779.",
+          "commercial_use_permitted": false,
+          "quotations": [
+            "The PH\u00b2 dataset has been developed for research and benchmarking purposes, in order to facilitate comparative studies on both segmentation and classification algorithms of dermoscopic images.",
+            "The data included in the PH\u00b2 database can be used for research and educational purposes.",
+            "It is important to note that redistribution and commercial use is not allowed.",
+            "All publications that make use of this dataset must cite the following paper:",
+            "The PH\u00b2 database and PH\u00b2 Browser are only available for research and educational purposes."
+          ],
+          "redistribution_permitted": false,
+          "research_educational_use_documented": true,
+          "scope": "Supports only non-commercial academic research/education; no commercial or redistribution permission.",
+          "terms_source_url": "https://www.fc.up.pt/addi/ph2%20database.html"
+        },
+        "authors": [
+          "Teresa Mendon\u00e7a",
+          "Pedro M. Ferreira",
+          "Jorge S. Marques",
+          "Andre R. S. Marcal",
+          "Jorge Rozeira"
+        ],
+        "citation_required": "Teresa Mendon\u00e7a, Pedro M. Ferreira, Jorge S. Marques, Andre R. S. Marcal, Jorge Rozeira. PH\u00b2 - A dermoscopic image database for research and benchmarking. 2013 IEEE Engineering in Medicine and Biology Society (EMBC), DOI: 10.1109/EMBC.2013.6610779.",
+        "doi": "10.1109/EMBC.2013.6610779",
+        "publication": "2013 IEEE Engineering in Medicine and Biology Society (EMBC)",
+        "publication_title": "PH\u00b2 - A dermoscopic image database for research and benchmarking",
+        "source_title": "PH\u00b2 Database (University of Porto, ADDI)",
+        "source_url": "https://www.fc.up.pt/addi/ph2%20database.html",
+        "status": "DOCUMENTED",
+        "university_publication_record": {
+          "claim": "User reports a University of Porto publication record states PH2 was made freely available for research and benchmarking.",
+          "independently_url_verified": false,
+          "url": null,
+          "used_as_gate_evidence": false
+        }
+      },
+      "redistribution_permission_verified": false,
+      "revision": "Kaggle dataset version 2",
+      "schema_version": 2,
+      "source_traceability": {
+        "evidence": [
+          "Original PH2_dataset.txt and PH2_dataset.xlsx each contain 200 unique IDs and agree on clinical diagnoses and 80/80/40 counts.",
+          "The manifest matches the original clinical metadata and the local set contains 200 unique derived images.",
+          "The preserved package structure contains 200 dermoscopic images, 200 lesion masks and 50 ROI masks; all BMPs passed the local integrity audit.",
+          "Kaggle listing metadata matches the recorded ref, dataset ID, uploader and version.",
+          "Local integrity details and hashes are recorded in verification_report.json."
+        ],
+        "integrity_report": "data/external/ph2/metadata/verification_report.json",
+        "integrity_report_sha256": "a7abd22ee409012594f3334f27bef76342257dd0734c5c49304fc74a948cd7e6",
+        "limitations": [
+          "No acquisition date or original Kaggle archive is retained; exact byte-level linkage to Kaggle version 2 is not independently verified.",
+          "Source-identity verification does not assert that Kaggle grants a license."
+        ],
+        "status": "VERIFIED",
+        "verification_scope": "PH2 source identity and local package/manifest concordance."
+      },
+      "status": "VERIFIED",
+      "status_scope": "Non-commercial academic research and external validation only; not commercial permission or redistribution permission.",
+      "uploader": "Dmitrii K (spacesurfer)"
+    },
+    "missing": [],
+    "authorization_scope": "non-commercial academic research and external validation",
+    "warnings": [
+      "download date is not recorded; this does not replace the documented source-identity evidence"
+    ]
+  }
+}

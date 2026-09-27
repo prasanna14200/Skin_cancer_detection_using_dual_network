@@ -1,0 +1,46 @@
+{
+  "total_ph2": 200,
+  "included": 120,
+  "excluded_atypical_nevus": 80,
+  "class_counts": {
+    "common nevus": 80,
+    "atypical nevus": 80,
+    "melanoma": 40
+  },
+  "mapping": {
+    "common nevus": "nv",
+    "melanoma": "mel",
+    "atypical nevus": null
+  },
+  "prediction_distribution_7class": {
+    "nv": 102,
+    "vasc": 18
+  },
+  "binary_confusion_matrix_rows_nv_mel_cols_nv_mel_other": [
+    [
+      65,
+      0,
+      15
+    ],
+    [
+      37,
+      0,
+      3
+    ]
+  ],
+  "binary_metrics": {
+    "positive_class": "mel",
+    "true_negative": 65,
+    "false_positive": 15,
+    "false_negative": 40,
+    "true_positive": 0,
+    "accuracy": 0.5416666666666666,
+    "precision": 0.0,
+    "recall_sensitivity": 0.0,
+    "specificity": 0.8125,
+    "f1": 0.0,
+    "total": 120,
+    "other_prediction_policy": "Out-of-overlap HAM10000 predictions count as errors and remain a separate predicted-other column in the 2x3 matrix."
+  },
+  "provenance_status": "VERIFIED"
+}

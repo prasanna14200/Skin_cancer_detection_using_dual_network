@@ -105,6 +105,8 @@ class BinaryMetricTests(unittest.TestCase):
             binary_confusion_matrix(["bkl"], ["nv"])
         with self.assertRaises(AuditError):
             binary_confusion_matrix(["nv"], ["unknown"])
+        with self.assertRaises(AuditError):
+            binary_confusion_matrix(["nv"], ["other"])
 
 
 class TransformTests(unittest.TestCase):
