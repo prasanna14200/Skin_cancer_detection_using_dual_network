@@ -1,0 +1,116 @@
+{
+  "experiment": "CONTROLLED EXPERIMENT #1",
+  "baseline_checkpoint_sha256": "f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848",
+  "hypothesis": "The absence of class-specific weighting alongside the frozen train split's nevus/melanoma frequency imbalance may contribute to limited melanoma sensitivity. This experiment tests whether a prespecified train-only class-balanced focal objective improves HAM10000 validation melanoma F1 without materially degrading overall macro-F1 or nevus recall.",
+  "intervention": "Replace the baseline shared-alpha focal loss with class-balanced focal loss by multiplying each sample's focal loss by its target class weight computed only from HAM10000 TRAIN counts as N_train / (K * n_class). Weights have training-sample-weighted mean 1. Preserve focal alpha=0.25 and gamma=2.0.",
+  "changed_variables": [
+    "Per-example focal-loss multiplier: add fixed inverse-frequency weight N_train / (K * n_class), derived exclusively from the frozen TRAIN partition and aligned to akiec,bcc,bkl,df,mel,nv,vasc"
+  ],
+  "held_constant_variables": [
+    "EfficientNetV2S architecture",
+    "ImageNet EfficientNet_V2_S_Weights.DEFAULT initialization strategy",
+    "Frozen split membership and split CSV",
+    "HAM10000 processed-image preprocessing",
+    "Training augmentation and deterministic evaluation transforms",
+    "384x384 image size",
+    "Adamax optimizer",
+    "Learning rate 0.001",
+    "ReduceLROnPlateau scheduler (factor 0.5, patience 1)",
+    "Batch size 16",
+    "25 epochs",
+    "Random seed 42",
+    "Class order akiec,bcc,bkl,df,mel,nv,vasc",
+    "Focal alpha 0.25 and gamma 2.0",
+    "Validation-loss-minimization checkpoint selection",
+    "Evaluation implementation and argmax decision rule"
+  ],
+  "split_reference": {
+    "path": "data/splits/split_leakage_aware.csv",
+    "sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "integrity": {
+      "rows": 10015,
+      "unique_lesions": 7470,
+      "crossing_lesions": 0
+    }
+  },
+  "class_counts": {
+    "train": {
+      "akiec": 257,
+      "bcc": 398,
+      "bkl": 891,
+      "df": 95,
+      "mel": 899,
+      "nv": 5366,
+      "vasc": 109
+    },
+    "val": {
+      "akiec": 30,
+      "bcc": 58,
+      "bkl": 104,
+      "df": 9,
+      "mel": 107,
+      "nv": 663,
+      "vasc": 15
+    },
+    "test": {
+      "akiec": 40,
+      "bcc": 58,
+      "bkl": 104,
+      "df": 11,
+      "mel": 107,
+      "nv": 676,
+      "vasc": 18
+    }
+  },
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "random_seed": 42,
+  "training_configuration": {
+    "model": "EfficientNetV2S",
+    "pretrained_weight_source": "torchvision EfficientNet_V2_S_Weights.DEFAULT",
+    "image_size": 384,
+    "batch_size": 16,
+    "epochs": 25,
+    "optimizer": "Adamax",
+    "learning_rate": 0.001,
+    "focal_alpha": 0.25,
+    "focal_gamma": 2.0,
+    "intervention_weight_formula": "N_train / (K * n_train[class])",
+    "scheduler": {
+      "name": "ReduceLROnPlateau",
+      "factor": 0.5,
+      "patience": 1
+    },
+    "mixed_precision": true,
+    "device_requirement": "CUDA Tesla T4",
+    "early_stopping": false
+  },
+  "checkpoint_selection_metric": {
+    "name": "validation_loss",
+    "direction": "minimize",
+    "data": "HAM10000 validation partition only"
+  },
+  "success_criteria": {
+    "all_required": true,
+    "melanoma_f1": {
+      "minimum": 0.5757731958762886,
+      "rule": "at least baseline epoch-6 melanoma F1 0.5257731958762886 + 0.05"
+    },
+    "validation_macro_f1": {
+      "minimum": 0.6316582381362074,
+      "rule": "no more than 0.02 below baseline epoch-6 validation macro-F1 0.6516582381362074"
+    },
+    "nevus_recall": {
+      "minimum": 0.9
+    }
+  },
+  "failure_criteria": "The intervention fails the prespecified validation target if any one of melanoma F1 >= 0.5757731958762886, validation macro-F1 >= 0.6316582381362074, or nevus recall >= 0.90 is not met.",
+  "ph2_policy": "PH2 is not read, evaluated, or used for training, tuning, checkpoint selection, or model selection. External evaluation requires separate approval after the model is frozen."
+}
