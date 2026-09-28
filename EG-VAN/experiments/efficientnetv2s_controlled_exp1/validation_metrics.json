@@ -1,0 +1,136 @@
+{
+  "sample_count": 986,
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "accuracy": 0.7109533468559838,
+  "macro_f1": 0.5578904383663552,
+  "balanced_accuracy": 0.718546738543042,
+  "per_class": {
+    "akiec": {
+      "support": 30,
+      "predicted_count": 47,
+      "precision": 0.3829787234042553,
+      "recall": 0.6,
+      "f1": 0.4675324675324675
+    },
+    "bcc": {
+      "support": 58,
+      "predicted_count": 81,
+      "precision": 0.49382716049382713,
+      "recall": 0.6896551724137931,
+      "f1": 0.5755395683453237
+    },
+    "bkl": {
+      "support": 104,
+      "predicted_count": 103,
+      "precision": 0.5339805825242718,
+      "recall": 0.5288461538461539,
+      "f1": 0.5314009661835748
+    },
+    "df": {
+      "support": 9,
+      "predicted_count": 46,
+      "precision": 0.17391304347826086,
+      "recall": 0.8888888888888888,
+      "f1": 0.29090909090909095
+    },
+    "mel": {
+      "support": 107,
+      "predicted_count": 153,
+      "precision": 0.39215686274509803,
+      "recall": 0.5607476635514018,
+      "f1": 0.46153846153846145
+    },
+    "nv": {
+      "support": 663,
+      "predicted_count": 530,
+      "precision": 0.9528301886792453,
+      "recall": 0.7616892911010558,
+      "f1": 0.8466051969823973
+    },
+    "vasc": {
+      "support": 15,
+      "predicted_count": 26,
+      "precision": 0.5769230769230769,
+      "recall": 1.0,
+      "f1": 0.7317073170731707
+    }
+  },
+  "melanoma_roc_auc_ovr": 0.8324455360275589,
+  "melanoma_vs_nevus_roc_auc": 0.8202449923175597,
+  "confusion_matrix": [
+    [
+      18,
+      5,
+      4,
+      2,
+      1,
+      0,
+      0
+    ],
+    [
+      3,
+      40,
+      1,
+      7,
+      3,
+      3,
+      1
+    ],
+    [
+      13,
+      13,
+      55,
+      4,
+      12,
+      6,
+      1
+    ],
+    [
+      0,
+      0,
+      1,
+      8,
+      0,
+      0,
+      0
+    ],
+    [
+      10,
+      5,
+      7,
+      5,
+      60,
+      16,
+      4
+    ],
+    [
+      3,
+      18,
+      35,
+      20,
+      77,
+      505,
+      5
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      15
+    ]
+  ],
+  "loss": 0.10934378458357003,
+  "selected_epoch": 5,
+  "checkpoint_selection_metric": "validation_loss_minimize"
+}

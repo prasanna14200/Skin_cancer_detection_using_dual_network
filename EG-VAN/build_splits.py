@@ -200,7 +200,7 @@ def main() -> int:
     try:
         leakage_cross = count_lesion_crossing(leakage_rows, mode="leakage_aware")
     except ValueError as exc:
-        print(f"[BLOCKED] {exc}")
+        print(f"[BLOCKED] {exc}")+
         return 1
 
     print("\nLeakage-aware split lesion crossing counts:")

@@ -1,0 +1,48 @@
+{
+  "status": "FINALIZATION_RECOVERED_FROM_SAVED_ARTIFACTS",
+  "finalization_mode": "offline_saved_artifacts_only",
+  "finalized_at_utc": "2026-09-28T18:10:36.617698+00:00",
+  "historical_completion_timestamp_available": false,
+  "started_runtime": null,
+  "baseline_checkpoint_sha256": "f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "new_checkpoint_sha256": "478bb1aa9c48897accceb800a103e7ee76c1381dc6514c7355996babbfaa902f",
+  "training_epochs": 25,
+  "selected_epoch": 5,
+  "selection_metric": "validation_loss_minimize",
+  "selection_value": 0.10934378458357003,
+  "validation_success_criteria_met": false,
+  "criterion_results": {
+    "melanoma_f1": false,
+    "validation_macro_f1": false,
+    "nevus_recall": false
+  },
+  "class_weights": {
+    "akiec": 4.4552531242370605,
+    "bcc": 2.8768844604492188,
+    "bkl": 1.285072922706604,
+    "df": 12.052631378173828,
+    "mel": 1.2736374139785767,
+    "nv": 0.21338054537773132,
+    "vasc": 10.504587173461914
+  },
+  "ph2_accessed": false,
+  "training_rerun": false,
+  "inference_rerun": false,
+  "test_evaluation_occurred_after_checkpoint_freeze": true,
+  "runtime": {
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "gpu": "Tesla T4",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39"
+  },
+  "verified_artifacts": [
+    "best_checkpoint.pt SHA256",
+    "baseline best_checkpoint.pt SHA256",
+    "frozen split_leakage_aware.csv SHA256",
+    "25-epoch controlled and baseline training histories",
+    "saved validation/test metrics and controlled prediction CSVs"
+  ],
+  "historical_preflight_report": "unavailable; not fabricated"
+}

@@ -1,0 +1,54 @@
+{
+  "seed": 42,
+  "model": "EfficientNetV2S",
+  "pretrained_weight_source": "torchvision EfficientNet_V2_S_Weights.DEFAULT",
+  "image_size": 384,
+  "batch_size": 16,
+  "epochs": 25,
+  "optimizer": "Adamax",
+  "learning_rate": 0.001,
+  "focal_alpha": 0.25,
+  "focal_gamma": 2.0,
+  "scheduler": {
+    "name": "ReduceLROnPlateau",
+    "factor": 0.5,
+    "patience": 1
+  },
+  "mixed_precision": true,
+  "device": "cuda",
+  "split_csv": "split_leakage_aware.csv",
+  "classes": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "software": {
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "gpu": "Tesla T4",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39"
+  },
+  "early_stopping": false,
+  "experiment": "efficientnetv2s_controlled_exp1",
+  "intervention": {
+    "loss": "class-balanced focal loss",
+    "class_weight_formula": "N_train / (K * n_train[class])",
+    "weight_source_split": "train",
+    "class_weights": {
+      "akiec": 4.4552531242370605,
+      "bcc": 2.8768844604492188,
+      "bkl": 1.285072922706604,
+      "df": 12.052631378173828,
+      "mel": 1.2736374139785767,
+      "nv": 0.21338054537773132,
+      "vasc": 10.504587173461914
+    }
+  },
+  "checkpoint_selection_metric": "validation_loss_minimize",
+  "ph2_accessed": false
+}
