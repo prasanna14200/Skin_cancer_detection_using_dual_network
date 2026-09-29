@@ -1,0 +1,576 @@
+{
+  "checkpoint_sha256": "9dc38968e91a98693de5e6a8c4ee720a69ef80e275887780a8d714077c6ea93f",
+  "selected_epoch": 8,
+  "selection_metric": "validation_loss_minimize",
+  "validation_success_criteria_met": false,
+  "criterion_results": {
+    "melanoma_f1": false,
+    "validation_macro_f1": true,
+    "nevus_recall": true
+  },
+  "validation_values": {
+    "melanoma_f1": 0.5258215962441314,
+    "validation_macro_f1": 0.707427727325343,
+    "nevus_recall": 0.9034690799396682
+  },
+  "success_thresholds": {
+    "melanoma_f1_minimum": 0.5757731958762886,
+    "validation_macro_f1_minimum": 0.6316582381362074,
+    "nevus_recall_minimum": 0.9
+  },
+  "baseline": {
+    "checkpoint_sha256": "f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848",
+    "validation": {
+      "sample_count": 986,
+      "class_order": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "accuracy": 0.8073022312373225,
+      "macro_f1": 0.6516582381362074,
+      "balanced_accuracy": 0.6717690848536709,
+      "per_class": {
+        "akiec": {
+          "support": 30,
+          "predicted_count": 38,
+          "precision": 0.4473684210526316,
+          "recall": 0.5666666666666667,
+          "f1": 0.5
+        },
+        "bcc": {
+          "support": 58,
+          "predicted_count": 47,
+          "precision": 0.8085106382978723,
+          "recall": 0.6551724137931034,
+          "f1": 0.7238095238095238
+        },
+        "bkl": {
+          "support": 104,
+          "predicted_count": 54,
+          "precision": 0.6481481481481481,
+          "recall": 0.33653846153846156,
+          "f1": 0.44303797468354433
+        },
+        "df": {
+          "support": 9,
+          "predicted_count": 11,
+          "precision": 0.6363636363636364,
+          "recall": 0.7777777777777778,
+          "f1": 0.7000000000000001
+        },
+        "mel": {
+          "support": 107,
+          "predicted_count": 87,
+          "precision": 0.5862068965517241,
+          "recall": 0.4766355140186916,
+          "f1": 0.5257731958762886
+        },
+        "nv": {
+          "support": 663,
+          "predicted_count": 727,
+          "precision": 0.8720770288858322,
+          "recall": 0.9562594268476622,
+          "f1": 0.9122302158273382
+        },
+        "vasc": {
+          "support": 15,
+          "predicted_count": 22,
+          "precision": 0.6363636363636364,
+          "recall": 0.9333333333333333,
+          "f1": 0.7567567567567568
+        }
+      },
+      "confusion_matrix": [
+        [
+          17,
+          2,
+          6,
+          0,
+          2,
+          3,
+          0
+        ],
+        [
+          1,
+          38,
+          4,
+          1,
+          2,
+          10,
+          2
+        ],
+        [
+          15,
+          2,
+          35,
+          1,
+          18,
+          33,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          7,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          1,
+          1,
+          0,
+          51,
+          46,
+          4
+        ],
+        [
+          1,
+          3,
+          7,
+          2,
+          14,
+          634,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          14
+        ]
+      ],
+      "loss": 0.07601256733930256,
+      "selected_epoch": 6,
+      "checkpoint_sha256": "f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848",
+      "source": "epoch-6 validation confusion matrix in frozen baseline training_history.json"
+    },
+    "test": {
+      "sample_count": 1014,
+      "class_order": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "accuracy": 0.7988165680473372,
+      "macro_f1": 0.6201368398477793,
+      "balanced_accuracy": 0.6244908507954195,
+      "per_class": {
+        "akiec": {
+          "support": 40,
+          "predicted_count": 56,
+          "precision": 0.48214285714285715,
+          "recall": 0.675,
+          "f1": 0.5625
+        },
+        "bcc": {
+          "support": 58,
+          "predicted_count": 46,
+          "precision": 0.7608695652173914,
+          "recall": 0.603448275862069,
+          "f1": 0.673076923076923
+        },
+        "bkl": {
+          "support": 104,
+          "predicted_count": 63,
+          "precision": 0.5555555555555556,
+          "recall": 0.33653846153846156,
+          "f1": 0.4191616766467066
+        },
+        "df": {
+          "support": 11,
+          "predicted_count": 8,
+          "precision": 0.75,
+          "recall": 0.5454545454545454,
+          "f1": 0.631578947368421
+        },
+        "mel": {
+          "support": 107,
+          "predicted_count": 86,
+          "precision": 0.5232558139534884,
+          "recall": 0.4205607476635514,
+          "f1": 0.4663212435233161
+        },
+        "nv": {
+          "support": 676,
+          "predicted_count": 728,
+          "precision": 0.8887362637362637,
+          "recall": 0.9571005917159763,
+          "f1": 0.9216524216524216
+        },
+        "vasc": {
+          "support": 18,
+          "predicted_count": 27,
+          "precision": 0.5555555555555556,
+          "recall": 0.8333333333333334,
+          "f1": 0.6666666666666667
+        }
+      },
+      "confusion_matrix": [
+        [
+          27,
+          3,
+          5,
+          0,
+          0,
+          5,
+          0
+        ],
+        [
+          5,
+          35,
+          7,
+          1,
+          1,
+          5,
+          4
+        ],
+        [
+          18,
+          2,
+          35,
+          0,
+          23,
+          25,
+          1
+        ],
+        [
+          0,
+          2,
+          0,
+          6,
+          0,
+          3,
+          0
+        ],
+        [
+          5,
+          1,
+          8,
+          0,
+          45,
+          42,
+          6
+        ],
+        [
+          1,
+          2,
+          8,
+          0,
+          17,
+          647,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          15
+        ]
+      ],
+      "selected_epoch": 6,
+      "checkpoint_sha256": "f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848",
+      "source": "checkpoint-hash-verified saved experiments/uncertainty/predictions.csv"
+    }
+  },
+  "controlled_experiment": {
+    "validation": {
+      "sample_count": 986,
+      "class_order": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "accuracy": 0.8144016227180527,
+      "macro_f1": 0.707427727325343,
+      "balanced_accuracy": 0.7399928966851869,
+      "per_class": {
+        "akiec": {
+          "support": 30,
+          "predicted_count": 31,
+          "precision": 0.5806451612903226,
+          "recall": 0.6,
+          "f1": 0.5901639344262295
+        },
+        "bcc": {
+          "support": 58,
+          "predicted_count": 51,
+          "precision": 0.7843137254901961,
+          "recall": 0.6896551724137931,
+          "f1": 0.7339449541284404
+        },
+        "bkl": {
+          "support": 104,
+          "predicted_count": 103,
+          "precision": 0.6699029126213593,
+          "recall": 0.6634615384615384,
+          "f1": 0.6666666666666666
+        },
+        "df": {
+          "support": 9,
+          "predicted_count": 14,
+          "precision": 0.6428571428571429,
+          "recall": 1.0,
+          "f1": 0.782608695652174
+        },
+        "mel": {
+          "support": 107,
+          "predicted_count": 106,
+          "precision": 0.5283018867924528,
+          "recall": 0.5233644859813084,
+          "f1": 0.5258215962441314
+        },
+        "nv": {
+          "support": 663,
+          "predicted_count": 664,
+          "precision": 0.9021084337349398,
+          "recall": 0.9034690799396682,
+          "f1": 0.9027882441597588
+        },
+        "vasc": {
+          "support": 15,
+          "predicted_count": 17,
+          "precision": 0.7058823529411765,
+          "recall": 0.8,
+          "f1": 0.7500000000000001
+        }
+      },
+      "confusion_matrix": [
+        [
+          18,
+          2,
+          6,
+          1,
+          1,
+          2,
+          0
+        ],
+        [
+          3,
+          40,
+          6,
+          0,
+          0,
+          9,
+          0
+        ],
+        [
+          5,
+          3,
+          69,
+          0,
+          10,
+          17,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          9,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          1,
+          6,
+          2,
+          56,
+          34,
+          5
+        ],
+        [
+          2,
+          5,
+          16,
+          2,
+          39,
+          599,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          12
+        ]
+      ],
+      "loss": 0.07572671688401705,
+      "selected_epoch": 8,
+      "checkpoint_sha256": "9dc38968e91a98693de5e6a8c4ee720a69ef80e275887780a8d714077c6ea93f",
+      "checkpoint_selection_metric": "validation_loss_minimize",
+      "loss_source": "minimum validation loss recorded in selected checkpoint",
+      "source": "saved Experiment #2 validation artifacts"
+    },
+    "test": {
+      "sample_count": 1014,
+      "class_order": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "accuracy": 0.8017751479289941,
+      "macro_f1": 0.6956487802156275,
+      "balanced_accuracy": 0.716713815366484,
+      "per_class": {
+        "akiec": {
+          "support": 40,
+          "predicted_count": 47,
+          "precision": 0.6170212765957447,
+          "recall": 0.725,
+          "f1": 0.6666666666666666
+        },
+        "bcc": {
+          "support": 58,
+          "predicted_count": 62,
+          "precision": 0.6935483870967742,
+          "recall": 0.7413793103448276,
+          "f1": 0.7166666666666668
+        },
+        "bkl": {
+          "support": 104,
+          "predicted_count": 92,
+          "precision": 0.6195652173913043,
+          "recall": 0.5480769230769231,
+          "f1": 0.5816326530612245
+        },
+        "df": {
+          "support": 11,
+          "predicted_count": 11,
+          "precision": 0.7272727272727273,
+          "recall": 0.7272727272727273,
+          "f1": 0.7272727272727273
+        },
+        "mel": {
+          "support": 107,
+          "predicted_count": 128,
+          "precision": 0.4609375,
+          "recall": 0.5514018691588785,
+          "f1": 0.502127659574468
+        },
+        "nv": {
+          "support": 676,
+          "predicted_count": 653,
+          "precision": 0.9218989280245024,
+          "recall": 0.8905325443786982,
+          "f1": 0.9059443190368698
+        },
+        "vasc": {
+          "support": 18,
+          "predicted_count": 21,
+          "precision": 0.7142857142857143,
+          "recall": 0.8333333333333334,
+          "f1": 0.7692307692307692
+        }
+      },
+      "confusion_matrix": [
+        [
+          29,
+          3,
+          5,
+          0,
+          0,
+          3,
+          0
+        ],
+        [
+          5,
+          43,
+          2,
+          0,
+          2,
+          2,
+          4
+        ],
+        [
+          9,
+          6,
+          57,
+          0,
+          14,
+          18,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          8,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          13,
+          1,
+          59,
+          28,
+          2
+        ],
+        [
+          0,
+          6,
+          15,
+          1,
+          52,
+          602,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          15
+        ]
+      ],
+      "loss": 0.07972551509921662,
+      "selected_epoch": 8,
+      "checkpoint_sha256": "9dc38968e91a98693de5e6a8c4ee720a69ef80e275887780a8d714077c6ea93f",
+      "checkpoint_selection_metric": "validation_loss_minimize",
+      "evaluation_partition": "frozen HAM10000 test; evaluated after checkpoint freeze",
+      "source": "saved Experiment #2 test artifacts"
+    }
+  },
+  "baseline_test_epoch_alignment": {
+    "source": "checkpoint-hash-verified uncertainty predictions",
+    "checkpoint_hash_verified": true,
+    "split_ids_and_labels_verified": true,
+    "baseline_test_metrics_json_used": false
+  },
+  "ph2_accessed": false
+}

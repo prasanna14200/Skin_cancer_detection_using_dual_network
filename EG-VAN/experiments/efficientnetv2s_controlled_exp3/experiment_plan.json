@@ -1,0 +1,106 @@
+{
+  "experiment": "CONTROLLED EXPERIMENT #3",
+  "status": "PLANNED_NOT_RUN",
+  "hypothesis": "Reducing the Experiment #2 melanoma sampling intensity to the geometric midpoint between uniform sampling and the Experiment #2 weight may improve melanoma precision/recall balance while preserving macro-F1 and nevus recall.",
+  "baseline_reference": {
+    "experiment": "efficientnetv2s_leakage_aware",
+    "checkpoint_sha256": "f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848",
+    "selected_epoch": 6,
+    "checkpoint_selection_rule": "minimum validation loss"
+  },
+  "experiment_1_motivation": {
+    "checkpoint_sha256": "478bb1aa9c48897accceb800a103e7ee76c1381dc6514c7355996babbfaa902f",
+    "selected_epoch": 5,
+    "validation_melanoma_precision": 0.39215686274509803,
+    "validation_melanoma_recall": 0.5607476635514018,
+    "validation_melanoma_f1": 0.46153846153846145,
+    "validation_nevus_recall": 0.7616892911010558,
+    "validation_macro_f1": 0.5578904383663552,
+    "finding": "Broad class-balanced focal loss raised melanoma recall but reduced precision, nevus recall, and macro-F1; all frozen criteria failed."
+  },
+  "experiment_2_motivation_and_provenance": {
+    "checkpoint_sha256": "9dc38968e91a98693de5e6a8c4ee720a69ef80e275887780a8d714077c6ea93f",
+    "selected_epoch": 8,
+    "selection_rule": "minimum validation loss",
+    "validation_loss": 0.07572671688401705,
+    "validation_melanoma_precision": 0.5283018867924528,
+    "validation_melanoma_recall": 0.5233644859813084,
+    "validation_melanoma_f1": 0.5258215962441314,
+    "validation_nevus_recall": 0.9034690799396682,
+    "validation_macro_f1": 0.707427727325343,
+    "validation_accuracy": 0.8144016227180527,
+    "result": "FAIL: melanoma F1 below the frozen threshold; macro-F1 and nevus recall passed.",
+    "source": "experiments/efficientnetv2s_controlled_exp2 saved checkpoint, validation metrics, config, and manifest"
+  },
+  "intervention": {
+    "single_primary_change_from_experiment_2": "Reduce only the melanoma WeightedRandomSampler weight from sqrt(5366/899) to (5366/899)^(1/4). All non-melanoma sample weights remain 1.0.",
+    "sampler": "torch.utils.data.WeightedRandomSampler",
+    "weight_formula": "(n_train[nv] / n_train[mel])^(1/4) for mel rows; 1.0 otherwise",
+    "train_counts_used": {"nv": 5366, "mel": 899},
+    "melanoma_sampling_weight": 1.5630495442733532,
+    "non_melanoma_sampling_weight": 1.0,
+    "sampler_seed": 42,
+    "replacement": true,
+    "num_samples_per_epoch": 8015,
+    "generator": "torch.Generator(device='cpu').manual_seed(42)",
+    "weight_source": "frozen HAM10000 TRAIN rows only",
+    "class_balanced_loss_or_other_loss_weighting": false,
+    "validation_test_sampling": "unweighted sequential evaluation; no sampler"
+  },
+  "frozen_inputs": {
+    "split_csv": "data/splits/split_leakage_aware.csv",
+    "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "split_integrity": {"rows": 10015, "unique_lesions": 7470, "crossing_lesions": 0},
+    "class_order": ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"],
+    "train_class_counts": {"akiec": 257, "bcc": 398, "bkl": 891, "df": 95, "mel": 899, "nv": 5366, "vasc": 109},
+    "validation_class_counts": {"akiec": 30, "bcc": 58, "bkl": 104, "df": 9, "mel": 107, "nv": 663, "vasc": 15},
+    "test_class_counts": {"akiec": 40, "bcc": 58, "bkl": 104, "df": 11, "mel": 107, "nv": 676, "vasc": 18}
+  },
+  "frozen_configuration": {
+    "model": "EfficientNetV2S",
+    "pretrained_weight_source": "torchvision EfficientNet_V2_S_Weights.DEFAULT",
+    "initialization": "same pretrained initialization policy as original controlled protocol; do not initialize from Experiment #2",
+    "image_size": 384,
+    "batch_size": 16,
+    "epochs": 25,
+    "optimizer": "Adamax",
+    "learning_rate": 0.001,
+    "baseline_focal_loss": {"name": "focal_loss", "alpha": 0.25, "gamma": 2.0, "class_specific_loss_weights": false},
+    "scheduler": {"name": "ReduceLROnPlateau", "mode": "min", "factor": 0.5, "patience": 1},
+    "seed": 42,
+    "mixed_precision": true,
+    "training_augmentation": ["Resize(384, 384)", "RandomHorizontalFlip", "RandomVerticalFlip", "RandomRotation(15)", "ToTensor", "ImageNet normalization"],
+    "validation_test_preprocessing": ["Resize(384, 384)", "ToTensor", "ImageNet normalization"],
+    "checkpoint_selection": {"metric": "validation_loss", "direction": "minimize", "data": "frozen HAM10000 validation split only"},
+    "evaluation_prediction": "argmax"
+  },
+  "success_criteria": {
+    "all_required": true,
+    "melanoma_f1": {"minimum": 0.5757731958762886},
+    "validation_macro_f1": {"minimum": 0.6316582381362074},
+    "nevus_recall": {"minimum": 0.9},
+    "evaluation_partition": "HAM10000 validation only",
+    "must_not_be_changed_after_results": true
+  },
+  "ph2_policy": {
+    "allowed_during_development": false,
+    "allowed_for_training_or_sampling": false,
+    "allowed_for_checkpoint_or_hyperparameter_selection": false,
+    "allowed_for_threshold_tuning": false,
+    "external_evaluation": "Only after Experiment #3 is finalized and separately approved."
+  },
+  "expected_generated_artifacts": [
+    "best_checkpoint.pt", "config.json", "training_history.json", "validation_metrics.json",
+    "validation_predictions.csv", "test_metrics.json", "test_predictions.csv",
+    "comparison_metrics.json", "experiment_manifest.json", "controlled_exp3_final_report.md"
+  ],
+  "execution_policy": {
+    "training_requires_explicit_flag": "--train",
+    "preflight_only_flag": "--preflight-only",
+    "offline_recovery_flag": "--finalize-existing",
+    "approved_training_runtime": "Google Colab with CUDA Tesla T4",
+    "local_training": false,
+    "ph2_inference": false,
+    "experiment_2_checkpoint_initialization": false
+  }
+}

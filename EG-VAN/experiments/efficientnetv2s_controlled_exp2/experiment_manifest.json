@@ -1,0 +1,50 @@
+{
+  "status": "COMPLETE",
+  "finalization_mode": "saved_artifacts_only",
+  "started_at_utc": "2026-09-28T18:40:30.904649+00:00",
+  "completed_at_utc": "2026-09-28T20:24:57.834782+00:00",
+  "baseline_checkpoint_sha256": "f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "new_checkpoint_sha256": "9dc38968e91a98693de5e6a8c4ee720a69ef80e275887780a8d714077c6ea93f",
+  "training_epochs": 25,
+  "selected_epoch": 8,
+  "selection_metric": "validation_loss_minimize",
+  "selection_value": 0.07572671688401705,
+  "validation_success_criteria_met": false,
+  "criterion_results": {
+    "melanoma_f1": false,
+    "validation_macro_f1": true,
+    "nevus_recall": true
+  },
+  "sampler": {
+    "name": "WeightedRandomSampler",
+    "weight_formula": "sqrt(n_train[nv] / n_train[mel]) for mel rows; 1.0 otherwise",
+    "train_counts": {
+      "akiec": 257,
+      "bcc": 398,
+      "bkl": 891,
+      "df": 95,
+      "mel": 899,
+      "nv": 5366,
+      "vasc": 109
+    },
+    "mel_weight": 2.4431238778531372,
+    "non_melanoma_weight": 1.0,
+    "seed": 42,
+    "replacement": true,
+    "num_samples": 8015,
+    "generator": "torch.Generator(device='cpu').manual_seed(42)",
+    "label_source": "frozen HAM10000 TRAIN rows only"
+  },
+  "ph2_accessed": false,
+  "training_rerun_for_finalization": false,
+  "inference_rerun_for_finalization": false,
+  "baseline_test_source": "checkpoint-hash-verified saved uncertainty predictions",
+  "runtime": {
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "gpu": "Tesla T4",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39"
+  }
+}

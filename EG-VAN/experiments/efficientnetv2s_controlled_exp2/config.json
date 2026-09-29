@@ -1,0 +1,138 @@
+{
+  "experiment": "efficientnetv2s_controlled_exp2",
+  "model": "EfficientNetV2S",
+  "pretrained_weight_source": "torchvision EfficientNet_V2_S_Weights.DEFAULT",
+  "image_size": 384,
+  "batch_size": 16,
+  "epochs": 25,
+  "optimizer": "Adamax",
+  "learning_rate": 0.001,
+  "focal_alpha": 0.25,
+  "focal_gamma": 2.0,
+  "loss": "original baseline focal_loss; no class-specific loss weighting",
+  "scheduler": {
+    "name": "ReduceLROnPlateau",
+    "mode": "min",
+    "factor": 0.5,
+    "patience": 1
+  },
+  "seed": 42,
+  "sampler": {
+    "name": "WeightedRandomSampler",
+    "weight_formula": "sqrt(n_train[nv] / n_train[mel]) for mel rows; 1.0 otherwise",
+    "train_counts": {
+      "akiec": 257,
+      "bcc": 398,
+      "bkl": 891,
+      "df": 95,
+      "mel": 899,
+      "nv": 5366,
+      "vasc": 109
+    },
+    "mel_weight": 2.4431238778531372,
+    "non_melanoma_weight": 1.0,
+    "seed": 42,
+    "replacement": true,
+    "num_samples": 8015,
+    "generator": "torch.Generator(device='cpu').manual_seed(42)",
+    "label_source": "frozen HAM10000 TRAIN rows only"
+  },
+  "split_csv": "split_leakage_aware.csv",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "classes": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "checkpoint_selection_metric": "validation_loss_minimize",
+  "success_criteria": {
+    "melanoma_f1_minimum": 0.5757731958762886,
+    "validation_macro_f1_minimum": 0.6316582381362074,
+    "nevus_recall_minimum": 0.9
+  },
+  "preflight": {
+    "project_root": "/content/drive/.shortcut-targets-by-id/1eBbnRyG1adUFX4ajjJJERTGKKaHZ2Dxo/EG-VAN",
+    "experiment_directory": "/content/drive/.shortcut-targets-by-id/1eBbnRyG1adUFX4ajjJJERTGKKaHZ2Dxo/EG-VAN/experiments/efficientnetv2s_controlled_exp2",
+    "training_requested": true,
+    "checks": {
+      "project_root": {
+        "status": "PASS",
+        "details": "project root exists"
+      },
+      "experiment_directory": {
+        "status": "PASS",
+        "details": "dedicated Experiment #2 directory exists"
+      },
+      "runner_location": {
+        "status": "PASS",
+        "details": "runner is being used from this project's Experiment #2 directory"
+      },
+      "experiment_plan": {
+        "status": "PASS",
+        "details": "plan matches approved frozen values"
+      },
+      "baseline_artifacts": {
+        "status": "PASS",
+        "details": "missing=[]"
+      },
+      "frozen_split": {
+        "status": "PASS",
+        "details": "path=/content/drive/.shortcut-targets-by-id/1eBbnRyG1adUFX4ajjJJERTGKKaHZ2Dxo/EG-VAN/data/splits/split_leakage_aware.csv"
+      },
+      "split_identity_class_order_and_counts": {
+        "status": "PASS",
+        "details": "sha256=f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883; integrity={'rows': 10015, 'unique_lesions': 7470, 'crossing_lesions': 0}; counts={'train': {'akiec': 257, 'bcc': 398, 'bkl': 891, 'df': 95, 'mel': 899, 'nv': 5366, 'vasc': 109}, 'val': {'akiec': 30, 'bcc': 58, 'bkl': 104, 'df': 9, 'mel': 107, 'nv': 663, 'vasc': 15}, 'test': {'akiec': 40, 'bcc': 58, 'bkl': 104, 'df': 11, 'mel': 107, 'nv': 676, 'vasc': 18}}"
+      },
+      "baseline_checkpoint_hash": {
+        "status": "PASS",
+        "details": "expected=f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848; actual=f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848"
+      },
+      "baseline_selection_evidence": {
+        "status": "PASS",
+        "details": "checkpoint_epoch=6; minimum_validation_loss_epoch=6"
+      },
+      "baseline_frozen_configuration": {
+        "status": "PASS",
+        "details": "mismatches={}"
+      },
+      "sampler_configuration": {
+        "status": "PASS",
+        "details": "TRAIN-only labels; mel=2.44312387785314; non-mel=1.0; seed=42; replacement=True; num_samples=8015"
+      },
+      "checkpoint_matched_baseline_test_evidence": {
+        "status": "PASS",
+        "details": "summary_checkpoint=f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848; samples=1014; test IDs/labels match split"
+      },
+      "processed_ham_images": {
+        "status": "PASS",
+        "details": "missing_count=0; examples=[]"
+      },
+      "output_overwrite_protection": {
+        "status": "PASS",
+        "details": "existing_generated_outputs=[]"
+      },
+      "approved_colab_tesla_t4": {
+        "status": "PASS",
+        "details": "platform=Linux; google.colab=True; cuda=True; gpu=Tesla T4"
+      }
+    },
+    "errors": [],
+    "status": "PASS",
+    "training_eligible": true,
+    "ph2_accessed": false
+  },
+  "runtime": {
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "gpu": "Tesla T4",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39"
+  },
+  "started_at_utc": "2026-09-28T18:40:30.904649+00:00",
+  "completed_at_utc": "2026-09-28T20:24:57.834782+00:00",
+  "ph2_accessed": false
+}
