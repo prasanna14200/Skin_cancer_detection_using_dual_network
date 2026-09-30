@@ -1,0 +1,138 @@
+{
+  "experiment": "efficientnetv2s_controlled_exp3",
+  "model": "EfficientNetV2S",
+  "pretrained_weight_source": "torchvision EfficientNet_V2_S_Weights.DEFAULT",
+  "initialization": "pretrained weights; no baseline or Experiment #2 checkpoint loading",
+  "image_size": 384,
+  "batch_size": 16,
+  "epochs": 25,
+  "optimizer": "Adamax",
+  "learning_rate": 0.001,
+  "focal_alpha": 0.25,
+  "focal_gamma": 2.0,
+  "loss": "original baseline focal_loss; no class-specific loss weighting",
+  "scheduler": {
+    "name": "ReduceLROnPlateau",
+    "mode": "min",
+    "factor": 0.5,
+    "patience": 1
+  },
+  "seed": 42,
+  "sampler": {
+    "name": "WeightedRandomSampler",
+    "formula": "(5366 / 899)^(1/4) for melanoma; 1.0 otherwise",
+    "mel_weight": 1.5630495442733532,
+    "non_melanoma_weight": 1.0,
+    "train_counts": {
+      "akiec": 257,
+      "bcc": 398,
+      "bkl": 891,
+      "df": 95,
+      "mel": 899,
+      "nv": 5366,
+      "vasc": 109
+    },
+    "seed": 42,
+    "replacement": true,
+    "num_samples": 8015,
+    "generator": "torch.Generator(device='cpu').manual_seed(42)",
+    "labels_from": "frozen TRAIN rows only"
+  },
+  "split_csv": "split_leakage_aware.csv",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "classes": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "checkpoint_selection_metric": "validation_loss_minimize",
+  "success_criteria": {
+    "melanoma_f1_minimum": 0.5757731958762886,
+    "validation_macro_f1_minimum": 0.6316582381362074,
+    "nevus_recall_minimum": 0.9
+  },
+  "preflight": {
+    "project_root": "/content/drive/.shortcut-targets-by-id/1eBbnRyG1adUFX4ajjJJERTGKKaHZ2Dxo/EG-VAN",
+    "experiment_directory": "/content/drive/.shortcut-targets-by-id/1eBbnRyG1adUFX4ajjJJERTGKKaHZ2Dxo/EG-VAN/experiments/efficientnetv2s_controlled_exp3",
+    "checks": {
+      "project_root": {
+        "status": "PASS",
+        "details": "project root exists"
+      },
+      "experiment_3_directory": {
+        "status": "PASS",
+        "details": "dedicated Experiment #3 directory exists"
+      },
+      "runner_location": {
+        "status": "PASS",
+        "details": "runner is in the requested Experiment #3 directory"
+      },
+      "experiment_plan": {
+        "status": "PASS",
+        "details": "sampler formula, frozen configuration, criteria, and provenance validated"
+      },
+      "baseline_artifacts": {
+        "status": "PASS",
+        "details": "missing=[]"
+      },
+      "baseline_checkpoint_hash": {
+        "status": "PASS",
+        "details": "expected=f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848; actual=f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848"
+      },
+      "baseline_epoch6_selection": {
+        "status": "PASS",
+        "details": "checkpoint_epoch=6; history_min_loss_epoch=6"
+      },
+      "baseline_frozen_configuration": {
+        "status": "PASS",
+        "details": "mismatches={}"
+      },
+      "frozen_split": {
+        "status": "PASS",
+        "details": "path=/content/drive/.shortcut-targets-by-id/1eBbnRyG1adUFX4ajjJJERTGKKaHZ2Dxo/EG-VAN/data/splits/split_leakage_aware.csv"
+      },
+      "split_hash_counts_class_order": {
+        "status": "PASS",
+        "details": "sha256=f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883; integrity={'rows': 10015, 'unique_lesions': 7470, 'crossing_lesions': 0}; counts_match=True; class_order=('akiec', 'bcc', 'bkl', 'df', 'mel', 'nv', 'vasc')"
+      },
+      "experiment_2_provenance_and_result": {
+        "status": "PASS",
+        "details": "checkpoint=9dc38968e91a98693de5e6a8c4ee720a69ef80e275887780a8d714077c6ea93f; selected_epoch=8; mel_f1=0.5258215962441314; macro_f1=0.707427727325343; nv_recall=0.9034690799396682"
+      },
+      "experiment_3_sampler_configuration": {
+        "status": "PASS",
+        "details": "formula=(5366/899)^(1/4); mel=1.5630495442733532; non-mel=1.0; seed=42; replacement=True; num_samples=8015; TRAIN labels only"
+      },
+      "processed_ham_images": {
+        "status": "PASS",
+        "details": "missing_count=0"
+      },
+      "output_overwrite_protection": {
+        "status": "PASS",
+        "details": "existing_generated_outputs=[]"
+      },
+      "approved_colab_tesla_t4": {
+        "status": "PASS",
+        "details": "platform=Linux; colab=True; cuda=True; gpu=Tesla T4"
+      }
+    },
+    "errors": [],
+    "status": "PASS",
+    "training_eligible": true,
+    "ph2_accessed": false
+  },
+  "runtime": {
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "gpu": "Tesla T4",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39"
+  },
+  "started_at_utc": "2026-09-29T09:31:50.827523+00:00",
+  "completed_at_utc": "2026-09-29T10:57:16.576284+00:00",
+  "ph2_accessed": false
+}

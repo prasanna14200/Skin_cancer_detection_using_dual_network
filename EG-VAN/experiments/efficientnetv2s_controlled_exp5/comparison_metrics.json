@@ -1,0 +1,1377 @@
+{
+  "experiment_5_checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+  "experiment_5_selected_epoch": 15,
+  "experiment_5_selection_metric": "validation_threshold_constrained_min_loss",
+  "experiment_5_status": "COMPLETE",
+  "experiment_5_validation_success": true,
+  "criterion_results": {
+    "melanoma_f1": true,
+    "macro_f1": true,
+    "nevus_recall": true
+  },
+  "success_thresholds": {
+    "melanoma_f1_minimum": 0.5757731958762886,
+    "validation_macro_f1_minimum": 0.6316582381362074,
+    "nevus_recall_minimum": 0.9
+  },
+  "validation": {
+    "baseline": {
+      "sample_count": 986,
+      "class_order": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "accuracy": 0.8073022312373225,
+      "macro_f1": 0.6516582381362074,
+      "balanced_accuracy": 0.6717690848536709,
+      "per_class": {
+        "akiec": {
+          "support": 30,
+          "predicted_count": 38,
+          "precision": 0.4473684210526316,
+          "recall": 0.5666666666666667,
+          "f1": 0.5
+        },
+        "bcc": {
+          "support": 58,
+          "predicted_count": 47,
+          "precision": 0.8085106382978723,
+          "recall": 0.6551724137931034,
+          "f1": 0.7238095238095238
+        },
+        "bkl": {
+          "support": 104,
+          "predicted_count": 54,
+          "precision": 0.6481481481481481,
+          "recall": 0.33653846153846156,
+          "f1": 0.44303797468354433
+        },
+        "df": {
+          "support": 9,
+          "predicted_count": 11,
+          "precision": 0.6363636363636364,
+          "recall": 0.7777777777777778,
+          "f1": 0.7000000000000001
+        },
+        "mel": {
+          "support": 107,
+          "predicted_count": 87,
+          "precision": 0.5862068965517241,
+          "recall": 0.4766355140186916,
+          "f1": 0.5257731958762886
+        },
+        "nv": {
+          "support": 663,
+          "predicted_count": 727,
+          "precision": 0.8720770288858322,
+          "recall": 0.9562594268476622,
+          "f1": 0.9122302158273382
+        },
+        "vasc": {
+          "support": 15,
+          "predicted_count": 22,
+          "precision": 0.6363636363636364,
+          "recall": 0.9333333333333333,
+          "f1": 0.7567567567567568
+        }
+      },
+      "confusion_matrix": [
+        [
+          17,
+          2,
+          6,
+          0,
+          2,
+          3,
+          0
+        ],
+        [
+          1,
+          38,
+          4,
+          1,
+          2,
+          10,
+          2
+        ],
+        [
+          15,
+          2,
+          35,
+          1,
+          18,
+          33,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          7,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          1,
+          1,
+          0,
+          51,
+          46,
+          4
+        ],
+        [
+          1,
+          3,
+          7,
+          2,
+          14,
+          634,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          14
+        ]
+      ],
+      "loss": 0.07601256733930256,
+      "selected_epoch": 6,
+      "checkpoint_sha256": "f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848"
+    },
+    "experiment_2": {
+      "sample_count": 986,
+      "class_order": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "accuracy": 0.8144016227180527,
+      "macro_f1": 0.707427727325343,
+      "balanced_accuracy": 0.7399928966851869,
+      "per_class": {
+        "akiec": {
+          "support": 30,
+          "predicted_count": 31,
+          "precision": 0.5806451612903226,
+          "recall": 0.6,
+          "f1": 0.5901639344262295
+        },
+        "bcc": {
+          "support": 58,
+          "predicted_count": 51,
+          "precision": 0.7843137254901961,
+          "recall": 0.6896551724137931,
+          "f1": 0.7339449541284404
+        },
+        "bkl": {
+          "support": 104,
+          "predicted_count": 103,
+          "precision": 0.6699029126213593,
+          "recall": 0.6634615384615384,
+          "f1": 0.6666666666666666
+        },
+        "df": {
+          "support": 9,
+          "predicted_count": 14,
+          "precision": 0.6428571428571429,
+          "recall": 1.0,
+          "f1": 0.782608695652174
+        },
+        "mel": {
+          "support": 107,
+          "predicted_count": 106,
+          "precision": 0.5283018867924528,
+          "recall": 0.5233644859813084,
+          "f1": 0.5258215962441314
+        },
+        "nv": {
+          "support": 663,
+          "predicted_count": 664,
+          "precision": 0.9021084337349398,
+          "recall": 0.9034690799396682,
+          "f1": 0.9027882441597588
+        },
+        "vasc": {
+          "support": 15,
+          "predicted_count": 17,
+          "precision": 0.7058823529411765,
+          "recall": 0.8,
+          "f1": 0.7500000000000001
+        }
+      },
+      "confusion_matrix": [
+        [
+          18,
+          2,
+          6,
+          1,
+          1,
+          2,
+          0
+        ],
+        [
+          3,
+          40,
+          6,
+          0,
+          0,
+          9,
+          0
+        ],
+        [
+          5,
+          3,
+          69,
+          0,
+          10,
+          17,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          9,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          1,
+          6,
+          2,
+          56,
+          34,
+          5
+        ],
+        [
+          2,
+          5,
+          16,
+          2,
+          39,
+          599,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          12
+        ]
+      ],
+      "loss": 0.07572671688401705,
+      "selected_epoch": 8,
+      "checkpoint_sha256": "9dc38968e91a98693de5e6a8c4ee720a69ef80e275887780a8d714077c6ea93f",
+      "checkpoint_selection_metric": "validation_loss_minimize",
+      "loss_source": "minimum validation loss recorded in selected checkpoint"
+    },
+    "experiment_3": {
+      "sample_count": 986,
+      "class_order": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "accuracy": 0.8204868154158215,
+      "macro_f1": 0.7049808138006471,
+      "balanced_accuracy": 0.7329788347906488,
+      "per_class": {
+        "akiec": {
+          "support": 30,
+          "predicted_count": 33,
+          "precision": 0.5757575757575758,
+          "recall": 0.6333333333333333,
+          "f1": 0.6031746031746033
+        },
+        "bcc": {
+          "support": 58,
+          "predicted_count": 58,
+          "precision": 0.7241379310344828,
+          "recall": 0.7241379310344828,
+          "f1": 0.7241379310344829
+        },
+        "bkl": {
+          "support": 104,
+          "predicted_count": 98,
+          "precision": 0.6632653061224489,
+          "recall": 0.625,
+          "f1": 0.6435643564356436
+        },
+        "df": {
+          "support": 9,
+          "predicted_count": 11,
+          "precision": 0.7272727272727273,
+          "recall": 0.8888888888888888,
+          "f1": 0.7999999999999999
+        },
+        "mel": {
+          "support": 107,
+          "predicted_count": 70,
+          "precision": 0.6,
+          "recall": 0.3925233644859813,
+          "f1": 0.4745762711864407
+        },
+        "nv": {
+          "support": 663,
+          "predicted_count": 695,
+          "precision": 0.8906474820143885,
+          "recall": 0.9336349924585219,
+          "f1": 0.9116347569955817
+        },
+        "vasc": {
+          "support": 15,
+          "predicted_count": 21,
+          "precision": 0.6666666666666666,
+          "recall": 0.9333333333333333,
+          "f1": 0.7777777777777778
+        }
+      },
+      "confusion_matrix": [
+        [
+          19,
+          2,
+          5,
+          0,
+          2,
+          2,
+          0
+        ],
+        [
+          3,
+          42,
+          3,
+          0,
+          1,
+          9,
+          0
+        ],
+        [
+          6,
+          6,
+          65,
+          1,
+          8,
+          18,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          8,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          3,
+          11,
+          1,
+          42,
+          45,
+          3
+        ],
+        [
+          3,
+          5,
+          14,
+          1,
+          17,
+          619,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          14
+        ]
+      ],
+      "loss": 0.07522968407795891,
+      "selected_epoch": 6,
+      "checkpoint_sha256": "8615a9f5afad48c17c21b559aeab01e5e506fa3cbce3f544eed14b47b53377b9",
+      "checkpoint_selection_metric": "validation_loss_minimize"
+    },
+    "experiment_4": {
+      "sample_count": 986,
+      "class_order": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "accuracy": 0.795131845841785,
+      "macro_f1": 0.6639006401314421,
+      "balanced_accuracy": 0.6714069306048606,
+      "per_class": {
+        "akiec": {
+          "support": 30,
+          "predicted_count": 18,
+          "precision": 0.7222222222222222,
+          "recall": 0.43333333333333335,
+          "f1": 0.5416666666666666
+        },
+        "bcc": {
+          "support": 58,
+          "predicted_count": 45,
+          "precision": 0.7555555555555555,
+          "recall": 0.5862068965517241,
+          "f1": 0.6601941747572815
+        },
+        "bkl": {
+          "support": 104,
+          "predicted_count": 107,
+          "precision": 0.5794392523364486,
+          "recall": 0.5961538461538461,
+          "f1": 0.5876777251184834
+        },
+        "df": {
+          "support": 9,
+          "predicted_count": 11,
+          "precision": 0.5454545454545454,
+          "recall": 0.6666666666666666,
+          "f1": 0.6
+        },
+        "mel": {
+          "support": 107,
+          "predicted_count": 111,
+          "precision": 0.4954954954954955,
+          "recall": 0.514018691588785,
+          "f1": 0.5045871559633027
+        },
+        "nv": {
+          "support": 663,
+          "predicted_count": 674,
+          "precision": 0.8887240356083086,
+          "recall": 0.9034690799396682,
+          "f1": 0.8960359012715035
+        },
+        "vasc": {
+          "support": 15,
+          "predicted_count": 20,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        }
+      },
+      "confusion_matrix": [
+        [
+          13,
+          2,
+          6,
+          0,
+          5,
+          4,
+          0
+        ],
+        [
+          1,
+          34,
+          4,
+          0,
+          4,
+          15,
+          0
+        ],
+        [
+          2,
+          6,
+          62,
+          4,
+          10,
+          20,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          6,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          12,
+          0,
+          55,
+          35,
+          2
+        ],
+        [
+          0,
+          1,
+          23,
+          1,
+          36,
+          599,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          15
+        ]
+      ],
+      "loss": 0.06999672452104987,
+      "selected_epoch": 6,
+      "checkpoint_sha256": "c09e2d6b77891a1fcf8b9e7b8aa2f702a4407c84c5bd8798ae189f1f15357b73",
+      "checkpoint_selection_metric": "validation_loss_minimize"
+    },
+    "experiment_5": {
+      "sample_count": 986,
+      "class_order": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "accuracy": 0.8275862068965517,
+      "macro_f1": 0.6684078504869617,
+      "balanced_accuracy": 0.6652635950469167,
+      "per_class": {
+        "akiec": {
+          "support": 30,
+          "predicted_count": 29,
+          "precision": 0.5517241379310345,
+          "recall": 0.5333333333333333,
+          "f1": 0.5423728813559322
+        },
+        "bcc": {
+          "support": 58,
+          "predicted_count": 53,
+          "precision": 0.7169811320754716,
+          "recall": 0.6551724137931034,
+          "f1": 0.6846846846846846
+        },
+        "bkl": {
+          "support": 104,
+          "predicted_count": 89,
+          "precision": 0.7191011235955056,
+          "recall": 0.6153846153846154,
+          "f1": 0.6632124352331606
+        },
+        "df": {
+          "support": 9,
+          "predicted_count": 10,
+          "precision": 0.5,
+          "recall": 0.5555555555555556,
+          "f1": 0.5263157894736842
+        },
+        "mel": {
+          "support": 107,
+          "predicted_count": 94,
+          "precision": 0.6382978723404256,
+          "recall": 0.5607476635514018,
+          "f1": 0.5970149253731344
+        },
+        "nv": {
+          "support": 663,
+          "predicted_count": 694,
+          "precision": 0.8948126801152738,
+          "recall": 0.9366515837104072,
+          "f1": 0.9152542372881356
+        },
+        "vasc": {
+          "support": 15,
+          "predicted_count": 17,
+          "precision": 0.7058823529411765,
+          "recall": 0.8,
+          "f1": 0.7500000000000001
+        }
+      },
+      "confusion_matrix": [
+        [
+          16,
+          2,
+          7,
+          0,
+          2,
+          3,
+          0
+        ],
+        [
+          3,
+          38,
+          3,
+          0,
+          0,
+          14,
+          0
+        ],
+        [
+          4,
+          6,
+          64,
+          4,
+          8,
+          18,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          5,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          5,
+          1,
+          60,
+          34,
+          3
+        ],
+        [
+          3,
+          3,
+          10,
+          0,
+          24,
+          621,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          12
+        ]
+      ],
+      "loss": 0.07589111880930122,
+      "selected_epoch": 15,
+      "checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+      "checkpoint_selection_metric": "validation_threshold_constrained_min_loss",
+      "selection_validation_loss": 0.07589111880930122
+    }
+  },
+  "test_evaluation_only": {
+    "baseline": {
+      "sample_count": 1014,
+      "class_order": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "accuracy": 0.7988165680473372,
+      "macro_f1": 0.6201368398477793,
+      "balanced_accuracy": 0.6244908507954195,
+      "per_class": {
+        "akiec": {
+          "support": 40,
+          "predicted_count": 56,
+          "precision": 0.48214285714285715,
+          "recall": 0.675,
+          "f1": 0.5625
+        },
+        "bcc": {
+          "support": 58,
+          "predicted_count": 46,
+          "precision": 0.7608695652173914,
+          "recall": 0.603448275862069,
+          "f1": 0.673076923076923
+        },
+        "bkl": {
+          "support": 104,
+          "predicted_count": 63,
+          "precision": 0.5555555555555556,
+          "recall": 0.33653846153846156,
+          "f1": 0.4191616766467066
+        },
+        "df": {
+          "support": 11,
+          "predicted_count": 8,
+          "precision": 0.75,
+          "recall": 0.5454545454545454,
+          "f1": 0.631578947368421
+        },
+        "mel": {
+          "support": 107,
+          "predicted_count": 86,
+          "precision": 0.5232558139534884,
+          "recall": 0.4205607476635514,
+          "f1": 0.4663212435233161
+        },
+        "nv": {
+          "support": 676,
+          "predicted_count": 728,
+          "precision": 0.8887362637362637,
+          "recall": 0.9571005917159763,
+          "f1": 0.9216524216524216
+        },
+        "vasc": {
+          "support": 18,
+          "predicted_count": 27,
+          "precision": 0.5555555555555556,
+          "recall": 0.8333333333333334,
+          "f1": 0.6666666666666667
+        }
+      },
+      "confusion_matrix": [
+        [
+          27,
+          3,
+          5,
+          0,
+          0,
+          5,
+          0
+        ],
+        [
+          5,
+          35,
+          7,
+          1,
+          1,
+          5,
+          4
+        ],
+        [
+          18,
+          2,
+          35,
+          0,
+          23,
+          25,
+          1
+        ],
+        [
+          0,
+          2,
+          0,
+          6,
+          0,
+          3,
+          0
+        ],
+        [
+          5,
+          1,
+          8,
+          0,
+          45,
+          42,
+          6
+        ],
+        [
+          1,
+          2,
+          8,
+          0,
+          17,
+          647,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          15
+        ]
+      ],
+      "selected_epoch": 6,
+      "checkpoint_sha256": "f96ebe86ffaa984333105c9092ac16e8cc2137190a36411cc0b6445620960848"
+    },
+    "experiment_2": {
+      "sample_count": 1014,
+      "class_order": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "accuracy": 0.8017751479289941,
+      "macro_f1": 0.6956487802156275,
+      "balanced_accuracy": 0.716713815366484,
+      "per_class": {
+        "akiec": {
+          "support": 40,
+          "predicted_count": 47,
+          "precision": 0.6170212765957447,
+          "recall": 0.725,
+          "f1": 0.6666666666666666
+        },
+        "bcc": {
+          "support": 58,
+          "predicted_count": 62,
+          "precision": 0.6935483870967742,
+          "recall": 0.7413793103448276,
+          "f1": 0.7166666666666668
+        },
+        "bkl": {
+          "support": 104,
+          "predicted_count": 92,
+          "precision": 0.6195652173913043,
+          "recall": 0.5480769230769231,
+          "f1": 0.5816326530612245
+        },
+        "df": {
+          "support": 11,
+          "predicted_count": 11,
+          "precision": 0.7272727272727273,
+          "recall": 0.7272727272727273,
+          "f1": 0.7272727272727273
+        },
+        "mel": {
+          "support": 107,
+          "predicted_count": 128,
+          "precision": 0.4609375,
+          "recall": 0.5514018691588785,
+          "f1": 0.502127659574468
+        },
+        "nv": {
+          "support": 676,
+          "predicted_count": 653,
+          "precision": 0.9218989280245024,
+          "recall": 0.8905325443786982,
+          "f1": 0.9059443190368698
+        },
+        "vasc": {
+          "support": 18,
+          "predicted_count": 21,
+          "precision": 0.7142857142857143,
+          "recall": 0.8333333333333334,
+          "f1": 0.7692307692307692
+        }
+      },
+      "confusion_matrix": [
+        [
+          29,
+          3,
+          5,
+          0,
+          0,
+          3,
+          0
+        ],
+        [
+          5,
+          43,
+          2,
+          0,
+          2,
+          2,
+          4
+        ],
+        [
+          9,
+          6,
+          57,
+          0,
+          14,
+          18,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          8,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          13,
+          1,
+          59,
+          28,
+          2
+        ],
+        [
+          0,
+          6,
+          15,
+          1,
+          52,
+          602,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          15
+        ]
+      ],
+      "loss": 0.07972551509921662,
+      "selected_epoch": 8,
+      "checkpoint_sha256": "9dc38968e91a98693de5e6a8c4ee720a69ef80e275887780a8d714077c6ea93f",
+      "checkpoint_selection_metric": "validation_loss_minimize",
+      "evaluation_partition": "frozen HAM10000 test; evaluated after checkpoint freeze"
+    },
+    "experiment_3": {
+      "sample_count": 1014,
+      "class_order": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "accuracy": 0.8244575936883629,
+      "macro_f1": 0.676258422694784,
+      "balanced_accuracy": 0.6860404609809653,
+      "per_class": {
+        "akiec": {
+          "support": 40,
+          "predicted_count": 39,
+          "precision": 0.6666666666666666,
+          "recall": 0.65,
+          "f1": 0.6582278481012659
+        },
+        "bcc": {
+          "support": 58,
+          "predicted_count": 67,
+          "precision": 0.7164179104477612,
+          "recall": 0.8275862068965517,
+          "f1": 0.768
+        },
+        "bkl": {
+          "support": 104,
+          "predicted_count": 83,
+          "precision": 0.7108433734939759,
+          "recall": 0.5673076923076923,
+          "f1": 0.6310160427807486
+        },
+        "df": {
+          "support": 11,
+          "predicted_count": 12,
+          "precision": 0.5,
+          "recall": 0.5454545454545454,
+          "f1": 0.5217391304347826
+        },
+        "mel": {
+          "support": 107,
+          "predicted_count": 87,
+          "precision": 0.5402298850574713,
+          "recall": 0.4392523364485981,
+          "f1": 0.48453608247422675
+        },
+        "nv": {
+          "support": 676,
+          "predicted_count": 704,
+          "precision": 0.9019886363636364,
+          "recall": 0.9393491124260355,
+          "f1": 0.9202898550724639
+        },
+        "vasc": {
+          "support": 18,
+          "predicted_count": 22,
+          "precision": 0.6818181818181818,
+          "recall": 0.8333333333333334,
+          "f1": 0.7499999999999999
+        }
+      },
+      "confusion_matrix": [
+        [
+          26,
+          4,
+          3,
+          1,
+          2,
+          4,
+          0
+        ],
+        [
+          2,
+          48,
+          0,
+          0,
+          1,
+          4,
+          3
+        ],
+        [
+          8,
+          6,
+          59,
+          3,
+          11,
+          17,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          6,
+          0,
+          2,
+          0
+        ],
+        [
+          3,
+          3,
+          9,
+          2,
+          47,
+          40,
+          3
+        ],
+        [
+          0,
+          2,
+          12,
+          0,
+          26,
+          635,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          2,
+          15
+        ]
+      ],
+      "loss": 0.07808036356154073,
+      "selected_epoch": 6,
+      "checkpoint_sha256": "8615a9f5afad48c17c21b559aeab01e5e506fa3cbce3f544eed14b47b53377b9",
+      "checkpoint_selection_metric": "validation_loss_minimize",
+      "evaluation_partition": "frozen HAM10000 test after checkpoint freeze; evaluation only"
+    },
+    "experiment_4": {
+      "sample_count": 1014,
+      "class_order": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "accuracy": 0.814595660749507,
+      "macro_f1": 0.6811293490540269,
+      "balanced_accuracy": 0.6896384712158529,
+      "per_class": {
+        "akiec": {
+          "support": 40,
+          "predicted_count": 18,
+          "precision": 0.7777777777777778,
+          "recall": 0.35,
+          "f1": 0.48275862068965514
+        },
+        "bcc": {
+          "support": 58,
+          "predicted_count": 57,
+          "precision": 0.7719298245614035,
+          "recall": 0.7586206896551724,
+          "f1": 0.7652173913043477
+        },
+        "bkl": {
+          "support": 104,
+          "predicted_count": 109,
+          "precision": 0.6055045871559633,
+          "recall": 0.6346153846153846,
+          "f1": 0.619718309859155
+        },
+        "df": {
+          "support": 11,
+          "predicted_count": 11,
+          "precision": 0.7272727272727273,
+          "recall": 0.7272727272727273,
+          "f1": 0.7272727272727273
+        },
+        "mel": {
+          "support": 107,
+          "predicted_count": 128,
+          "precision": 0.515625,
+          "recall": 0.616822429906542,
+          "f1": 0.5617021276595745
+        },
+        "nv": {
+          "support": 676,
+          "predicted_count": 666,
+          "precision": 0.9204204204204204,
+          "recall": 0.9068047337278107,
+          "f1": 0.9135618479880775
+        },
+        "vasc": {
+          "support": 18,
+          "predicted_count": 25,
+          "precision": 0.6,
+          "recall": 0.8333333333333334,
+          "f1": 0.6976744186046512
+        }
+      },
+      "confusion_matrix": [
+        [
+          14,
+          4,
+          11,
+          0,
+          4,
+          7,
+          0
+        ],
+        [
+          0,
+          44,
+          6,
+          1,
+          1,
+          4,
+          2
+        ],
+        [
+          4,
+          3,
+          66,
+          0,
+          18,
+          13,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          8,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          11,
+          0,
+          66,
+          26,
+          4
+        ],
+        [
+          0,
+          4,
+          15,
+          1,
+          39,
+          613,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          2,
+          15
+        ]
+      ],
+      "loss": 0.07325406561383364,
+      "selected_epoch": 6,
+      "checkpoint_sha256": "c09e2d6b77891a1fcf8b9e7b8aa2f702a4407c84c5bd8798ae189f1f15357b73",
+      "checkpoint_selection_metric": "validation_loss_minimize",
+      "evaluation_partition": "frozen HAM10000 test after checkpoint freeze; evaluation only"
+    },
+    "experiment_5": {
+      "sample_count": 1014,
+      "class_order": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "accuracy": 0.8333333333333334,
+      "macro_f1": 0.6994137562271027,
+      "balanced_accuracy": 0.6939402214390439,
+      "per_class": {
+        "akiec": {
+          "support": 40,
+          "predicted_count": 45,
+          "precision": 0.6,
+          "recall": 0.675,
+          "f1": 0.6352941176470589
+        },
+        "bcc": {
+          "support": 58,
+          "predicted_count": 53,
+          "precision": 0.8113207547169812,
+          "recall": 0.7413793103448276,
+          "f1": 0.7747747747747747
+        },
+        "bkl": {
+          "support": 104,
+          "predicted_count": 94,
+          "precision": 0.7021276595744681,
+          "recall": 0.6346153846153846,
+          "f1": 0.6666666666666666
+        },
+        "df": {
+          "support": 11,
+          "predicted_count": 9,
+          "precision": 0.6666666666666666,
+          "recall": 0.5454545454545454,
+          "f1": 0.6
+        },
+        "mel": {
+          "support": 107,
+          "predicted_count": 104,
+          "precision": 0.5673076923076923,
+          "recall": 0.5514018691588785,
+          "f1": 0.5592417061611374
+        },
+        "nv": {
+          "support": 676,
+          "predicted_count": 689,
+          "precision": 0.9143686502177069,
+          "recall": 0.9319526627218935,
+          "f1": 0.923076923076923
+        },
+        "vasc": {
+          "support": 18,
+          "predicted_count": 20,
+          "precision": 0.7,
+          "recall": 0.7777777777777778,
+          "f1": 0.7368421052631577
+        }
+      },
+      "confusion_matrix": [
+        [
+          27,
+          0,
+          8,
+          0,
+          1,
+          4,
+          0
+        ],
+        [
+          4,
+          43,
+          2,
+          1,
+          3,
+          4,
+          1
+        ],
+        [
+          10,
+          4,
+          66,
+          1,
+          13,
+          10,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          6,
+          0,
+          3,
+          0
+        ],
+        [
+          3,
+          1,
+          6,
+          0,
+          59,
+          34,
+          4
+        ],
+        [
+          1,
+          3,
+          12,
+          1,
+          28,
+          630,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          14
+        ]
+      ],
+      "loss": 0.06579390812859938,
+      "selected_epoch": 15,
+      "checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+      "checkpoint_selection_metric": "validation_threshold_constrained_min_loss",
+      "evaluation_partition": "frozen HAM10000 test after selected checkpoint; evaluation only"
+    }
+  },
+  "test_used_for_selection_or_tuning": false,
+  "ph2_accessed": false,
+  "baseline_test_source": "hash-verified uncertainty predictions; baseline test_metrics.json not substituted"
+}

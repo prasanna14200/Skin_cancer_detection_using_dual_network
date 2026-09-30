@@ -1,0 +1,43 @@
+{
+  "status": "COMPLETE",
+  "training_epochs": 25,
+  "eligible_epoch_count": 13,
+  "eligible_epochs": [
+    15,
+    14,
+    12,
+    16,
+    23,
+    22,
+    21,
+    19,
+    17,
+    25,
+    18,
+    20,
+    24
+  ],
+  "selected_epoch": 15,
+  "selected_validation_loss": 0.07589111880930122,
+  "selection_metric": "validation_threshold_constrained_min_loss",
+  "checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+  "criteria": {
+    "melanoma_f1_minimum": 0.5757731958762886,
+    "validation_macro_f1_minimum": 0.6316582381362074,
+    "nevus_recall_minimum": 0.9
+  },
+  "criterion_results": {
+    "melanoma_f1": true,
+    "macro_f1": true,
+    "nevus_recall": true
+  },
+  "test_evaluation_only": true,
+  "ph2_accessed": false,
+  "runtime": {
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "gpu": "Tesla T4",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39"
+  }
+}

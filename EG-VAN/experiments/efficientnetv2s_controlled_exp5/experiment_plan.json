@@ -1,0 +1,122 @@
+{
+  "experiment": "CONTROLLED EXPERIMENT #5",
+  "status": "PLANNED_NOT_RUN",
+  "hypothesis": "A validation-threshold-constrained minimum-loss checkpoint rule may retain a checkpoint that satisfies the prespecified melanoma F1, macro-F1, and nevus-recall criteria when global minimum validation loss selects an ineligible epoch. This tests checkpoint selection only; it does not establish that the alternative rule improves generalization.",
+  "experiment_4_provenance": {
+    "checkpoint_sha256": "c09e2d6b77891a1fcf8b9e7b8aa2f702a4407c84c5bd8798ae189f1f15357b73",
+    "selected_epoch": 6,
+    "selection_rule": "validation_loss_minimize",
+    "selected_validation_loss": 0.06999672452104987,
+    "selected_validation_metrics": {
+      "melanoma_precision": 0.4954954954954955,
+      "melanoma_recall": 0.514018691588785,
+      "melanoma_f1": 0.5045871559633027,
+      "validation_macro_f1": 0.6639006401314421,
+      "nevus_recall": 0.9034690799396682,
+      "accuracy": 0.795131845841785
+    },
+    "validation_history_observation": {
+      "epochs_meeting_all_three_frozen_criteria": 13,
+      "example_epoch": 12,
+      "example_validation_loss": 0.07768992365490925,
+      "example_melanoma_f1": 0.6130653266331658,
+      "example_macro_f1": 0.6561872256573205,
+      "example_nevus_recall": 0.9457013574660633,
+      "example_checkpoint_was_selected_in_exp4": false
+    }
+  },
+  "single_intervention": {
+    "configuration_path": "checkpoint_selection_metric",
+    "experiment_4_value": "validation_loss_minimize",
+    "experiment_5_value": "validation_threshold_constrained_min_loss",
+    "rule": [
+      "After each HAM10000 validation epoch, calculate melanoma F1, macro-F1, nevus recall, and validation loss.",
+      "An epoch is eligible only when all three frozen success thresholds pass.",
+      "Among eligible epochs, retain the checkpoint with the lowest validation loss.",
+      "On an exact validation-loss tie, retain the earlier epoch.",
+      "If no epoch is eligible after all 25 epochs, mark FAIL_NO_ELIGIBLE_CHECKPOINT, retain the complete training/validation history and empty eligible-epoch record, and do not run test evaluation or claim a successful checkpoint."
+    ],
+    "checkpoint_load_policy": "After training, load only the selected eligible Experiment #5 checkpoint for final validation and test evaluation. No prior experiment checkpoint initializes training."
+  },
+  "configuration_difference_audit": [
+    {
+      "path": "checkpoint_selection_metric",
+      "experiment_4": "validation_loss_minimize",
+      "experiment_5": "validation_threshold_constrained_min_loss",
+      "intentional": true
+    }
+  ],
+  "frozen_configuration": {
+    "model": "EfficientNetV2S",
+    "pretrained_weight_source": "torchvision EfficientNet_V2_S_Weights.DEFAULT",
+    "initialization": "same fresh pretrained initialization policy as Experiment #4; do not initialize from baseline or Experiments #1-#4",
+    "split_csv": "data/splits/split_leakage_aware.csv",
+    "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "image_size": 384,
+    "batch_size": 16,
+    "epochs": 25,
+    "optimizer": {
+      "name": "Adamax",
+      "learning_rate": 0.001,
+      "betas": [0.9, 0.999],
+      "eps": 1e-8,
+      "weight_decay": 0.0001
+    },
+    "scheduler": {"name": "ReduceLROnPlateau", "mode": "min", "factor": 0.5, "patience": 1},
+    "seed": 42,
+    "focal_loss": {"name": "focal_loss", "alpha": 0.25, "gamma": 2.0, "class_specific_loss_weights": false},
+    "sampler": {
+      "name": "WeightedRandomSampler",
+      "melanoma_weight": 1.5630495442733532,
+      "non_melanoma_weight": 1.0,
+      "formula": "(5366 / 899)^(1/4) for melanoma; 1.0 otherwise",
+      "labels_from": "frozen TRAIN rows only",
+      "seed": 42,
+      "replacement": true,
+      "num_samples": 8015
+    },
+    "class_order": ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"],
+    "preprocessing": "same processed HAM10000 images and transforms as Experiment #4",
+    "training_augmentation": ["Resize(384, 384)", "RandomHorizontalFlip", "RandomVerticalFlip", "RandomRotation(15)", "ToTensor", "ImageNet normalization"],
+    "validation_test_preprocessing": ["Resize(384, 384)", "ToTensor", "ImageNet normalization"],
+    "validation_test_loaders": "unweighted sequential",
+    "prediction_rule": "argmax",
+    "test_policy": "Test evaluation occurs only after eligible checkpoint selection and is evaluation only; never used for selection or tuning."
+  },
+  "success_criteria": {
+    "all_required": true,
+    "melanoma_f1": {"minimum": 0.5757731958762886},
+    "validation_macro_f1": {"minimum": 0.6316582381362074},
+    "nevus_recall": {"minimum": 0.9},
+    "evaluation_partition": "HAM10000 validation only",
+    "all_required_at_selected_eligible_checkpoint": true,
+    "must_not_be_changed_after_results": true
+  },
+  "ph2_policy": {
+    "allowed_during_development": false,
+    "allowed_for_training_or_sampling": false,
+    "allowed_for_checkpoint_or_hyperparameter_selection": false,
+    "allowed_for_threshold_tuning": false,
+    "external_evaluation": "Only after Experiment #5 is finalized and separately approved."
+  },
+  "expected_generated_artifacts": [
+    "best_checkpoint.pt (only if at least one eligible epoch exists)",
+    "config.json",
+    "training_history.json",
+    "eligible_epochs.json",
+    "validation_metrics.json (only if an eligible checkpoint exists)",
+    "validation_predictions.csv (only if an eligible checkpoint exists)",
+    "test_metrics.json (only after eligible checkpoint is selected)",
+    "test_predictions.csv (only after eligible checkpoint is selected)",
+    "comparison_metrics.json",
+    "experiment_manifest.json",
+    "controlled_exp5_final_report.md"
+  ],
+  "execution_policy": {
+    "training_requires_explicit_flag": "--train",
+    "preflight_only_flag": "--preflight-only",
+    "approved_training_runtime": "Google Colab with CUDA Tesla T4",
+    "local_training": false,
+    "ph2_inference": false
+  }
+}

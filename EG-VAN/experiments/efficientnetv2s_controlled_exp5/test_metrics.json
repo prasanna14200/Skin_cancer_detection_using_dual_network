@@ -1,0 +1,136 @@
+{
+  "sample_count": 1014,
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "accuracy": 0.8333333333333334,
+  "macro_f1": 0.6994137562271027,
+  "balanced_accuracy": 0.6939402214390439,
+  "per_class": {
+    "akiec": {
+      "support": 40,
+      "predicted_count": 45,
+      "precision": 0.6,
+      "recall": 0.675,
+      "f1": 0.6352941176470589
+    },
+    "bcc": {
+      "support": 58,
+      "predicted_count": 53,
+      "precision": 0.8113207547169812,
+      "recall": 0.7413793103448276,
+      "f1": 0.7747747747747747
+    },
+    "bkl": {
+      "support": 104,
+      "predicted_count": 94,
+      "precision": 0.7021276595744681,
+      "recall": 0.6346153846153846,
+      "f1": 0.6666666666666666
+    },
+    "df": {
+      "support": 11,
+      "predicted_count": 9,
+      "precision": 0.6666666666666666,
+      "recall": 0.5454545454545454,
+      "f1": 0.6
+    },
+    "mel": {
+      "support": 107,
+      "predicted_count": 104,
+      "precision": 0.5673076923076923,
+      "recall": 0.5514018691588785,
+      "f1": 0.5592417061611374
+    },
+    "nv": {
+      "support": 676,
+      "predicted_count": 689,
+      "precision": 0.9143686502177069,
+      "recall": 0.9319526627218935,
+      "f1": 0.923076923076923
+    },
+    "vasc": {
+      "support": 18,
+      "predicted_count": 20,
+      "precision": 0.7,
+      "recall": 0.7777777777777778,
+      "f1": 0.7368421052631577
+    }
+  },
+  "confusion_matrix": [
+    [
+      27,
+      0,
+      8,
+      0,
+      1,
+      4,
+      0
+    ],
+    [
+      4,
+      43,
+      2,
+      1,
+      3,
+      4,
+      1
+    ],
+    [
+      10,
+      4,
+      66,
+      1,
+      13,
+      10,
+      0
+    ],
+    [
+      0,
+      2,
+      0,
+      6,
+      0,
+      3,
+      0
+    ],
+    [
+      3,
+      1,
+      6,
+      0,
+      59,
+      34,
+      4
+    ],
+    [
+      1,
+      3,
+      12,
+      1,
+      28,
+      630,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      14
+    ]
+  ],
+  "loss": 0.06579390812859938,
+  "selected_epoch": 15,
+  "checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+  "checkpoint_selection_metric": "validation_threshold_constrained_min_loss",
+  "evaluation_partition": "frozen HAM10000 test after selected checkpoint; evaluation only"
+}

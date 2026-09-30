@@ -1,0 +1,100 @@
+{
+  "experiment": "CONTROLLED EXPERIMENT #4",
+  "status": "PLANNED_NOT_RUN",
+  "hypothesis": "Adding modest Adamax L2-style weight decay may reduce the train/validation loss divergence observed in Experiment #3 and improve generalization at the minimum-validation-loss checkpoint. This is a hypothesis, not an established causal claim.",
+  "observation": "Experiment #3 training loss continued decreasing after its selected checkpoint while validation loss generally increased. The selected checkpoint remains epoch 6 by minimum validation loss; later epochs will not be selected post hoc by melanoma F1.",
+  "risk": "Regularization may cause underfitting or further reduce melanoma recall.",
+  "experiment_3_provenance": {
+    "checkpoint_sha256": "8615a9f5afad48c17c21b559aeab01e5e506fa3cbce3f544eed14b47b53377b9",
+    "selected_epoch": 6,
+    "selection_rule": "minimum validation loss",
+    "validation_loss": 0.07522968407795891,
+    "validation_metrics": {
+      "melanoma_precision": 0.6,
+      "melanoma_recall": 0.3925233644859813,
+      "melanoma_f1": 0.4745762711864407,
+      "nevus_recall": 0.9336349924585219,
+      "macro_f1": 0.7049808138006471,
+      "accuracy": 0.8204868154158215
+    },
+    "result": "FAIL: melanoma F1 below the frozen threshold; macro-F1 and nevus recall passed."
+  },
+  "intervention": {
+    "single_primary_change_from_experiment_3": "Set Adamax weight_decay to 0.0001. No other optimizer, sampler, loss, model, data, or selection setting changes.",
+    "previous_weight_decay": 0.0,
+    "new_weight_decay": 0.0001,
+    "parameter_path": "optimizer.weight_decay"
+  },
+  "configuration_difference_audit": [
+    {
+      "path": "optimizer.weight_decay",
+      "experiment_3": 0.0,
+      "experiment_4": 0.0001,
+      "intentional": true
+    }
+  ],
+  "frozen_configuration": {
+    "model": "EfficientNetV2S",
+    "pretrained_weight_source": "torchvision EfficientNet_V2_S_Weights.DEFAULT",
+    "initialization": "same pretrained initialization policy as Experiment #3; do not load baseline or Experiments #1/#2/#3 checkpoints",
+    "split_csv": "data/splits/split_leakage_aware.csv",
+    "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "image_size": 384,
+    "batch_size": 16,
+    "epochs": 25,
+    "optimizer": "Adamax",
+    "learning_rate": 0.001,
+    "optimizer_betas": [0.9, 0.999],
+    "optimizer_eps": 1e-8,
+    "optimizer_weight_decay": 0.0001,
+    "scheduler": {"name": "ReduceLROnPlateau", "mode": "min", "factor": 0.5, "patience": 1},
+    "seed": 42,
+    "focal_loss": {"name": "focal_loss", "alpha": 0.25, "gamma": 2.0, "class_specific_loss_weights": false},
+    "sampler": {
+      "name": "WeightedRandomSampler",
+      "melanoma_weight": 1.5630495442733532,
+      "non_melanoma_weight": 1.0,
+      "formula": "(5366 / 899)^(1/4) for melanoma; 1.0 otherwise",
+      "labels_from": "frozen TRAIN rows only",
+      "seed": 42,
+      "replacement": true,
+      "num_samples": 8015
+    },
+    "class_order": ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"],
+    "checkpoint_selection": {"metric": "validation_loss", "direction": "minimize", "data": "frozen HAM10000 validation split only"},
+    "prediction_rule": "argmax",
+    "validation_test_sampling": "unweighted sequential loaders",
+    "training_augmentation": ["Resize(384, 384)", "RandomHorizontalFlip", "RandomVerticalFlip", "RandomRotation(15)", "ToTensor", "ImageNet normalization"],
+    "validation_test_preprocessing": ["Resize(384, 384)", "ToTensor", "ImageNet normalization"]
+  },
+  "success_criteria": {
+    "all_required": true,
+    "melanoma_f1": {"minimum": 0.5757731958762886},
+    "validation_macro_f1": {"minimum": 0.6316582381362074},
+    "nevus_recall": {"minimum": 0.9},
+    "evaluation_partition": "HAM10000 validation only",
+    "all_required_at_minimum_validation_loss_checkpoint": true,
+    "must_not_be_changed_after_results": true
+  },
+  "ph2_policy": {
+    "allowed_during_development": false,
+    "allowed_for_training_or_sampling": false,
+    "allowed_for_checkpoint_or_hyperparameter_selection": false,
+    "allowed_for_threshold_tuning": false,
+    "external_evaluation": "Only after Experiment #4 is finalized and separately approved."
+  },
+  "test_policy": "Test results are evaluation only and must not affect checkpoint selection or tuning.",
+  "expected_generated_artifacts": [
+    "best_checkpoint.pt", "config.json", "training_history.json", "validation_metrics.json",
+    "validation_predictions.csv", "test_metrics.json", "test_predictions.csv",
+    "comparison_metrics.json", "experiment_manifest.json", "controlled_exp4_final_report.md"
+  ],
+  "execution_policy": {
+    "training_requires_explicit_flag": "--train",
+    "preflight_only_flag": "--preflight-only",
+    "offline_recovery_flag": "--finalize-existing",
+    "approved_training_runtime": "Google Colab with CUDA Tesla T4",
+    "local_training": false,
+    "ph2_inference": false
+  }
+}

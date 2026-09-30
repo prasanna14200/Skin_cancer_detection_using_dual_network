@@ -1,0 +1,136 @@
+{
+  "sample_count": 986,
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "accuracy": 0.8275862068965517,
+  "macro_f1": 0.6684078504869617,
+  "balanced_accuracy": 0.6652635950469167,
+  "per_class": {
+    "akiec": {
+      "support": 30,
+      "predicted_count": 29,
+      "precision": 0.5517241379310345,
+      "recall": 0.5333333333333333,
+      "f1": 0.5423728813559322
+    },
+    "bcc": {
+      "support": 58,
+      "predicted_count": 53,
+      "precision": 0.7169811320754716,
+      "recall": 0.6551724137931034,
+      "f1": 0.6846846846846846
+    },
+    "bkl": {
+      "support": 104,
+      "predicted_count": 89,
+      "precision": 0.7191011235955056,
+      "recall": 0.6153846153846154,
+      "f1": 0.6632124352331606
+    },
+    "df": {
+      "support": 9,
+      "predicted_count": 10,
+      "precision": 0.5,
+      "recall": 0.5555555555555556,
+      "f1": 0.5263157894736842
+    },
+    "mel": {
+      "support": 107,
+      "predicted_count": 94,
+      "precision": 0.6382978723404256,
+      "recall": 0.5607476635514018,
+      "f1": 0.5970149253731344
+    },
+    "nv": {
+      "support": 663,
+      "predicted_count": 694,
+      "precision": 0.8948126801152738,
+      "recall": 0.9366515837104072,
+      "f1": 0.9152542372881356
+    },
+    "vasc": {
+      "support": 15,
+      "predicted_count": 17,
+      "precision": 0.7058823529411765,
+      "recall": 0.8,
+      "f1": 0.7500000000000001
+    }
+  },
+  "confusion_matrix": [
+    [
+      16,
+      2,
+      7,
+      0,
+      2,
+      3,
+      0
+    ],
+    [
+      3,
+      38,
+      3,
+      0,
+      0,
+      14,
+      0
+    ],
+    [
+      4,
+      6,
+      64,
+      4,
+      8,
+      18,
+      0
+    ],
+    [
+      1,
+      2,
+      0,
+      5,
+      0,
+      1,
+      0
+    ],
+    [
+      2,
+      2,
+      5,
+      1,
+      60,
+      34,
+      3
+    ],
+    [
+      3,
+      3,
+      10,
+      0,
+      24,
+      621,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      12
+    ]
+  ],
+  "loss": 0.07589111880930122,
+  "selected_epoch": 15,
+  "checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+  "checkpoint_selection_metric": "validation_threshold_constrained_min_loss",
+  "selection_validation_loss": 0.07589111880930122
+}

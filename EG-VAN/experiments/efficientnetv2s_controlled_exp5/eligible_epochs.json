@@ -1,0 +1,195 @@
+{
+  "selection_rule": "validation_threshold_constrained_min_loss",
+  "criteria": {
+    "melanoma_f1_minimum": 0.5757731958762886,
+    "validation_macro_f1_minimum": 0.6316582381362074,
+    "nevus_recall_minimum": 0.9
+  },
+  "eligible_epochs": [
+    {
+      "epoch": 15,
+      "validation_loss": 0.07589111880930122,
+      "melanoma_precision": 0.6382978723404256,
+      "melanoma_recall": 0.5607476635514018,
+      "melanoma_f1": 0.5970149253731344,
+      "macro_f1": 0.6684078504869617,
+      "nevus_recall": 0.9366515837104072,
+      "criterion_results": {
+        "melanoma_f1": true,
+        "macro_f1": true,
+        "nevus_recall": true
+      }
+    },
+    {
+      "epoch": 14,
+      "validation_loss": 0.0775161171643702,
+      "melanoma_precision": 0.6744186046511628,
+      "melanoma_recall": 0.5420560747663551,
+      "melanoma_f1": 0.6010362694300517,
+      "macro_f1": 0.6709876655642739,
+      "nevus_recall": 0.942684766214178,
+      "criterion_results": {
+        "melanoma_f1": true,
+        "macro_f1": true,
+        "nevus_recall": true
+      }
+    },
+    {
+      "epoch": 12,
+      "validation_loss": 0.07768992365490925,
+      "melanoma_precision": 0.6630434782608695,
+      "melanoma_recall": 0.5700934579439252,
+      "melanoma_f1": 0.6130653266331658,
+      "macro_f1": 0.6561872256573205,
+      "nevus_recall": 0.9457013574660633,
+      "criterion_results": {
+        "melanoma_f1": true,
+        "macro_f1": true,
+        "nevus_recall": true
+      }
+    },
+    {
+      "epoch": 16,
+      "validation_loss": 0.07929579155901201,
+      "melanoma_precision": 0.6511627906976745,
+      "melanoma_recall": 0.5233644859813084,
+      "melanoma_f1": 0.5803108808290156,
+      "macro_f1": 0.6423576189286055,
+      "nevus_recall": 0.942684766214178,
+      "criterion_results": {
+        "melanoma_f1": true,
+        "macro_f1": true,
+        "nevus_recall": true
+      }
+    },
+    {
+      "epoch": 23,
+      "validation_loss": 0.08013176369342885,
+      "melanoma_precision": 0.6741573033707865,
+      "melanoma_recall": 0.5607476635514018,
+      "melanoma_f1": 0.6122448979591836,
+      "macro_f1": 0.6619107399304504,
+      "nevus_recall": 0.9457013574660633,
+      "criterion_results": {
+        "melanoma_f1": true,
+        "macro_f1": true,
+        "nevus_recall": true
+      }
+    },
+    {
+      "epoch": 22,
+      "validation_loss": 0.080296878242,
+      "melanoma_precision": 0.6483516483516484,
+      "melanoma_recall": 0.5514018691588785,
+      "melanoma_f1": 0.5959595959595959,
+      "macro_f1": 0.6612452968619228,
+      "nevus_recall": 0.9366515837104072,
+      "criterion_results": {
+        "melanoma_f1": true,
+        "macro_f1": true,
+        "nevus_recall": true
+      }
+    },
+    {
+      "epoch": 21,
+      "validation_loss": 0.08065228571862164,
+      "melanoma_precision": 0.6413043478260869,
+      "melanoma_recall": 0.5514018691588785,
+      "melanoma_f1": 0.5929648241206029,
+      "macro_f1": 0.6609192917659447,
+      "nevus_recall": 0.9411764705882353,
+      "criterion_results": {
+        "melanoma_f1": true,
+        "macro_f1": true,
+        "nevus_recall": true
+      }
+    },
+    {
+      "epoch": 19,
+      "validation_loss": 0.08084533737148734,
+      "melanoma_precision": 0.6373626373626373,
+      "melanoma_recall": 0.5420560747663551,
+      "melanoma_f1": 0.5858585858585859,
+      "macro_f1": 0.6518623250154795,
+      "nevus_recall": 0.9441930618401206,
+      "criterion_results": {
+        "melanoma_f1": true,
+        "macro_f1": true,
+        "nevus_recall": true
+      }
+    },
+    {
+      "epoch": 17,
+      "validation_loss": 0.08106009306718594,
+      "melanoma_precision": 0.6593406593406593,
+      "melanoma_recall": 0.5607476635514018,
+      "melanoma_f1": 0.6060606060606061,
+      "macro_f1": 0.6415124528734438,
+      "nevus_recall": 0.9457013574660633,
+      "criterion_results": {
+        "melanoma_f1": true,
+        "macro_f1": true,
+        "nevus_recall": true
+      }
+    },
+    {
+      "epoch": 25,
+      "validation_loss": 0.0813475893045309,
+      "melanoma_precision": 0.6276595744680851,
+      "melanoma_recall": 0.5514018691588785,
+      "melanoma_f1": 0.5870646766169154,
+      "macro_f1": 0.6506582109488918,
+      "nevus_recall": 0.9366515837104072,
+      "criterion_results": {
+        "melanoma_f1": true,
+        "macro_f1": true,
+        "nevus_recall": true
+      }
+    },
+    {
+      "epoch": 18,
+      "validation_loss": 0.08227477390574137,
+      "melanoma_precision": 0.6551724137931034,
+      "melanoma_recall": 0.5327102803738317,
+      "melanoma_f1": 0.5876288659793815,
+      "macro_f1": 0.6520568403031869,
+      "nevus_recall": 0.9532428355957768,
+      "criterion_results": {
+        "melanoma_f1": true,
+        "macro_f1": true,
+        "nevus_recall": true
+      }
+    },
+    {
+      "epoch": 20,
+      "validation_loss": 0.08236714810393675,
+      "melanoma_precision": 0.6790123456790124,
+      "melanoma_recall": 0.514018691588785,
+      "melanoma_f1": 0.5851063829787234,
+      "macro_f1": 0.6430377295617709,
+      "nevus_recall": 0.947209653092006,
+      "criterion_results": {
+        "melanoma_f1": true,
+        "macro_f1": true,
+        "nevus_recall": true
+      }
+    },
+    {
+      "epoch": 24,
+      "validation_loss": 0.0836375960579584,
+      "melanoma_precision": 0.6835443037974683,
+      "melanoma_recall": 0.5046728971962616,
+      "melanoma_f1": 0.5806451612903225,
+      "macro_f1": 0.6371623647761399,
+      "nevus_recall": 0.9577677224736049,
+      "criterion_results": {
+        "melanoma_f1": true,
+        "macro_f1": true,
+        "nevus_recall": true
+      }
+    }
+  ],
+  "selected_epoch": 15,
+  "selected_validation_loss": 0.07589111880930122,
+  "failure_if_empty": "FAIL_NO_ELIGIBLE_CHECKPOINT; no checkpoint is claimed and test inference is skipped"
+}
