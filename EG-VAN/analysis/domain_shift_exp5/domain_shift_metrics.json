@@ -1,0 +1,341 @@
+{
+  "checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "ham_cohort": {
+    "n": 783,
+    "nv": 676,
+    "mel": 107
+  },
+  "ph2_cohort": {
+    "n": 120,
+    "nv": 80,
+    "mel": 40
+  },
+  "overlap_metrics": {
+    "HAM10000_internal_test_nv_mel_only": {
+      "n": 783,
+      "correct": 689,
+      "accuracy": 0.879948914431673,
+      "balanced_accuracy": 0.741677265940386,
+      "nv_recall": 0.9319526627218935,
+      "mel_recall": 0.5514018691588785,
+      "nv_precision": 0.9487951807228916,
+      "mel_precision": 0.6781609195402298,
+      "mel_f1": 0.6082474226804123,
+      "prediction_distribution": {
+        "akiec": 4,
+        "bcc": 4,
+        "bkl": 18,
+        "df": 1,
+        "mel": 87,
+        "nv": 664,
+        "vasc": 5
+      },
+      "confusion_matrix": [
+        [
+          630,
+          28,
+          18
+        ],
+        [
+          34,
+          59,
+          14
+        ]
+      ]
+    },
+    "PH2_followup": {
+      "n": 120,
+      "correct": 75,
+      "accuracy": 0.625,
+      "balanced_accuracy": 0.54375,
+      "nv_recall": 0.7875,
+      "mel_recall": 0.3,
+      "nv_precision": 0.8076923076923077,
+      "mel_precision": 0.6,
+      "mel_f1": 0.4,
+      "prediction_distribution": {
+        "akiec": 0,
+        "bcc": 0,
+        "bkl": 20,
+        "df": 1,
+        "mel": 20,
+        "nv": 78,
+        "vasc": 1
+      },
+      "confusion_matrix": [
+        [
+          63,
+          8,
+          9
+        ],
+        [
+          15,
+          12,
+          13
+        ]
+      ]
+    }
+  },
+  "feature_comparison": {
+    "strata": [
+      "all",
+      "nv",
+      "mel"
+    ],
+    "effect_size": "standardized mean difference (HAM minus PH2; descriptive; native geometry excluded because HAM has zero within-cohort dimension variance)",
+    "native_geometry_summary": {
+      "HAM10000": {
+        "all": {
+          "native_aspect_ratio": {
+            "n": 783,
+            "mean": 1.3333333333333466,
+            "median": 1.3333333333333333,
+            "min": 1.3333333333333333,
+            "max": 1.3333333333333333,
+            "q1": 1.3333333333333333,
+            "q3": 1.3333333333333333
+          },
+          "native_height": {
+            "n": 783,
+            "mean": 450.0,
+            "median": 450.0,
+            "min": 450.0,
+            "max": 450.0,
+            "q1": 450.0,
+            "q3": 450.0
+          },
+          "native_width": {
+            "n": 783,
+            "mean": 600.0,
+            "median": 600.0,
+            "min": 600.0,
+            "max": 600.0,
+            "q1": 600.0,
+            "q3": 600.0
+          }
+        },
+        "nv": {
+          "native_aspect_ratio": {
+            "n": 676,
+            "mean": 1.3333333333333452,
+            "median": 1.3333333333333333,
+            "min": 1.3333333333333333,
+            "max": 1.3333333333333333,
+            "q1": 1.3333333333333333,
+            "q3": 1.3333333333333333
+          },
+          "native_height": {
+            "n": 676,
+            "mean": 450.0,
+            "median": 450.0,
+            "min": 450.0,
+            "max": 450.0,
+            "q1": 450.0,
+            "q3": 450.0
+          },
+          "native_width": {
+            "n": 676,
+            "mean": 600.0,
+            "median": 600.0,
+            "min": 600.0,
+            "max": 600.0,
+            "q1": 600.0,
+            "q3": 600.0
+          }
+        },
+        "mel": {
+          "native_aspect_ratio": {
+            "n": 107,
+            "mean": 1.3333333333333324,
+            "median": 1.3333333333333333,
+            "min": 1.3333333333333333,
+            "max": 1.3333333333333333,
+            "q1": 1.3333333333333333,
+            "q3": 1.3333333333333333
+          },
+          "native_height": {
+            "n": 107,
+            "mean": 450.0,
+            "median": 450.0,
+            "min": 450.0,
+            "max": 450.0,
+            "q1": 450.0,
+            "q3": 450.0
+          },
+          "native_width": {
+            "n": 107,
+            "mean": 600.0,
+            "median": 600.0,
+            "min": 600.0,
+            "max": 600.0,
+            "q1": 600.0,
+            "q3": 600.0
+          }
+        }
+      },
+      "PH2": {
+        "all": {
+          "native_aspect_ratio": {
+            "n": 120,
+            "mean": 1.3318431757825844,
+            "median": 1.3315972222222223,
+            "min": 1.3257839721254356,
+            "max": 1.3379790940766552,
+            "q1": 1.3315972222222223,
+            "q3": 1.3333333333333333
+          },
+          "native_height": {
+            "n": 120,
+            "mean": 575.5,
+            "median": 576.0,
+            "min": 572.0,
+            "max": 577.0,
+            "q1": 575.0,
+            "q3": 576.0
+          },
+          "native_width": {
+            "n": 120,
+            "mean": 766.475,
+            "median": 767.0,
+            "min": 761.0,
+            "max": 769.0,
+            "q1": 765.0,
+            "q3": 767.0
+          }
+        },
+        "nv": {
+          "native_aspect_ratio": {
+            "n": 80,
+            "mean": 1.331800278468559,
+            "median": 1.3315972222222223,
+            "min": 1.3257839721254356,
+            "max": 1.3379790940766552,
+            "q1": 1.3315972222222223,
+            "q3": 1.3327533680758943
+          },
+          "native_height": {
+            "n": 80,
+            "mean": 575.3125,
+            "median": 576.0,
+            "min": 572.0,
+            "max": 577.0,
+            "q1": 575.0,
+            "q3": 576.0
+          },
+          "native_width": {
+            "n": 80,
+            "mean": 766.2,
+            "median": 767.0,
+            "min": 761.0,
+            "max": 769.0,
+            "q1": 765.0,
+            "q3": 767.0
+          }
+        },
+        "mel": {
+          "native_aspect_ratio": {
+            "n": 40,
+            "mean": 1.3319289704106285,
+            "median": 1.3315972222222223,
+            "min": 1.3263888888888888,
+            "max": 1.3333333333333333,
+            "q1": 1.3315972222222223,
+            "q3": 1.3333333333333333
+          },
+          "native_height": {
+            "n": 40,
+            "mean": 575.875,
+            "median": 576.0,
+            "min": 575.0,
+            "max": 576.0,
+            "q1": 576.0,
+            "q3": 576.0
+          },
+          "native_width": {
+            "n": 40,
+            "mean": 767.025,
+            "median": 767.0,
+            "min": 764.0,
+            "max": 768.0,
+            "q1": 767.0,
+            "q3": 768.0
+          }
+        }
+      }
+    },
+    "largest_absolute_smd_matched_input_appearance_only": [
+      {
+        "stratum": "mel",
+        "feature": "rgb_mean_b",
+        "smd_ham_minus_ph2": -2.228855135373098,
+        "ham_mean": 59.22665427456516,
+        "ph2_mean": 108.01739145914715
+      },
+      {
+        "stratum": "mel",
+        "feature": "rgb_mean_g",
+        "smd_ham_minus_ph2": -1.8311683762138373,
+        "ham_mean": 57.65747108340634,
+        "ph2_mean": 100.47093963623047
+      },
+      {
+        "stratum": "mel",
+        "feature": "brightness",
+        "smd_ham_minus_ph2": -1.6664156927754914,
+        "ham_mean": 57.10472086335021,
+        "ph2_mean": 94.69393497043185
+      },
+      {
+        "stratum": "mel",
+        "feature": "dark_pixel_ratio",
+        "smd_ham_minus_ph2": 1.2184101323684426,
+        "ham_mean": 0.4099949473284983,
+        "ph2_mean": 0.1047093709309896
+      },
+      {
+        "stratum": "nv",
+        "feature": "saturation",
+        "smd_ham_minus_ph2": -1.1534138955279087,
+        "ham_mean": 0.36359808214982836,
+        "ph2_mean": 0.45585521789417804
+      },
+      {
+        "stratum": "mel",
+        "feature": "rgb_mean_r",
+        "smd_ham_minus_ph2": -0.9994882090159111,
+        "ham_mean": 55.22408610786604,
+        "ph2_mean": 78.27368537055122
+      },
+      {
+        "stratum": "mel",
+        "feature": "sharpness",
+        "smd_ham_minus_ph2": -0.9822102451750038,
+        "ham_mean": 159.95072473368717,
+        "ph2_mean": 273.3536004151816
+      },
+      {
+        "stratum": "mel",
+        "feature": "illumination_variation",
+        "smd_ham_minus_ph2": 0.9695290649814823,
+        "ham_mean": 0.9367730874726198,
+        "ph2_mean": 0.48656110116043527
+      },
+      {
+        "stratum": "nv",
+        "feature": "rgb_mean_r",
+        "smd_ham_minus_ph2": 0.836860436212961,
+        "ham_mean": 58.18596524270564,
+        "ph2_mean": 38.982789272732205
+      },
+      {
+        "stratum": "mel",
+        "feature": "entropy",
+        "smd_ham_minus_ph2": -0.8352676682804023,
+        "ham_mean": 6.695541271354213,
+        "ph2_mean": 7.337880545366721
+      }
+    ]
+  },
+  "interpretation_guard": "Descriptive associations only; no feature is identified as causal."
+}
