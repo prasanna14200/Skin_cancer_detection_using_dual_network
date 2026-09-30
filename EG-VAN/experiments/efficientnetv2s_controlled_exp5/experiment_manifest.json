@@ -17,6 +17,7 @@
     20,
     24
   ],
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
   "selected_epoch": 15,
   "selected_validation_loss": 0.07589111880930122,
   "selection_metric": "validation_threshold_constrained_min_loss",

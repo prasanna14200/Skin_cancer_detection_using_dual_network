@@ -1,0 +1,70 @@
+{
+  "model_status": "FROZEN_INTERNAL_NOT_EXTERNALLY_VALIDATED",
+  "model_name": "HAM10000 internal EfficientNetV2S selected model",
+  "source_experiment": "efficientnetv2s_controlled_exp5",
+  "source_checkpoint_path": "experiments/efficientnetv2s_controlled_exp5/best_checkpoint.pt",
+  "checkpoint_copied": false,
+  "checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+  "selected_epoch": 15,
+  "selection_rule": "validation_threshold_constrained_min_loss",
+  "eligible_epoch_count": 13,
+  "selected_validation_loss": 0.07589111880930122,
+  "dataset": "HAM10000",
+  "split_path": "data/splits/split_leakage_aware.csv",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "class_order": ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"],
+  "model_architecture": "torchvision EfficientNetV2S with seven-class linear classifier",
+  "pretrained_initialization": "torchvision EfficientNet_V2_S_Weights.DEFAULT; selected training checkpoint loaded only for final selection/evaluation",
+  "preprocessing": {
+    "processed_ham_pipeline": ["hair removal", "Gray World color balancing", "multi-scale Retinex"],
+    "model_transform": ["Resize(384, 384)", "ToTensor", "ImageNet normalization"],
+    "evaluation_augmentation": "none"
+  },
+  "training_sampler": {
+    "name": "WeightedRandomSampler",
+    "formula": "(5366 / 899)^(1/4) for melanoma; 1.0 otherwise",
+    "melanoma_weight": 1.5630495442733532,
+    "non_melanoma_weight": 1.0,
+    "replacement": true,
+    "num_samples": 8015,
+    "seed": 42,
+    "label_source": "frozen TRAIN rows only"
+  },
+  "optimizer": {
+    "name": "Adamax",
+    "learning_rate": 0.001,
+    "betas": [0.9, 0.999],
+    "eps": 1e-8,
+    "weight_decay": 0.0001
+  },
+  "loss": {"name": "focal_loss", "alpha": 0.25, "gamma": 2.0, "class_specific_weights": false},
+  "scheduler": {"name": "ReduceLROnPlateau", "mode": "min", "factor": 0.5, "patience": 1},
+  "batch_size": 16,
+  "epoch_budget": 25,
+  "seed": 42,
+  "validation_metrics": {
+    "melanoma_precision": 0.6382978723404256,
+    "melanoma_recall": 0.5607476635514018,
+    "melanoma_f1": 0.5970149253731344,
+    "macro_f1": 0.6684078504869617,
+    "nevus_recall": 0.9366515837104072,
+    "accuracy": 0.8275862068965517
+  },
+  "frozen_success_criteria": {
+    "melanoma_f1_minimum": 0.5757731958762886,
+    "validation_macro_f1_minimum": 0.6316582381362074,
+    "nevus_recall_minimum": 0.9,
+    "all_pass": true
+  },
+  "test_metrics": {
+    "melanoma_f1": 0.5592417061611374,
+    "macro_f1": 0.6994137562271027,
+    "nevus_recall": 0.9319526627218935,
+    "accuracy": 0.8333333333333334,
+    "use": "evaluation only; not used for selection or tuning"
+  },
+  "ph2_external_validation": {"status": "NOT_RUN", "ph2_accessed_for_this_selection": false},
+  "clinical_generalization_claim": false,
+  "checkpoint_modified": false,
+  "frozen_split_modified": false
+}
