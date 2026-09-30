@@ -1,0 +1,68 @@
+{
+  "status": "COMPLETE",
+  "checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "selected_epoch": 15,
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "target_layer": "model.features[-1]",
+  "approved_case_ids": [
+    "ISIC_0024321",
+    "ISIC_0024322",
+    "ISIC_0024358",
+    "ISIC_0024402",
+    "ISIC_0024406",
+    "ISIC_0024411",
+    "ISIC_0024432",
+    "ISIC_0024449",
+    "ISIC_0024482",
+    "ISIC_0024573",
+    "ISIC_0024595",
+    "ISIC_0024620",
+    "ISIC_0024646",
+    "ISIC_0024760",
+    "ISIC_0024843",
+    "ISIC_0024898",
+    "ISIC_0025018",
+    "ISIC_0025275",
+    "ISIC_0025986",
+    "ISIC_0026301",
+    "ISIC_0026393",
+    "ISIC_0026675",
+    "ISIC_0028651",
+    "ISIC_0029130"
+  ],
+  "approved_case_count": 24,
+  "reproduction_tolerance": 0.0005,
+  "reproduction_maximum_probability_difference": 0.0004837512969970703,
+  "preprocessing": {
+    "source": "processed HAM10000 images only",
+    "transform": "train.py evaluation transform; Resize(384), ToTensor, ImageNet normalization",
+    "augmentation": "none"
+  },
+  "inference": {
+    "batch_size": 16,
+    "shuffle": false,
+    "model_eval": true,
+    "inference_mode": true,
+    "cuda_autocast": true,
+    "softmax": "torch.softmax(logits.float(), dim=1)"
+  },
+  "gradcam": {
+    "model_eval": true,
+    "gradients_enabled": true,
+    "method": "forward hook activation, activation gradient hook, spatial mean weights, weighted sum, ReLU, min-max normalization",
+    "same_true_predicted_target_reused": true
+  },
+  "runtime": "Python 3.13.15, PyTorch 2.11.0+cu128, torchvision 0.26.0+cu128, CUDA 12.8",
+  "gpu": "Tesla T4",
+  "ph2_accessed": false,
+  "training_or_finetuning": false
+}

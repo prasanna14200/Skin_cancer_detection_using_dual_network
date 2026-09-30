@@ -1,0 +1,39 @@
+{
+  "status": "COMPLETE",
+  "cases_requested": 24,
+  "cases_completed": 24,
+  "correct_cases": 14,
+  "incorrect_cases": 10,
+  "predicted_class_maps_written": 24,
+  "true_class_maps_written": 24,
+  "true_class_maps_reused": 14,
+  "distinct_true_class_maps_computed": 10,
+  "invalid_maps": [],
+  "failed_cases": [],
+  "reproduction": {
+    "top1_matches": 24,
+    "top1_mismatches": 0,
+    "tolerance": 0.0005,
+    "maximum_probability_difference": 0.0004837512969970703,
+    "mean_probability_difference": 1.770962276872351e-05,
+    "median_probability_difference": 0.0
+  },
+  "selection_reason_counts": {
+    "correctly classified nevus": 2,
+    "correctly classified bkl": 2,
+    "correctly classified vasc": 2,
+    "melanoma false positive from nv": 2,
+    "other-class error bcc to nv": 2,
+    "correctly classified melanoma": 2,
+    "correctly classified bcc": 2,
+    "correctly classified akiec": 2,
+    "melanoma false negative predicted nv": 2,
+    "other-class error bkl to nv": 2,
+    "melanoma false positive from bkl": 2,
+    "correctly classified df": 2
+  },
+  "target_layer": "model.features[-1]",
+  "ph2_accessed": false,
+  "training_or_finetuning": false,
+  "interpretation": "No qualitative or clinical interpretation performed."
+}
