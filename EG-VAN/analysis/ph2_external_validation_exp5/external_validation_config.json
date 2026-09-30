@@ -1,0 +1,155 @@
+{
+  "evaluation_type": "PH2 external follow-up evaluation",
+  "checkpoint_path": "experiments/efficientnetv2s_controlled_exp5/best_checkpoint.pt",
+  "checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "selected_epoch": 15,
+  "checkpoint_selection_rule": "validation_threshold_constrained_min_loss",
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "cohort": {
+    "total_ph2": 200,
+    "included": 120,
+    "included_ham_counts": {
+      "nv": 80,
+      "mel": 40
+    },
+    "excluded_atypical_nevus": 80,
+    "mapping": {
+      "common nevus": "nv",
+      "melanoma": "mel",
+      "atypical nevus": null
+    }
+  },
+  "preprocessing": {
+    "status": "PASS",
+    "matches_diagnostic_config": true,
+    "implementation": "src/preprocessing.py:preprocess_image",
+    "operation_contract": {
+      "source": "same original PH2 BMP files",
+      "operations": [
+        "decode original as RGB",
+        "convert RGB to BGR for src/preprocessing.py",
+        "blackhat hair mask and Telea inpainting (kernel=17, threshold=10, radius=1.0)",
+        "Gray World channel balancing",
+        "multi-scale Retinex (sigmas=15,80,250; equal weights; per-channel 1st-99th percentile normalization)",
+        "in-memory JPEG encode/decode with OpenCV default JPEG settings to match saved HAM JPG representation",
+        "convert BGR to RGB",
+        "torchvision Resize((384, 384))",
+        "ToTensor",
+        "ImageNet normalization"
+      ],
+      "augmentation": "none",
+      "masks_or_roi": "not used"
+    },
+    "resize": [
+      384,
+      384
+    ],
+    "normalization_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "normalization_std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "inference": {
+    "device": "cuda",
+    "gpu": "Tesla T4",
+    "model_eval": true,
+    "inference_mode": true,
+    "cuda_autocast": true,
+    "batch_size": 16,
+    "shuffle": false,
+    "softmax": "torch.softmax(logits.float(), dim=1)"
+  },
+  "metrics": {
+    "total_samples": 120,
+    "accuracy": 0.625,
+    "balanced_accuracy": 0.54375,
+    "class_metrics": {
+      "nv": {
+        "precision": 0.8076923076923077,
+        "recall": 0.7875,
+        "f1": 0.7974683544303798
+      },
+      "mel": {
+        "precision": 0.6,
+        "recall": 0.3,
+        "f1": 0.4
+      }
+    },
+    "melanoma_sensitivity_recall": 0.3,
+    "macro_precision": 0.7038461538461538,
+    "macro_recall": 0.54375,
+    "macro_f1": 0.59873417721519,
+    "melanoma_auroc": 0.6046875,
+    "auroc_score": "p_mel",
+    "confusion_matrix": {
+      "true_rows": [
+        "nv",
+        "mel"
+      ],
+      "predicted_columns": [
+        "nv",
+        "mel",
+        "other"
+      ],
+      "counts": [
+        [
+          63,
+          8,
+          9
+        ],
+        [
+          15,
+          12,
+          13
+        ]
+      ],
+      "other_policy": "Predictions outside nv/mel remain in other and count as incorrect for accuracy and recall of the true class."
+    },
+    "prediction_distribution": {
+      "nv": 78,
+      "mel": 20,
+      "bkl": 20,
+      "df": 1,
+      "vasc": 1
+    },
+    "metric_scope": "Only externally represented classes nv and mel; no seven-class macro metric is reported."
+  },
+  "prior_ph2_use_limitation": "PH\u00b2 had previously been used for preprocessing diagnostics and an earlier model evaluation before Experiment #5. Therefore this analysis is reported as an external follow-up evaluation rather than a completely untouched independent external validation.",
+  "model_policy": "Experiment #5 remains frozen; PH2 results will not modify it.",
+  "provenance": {
+    "status": "VERIFIED",
+    "scope": "non-commercial academic research and external validation only",
+    "citation_required": "Teresa Mendon\u00e7a, Pedro M. Ferreira, Jorge S. Marques, Andre R. S. Marcal, Jorge Rozeira. PH\u00b2 - A dermoscopic image database for research and benchmarking. 2013 IEEE Engineering in Medicine and Biology Society (EMBC), DOI: 10.1109/EMBC.2013.6610779.",
+    "commercial_use": false,
+    "redistribution": false,
+    "source_url": "https://www.kaggle.com/datasets/spacesurfer/ph2-dataset",
+    "revision": "Kaggle dataset version 2"
+  },
+  "runtime": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "cuda": "12.8",
+    "gpu": "Tesla T4",
+    "timestamp_utc": "2026-09-30T12:29:22.963068+00:00"
+  },
+  "training_performed": false,
+  "fine_tuning_performed": false,
+  "checkpoint_modified": false,
+  "split_modified": false
+}

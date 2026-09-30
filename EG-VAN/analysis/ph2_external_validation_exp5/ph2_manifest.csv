@@ -1,0 +1,201 @@
+image_id,relative_image_path,clinical_code,true_external_label,true_ham_label,included
+IMD003,data/external/ph2/images/IMD003.bmp,0,common nevus,nv,True
+IMD009,data/external/ph2/images/IMD009.bmp,0,common nevus,nv,True
+IMD016,data/external/ph2/images/IMD016.bmp,0,common nevus,nv,True
+IMD022,data/external/ph2/images/IMD022.bmp,0,common nevus,nv,True
+IMD024,data/external/ph2/images/IMD024.bmp,0,common nevus,nv,True
+IMD025,data/external/ph2/images/IMD025.bmp,0,common nevus,nv,True
+IMD035,data/external/ph2/images/IMD035.bmp,0,common nevus,nv,True
+IMD038,data/external/ph2/images/IMD038.bmp,0,common nevus,nv,True
+IMD042,data/external/ph2/images/IMD042.bmp,0,common nevus,nv,True
+IMD044,data/external/ph2/images/IMD044.bmp,0,common nevus,nv,True
+IMD045,data/external/ph2/images/IMD045.bmp,0,common nevus,nv,True
+IMD050,data/external/ph2/images/IMD050.bmp,0,common nevus,nv,True
+IMD092,data/external/ph2/images/IMD092.bmp,0,common nevus,nv,True
+IMD101,data/external/ph2/images/IMD101.bmp,0,common nevus,nv,True
+IMD103,data/external/ph2/images/IMD103.bmp,0,common nevus,nv,True
+IMD112,data/external/ph2/images/IMD112.bmp,0,common nevus,nv,True
+IMD118,data/external/ph2/images/IMD118.bmp,0,common nevus,nv,True
+IMD125,data/external/ph2/images/IMD125.bmp,0,common nevus,nv,True
+IMD132,data/external/ph2/images/IMD132.bmp,0,common nevus,nv,True
+IMD134,data/external/ph2/images/IMD134.bmp,0,common nevus,nv,True
+IMD135,data/external/ph2/images/IMD135.bmp,0,common nevus,nv,True
+IMD144,data/external/ph2/images/IMD144.bmp,0,common nevus,nv,True
+IMD146,data/external/ph2/images/IMD146.bmp,0,common nevus,nv,True
+IMD147,data/external/ph2/images/IMD147.bmp,0,common nevus,nv,True
+IMD150,data/external/ph2/images/IMD150.bmp,0,common nevus,nv,True
+IMD152,data/external/ph2/images/IMD152.bmp,0,common nevus,nv,True
+IMD156,data/external/ph2/images/IMD156.bmp,0,common nevus,nv,True
+IMD159,data/external/ph2/images/IMD159.bmp,0,common nevus,nv,True
+IMD161,data/external/ph2/images/IMD161.bmp,0,common nevus,nv,True
+IMD162,data/external/ph2/images/IMD162.bmp,0,common nevus,nv,True
+IMD175,data/external/ph2/images/IMD175.bmp,0,common nevus,nv,True
+IMD177,data/external/ph2/images/IMD177.bmp,0,common nevus,nv,True
+IMD182,data/external/ph2/images/IMD182.bmp,0,common nevus,nv,True
+IMD198,data/external/ph2/images/IMD198.bmp,0,common nevus,nv,True
+IMD200,data/external/ph2/images/IMD200.bmp,0,common nevus,nv,True
+IMD010,data/external/ph2/images/IMD010.bmp,0,common nevus,nv,True
+IMD017,data/external/ph2/images/IMD017.bmp,0,common nevus,nv,True
+IMD020,data/external/ph2/images/IMD020.bmp,0,common nevus,nv,True
+IMD039,data/external/ph2/images/IMD039.bmp,0,common nevus,nv,True
+IMD041,data/external/ph2/images/IMD041.bmp,0,common nevus,nv,True
+IMD105,data/external/ph2/images/IMD105.bmp,0,common nevus,nv,True
+IMD107,data/external/ph2/images/IMD107.bmp,0,common nevus,nv,True
+IMD108,data/external/ph2/images/IMD108.bmp,0,common nevus,nv,True
+IMD133,data/external/ph2/images/IMD133.bmp,0,common nevus,nv,True
+IMD142,data/external/ph2/images/IMD142.bmp,0,common nevus,nv,True
+IMD143,data/external/ph2/images/IMD143.bmp,0,common nevus,nv,True
+IMD160,data/external/ph2/images/IMD160.bmp,0,common nevus,nv,True
+IMD173,data/external/ph2/images/IMD173.bmp,0,common nevus,nv,True
+IMD176,data/external/ph2/images/IMD176.bmp,0,common nevus,nv,True
+IMD196,data/external/ph2/images/IMD196.bmp,0,common nevus,nv,True
+IMD197,data/external/ph2/images/IMD197.bmp,0,common nevus,nv,True
+IMD199,data/external/ph2/images/IMD199.bmp,0,common nevus,nv,True
+IMD203,data/external/ph2/images/IMD203.bmp,0,common nevus,nv,True
+IMD204,data/external/ph2/images/IMD204.bmp,0,common nevus,nv,True
+IMD206,data/external/ph2/images/IMD206.bmp,0,common nevus,nv,True
+IMD207,data/external/ph2/images/IMD207.bmp,0,common nevus,nv,True
+IMD208,data/external/ph2/images/IMD208.bmp,0,common nevus,nv,True
+IMD364,data/external/ph2/images/IMD364.bmp,0,common nevus,nv,True
+IMD365,data/external/ph2/images/IMD365.bmp,0,common nevus,nv,True
+IMD367,data/external/ph2/images/IMD367.bmp,0,common nevus,nv,True
+IMD371,data/external/ph2/images/IMD371.bmp,0,common nevus,nv,True
+IMD372,data/external/ph2/images/IMD372.bmp,0,common nevus,nv,True
+IMD374,data/external/ph2/images/IMD374.bmp,0,common nevus,nv,True
+IMD375,data/external/ph2/images/IMD375.bmp,0,common nevus,nv,True
+IMD378,data/external/ph2/images/IMD378.bmp,0,common nevus,nv,True
+IMD379,data/external/ph2/images/IMD379.bmp,0,common nevus,nv,True
+IMD380,data/external/ph2/images/IMD380.bmp,0,common nevus,nv,True
+IMD381,data/external/ph2/images/IMD381.bmp,0,common nevus,nv,True
+IMD383,data/external/ph2/images/IMD383.bmp,0,common nevus,nv,True
+IMD384,data/external/ph2/images/IMD384.bmp,0,common nevus,nv,True
+IMD385,data/external/ph2/images/IMD385.bmp,0,common nevus,nv,True
+IMD389,data/external/ph2/images/IMD389.bmp,0,common nevus,nv,True
+IMD390,data/external/ph2/images/IMD390.bmp,0,common nevus,nv,True
+IMD392,data/external/ph2/images/IMD392.bmp,0,common nevus,nv,True
+IMD394,data/external/ph2/images/IMD394.bmp,0,common nevus,nv,True
+IMD395,data/external/ph2/images/IMD395.bmp,0,common nevus,nv,True
+IMD397,data/external/ph2/images/IMD397.bmp,0,common nevus,nv,True
+IMD399,data/external/ph2/images/IMD399.bmp,0,common nevus,nv,True
+IMD400,data/external/ph2/images/IMD400.bmp,0,common nevus,nv,True
+IMD402,data/external/ph2/images/IMD402.bmp,0,common nevus,nv,True
+IMD002,data/external/ph2/images/IMD002.bmp,1,atypical nevus,,False
+IMD004,data/external/ph2/images/IMD004.bmp,1,atypical nevus,,False
+IMD013,data/external/ph2/images/IMD013.bmp,1,atypical nevus,,False
+IMD015,data/external/ph2/images/IMD015.bmp,1,atypical nevus,,False
+IMD019,data/external/ph2/images/IMD019.bmp,1,atypical nevus,,False
+IMD021,data/external/ph2/images/IMD021.bmp,1,atypical nevus,,False
+IMD027,data/external/ph2/images/IMD027.bmp,1,atypical nevus,,False
+IMD030,data/external/ph2/images/IMD030.bmp,1,atypical nevus,,False
+IMD032,data/external/ph2/images/IMD032.bmp,1,atypical nevus,,False
+IMD033,data/external/ph2/images/IMD033.bmp,1,atypical nevus,,False
+IMD037,data/external/ph2/images/IMD037.bmp,1,atypical nevus,,False
+IMD040,data/external/ph2/images/IMD040.bmp,1,atypical nevus,,False
+IMD043,data/external/ph2/images/IMD043.bmp,1,atypical nevus,,False
+IMD047,data/external/ph2/images/IMD047.bmp,1,atypical nevus,,False
+IMD048,data/external/ph2/images/IMD048.bmp,1,atypical nevus,,False
+IMD049,data/external/ph2/images/IMD049.bmp,1,atypical nevus,,False
+IMD057,data/external/ph2/images/IMD057.bmp,1,atypical nevus,,False
+IMD075,data/external/ph2/images/IMD075.bmp,1,atypical nevus,,False
+IMD076,data/external/ph2/images/IMD076.bmp,1,atypical nevus,,False
+IMD078,data/external/ph2/images/IMD078.bmp,1,atypical nevus,,False
+IMD120,data/external/ph2/images/IMD120.bmp,1,atypical nevus,,False
+IMD126,data/external/ph2/images/IMD126.bmp,1,atypical nevus,,False
+IMD137,data/external/ph2/images/IMD137.bmp,1,atypical nevus,,False
+IMD138,data/external/ph2/images/IMD138.bmp,1,atypical nevus,,False
+IMD139,data/external/ph2/images/IMD139.bmp,1,atypical nevus,,False
+IMD140,data/external/ph2/images/IMD140.bmp,1,atypical nevus,,False
+IMD149,data/external/ph2/images/IMD149.bmp,1,atypical nevus,,False
+IMD153,data/external/ph2/images/IMD153.bmp,1,atypical nevus,,False
+IMD157,data/external/ph2/images/IMD157.bmp,1,atypical nevus,,False
+IMD164,data/external/ph2/images/IMD164.bmp,1,atypical nevus,,False
+IMD166,data/external/ph2/images/IMD166.bmp,1,atypical nevus,,False
+IMD169,data/external/ph2/images/IMD169.bmp,1,atypical nevus,,False
+IMD171,data/external/ph2/images/IMD171.bmp,1,atypical nevus,,False
+IMD210,data/external/ph2/images/IMD210.bmp,1,atypical nevus,,False
+IMD347,data/external/ph2/images/IMD347.bmp,1,atypical nevus,,False
+IMD155,data/external/ph2/images/IMD155.bmp,1,atypical nevus,,False
+IMD376,data/external/ph2/images/IMD376.bmp,1,atypical nevus,,False
+IMD006,data/external/ph2/images/IMD006.bmp,1,atypical nevus,,False
+IMD008,data/external/ph2/images/IMD008.bmp,1,atypical nevus,,False
+IMD014,data/external/ph2/images/IMD014.bmp,1,atypical nevus,,False
+IMD018,data/external/ph2/images/IMD018.bmp,1,atypical nevus,,False
+IMD023,data/external/ph2/images/IMD023.bmp,1,atypical nevus,,False
+IMD031,data/external/ph2/images/IMD031.bmp,1,atypical nevus,,False
+IMD036,data/external/ph2/images/IMD036.bmp,1,atypical nevus,,False
+IMD154,data/external/ph2/images/IMD154.bmp,1,atypical nevus,,False
+IMD170,data/external/ph2/images/IMD170.bmp,1,atypical nevus,,False
+IMD226,data/external/ph2/images/IMD226.bmp,1,atypical nevus,,False
+IMD243,data/external/ph2/images/IMD243.bmp,1,atypical nevus,,False
+IMD251,data/external/ph2/images/IMD251.bmp,1,atypical nevus,,False
+IMD254,data/external/ph2/images/IMD254.bmp,1,atypical nevus,,False
+IMD256,data/external/ph2/images/IMD256.bmp,1,atypical nevus,,False
+IMD278,data/external/ph2/images/IMD278.bmp,1,atypical nevus,,False
+IMD279,data/external/ph2/images/IMD279.bmp,1,atypical nevus,,False
+IMD280,data/external/ph2/images/IMD280.bmp,1,atypical nevus,,False
+IMD304,data/external/ph2/images/IMD304.bmp,1,atypical nevus,,False
+IMD305,data/external/ph2/images/IMD305.bmp,1,atypical nevus,,False
+IMD306,data/external/ph2/images/IMD306.bmp,1,atypical nevus,,False
+IMD312,data/external/ph2/images/IMD312.bmp,1,atypical nevus,,False
+IMD328,data/external/ph2/images/IMD328.bmp,1,atypical nevus,,False
+IMD331,data/external/ph2/images/IMD331.bmp,1,atypical nevus,,False
+IMD339,data/external/ph2/images/IMD339.bmp,1,atypical nevus,,False
+IMD356,data/external/ph2/images/IMD356.bmp,1,atypical nevus,,False
+IMD360,data/external/ph2/images/IMD360.bmp,1,atypical nevus,,False
+IMD368,data/external/ph2/images/IMD368.bmp,1,atypical nevus,,False
+IMD369,data/external/ph2/images/IMD369.bmp,1,atypical nevus,,False
+IMD370,data/external/ph2/images/IMD370.bmp,1,atypical nevus,,False
+IMD382,data/external/ph2/images/IMD382.bmp,1,atypical nevus,,False
+IMD386,data/external/ph2/images/IMD386.bmp,1,atypical nevus,,False
+IMD388,data/external/ph2/images/IMD388.bmp,1,atypical nevus,,False
+IMD393,data/external/ph2/images/IMD393.bmp,1,atypical nevus,,False
+IMD396,data/external/ph2/images/IMD396.bmp,1,atypical nevus,,False
+IMD398,data/external/ph2/images/IMD398.bmp,1,atypical nevus,,False
+IMD427,data/external/ph2/images/IMD427.bmp,1,atypical nevus,,False
+IMD430,data/external/ph2/images/IMD430.bmp,1,atypical nevus,,False
+IMD431,data/external/ph2/images/IMD431.bmp,1,atypical nevus,,False
+IMD432,data/external/ph2/images/IMD432.bmp,1,atypical nevus,,False
+IMD433,data/external/ph2/images/IMD433.bmp,1,atypical nevus,,False
+IMD434,data/external/ph2/images/IMD434.bmp,1,atypical nevus,,False
+IMD436,data/external/ph2/images/IMD436.bmp,1,atypical nevus,,False
+IMD437,data/external/ph2/images/IMD437.bmp,1,atypical nevus,,False
+IMD058,data/external/ph2/images/IMD058.bmp,2,melanoma,mel,True
+IMD061,data/external/ph2/images/IMD061.bmp,2,melanoma,mel,True
+IMD063,data/external/ph2/images/IMD063.bmp,2,melanoma,mel,True
+IMD064,data/external/ph2/images/IMD064.bmp,2,melanoma,mel,True
+IMD065,data/external/ph2/images/IMD065.bmp,2,melanoma,mel,True
+IMD080,data/external/ph2/images/IMD080.bmp,2,melanoma,mel,True
+IMD085,data/external/ph2/images/IMD085.bmp,2,melanoma,mel,True
+IMD088,data/external/ph2/images/IMD088.bmp,2,melanoma,mel,True
+IMD090,data/external/ph2/images/IMD090.bmp,2,melanoma,mel,True
+IMD091,data/external/ph2/images/IMD091.bmp,2,melanoma,mel,True
+IMD168,data/external/ph2/images/IMD168.bmp,2,melanoma,mel,True
+IMD211,data/external/ph2/images/IMD211.bmp,2,melanoma,mel,True
+IMD219,data/external/ph2/images/IMD219.bmp,2,melanoma,mel,True
+IMD240,data/external/ph2/images/IMD240.bmp,2,melanoma,mel,True
+IMD242,data/external/ph2/images/IMD242.bmp,2,melanoma,mel,True
+IMD284,data/external/ph2/images/IMD284.bmp,2,melanoma,mel,True
+IMD285,data/external/ph2/images/IMD285.bmp,2,melanoma,mel,True
+IMD348,data/external/ph2/images/IMD348.bmp,2,melanoma,mel,True
+IMD349,data/external/ph2/images/IMD349.bmp,2,melanoma,mel,True
+IMD403,data/external/ph2/images/IMD403.bmp,2,melanoma,mel,True
+IMD404,data/external/ph2/images/IMD404.bmp,2,melanoma,mel,True
+IMD405,data/external/ph2/images/IMD405.bmp,2,melanoma,mel,True
+IMD407,data/external/ph2/images/IMD407.bmp,2,melanoma,mel,True
+IMD408,data/external/ph2/images/IMD408.bmp,2,melanoma,mel,True
+IMD409,data/external/ph2/images/IMD409.bmp,2,melanoma,mel,True
+IMD410,data/external/ph2/images/IMD410.bmp,2,melanoma,mel,True
+IMD413,data/external/ph2/images/IMD413.bmp,2,melanoma,mel,True
+IMD417,data/external/ph2/images/IMD417.bmp,2,melanoma,mel,True
+IMD418,data/external/ph2/images/IMD418.bmp,2,melanoma,mel,True
+IMD419,data/external/ph2/images/IMD419.bmp,2,melanoma,mel,True
+IMD406,data/external/ph2/images/IMD406.bmp,2,melanoma,mel,True
+IMD411,data/external/ph2/images/IMD411.bmp,2,melanoma,mel,True
+IMD420,data/external/ph2/images/IMD420.bmp,2,melanoma,mel,True
+IMD421,data/external/ph2/images/IMD421.bmp,2,melanoma,mel,True
+IMD423,data/external/ph2/images/IMD423.bmp,2,melanoma,mel,True
+IMD424,data/external/ph2/images/IMD424.bmp,2,melanoma,mel,True
+IMD425,data/external/ph2/images/IMD425.bmp,2,melanoma,mel,True
+IMD426,data/external/ph2/images/IMD426.bmp,2,melanoma,mel,True
+IMD429,data/external/ph2/images/IMD429.bmp,2,melanoma,mel,True
+IMD435,data/external/ph2/images/IMD435.bmp,2,melanoma,mel,True

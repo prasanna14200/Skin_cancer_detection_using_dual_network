@@ -1,0 +1,55 @@
+{
+  "total_samples": 120,
+  "accuracy": 0.625,
+  "balanced_accuracy": 0.54375,
+  "class_metrics": {
+    "nv": {
+      "precision": 0.8076923076923077,
+      "recall": 0.7875,
+      "f1": 0.7974683544303798
+    },
+    "mel": {
+      "precision": 0.6,
+      "recall": 0.3,
+      "f1": 0.4
+    }
+  },
+  "melanoma_sensitivity_recall": 0.3,
+  "macro_precision": 0.7038461538461538,
+  "macro_recall": 0.54375,
+  "macro_f1": 0.59873417721519,
+  "melanoma_auroc": 0.6046875,
+  "auroc_score": "p_mel",
+  "confusion_matrix": {
+    "true_rows": [
+      "nv",
+      "mel"
+    ],
+    "predicted_columns": [
+      "nv",
+      "mel",
+      "other"
+    ],
+    "counts": [
+      [
+        63,
+        8,
+        9
+      ],
+      [
+        15,
+        12,
+        13
+      ]
+    ],
+    "other_policy": "Predictions outside nv/mel remain in other and count as incorrect for accuracy and recall of the true class."
+  },
+  "prediction_distribution": {
+    "nv": 78,
+    "mel": 20,
+    "bkl": 20,
+    "df": 1,
+    "vasc": 1
+  },
+  "metric_scope": "Only externally represented classes nv and mel; no seven-class macro metric is reported."
+}

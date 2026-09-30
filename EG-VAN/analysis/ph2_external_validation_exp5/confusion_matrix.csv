@@ -1,0 +1,3 @@
+true_label,predicted_nv,predicted_mel,predicted_other
+nv,63,8,9
+mel,15,12,13
