@@ -309,7 +309,10 @@ class ApprovedPH2Dataset(Dataset):
 
 
 def reproduce_approved_cases(model, transform, saved_rows, device):
-    dataset = ApprovedPH2Dataset(sorted(APPROVED_CASES), saved_rows, transform)
+    case_ids = sorted(APPROVED_CASES)
+    padding_count = (-len(case_ids)) % BATCH_SIZE
+    inference_ids = case_ids + case_ids[:padding_count]
+    dataset = ApprovedPH2Dataset(inference_ids, saved_rows, transform)
     loader = DataLoader(
         dataset,
         batch_size=BATCH_SIZE,
@@ -325,7 +328,8 @@ def reproduce_approved_cases(model, transform, saved_rows, device):
                 logits = model(images.to(device, non_blocking=True))
             probabilities = torch.softmax(logits.float(), dim=1).cpu().numpy()
             for image_id, probability in zip(image_ids, probabilities):
-                reproduced[image_id] = [float(value) for value in probability]
+                if image_id not in reproduced:
+                    reproduced[image_id] = [float(value) for value in probability]
 
     mismatches = []
     per_case = {}
@@ -350,6 +354,8 @@ def reproduce_approved_cases(model, transform, saved_rows, device):
 
     result = {
         "cases_checked": len(reproduced),
+        "inference_batch_size": BATCH_SIZE,
+        "repeated_approved_inputs_for_batch_shape": padding_count,
         "top1_matches": len(reproduced) - sum(
             item["saved_predicted_class"] != item["reproduced_predicted_class"]
             for item in per_case.values()
@@ -592,6 +598,7 @@ The fixed 12-case PH² subset passed the saved-prediction reproduction gate on t
 - Frozen split SHA256: `{EXPECTED_SPLIT_SHA256}`.
 - Target layer: `{TARGET_LAYER_NAME}`.
 - Cases: exactly the 12 fixed IDs; no other PH² images were passed through the model.
+- Reproduction uses the original evaluator batch shape ({reproduction['inference_batch_size']}); {reproduction['repeated_approved_inputs_for_batch_shape']} batch slots repeat already-approved inputs and their duplicate outputs are discarded.
 - PH² input: existing HAM-matched preprocessing helper, then the same 384×384 ImageNet-normalized transform. No masks, ROI crops, augmentation, or threshold changes.
 - Grad-CAM: existing `src/explainability/gradcam.py` utility and HAM overlay renderer. Correct cases reuse one target map for true and predicted labels.
 
