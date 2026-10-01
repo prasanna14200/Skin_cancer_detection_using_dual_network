@@ -25,6 +25,8 @@ import cv2
 import numpy as np
 import PIL
 import torch
+import torchvision
+import torchvision
 from PIL import Image
 from torch.utils.data import DataLoader, Dataset
 from torchvision.models import EfficientNet_V2_S_Weights
@@ -117,6 +119,7 @@ PH2_EVAL_CONFIG = PH2_EVAL_DIR / "external_validation_config.json"
 STAGE1_DIR = ROOT / "analysis" / "domain_shift_exp5"
 HAM_EXPLAINABILITY_OUTPUT = ROOT / "analysis" / "explainability_exp5"
 OUTPUT_DIR = STAGE1_DIR / "gradcam_comparison"
+GRADCAM_MAPS_COMPUTED = 0
 
 
 class Stage2Error(RuntimeError):
@@ -400,6 +403,8 @@ def write_csv(path: Path, fieldnames: list[str], rows: list[dict]) -> None:
 
 
 def run_stage2(audit: dict, gpu_name: str) -> dict:
+    global GRADCAM_MAPS_COMPUTED
+    GRADCAM_MAPS_COMPUTED = 0
     if OUTPUT_DIR.exists():
         raise Stage2Error(f"Refusing to overwrite Stage 2 output: {OUTPUT_DIR}")
 
@@ -468,6 +473,7 @@ def run_stage2(audit: dict, gpu_name: str) -> dict:
             predicted_cam = gradcam(
                 model, input_tensor, target_layer, predicted_index
             ).cpu().numpy()
+            GRADCAM_MAPS_COMPUTED += 1
             validate_cam(predicted_cam, image_id, predicted_class)
             predicted_heat, predicted_overlay = make_visuals(original_rgb, predicted_cam)
             predicted_heat_path = case_dir / "predicted_heatmap.png"
@@ -486,6 +492,7 @@ def run_stage2(audit: dict, gpu_name: str) -> dict:
                 reused_true_maps += 1
             else:
                 true_cam = gradcam(model, input_tensor, target_layer, true_index).cpu().numpy()
+                GRADCAM_MAPS_COMPUTED += 1
                 validate_cam(true_cam, image_id, true_class)
                 true_heat, true_overlay = make_visuals(original_rgb, true_cam)
                 true_heat_path = case_dir / "true_heatmap.png"
@@ -697,7 +704,11 @@ def main() -> int:
         print(json.dumps({
             "status": "BLOCKED",
             "reason": f"{type(exc).__name__}: {exc}",
-            "gradcam_generated": OUTPUT_DIR.exists(),
+            "gradcam_maps_computed": GRADCAM_MAPS_COMPUTED,
+            "stage2_output_published": OUTPUT_DIR.exists(),
+            "temporary_stage_directories_remaining": [
+                str(path) for path in OUTPUT_DIR.parent.glob(".gradcam_comparison.*")
+            ] if OUTPUT_DIR.parent.exists() else [],
             "training_performed": False,
             "fine_tuning_performed": False,
             "threshold_tuning": False,
