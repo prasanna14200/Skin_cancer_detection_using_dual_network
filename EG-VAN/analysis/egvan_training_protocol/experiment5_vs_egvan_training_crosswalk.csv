@@ -1,0 +1,29 @@
+setting,experiment5,egvan_stage9,classification,source_or_reason
+seed,42,42,EXACTLY_REUSED,Experiment5 config and src/train.py
+image_size,384,384,EXACTLY_REUSED,Experiment5 config
+epochs,25,25,EXACTLY_REUSED,Experiment5 config and history
+physical_batch_size,16,16 pending T4 probe,MODEL_SPECIFIC_CHANGE,May reduce only after measured T4 probe
+gradient_accumulation,none (one step per batch),1 pending T4 probe,MODEL_SPECIFIC_CHANGE,Maintain target effective batch 16 if physical batch changes; optimizer and BatchNorm behavior can differ
+optimizer,Adamax betas 0.9/0.999 eps 1e-8,Adamax betas 0.9/0.999 eps 1e-8,EXACTLY_REUSED,Experiment5 runner
+learning_rate,0.001,0.001,EXACTLY_REUSED,Experiment5 config
+weight_decay,0.0001,0.0001,EXACTLY_REUSED,Experiment5 config
+scheduler,ReduceLROnPlateau min factor 0.5 patience 1,ReduceLROnPlateau min factor 0.5 patience 1,EXACTLY_REUSED,Experiment5 runner
+early_stopping,none; all 25 epochs,none; all 25 epochs,EXACTLY_REUSED,Experiment5 runner and history
+checkpoint_selection,eligible validation epochs then minimum validation loss; earlier epoch on tie,same,EXACTLY_REUSED,Experiment5 config and runner
+melanoma_f1_gate,0.5757731958762886,same,EXACTLY_REUSED,Experiment5 config
+macro_f1_gate,0.6316582381362074,same,EXACTLY_REUSED,Experiment5 config
+nevus_recall_gate,0.9,same,EXACTLY_REUSED,Experiment5 config
+augmentation,resize 384; horizontal flip; vertical flip; rotation 15 degrees,same,EXACTLY_REUSED,src/train.py make_transforms
+evaluation_transform,resize 384; tensor; ImageNet normalization,same,EXACTLY_REUSED,src/train.py make_transforms
+normalization,EfficientNetV2S ImageNet weights mean/std,same,EXACTLY_REUSED,src/train.py make_transforms
+loss,focal alpha 0.25 gamma 2 with mean reduction,same,EXACTLY_REUSED,src/train.py focal_loss
+class_specific_loss_weights,none,none,EXACTLY_REUSED,Experiment5 config
+weighted_sampler,MEL 1.5630495442733532 other 1; replacement; 8015 draws; seed 42,same,EXACTLY_REUSED,Experiment5 runner
+efficientnet_initialization,ImageNet EfficientNet_V2_S_Weights.DEFAULT,same,EXACTLY_REUSED,Experiment5 config and EG-VAN paper
+resnet_initialization,not applicable,random torchvision ResNet50 trunk,MODEL_SPECIFIC_CHANGE,Paper/Stage8B decision log does not establish pretrained ResNet
+attention_fusion_initialization,not applicable,PyTorch module defaults,MODEL_SPECIFIC_CHANGE,New modules absent from Experiment5
+gradient_clipping,none,none by default; configurable,EXACTLY_REUSED,No clipping call in Experiment5 runner
+mixed_precision,CUDA autocast plus GradScaler,CUDA fp16 autocast plus GradScaler,EXACTLY_REUSED,Experiment5 runner
+dataloader_workers,2 by default; runner accepts --workers,2 by default; configurable,EXACTLY_REUSED,Experiment5 runner
+determinism,Python NumPy torch CUDA seed 42; cuDNN deterministic true benchmark false,same,EXACTLY_REUSED,src/train.py set_seed
+resnet_paper_pretraining,unclear,declared random,UNSPECIFIED,Paper and Stage8B decision log leave branch weight source unclear

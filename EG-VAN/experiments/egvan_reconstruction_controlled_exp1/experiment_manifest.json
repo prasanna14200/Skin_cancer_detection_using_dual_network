@@ -1,0 +1,8 @@
+{
+  "status": "TRAINED_VALIDATION_ONLY",
+  "best_epoch": 15,
+  "best_validation_loss": 0.08285253810857822,
+  "completed_epochs": 25,
+  "ham_test_inference_performed": false,
+  "ph2_inference_performed": false
+}

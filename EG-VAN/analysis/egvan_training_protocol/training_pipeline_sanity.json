@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "device": "cpu",
+  "model_parameters": 58087409,
+  "synthetic_input": [
+    2,
+    3,
+    64,
+    64
+  ],
+  "logits_shape": [
+    2,
+    7
+  ],
+  "initial_loss": 0.28403669595718384,
+  "finite_gradients": true,
+  "optimizer_step": true,
+  "scheduler_step": true,
+  "amp_compatibility": "CUDA AMP not locally available; CPU disabled GradScaler path passed",
+  "checkpoint_serialization": true,
+  "mini_overfit": {
+    "samples": 8,
+    "steps": 3,
+    "initial_loss_same_pair": 0.3777245283126831,
+    "final_loss_same_pair": 1.1248595910728909e-05,
+    "checkpoint_saved": false
+  },
+  "full_training_performed": false,
+  "ham_test_inference_performed": false,
+  "ph2_inference_performed": false
+}

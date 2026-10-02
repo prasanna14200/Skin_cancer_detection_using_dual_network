@@ -1,0 +1,23 @@
+{
+  "status": "DECLARED_AND_VERIFIED_IN_CODE",
+  "architecture": "stage8b_egvan_four_mff_serial_terminal_branches",
+  "num_classes": 7,
+  "class_order": ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"],
+  "parameter_count": 58087409,
+  "efficientnetv2s": {
+    "training_policy": "torchvision EfficientNet_V2_S_Weights.DEFAULT (ImageNet)",
+    "paper_status": "explicitly pretrained",
+    "experiment5_match": true,
+    "local_synthetic_test": "pretrained=False to avoid download; not a research initialization"
+  },
+  "modified_resnet50": {
+    "training_policy": "torchvision ResNet50 random initialization; attention modules random",
+    "paper_status": "pretrained status unclear",
+    "stage8b_decision": "constructor permits either; no trained weights in architecture sanity",
+    "uncertainty": "This declared policy is an interpretation, not a known author weight source"
+  },
+  "fusion_and_classifier": "PyTorch module default initialization",
+  "pretrained_weight_download_verified_locally": false,
+  "t4_initialization_pending": true,
+  "ph2_used_for_decision": false
+}

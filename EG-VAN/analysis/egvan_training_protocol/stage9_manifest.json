@@ -1,0 +1,16 @@
+{
+  "status": "READY_FOR_COLAB_TRAINING",
+  "full_training_performed": false,
+  "t4_memory_probe_performed": false,
+  "ham_test_inference_performed": false,
+  "ph2_inference_performed": false,
+  "protected_hashes_unchanged": true,
+  "experiment5_checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "dataset_preflight": "PASS",
+  "architecture_parameter_count": 58087409,
+  "local_sanity": "PASS",
+  "architecture_tests": "4 passed",
+  "physical_batch_recommendation": "pending T4 memory probe",
+  "next_action": "Colab preflight then T4 memory probe; full training requires explicit approval"
+}

@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "hashes": {
+    "experiment5_checkpoint": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+    "frozen_split": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883"
+  },
+  "counts": {
+    "train": [
+      257,
+      398,
+      891,
+      95,
+      899,
+      5366,
+      109
+    ],
+    "val": [
+      30,
+      58,
+      104,
+      9,
+      107,
+      663,
+      15
+    ],
+    "test": [
+      40,
+      58,
+      104,
+      11,
+      107,
+      676,
+      18
+    ]
+  },
+  "totals": {
+    "train": 8015,
+    "val": 986,
+    "test": 1014
+  },
+  "integrity": {
+    "rows": 10015,
+    "unique_lesions": 7470,
+    "crossing_lesions": 0
+  },
+  "missing_images": 0,
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "runtime": {
+    "python": "3.10.11",
+    "torch": "2.11.0+cpu",
+    "torchvision": "0.16.0+cpu",
+    "cuda": null,
+    "gpu": null
+  }
+}

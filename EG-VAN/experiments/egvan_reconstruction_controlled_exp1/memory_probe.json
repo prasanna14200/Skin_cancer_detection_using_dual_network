@@ -1,0 +1,20 @@
+{
+  "device": "Tesla T4",
+  "attempts": [
+    {
+      "batch": 16,
+      "status": "PASS",
+      "allocated_bytes": 537504256,
+      "reserved_bytes": 8334082048,
+      "peak_allocated_bytes": 7479412736,
+      "free_bytes": 7140605952,
+      "total_bytes": 15637086208,
+      "headroom_fraction": 0.45664555768368376
+    }
+  ],
+  "recommended_physical_batch_size": 16,
+  "gradient_accumulation_steps": 1,
+  "effective_batch_size": 16,
+  "exact_batch_equivalence": true,
+  "note": "Probe only; no research checkpoint or full training."
+}

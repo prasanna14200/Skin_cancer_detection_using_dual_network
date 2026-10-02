@@ -1,0 +1,73 @@
+{
+  "experiment": "egvan_reconstruction_controlled_exp1",
+  "status": "TRAINING_IN_PROGRESS",
+  "architecture": "stage8b_egvan_four_mff_serial_terminal_branches",
+  "classes": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "num_classes": 7,
+  "split_csv": "data/splits/split_leakage_aware.csv",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "experiment5_checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+  "seed": 42,
+  "image_size": 384,
+  "epochs": 25,
+  "original_batch_size": 16,
+  "physical_batch_size": 16,
+  "gradient_accumulation_steps": 1,
+  "effective_batch_size": 16,
+  "batch_requires_t4_probe": true,
+  "num_workers": 2,
+  "amp": "cuda_fp16_grad_scaler",
+  "gradient_clipping_max_norm": null,
+  "optimizer": {
+    "name": "Adamax",
+    "learning_rate": 0.001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001
+  },
+  "scheduler": {
+    "name": "ReduceLROnPlateau",
+    "mode": "min",
+    "factor": 0.5,
+    "patience": 1
+  },
+  "loss": {
+    "name": "baseline_focal_loss",
+    "alpha": 0.25,
+    "gamma": 2.0,
+    "class_specific_weights": false
+  },
+  "sampler": {
+    "name": "WeightedRandomSampler",
+    "mel_weight": 1.5630495442733532,
+    "other_weight": 1.0,
+    "replacement": true,
+    "num_samples": 8015,
+    "seed": 42
+  },
+  "initialization": {
+    "efficientnet": "torchvision EfficientNet_V2_S_Weights.DEFAULT",
+    "resnet50": "random_torchvision_default; paper pretraining unclear",
+    "new_attention_fusion_classifier": "random_pytorch_default"
+  },
+  "checkpoint_selection": {
+    "name": "validation_threshold_constrained_min_loss",
+    "melanoma_f1_minimum": 0.5757731958762886,
+    "validation_macro_f1_minimum": 0.6316582381362074,
+    "nevus_recall_minimum": 0.9,
+    "tie_break": "earlier_epoch",
+    "no_eligible_result": "FAIL_NO_ELIGIBLE_CHECKPOINT"
+  },
+  "ph2_accessed": false
+}
