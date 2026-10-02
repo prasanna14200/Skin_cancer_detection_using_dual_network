@@ -1,0 +1,737 @@
+{
+  "analysis_scope": "Paper-ready synthesis from verified saved artifacts only; no inference or Grad-CAM computation.",
+  "experimental_provenance": {
+    "checkpoint": "experiments/efficientnetv2s_controlled_exp5/best_checkpoint.pt",
+    "checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+    "split": "data/splits/split_leakage_aware.csv",
+    "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "selected_epoch": 15,
+    "selection_rule": "validation_threshold_constrained_min_loss",
+    "target_layer": "model.features[-1]",
+    "ph2_terminology": "external follow-up evaluation",
+    "ph2_limitation": "PH? had previously been used in project analyses; not an untouched independent external validation."
+  },
+  "internal_ham": {
+    "full_test": {
+      "sample_count": 1014,
+      "accuracy": 0.8333333333333334,
+      "macro_f1_7class": 0.6994137562271027,
+      "melanoma_recall": 0.5514018691588785,
+      "melanoma_f1": 0.5592417061611374,
+      "nevus_recall": 0.9319526627218935
+    },
+    "nv_mel_overlap_only": {
+      "n": 783,
+      "correct": 689,
+      "accuracy": 0.879948914431673,
+      "balanced_accuracy": 0.741677265940386,
+      "nv_recall": 0.9319526627218935,
+      "mel_recall": 0.5514018691588785,
+      "nv_precision": 0.9487951807228916,
+      "mel_precision": 0.6781609195402298,
+      "mel_f1": 0.6082474226804123,
+      "prediction_distribution": {
+        "akiec": 4,
+        "bcc": 4,
+        "bkl": 18,
+        "df": 1,
+        "mel": 87,
+        "nv": 664,
+        "vasc": 5
+      },
+      "confusion_matrix": [
+        [
+          630,
+          28,
+          18
+        ],
+        [
+          34,
+          59,
+          14
+        ]
+      ]
+    }
+  },
+  "ph2_followup": {
+    "metrics": {
+      "sample_count": 120,
+      "accuracy": 0.625,
+      "balanced_accuracy": 0.54375,
+      "macro_f1_nv_mel": 0.59873417721519,
+      "melanoma_sensitivity": 0.3,
+      "melanoma_precision": 0.6,
+      "melanoma_f1": 0.4,
+      "nevus_recall": 0.7875,
+      "melanoma_auroc": 0.6046875
+    },
+    "ph2_prior_use_statement": "PH? had previously been used for preprocessing diagnostics and an earlier model evaluation before Experiment #5. Therefore this analysis is reported as an external follow-up evaluation rather than a completely untouched independent external validation."
+  },
+  "stage1_quantitative": {
+    "cohorts": [
+      "all",
+      "nv",
+      "mel"
+    ],
+    "top_matched_input_appearance_effects": [
+      {
+        "stratum": "mel",
+        "feature": "rgb_mean_b",
+        "smd_ham_minus_ph2": -2.228855135373098,
+        "ham_mean": 59.22665427456516,
+        "ph2_mean": 108.01739145914715
+      },
+      {
+        "stratum": "mel",
+        "feature": "rgb_mean_g",
+        "smd_ham_minus_ph2": -1.8311683762138373,
+        "ham_mean": 57.65747108340634,
+        "ph2_mean": 100.47093963623047
+      },
+      {
+        "stratum": "mel",
+        "feature": "brightness",
+        "smd_ham_minus_ph2": -1.6664156927754914,
+        "ham_mean": 57.10472086335021,
+        "ph2_mean": 94.69393497043185
+      },
+      {
+        "stratum": "mel",
+        "feature": "dark_pixel_ratio",
+        "smd_ham_minus_ph2": 1.2184101323684426,
+        "ham_mean": 0.4099949473284983,
+        "ph2_mean": 0.1047093709309896
+      },
+      {
+        "stratum": "nv",
+        "feature": "saturation",
+        "smd_ham_minus_ph2": -1.1534138955279087,
+        "ham_mean": 0.36359808214982836,
+        "ph2_mean": 0.45585521789417804
+      },
+      {
+        "stratum": "mel",
+        "feature": "rgb_mean_r",
+        "smd_ham_minus_ph2": -0.9994882090159111,
+        "ham_mean": 55.22408610786604,
+        "ph2_mean": 78.27368537055122
+      },
+      {
+        "stratum": "mel",
+        "feature": "sharpness",
+        "smd_ham_minus_ph2": -0.9822102451750038,
+        "ham_mean": 159.95072473368717,
+        "ph2_mean": 273.3536004151816
+      },
+      {
+        "stratum": "mel",
+        "feature": "illumination_variation",
+        "smd_ham_minus_ph2": 0.9695290649814823,
+        "ham_mean": 0.9367730874726198,
+        "ph2_mean": 0.48656110116043527
+      },
+      {
+        "stratum": "nv",
+        "feature": "rgb_mean_r",
+        "smd_ham_minus_ph2": 0.836860436212961,
+        "ham_mean": 58.18596524270564,
+        "ph2_mean": 38.982789272732205
+      },
+      {
+        "stratum": "mel",
+        "feature": "entropy",
+        "smd_ham_minus_ph2": -0.8352676682804023,
+        "ham_mean": 6.695541271354213,
+        "ph2_mean": 7.337880545366721
+      }
+    ],
+    "native_geometry": {
+      "HAM10000": {
+        "all": {
+          "native_aspect_ratio": {
+            "n": 783,
+            "mean": 1.3333333333333466,
+            "median": 1.3333333333333333,
+            "min": 1.3333333333333333,
+            "max": 1.3333333333333333,
+            "q1": 1.3333333333333333,
+            "q3": 1.3333333333333333
+          },
+          "native_height": {
+            "n": 783,
+            "mean": 450.0,
+            "median": 450.0,
+            "min": 450.0,
+            "max": 450.0,
+            "q1": 450.0,
+            "q3": 450.0
+          },
+          "native_width": {
+            "n": 783,
+            "mean": 600.0,
+            "median": 600.0,
+            "min": 600.0,
+            "max": 600.0,
+            "q1": 600.0,
+            "q3": 600.0
+          }
+        },
+        "nv": {
+          "native_aspect_ratio": {
+            "n": 676,
+            "mean": 1.3333333333333452,
+            "median": 1.3333333333333333,
+            "min": 1.3333333333333333,
+            "max": 1.3333333333333333,
+            "q1": 1.3333333333333333,
+            "q3": 1.3333333333333333
+          },
+          "native_height": {
+            "n": 676,
+            "mean": 450.0,
+            "median": 450.0,
+            "min": 450.0,
+            "max": 450.0,
+            "q1": 450.0,
+            "q3": 450.0
+          },
+          "native_width": {
+            "n": 676,
+            "mean": 600.0,
+            "median": 600.0,
+            "min": 600.0,
+            "max": 600.0,
+            "q1": 600.0,
+            "q3": 600.0
+          }
+        },
+        "mel": {
+          "native_aspect_ratio": {
+            "n": 107,
+            "mean": 1.3333333333333324,
+            "median": 1.3333333333333333,
+            "min": 1.3333333333333333,
+            "max": 1.3333333333333333,
+            "q1": 1.3333333333333333,
+            "q3": 1.3333333333333333
+          },
+          "native_height": {
+            "n": 107,
+            "mean": 450.0,
+            "median": 450.0,
+            "min": 450.0,
+            "max": 450.0,
+            "q1": 450.0,
+            "q3": 450.0
+          },
+          "native_width": {
+            "n": 107,
+            "mean": 600.0,
+            "median": 600.0,
+            "min": 600.0,
+            "max": 600.0,
+            "q1": 600.0,
+            "q3": 600.0
+          }
+        }
+      },
+      "PH2": {
+        "all": {
+          "native_aspect_ratio": {
+            "n": 120,
+            "mean": 1.3318431757825844,
+            "median": 1.3315972222222223,
+            "min": 1.3257839721254356,
+            "max": 1.3379790940766552,
+            "q1": 1.3315972222222223,
+            "q3": 1.3333333333333333
+          },
+          "native_height": {
+            "n": 120,
+            "mean": 575.5,
+            "median": 576.0,
+            "min": 572.0,
+            "max": 577.0,
+            "q1": 575.0,
+            "q3": 576.0
+          },
+          "native_width": {
+            "n": 120,
+            "mean": 766.475,
+            "median": 767.0,
+            "min": 761.0,
+            "max": 769.0,
+            "q1": 765.0,
+            "q3": 767.0
+          }
+        },
+        "nv": {
+          "native_aspect_ratio": {
+            "n": 80,
+            "mean": 1.331800278468559,
+            "median": 1.3315972222222223,
+            "min": 1.3257839721254356,
+            "max": 1.3379790940766552,
+            "q1": 1.3315972222222223,
+            "q3": 1.3327533680758943
+          },
+          "native_height": {
+            "n": 80,
+            "mean": 575.3125,
+            "median": 576.0,
+            "min": 572.0,
+            "max": 577.0,
+            "q1": 575.0,
+            "q3": 576.0
+          },
+          "native_width": {
+            "n": 80,
+            "mean": 766.2,
+            "median": 767.0,
+            "min": 761.0,
+            "max": 769.0,
+            "q1": 765.0,
+            "q3": 767.0
+          }
+        },
+        "mel": {
+          "native_aspect_ratio": {
+            "n": 40,
+            "mean": 1.3319289704106285,
+            "median": 1.3315972222222223,
+            "min": 1.3263888888888888,
+            "max": 1.3333333333333333,
+            "q1": 1.3315972222222223,
+            "q3": 1.3333333333333333
+          },
+          "native_height": {
+            "n": 40,
+            "mean": 575.875,
+            "median": 576.0,
+            "min": 575.0,
+            "max": 576.0,
+            "q1": 576.0,
+            "q3": 576.0
+          },
+          "native_width": {
+            "n": 40,
+            "mean": 767.025,
+            "median": 767.0,
+            "min": 764.0,
+            "max": 768.0,
+            "q1": 767.0,
+            "q3": 768.0
+          }
+        }
+      }
+    },
+    "prediction_summaries": {
+      "HAM10000_internal_test_overlap_only": {
+        "confidence": {
+          "all": {
+            "count": 783,
+            "mean": 0.833554098584795,
+            "median": 0.9070603847503662,
+            "std": 0.16298647516251596,
+            "q1": 0.7307729721069336,
+            "q3": 0.9638445675373077,
+            "iqr": 0.23307159543037415
+          },
+          "nv": {
+            "count": 676,
+            "mean": 0.853038511729452,
+            "median": 0.9208769798278809,
+            "std": 0.15413658395030042,
+            "q1": 0.7713998556137085,
+            "q3": 0.9711685478687286,
+            "iqr": 0.19976869225502014
+          },
+          "mel": {
+            "count": 107,
+            "mean": 0.7104563108671491,
+            "median": 0.7072279453277588,
+            "std": 0.1642244670082524,
+            "q1": 0.5938759446144104,
+            "q3": 0.8702540099620819,
+            "iqr": 0.2763780653476715
+          }
+        },
+        "entropy_nats": {
+          "all": {
+            "count": 783,
+            "mean": 0.4510033604290775,
+            "median": 0.3713793020542737,
+            "std": 0.322740212925585,
+            "q1": 0.17628651022184477,
+            "q3": 0.6900963111410277,
+            "iqr": 0.5138098009191829
+          },
+          "nv": {
+            "count": 676,
+            "mean": 0.40856882014131707,
+            "median": 0.32295507192265127,
+            "std": 0.30392422129950364,
+            "q1": 0.15188974511440162,
+            "q3": 0.6237971824818953,
+            "iqr": 0.4719074373674937
+          },
+          "mel": {
+            "count": 107,
+            "mean": 0.7190944747704422,
+            "median": 0.7012090961259548,
+            "std": 0.31015407406205614,
+            "q1": 0.48249036228034503,
+            "q3": 0.9217948580114719,
+            "iqr": 0.43930449573112684
+          }
+        },
+        "top2_margin": {
+          "all": {
+            "count": 783,
+            "mean": 0.7019184364406538,
+            "median": 0.8358435481786728,
+            "std": 0.2919193342302698,
+            "q1": 0.49900516122579575,
+            "q3": 0.9383850349113345,
+            "iqr": 0.43937987368553877
+          },
+          "nv": {
+            "count": 676,
+            "mean": 0.7345839580276877,
+            "median": 0.8595691435039043,
+            "std": 0.2803439885916269,
+            "q1": 0.5784269645810127,
+            "q3": 0.9505948778241873,
+            "iqr": 0.37216791324317455
+          },
+          "mel": {
+            "count": 107,
+            "mean": 0.4955456084702338,
+            "median": 0.49505335092544556,
+            "std": 0.2800115779238343,
+            "q1": 0.264596626162529,
+            "q3": 0.7681721150875092,
+            "iqr": 0.5035754889249802
+          }
+        },
+        "p_mel": {
+          "all": {
+            "count": 783,
+            "mean": 0.15645421538021348,
+            "median": 0.048996828496456146,
+            "std": 0.22317589983512803,
+            "q1": 0.010057328268885612,
+            "q3": 0.21741989254951477,
+            "iqr": 0.20736256428062916
+          },
+          "nv": {
+            "count": 676,
+            "mean": 0.1032941670993403,
+            "median": 0.035100674256682396,
+            "std": 0.14721976642845158,
+            "q1": 0.008065476547926664,
+            "q3": 0.14452217891812325,
+            "iqr": 0.13645670237019658
+          },
+          "mel": {
+            "count": 107,
+            "mean": 0.4923064830238609,
+            "median": 0.5029926896095276,
+            "std": 0.3123270745851521,
+            "q1": 0.20418555289506912,
+            "q3": 0.78496053814888,
+            "iqr": 0.5807749852538109
+          }
+        }
+      },
+      "PH2_followup": {
+        "confidence": {
+          "all": {
+            "count": 120,
+            "mean": 0.6899409713844459,
+            "median": 0.7042019069194794,
+            "std": 0.15819088008379964,
+            "q1": 0.5815091133117676,
+            "q3": 0.8115543574094772,
+            "iqr": 0.23004524409770966
+          },
+          "nv": {
+            "count": 80,
+            "mean": 0.7101166427135468,
+            "median": 0.7385904490947723,
+            "std": 0.1613698996787337,
+            "q1": 0.5857810527086258,
+            "q3": 0.8255906850099564,
+            "iqr": 0.23980963230133057
+          },
+          "mel": {
+            "count": 40,
+            "mean": 0.6495896287262439,
+            "median": 0.6717057228088379,
+            "std": 0.145269424486767,
+            "q1": 0.5406172573566437,
+            "q3": 0.7530659586191177,
+            "iqr": 0.21244870126247406
+          }
+        },
+        "entropy_nats": {
+          "all": {
+            "count": 120,
+            "mean": 0.7736897107373646,
+            "median": 0.7713086653264618,
+            "std": 0.28221059400790727,
+            "q1": 0.6051719102614884,
+            "q3": 0.9595983678287288,
+            "iqr": 0.35442645756724034
+          },
+          "nv": {
+            "count": 80,
+            "mean": 0.7212662784380226,
+            "median": 0.713263004749888,
+            "std": 0.28393551957796603,
+            "q1": 0.5363691891784705,
+            "q3": 0.9372893114019465,
+            "iqr": 0.40092012222347595
+          },
+          "mel": {
+            "count": 40,
+            "mean": 0.8785365753360483,
+            "median": 0.8717366661968714,
+            "std": 0.25058867313976485,
+            "q1": 0.730788361188671,
+            "q3": 0.9713265593938887,
+            "iqr": 0.2405381982052177
+          }
+        },
+        "top2_margin": {
+          "all": {
+            "count": 120,
+            "mean": 0.472147360718615,
+            "median": 0.504424698650837,
+            "std": 0.2616863682375054,
+            "q1": 0.2776564806699753,
+            "q3": 0.6648191139101982,
+            "iqr": 0.38716263324022293
+          },
+          "nv": {
+            "count": 80,
+            "mean": 0.5015898170342552,
+            "median": 0.5249074772000313,
+            "std": 0.2673987572115421,
+            "q1": 0.32831039279699326,
+            "q3": 0.6920730248093605,
+            "iqr": 0.36376263201236725
+          },
+          "mel": {
+            "count": 40,
+            "mean": 0.41326244808733464,
+            "median": 0.45854850858449936,
+            "std": 0.24244372192850927,
+            "q1": 0.21110889315605164,
+            "q3": 0.5672654248774052,
+            "iqr": 0.35615653172135353
+          }
+        },
+        "p_mel": {
+          "all": {
+            "count": 120,
+            "mean": 0.23084908791449077,
+            "median": 0.1514018550515175,
+            "std": 0.2227803546290219,
+            "q1": 0.04558213334530592,
+            "q3": 0.3381759524345398,
+            "iqr": 0.2925938190892339
+          },
+          "nv": {
+            "count": 80,
+            "mean": 0.19325269997498254,
+            "median": 0.1443336084485054,
+            "std": 0.18529694075715641,
+            "q1": 0.043677215464413166,
+            "q3": 0.27991916239261627,
+            "iqr": 0.2362419469282031
+          },
+          "mel": {
+            "count": 40,
+            "mean": 0.30604186379350723,
+            "median": 0.19954480975866318,
+            "std": 0.2705360550358875,
+            "q1": 0.06165696773678064,
+            "q3": 0.48555629700422287,
+            "iqr": 0.4238993292674422
+          }
+        }
+      }
+    },
+    "outcomes_by_true_class": {
+      "HAM10000": {
+        "nv": {
+          "n": 676,
+          "outcome_counts": {
+            "mel": 28,
+            "nv": 630,
+            "other": 18
+          },
+          "outcome_proportions": {
+            "mel": 0.04142011834319527,
+            "nv": 0.9319526627218935,
+            "other": 0.026627218934911243
+          }
+        },
+        "mel": {
+          "n": 107,
+          "outcome_counts": {
+            "mel": 59,
+            "nv": 34,
+            "other": 14
+          },
+          "outcome_proportions": {
+            "mel": 0.5514018691588785,
+            "nv": 0.3177570093457944,
+            "other": 0.1308411214953271
+          }
+        }
+      },
+      "PH2": {
+        "nv": {
+          "n": 80,
+          "outcome_counts": {
+            "mel": 8,
+            "nv": 63,
+            "other": 9
+          },
+          "outcome_proportions": {
+            "mel": 0.1,
+            "nv": 0.7875,
+            "other": 0.1125
+          }
+        },
+        "mel": {
+          "n": 40,
+          "outcome_counts": {
+            "mel": 12,
+            "nv": 15,
+            "other": 13
+          },
+          "outcome_proportions": {
+            "mel": 0.3,
+            "nv": 0.375,
+            "other": 0.325
+          }
+        }
+      }
+    }
+  },
+  "stage2_gradcam": {
+    "cases_requested": 12,
+    "cases_completed": 12,
+    "reproduction": {
+      "cases_checked": 12,
+      "inference_batch_size": 16,
+      "repeated_approved_inputs_for_batch_shape": 4,
+      "top1_matches": 12,
+      "probability_tolerance": 0.0005,
+      "maximum_probability_difference": 0.0,
+      "mismatches": [],
+      "per_case": {
+        "IMD003": {
+          "saved_predicted_class": "nv",
+          "reproduced_predicted_class": "nv",
+          "max_abs_probability_difference": 0.0
+        },
+        "IMD009": {
+          "saved_predicted_class": "nv",
+          "reproduced_predicted_class": "nv",
+          "max_abs_probability_difference": 0.0
+        },
+        "IMD010": {
+          "saved_predicted_class": "bkl",
+          "reproduced_predicted_class": "bkl",
+          "max_abs_probability_difference": 0.0
+        },
+        "IMD020": {
+          "saved_predicted_class": "bkl",
+          "reproduced_predicted_class": "bkl",
+          "max_abs_probability_difference": 0.0
+        },
+        "IMD035": {
+          "saved_predicted_class": "mel",
+          "reproduced_predicted_class": "mel",
+          "max_abs_probability_difference": 0.0
+        },
+        "IMD045": {
+          "saved_predicted_class": "mel",
+          "reproduced_predicted_class": "mel",
+          "max_abs_probability_difference": 0.0
+        },
+        "IMD058": {
+          "saved_predicted_class": "bkl",
+          "reproduced_predicted_class": "bkl",
+          "max_abs_probability_difference": 0.0
+        },
+        "IMD061": {
+          "saved_predicted_class": "nv",
+          "reproduced_predicted_class": "nv",
+          "max_abs_probability_difference": 0.0
+        },
+        "IMD063": {
+          "saved_predicted_class": "nv",
+          "reproduced_predicted_class": "nv",
+          "max_abs_probability_difference": 0.0
+        },
+        "IMD065": {
+          "saved_predicted_class": "mel",
+          "reproduced_predicted_class": "mel",
+          "max_abs_probability_difference": 0.0
+        },
+        "IMD085": {
+          "saved_predicted_class": "bkl",
+          "reproduced_predicted_class": "bkl",
+          "max_abs_probability_difference": 0.0
+        },
+        "IMD168": {
+          "saved_predicted_class": "mel",
+          "reproduced_predicted_class": "mel",
+          "max_abs_probability_difference": 0.0
+        }
+      }
+    },
+    "predicted_maps_computed": 12,
+    "true_maps_computed": 8,
+    "true_maps_reused": 4,
+    "invalid_maps": [],
+    "target_layer": "model.features[-1]",
+    "human_review_status": "NEEDS_HUMAN_REVIEW for all 12 cases; saved review judgments are UNCERTAIN."
+  },
+  "deterministic_selection_rule": "All 12 approved PH? outcome cases are included. PH? cases follow the supplied fixed IDs. HAM panels include all two cases from each matching existing HAM category, sorted by image ID. No visual-map-based selection.",
+  "ham_ph2_matched_panel_categories": [
+    "correct melanoma",
+    "melanoma to nv",
+    "correct nevus",
+    "nevus to melanoma"
+  ],
+  "ph2_only_panel_categories": [
+    "melanoma to other",
+    "nevus to other"
+  ],
+  "limitations": [
+    "PH? is an external follow-up dataset previously used for preprocessing diagnostics and earlier evaluation.",
+    "PH? sample size is 40 melanoma and 80 common nevus cases.",
+    "All case-level Grad-CAM attention judgments remain NEEDS_HUMAN_REVIEW.",
+    "No lesion masks or ground-truth localization annotations are used for localization accuracy.",
+    "Grad-CAM does not establish causal reasoning or clinical validity.",
+    "Stage 1 descriptive domain differences do not establish causation."
+  ],
+  "safeguards": {
+    "ph2_statement": "PH? is treated as an external follow-up dataset and is not used for model selection, hyperparameter tuning, threshold optimization, or training.",
+    "gradcam_statement": "Grad-CAM is an exploratory visualization of model sensitivity and does not establish causal reasoning or clinical validity.",
+    "new_inference": false,
+    "new_gradcam": false,
+    "training": false,
+    "fine_tuning": false,
+    "threshold_tuning": false,
+    "checkpoint_modified": false,
+    "split_modified": false,
+    "experiment5_modified": false
+  }
+}

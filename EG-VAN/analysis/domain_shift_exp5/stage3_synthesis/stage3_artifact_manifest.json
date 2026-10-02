@@ -1,0 +1,652 @@
+{
+  "manifest_version": 1,
+  "created_at_utc": "2026-10-02T02:43:34.236199+00:00",
+  "stage": "Domain Shift Stage 3 synthesis provenance inventory",
+  "generation_purpose": "Record the verified frozen inputs and the pre-existing Stage 3 outputs used/reviewed; no maps or reports were regenerated.",
+  "input_artifacts": [
+    {
+      "path": "experiments/efficientnetv2s_controlled_exp5/config.json",
+      "sha256": "4b0e8a2910a7e6a07648b3bb36ffe34aa5601781ef96cf0ed25f19d6a4657f90",
+      "size_bytes": 5822
+    },
+    {
+      "path": "experiments/efficientnetv2s_controlled_exp5/experiment_manifest.json",
+      "sha256": "594e58fde7244c1e2a675bf313a70623be1b202b95cfc7c77e47f9cf505a301b",
+      "size_bytes": 1061
+    },
+    {
+      "path": "experiments/efficientnetv2s_controlled_exp5/test_metrics.json",
+      "sha256": "b3632a5fa736ad4057a9ecd2f601bd4fbc5c3611fb827c2a2231be5a152711db",
+      "size_bytes": 2321
+    },
+    {
+      "path": "experiments/efficientnetv2s_controlled_exp5/test_predictions.csv",
+      "sha256": "a33db393a50dd3184ac387724aca4299ac6945fa6c71655c8e54bc9a73ccef06",
+      "size_bytes": 179787
+    },
+    {
+      "path": "experiments/efficientnetv2s_controlled_exp5/validation_metrics.json",
+      "sha256": "ab8790adc7668ae2611dd618ce750675d00520075ccee90326baaae171425cb8",
+      "size_bytes": 2306
+    },
+    {
+      "path": "experiments/efficientnetv2s_controlled_exp5/validation_predictions.csv",
+      "sha256": "edd8b66076ddbefff3f60f3878f00bf4b42201c9193fa4c2dbb191cbbf064288",
+      "size_bytes": 174659
+    },
+    {
+      "path": "experiments/efficientnetv2s_controlled_exp5/controlled_exp5_final_report.md",
+      "sha256": "f750b4c30a928a05e938f541022a4af0de02e350ef24bf2b910e2c2a9187a1f3",
+      "size_bytes": 787
+    },
+    {
+      "path": "data/splits/split_leakage_aware.csv",
+      "sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+      "size_bytes": 351559
+    },
+    {
+      "path": "docs/PHASE_4B_PREPROCESSING_REPORT.md",
+      "sha256": "1ed5bd33c86970641dfdac12db29d3451611b7e963e6118572aac9b700038183",
+      "size_bytes": 5601
+    },
+    {
+      "path": "docs/PHASE_6_IMAGE_QUALITY_ASSESSMENT.md",
+      "sha256": "dc457a52be3580f1cd3b1577b02e7f373a7c6353e334217e0e4a5667777f5338",
+      "size_bytes": 5544
+    },
+    {
+      "path": "docs/PHASE_7_UNCERTAINTY_ESTIMATION.md",
+      "sha256": "d3de9237690a140489641571efbacb5e04a2aa77ef04e43c66add98a92631141",
+      "size_bytes": 10737
+    },
+    {
+      "path": "experiments/image_quality/image_quality.csv",
+      "sha256": "439310249e0cf1a731b41204c41314adf626e1fb35891dec4a52ba0b695284a7",
+      "size_bytes": 1852195
+    },
+    {
+      "path": "experiments/image_quality/quality_stats_by_split.csv",
+      "sha256": "14481a70513c6f69cec756db5aff24851d0571c9ea4a7c2eb2a7f21901e58556",
+      "size_bytes": 3042
+    },
+    {
+      "path": "experiments/image_quality/quality_stats_by_split_class.csv",
+      "sha256": "32ec6d9f2f999e7841e98fa3ca2623203528670305249cdeaec7859212de8100",
+      "size_bytes": 16914
+    },
+    {
+      "path": "experiments/uncertainty/predictions.csv",
+      "sha256": "ba77a788bbb523dc19f0505fa88c21fb3a74ae693606e63986b05084daced6b3",
+      "size_bytes": 218525
+    },
+    {
+      "path": "experiments/uncertainty/uncertainty_summary.json",
+      "sha256": "81396d485fc162f0bd917eca15b4f856ba7d7e562c2e2935bec53ac552b6cdb3",
+      "size_bytes": 3640
+    },
+    {
+      "path": "analysis/explainability_exp5/case_manifest.csv",
+      "sha256": "6883a873f7fc684db69570c43cfd009cbe8286fa3209b73f35942eaa4acec66c",
+      "size_bytes": 21368
+    },
+    {
+      "path": "analysis/explainability_exp5/explainability_config.json",
+      "sha256": "8490ae65a47d29e9d50bca9c4e7ce88358487333d076648466ad8bb1b5d87e3c",
+      "size_bytes": 1836
+    },
+    {
+      "path": "analysis/explainability_exp5/explainability_summary.json",
+      "sha256": "8a7eb6ef7286347c338c9d2b76d2d7996db4dd4991a87b62138684245687cf9e",
+      "size_bytes": 1248
+    },
+    {
+      "path": "analysis/explainability_exp5/qualitative_analysis.csv",
+      "sha256": "1cb2f87d3a7976808ae2c6d61ce024d663f0b8d17ccc40179258660c51c238cd",
+      "size_bytes": 11430
+    },
+    {
+      "path": "analysis/explainability_exp5/explainability_report.md",
+      "sha256": "bec60087c20a72189da5289213cc94a8545e09c320df55bf028a9bd2c11bb40b",
+      "size_bytes": 8470
+    },
+    {
+      "path": "analysis/ph2_external_validation_exp5/ph2_manifest.csv",
+      "sha256": "3c130b3b44dcc1052ae29656510a95a4e91df4b8f65c121838941efb375d3842",
+      "size_bytes": 13448
+    },
+    {
+      "path": "analysis/ph2_external_validation_exp5/ph2_predictions.csv",
+      "sha256": "7663e0eb8a2fea96873005a4780f0008bcf9b81ae3d74ce413b197912aa9c5bc",
+      "size_bytes": 20779
+    },
+    {
+      "path": "analysis/ph2_external_validation_exp5/ph2_metrics.json",
+      "sha256": "08e6d586a0fc82a362a6ec5060ce317f2b82c62b665307116cc64257a1e2091f",
+      "size_bytes": 1118
+    },
+    {
+      "path": "analysis/ph2_external_validation_exp5/external_validation_config.json",
+      "sha256": "410162f26af0ff11d54ba943436c3573d43f91cdba767d790f9236aa7540dcf8",
+      "size_bytes": 4659
+    },
+    {
+      "path": "analysis/ph2_external_validation_exp5/ph2_exp5_forensic_analysis.md",
+      "sha256": "61e6acef85701e6284064308c3a3f98040aea94c5b9faffe68e01260bfe2a25c",
+      "size_bytes": 10521
+    },
+    {
+      "path": "analysis/domain_shift_exp5/domain_features.csv",
+      "sha256": "61c23586dd3a1877f3937e019b97760271fa7b6b5f81db1aa14ecbddab700a67",
+      "size_bytes": 554730
+    },
+    {
+      "path": "analysis/domain_shift_exp5/domain_feature_summary.csv",
+      "sha256": "23c30c7dfac66c58b9ee2637012b28dc61a2d39421cf8d9076cacf182dcaed31",
+      "size_bytes": 13787
+    },
+    {
+      "path": "analysis/domain_shift_exp5/prediction_shift_summary.json",
+      "sha256": "f98d1b0bf90e8cf19edacb396eb1571e7b6dc9df04b1e4bf25f8b53becc7853c",
+      "size_bytes": 9737
+    },
+    {
+      "path": "analysis/domain_shift_exp5/domain_shift_metrics.json",
+      "sha256": "d3e5fa2ecb5ee8882ff9065c3ad67ab564bea5a38e4d8199f790f31e3a70db4e",
+      "size_bytes": 9176
+    },
+    {
+      "path": "analysis/domain_shift_exp5/domain_shift_stage1_report.md",
+      "sha256": "872360af7111ef48384c7baf7cfb05b82e910831884d17a8bde884a53b98dd6b",
+      "size_bytes": 6887
+    },
+    {
+      "path": "analysis/domain_shift_exp5/domain_shift_analysis_plan.md",
+      "sha256": "6810f90dcb373f887aa5303d50ec52ee2e07f4d5dd27520f1032086bbba328aa",
+      "size_bytes": 18070
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_gradcam_manifest.csv",
+      "sha256": "9f5d0f406fe15fce2468ac419a0529eec061457c2fb9d12e110bdc50e870b788",
+      "size_bytes": 11445
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/gradcam_review.csv",
+      "sha256": "2e447e2b2b87d05b7fa687bd13de032d66e7458137b968df39e1311dc4f3b359",
+      "size_bytes": 2825
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/gradcam_comparison_summary.json",
+      "sha256": "cf5583f3f362ab9f745bf90f6db822a9d53aab7ec666528fb8ea6e1a218551eb",
+      "size_bytes": 3343
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/gradcam_comparison_report.md",
+      "sha256": "171942998d41e737d28d49c2b9a506bb7077921055c1e20d458e0c094ca56983",
+      "size_bytes": 2333
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/README.md",
+      "sha256": "1d0e45a8415e2f4f1bbeee79624c506a93c9a108de796a9226868f462fdc5962",
+      "size_bytes": 732
+    },
+    {
+      "path": "experiments/efficientnetv2s_controlled_exp5/best_checkpoint.pt",
+      "sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+      "size_bytes": 81623687
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD003/input.png",
+      "sha256": "20a870712771576c47c572edacb5e0e57429b06c69cfded1e324a736f9ad45a6",
+      "size_bytes": 204978
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD003/predicted_overlay.png",
+      "sha256": "ee0ba081c931dfd72525685887a155a04bd27d40f202ba2af79015c4aae71f39",
+      "size_bytes": 177080
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD003/true_overlay.png",
+      "sha256": "ee0ba081c931dfd72525685887a155a04bd27d40f202ba2af79015c4aae71f39",
+      "size_bytes": 177080
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD009/input.png",
+      "sha256": "ff70936319c33cf88650bfcf32f1f496cf26e44fd0eca937612994b4dd7ad03b",
+      "size_bytes": 212768
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD009/predicted_overlay.png",
+      "sha256": "c07bbca688d31c9e2430aeeecd44019c659e7b649f3caee0f7a16cf717907a30",
+      "size_bytes": 182398
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD009/true_overlay.png",
+      "sha256": "c07bbca688d31c9e2430aeeecd44019c659e7b649f3caee0f7a16cf717907a30",
+      "size_bytes": 182398
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD010/input.png",
+      "sha256": "03bf0bdcafa791507d6c7e549e212d31cfef733b793ef4775d9699d89a98377d",
+      "size_bytes": 203009
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD010/predicted_overlay.png",
+      "sha256": "3e493c5be9181ecdb580eede83121e430fb41a71169d9d425badd40081e825f3",
+      "size_bytes": 175623
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD010/true_overlay.png",
+      "sha256": "b09bc422da11d84a9c623c3c486f64403bac3fc76dca6185efc2e6cdc74a758c",
+      "size_bytes": 178481
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD020/input.png",
+      "sha256": "ef6cb8be9b7dac4c91a6a7c2ce98c21b93a894e6c15a9b640a2e9a47d71059d5",
+      "size_bytes": 204346
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD020/predicted_overlay.png",
+      "sha256": "f69ea5c1b271a9e50b94118ea74888aca07f708d90ced2cca31824627bd1167c",
+      "size_bytes": 175752
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD020/true_overlay.png",
+      "sha256": "81a98b4ec9cb92a698b4a45dd19c45bcafbbf106acc7195ebaa6f925684906a6",
+      "size_bytes": 175353
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD035/input.png",
+      "sha256": "9187c98a7a98352cebde4b0d1b729fc22a614be59ad7a56cc0222957f49bad45",
+      "size_bytes": 203085
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD035/predicted_overlay.png",
+      "sha256": "e1a1daf3974355333746ee93aa44d4ba4a74065e052a4d5183178201c4426d88",
+      "size_bytes": 173474
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD035/true_overlay.png",
+      "sha256": "5cbccafade94d1d0c2ad3d1fe587417c2fa2386288061133de11edad3a3dd017",
+      "size_bytes": 172910
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD045/input.png",
+      "sha256": "01bf7f5301f5e41801148db9c9f268e82ae3b658a150c85ef90606cba8230bf4",
+      "size_bytes": 203098
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD045/predicted_overlay.png",
+      "sha256": "b6824844c507515a8dbf61e1524fe9bc80bde863cf8c9fa05b79c873758a769f",
+      "size_bytes": 174972
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD045/true_overlay.png",
+      "sha256": "ad6a06c6ccea8d62ac38872481ca4f0951292bae7d2cec74a2666b36a639e4cb",
+      "size_bytes": 176495
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD058/input.png",
+      "sha256": "e7156767d0920e092000943984fea587f2c86bb1857bd73989aca7a099875c66",
+      "size_bytes": 258970
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD058/predicted_overlay.png",
+      "sha256": "41f3c5fd5233d5d03b4a4c4b2d1f5dd0882d36f93b9ac1e481b8251e48d8f644",
+      "size_bytes": 219198
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD058/true_overlay.png",
+      "sha256": "180dbaf59b973594499c2cb9869afba371e42c2e151e4d35da33a4c64f900c9d",
+      "size_bytes": 218500
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD061/input.png",
+      "sha256": "190983bfab050d18ee71e24d4eaab18f59e69f239521ca2967139016fda1b737",
+      "size_bytes": 224342
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD061/predicted_overlay.png",
+      "sha256": "8ea863e1756cbf49c1936771a867a458b4f71a56c1ac83a6341db799b4d22b5a",
+      "size_bytes": 197118
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD061/true_overlay.png",
+      "sha256": "b668f456528c1d66b4a260ba5077621b8e51b8b695069e93aadb22799600d3f8",
+      "size_bytes": 193043
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD063/input.png",
+      "sha256": "8221c60773e2b49b7604cea6b062d594dd2353b724d7d36be0e8f38652cf140d",
+      "size_bytes": 247505
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD063/predicted_overlay.png",
+      "sha256": "a96538f611d3244f46804b56cb275b67a3087d31104ba247574b7ea7484726f0",
+      "size_bytes": 211587
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD063/true_overlay.png",
+      "sha256": "fe41eca4eb3a4db75c302ea41e483aebe8e2807e78b6e619983490bd12bcfcfc",
+      "size_bytes": 211197
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD065/input.png",
+      "sha256": "b626eda1c6eea9c0cdd0e0ca1d1da0c5a2eeab8f5eb3600dc724be92247c7961",
+      "size_bytes": 263238
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD065/predicted_overlay.png",
+      "sha256": "e4e9a8ce2ac9b5615452131ab58f4689a959e4dd05effca4ae805e3390c4c193",
+      "size_bytes": 223911
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD065/true_overlay.png",
+      "sha256": "e4e9a8ce2ac9b5615452131ab58f4689a959e4dd05effca4ae805e3390c4c193",
+      "size_bytes": 223911
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD085/input.png",
+      "sha256": "92fe5630d1d49b6ff7e25c0167a6ebae5dfb21fac24739711f1e6c34dc43d46c",
+      "size_bytes": 243889
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD085/predicted_overlay.png",
+      "sha256": "6b3bf3360f063492768b5cac2140223f22d696f1dac394d5017f0e85f2378726",
+      "size_bytes": 205766
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD085/true_overlay.png",
+      "sha256": "6dc3d87492267de0ea8021b52610ca1502c8c9c0e244a9ab976f592b32c133d3",
+      "size_bytes": 205758
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD168/input.png",
+      "sha256": "9971062e7f02e89c4616a5cafc60f7a41241df7223b008ef2a90f672f318df84",
+      "size_bytes": 225707
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD168/predicted_overlay.png",
+      "sha256": "e57e61941574cf007bf129622989de467e745d4c258e01d83f8ffd085f9faf9f",
+      "size_bytes": 191405
+    },
+    {
+      "path": "analysis/domain_shift_exp5/gradcam_comparison/ph2_cases/IMD168/true_overlay.png",
+      "sha256": "e57e61941574cf007bf129622989de467e745d4c258e01d83f8ffd085f9faf9f",
+      "size_bytes": 191405
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024449/original.png",
+      "sha256": "0b839deaa8a65ad3b20508269703f979fab35e26534e5633a002300365c81f04",
+      "size_bytes": 233312
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024449/predicted_overlay.png",
+      "sha256": "fe2c12f307f444adafb87bf1c1942fa5841b5a8b46017afcb69501a128818b0e",
+      "size_bytes": 196728
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024449/true_overlay.png",
+      "sha256": "fe2c12f307f444adafb87bf1c1942fa5841b5a8b46017afcb69501a128818b0e",
+      "size_bytes": 196728
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024482/original.png",
+      "sha256": "a3ef30fd620224531a6958532ed54ab7ee33e8ffe5cfaf18f363c72ead690b10",
+      "size_bytes": 234750
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024482/predicted_overlay.png",
+      "sha256": "2825cdb755f07fcbe4a2413047bdf5e8b278e7b57aa052a8cf1f32a1d0700cf1",
+      "size_bytes": 198559
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024482/true_overlay.png",
+      "sha256": "2825cdb755f07fcbe4a2413047bdf5e8b278e7b57aa052a8cf1f32a1d0700cf1",
+      "size_bytes": 198559
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024898/original.png",
+      "sha256": "32fb11b354729a298d51c62522a147e159c63df7005f12f8c2cd54c55fd17019",
+      "size_bytes": 213004
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024898/predicted_overlay.png",
+      "sha256": "6f14ac979a870452fc8d2592d779d2ea7ba1feda84fa2ecb280a2f172c890969",
+      "size_bytes": 189184
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024898/true_overlay.png",
+      "sha256": "46ccaeb75d47f0712fb75913a1652c4986e403c3a6dfc46ff987b542aa0db2ba",
+      "size_bytes": 186999
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0025018/original.png",
+      "sha256": "f85b43635bc85e00c81688e813dd7c5667b7e5eccd4d8501b823059c3319fb05",
+      "size_bytes": 218481
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0025018/predicted_overlay.png",
+      "sha256": "3a726d19d378d518d417afa6f2af15d3bd15cb972f53e56342f96fe1408d1e78",
+      "size_bytes": 185668
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0025018/true_overlay.png",
+      "sha256": "e9410a8e94ba077eb5c5ebe53d7d50e8a71732a3290a004179410f12a5d1fb35",
+      "size_bytes": 182822
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024321/original.png",
+      "sha256": "83bdb004434d75f8f3f9f2ea5b24d4d2808500316119f089958396c04f9bffc8",
+      "size_bytes": 291479
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024321/predicted_overlay.png",
+      "sha256": "be2cf5ada60fe42ece3eb705ecfdacb0926aada159526fd06aa5598b96df1cfa",
+      "size_bytes": 245276
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024321/true_overlay.png",
+      "sha256": "be2cf5ada60fe42ece3eb705ecfdacb0926aada159526fd06aa5598b96df1cfa",
+      "size_bytes": 245276
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024322/original.png",
+      "sha256": "692f7cb4e8b08b389986a68443c754cd6dda5f56b755b41bb9eaaa154ce940f5",
+      "size_bytes": 277306
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024322/predicted_overlay.png",
+      "sha256": "a1e7e612b9dec53296739df6b545f1296c188ac89a40554879f25cca64e38c4e",
+      "size_bytes": 234164
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024322/true_overlay.png",
+      "sha256": "a1e7e612b9dec53296739df6b545f1296c188ac89a40554879f25cca64e38c4e",
+      "size_bytes": 234164
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024406/original.png",
+      "sha256": "f34dfdedd7388e4d0076a8724831ae5530ff0d05a98d41302c5eb319f94cd4ba",
+      "size_bytes": 206182
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024406/predicted_overlay.png",
+      "sha256": "dd601f577abfb14f684e638ed4abc771c84f52b4f43047e10f19def7fd7767c0",
+      "size_bytes": 175169
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024406/true_overlay.png",
+      "sha256": "eb7c5ca01d16097001d5e8989429c337bc7da334b49c9f2d1f4ab89e1a0dd9ca",
+      "size_bytes": 178793
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024620/original.png",
+      "sha256": "84084eab3483edd97772379396d9e15a393f6369cf78e3c10f1d9d41fa50302f",
+      "size_bytes": 228642
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024620/predicted_overlay.png",
+      "sha256": "293bba79c4cd701ee9b85d39f17397dcbcfd5493bde72e7865d7986000900608",
+      "size_bytes": 193349
+    },
+    {
+      "path": "analysis/explainability_exp5/cases/ISIC_0024620/true_overlay.png",
+      "sha256": "0c30b1064ddbd7c622c981885760abb29ae7568ff0bc0c19fd13145564e5c0d8",
+      "size_bytes": 194019
+    }
+  ],
+  "figure_source_selection_rule": {
+    "ph2": "Include all 12 fixed approved cases in six outcome groups; no map-based selection.",
+    "ham": "Include every existing HAM case in each matching case_manifest category (two per category), ordered by image_id; no visual-attractiveness selection.",
+    "matched_categories": {
+      "correct_melanoma": {
+        "ham_image_ids": [
+          "ISIC_0024449",
+          "ISIC_0024482"
+        ],
+        "ph2_image_ids": [
+          "IMD065",
+          "IMD168"
+        ]
+      },
+      "melanoma_to_nv": {
+        "ham_image_ids": [
+          "ISIC_0024898",
+          "ISIC_0025018"
+        ],
+        "ph2_image_ids": [
+          "IMD061",
+          "IMD063"
+        ]
+      },
+      "correct_nevus": {
+        "ham_image_ids": [
+          "ISIC_0024321",
+          "ISIC_0024322"
+        ],
+        "ph2_image_ids": [
+          "IMD003",
+          "IMD009"
+        ]
+      },
+      "nevus_to_melanoma": {
+        "ham_image_ids": [
+          "ISIC_0024406",
+          "ISIC_0024620"
+        ],
+        "ph2_image_ids": [
+          "IMD035",
+          "IMD045"
+        ]
+      }
+    },
+    "ph2_only_categories": [
+      "melanoma_to_other",
+      "nevus_to_other"
+    ]
+  },
+  "existing_stage3_outputs": [
+    {
+      "path": "analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison.csv",
+      "sha256": "76b741f608e3ddc7b2ad470f0742cd3747b51c5fa0343dafa56daa43a244b112",
+      "size_bytes": 10032,
+      "state_at_manifest_creation": "pre-existing; inspected and preserved"
+    },
+    {
+      "path": "analysis/domain_shift_exp5/stage3_synthesis/domain_shift_stage3_summary.json",
+      "sha256": "05238a386eac4e231d5ccc70c6a92b0cdb3798928365b20a84a9a5cf8a94bc45",
+      "size_bytes": 23032,
+      "state_at_manifest_creation": "pre-existing; inspected and preserved"
+    },
+    {
+      "path": "analysis/domain_shift_exp5/stage3_synthesis/domain_shift_stage3_report.md",
+      "sha256": "f239483b2adb1ef92729879be950004fab02e359576cf4955387e6e7c2626f59",
+      "size_bytes": 9832,
+      "state_at_manifest_creation": "pre-existing; inspected and preserved"
+    },
+    {
+      "path": "analysis/domain_shift_exp5/stage3_synthesis/figures/comparison_correct_melanoma.png",
+      "sha256": "3a3bf099047945a1e9d0b13bf1fac8eb15f381e347f56856b7d9435e5aedbe75",
+      "size_bytes": 1396536,
+      "state_at_manifest_creation": "pre-existing; inspected and preserved"
+    },
+    {
+      "path": "analysis/domain_shift_exp5/stage3_synthesis/figures/comparison_correct_nevus.png",
+      "sha256": "3240d146795a5e564055b7f3a2e776d5ab0ad0b9244e1740652de1cb01ecb802",
+      "size_bytes": 1422800,
+      "state_at_manifest_creation": "pre-existing; inspected and preserved"
+    },
+    {
+      "path": "analysis/domain_shift_exp5/stage3_synthesis/figures/comparison_melanoma_to_nv.png",
+      "sha256": "13c81372ade1eb8df1cb6e081bdcdf8a7e08b38c7a1a1ba09ab8e62d531e7989",
+      "size_bytes": 1835044,
+      "state_at_manifest_creation": "pre-existing; inspected and preserved"
+    },
+    {
+      "path": "analysis/domain_shift_exp5/stage3_synthesis/figures/comparison_nevus_to_melanoma.png",
+      "sha256": "39d18b1cccf2a3895bbe65c8f674fc2c7fdb22fb6a70dc0c0e5d89d2916e3311",
+      "size_bytes": 1665797,
+      "state_at_manifest_creation": "pre-existing; inspected and preserved"
+    },
+    {
+      "path": "analysis/domain_shift_exp5/stage3_synthesis/figures/ph2_correct_melanoma.png",
+      "sha256": "2a1f7fd47e222e9f78fa3ab0ebcf8f6e3ffa238b56e0a49e13fbbd85a74342ca",
+      "size_bytes": 708020,
+      "state_at_manifest_creation": "pre-existing; inspected and preserved"
+    },
+    {
+      "path": "analysis/domain_shift_exp5/stage3_synthesis/figures/ph2_correct_nevus.png",
+      "sha256": "a0885c737a0c8755975e6377e58d4bd333a465b51114a0b9970d471feec53c2e",
+      "size_bytes": 627499,
+      "state_at_manifest_creation": "pre-existing; inspected and preserved"
+    },
+    {
+      "path": "analysis/domain_shift_exp5/stage3_synthesis/figures/ph2_melanoma_to_nv.png",
+      "sha256": "b20dcb8eaa5d97c7512fe0493c2ffaac5b4a47b5e9ddade76e93cf541b6f1943",
+      "size_bytes": 957066,
+      "state_at_manifest_creation": "pre-existing; inspected and preserved"
+    },
+    {
+      "path": "analysis/domain_shift_exp5/stage3_synthesis/figures/ph2_melanoma_to_other.png",
+      "sha256": "a8931064f64cc0af30945f146bfc4a9ab712d2af4701bc8d721cd908dc9e058e",
+      "size_bytes": 1013097,
+      "state_at_manifest_creation": "pre-existing; inspected and preserved"
+    },
+    {
+      "path": "analysis/domain_shift_exp5/stage3_synthesis/figures/ph2_nevus_to_melanoma.png",
+      "sha256": "6426b1cdf14d32e6fa873cbe5b132a4bf203fb9757695ff5ecf7f6929e05e0a9",
+      "size_bytes": 803149,
+      "state_at_manifest_creation": "pre-existing; inspected and preserved"
+    },
+    {
+      "path": "analysis/domain_shift_exp5/stage3_synthesis/figures/ph2_nevus_to_other.png",
+      "sha256": "12d48dcd0f7d882a9e785cfff4dcaa19e5aaa58432e1cdb701d5f64b691d26f6",
+      "size_bytes": 845798,
+      "state_at_manifest_creation": "pre-existing; inspected and preserved"
+    }
+  ],
+  "stage3_outputs_not_present_at_manifest_creation": [
+    "stage3_artifact_manifest.json (this file)"
+  ],
+  "known_review_state": {
+    "cases": 12,
+    "human_review_required": 12,
+    "review_csv_attention_labels": "All NEEDS_HUMAN_REVIEW; no visual labels were inferred by this manifest step."
+  },
+  "known_encoding_issue": {
+    "present": true,
+    "detail": "The pre-existing report/summary contain literal PH? placeholders where PH? should appear. They were not overwritten because the instruction prohibited overwriting existing analysis artifacts.",
+    "required_followup_limitation": "PH? had previously been used in project analyses; this is an external follow-up evaluation, not an untouched independent validation."
+  },
+  "execution": {
+    "model_inference_required": false,
+    "gradcam_computation_required": false,
+    "training_performed": false,
+    "fine_tuning_performed": false,
+    "threshold_tuning_performed": false,
+    "checkpoint_modified": false,
+    "split_modified": false,
+    "ph2_source_images_opened": false
+  },
+  "self_hash_note": "This manifest does not contain its own SHA256 because embedding its digest would be self-referential."
+}
