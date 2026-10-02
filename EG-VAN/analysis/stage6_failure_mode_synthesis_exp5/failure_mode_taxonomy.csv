@@ -1,0 +1,93 @@
+image_id,failure_tag,evidence_source,evidence_value,interpretation,confidence_of_interpretation
+IMD003,reviewed Grad-CAM case category,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,correct nevus,Human-reviewed category preserved verbatim.,DIRECT
+IMD009,reviewed Grad-CAM case category,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,correct nevus,Human-reviewed category preserved verbatim.,DIRECT
+IMD022,low-confidence correct prediction,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.4102,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD035,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> mel,Observed incorrect seven-class prediction.,DIRECT
+IMD035,reviewed Grad-CAM case category,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,nevus to melanoma,Human-reviewed category preserved verbatim.,DIRECT
+IMD044,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD044,high-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.7864 (HIGH),Incorrect prediction in the prespecified HIGH or VERY_HIGH band.,DIRECT
+IMD045,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> mel,Observed incorrect seven-class prediction.,DIRECT
+IMD045,reviewed Grad-CAM case category,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,nevus to melanoma,Human-reviewed category preserved verbatim.,DIRECT
+IMD045,attention-localization concern,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,Minimal to moderate; activation remains central with some spread around the feature. | Minimal; no strong distant background focus is apparent.,Prediction error co-occurs with reviewed border/background attention; no localization metric or causal claim.,TENTATIVE
+IMD103,low-confidence correct prediction,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.4456,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD112,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> mel,Observed incorrect seven-class prediction.,DIRECT
+IMD112,low-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.4216,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD162,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD198,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD198,low-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.4595,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD200,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD010,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD010,reviewed Grad-CAM case category,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,nevus to other,Human-reviewed category preserved verbatim.,DIRECT
+IMD010,attention-localization concern,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,"Moderate; activation reaches adjacent sides of the central feature. | Moderate; some hotspots extend into nearby tissue, though the feature boundary is not annotated.",Prediction error co-occurs with reviewed border/background attention; no localization metric or causal claim.,TENTATIVE
+IMD020,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD020,high-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.7518 (HIGH),Incorrect prediction in the prespecified HIGH or VERY_HIGH band.,DIRECT
+IMD020,reviewed Grad-CAM case category,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,nevus to other,Human-reviewed category preserved verbatim.,DIRECT
+IMD020,attention-localization concern,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,"Minimal to moderate; the dominant focus is interior, with limited spill toward the margin. | Minimal; most visible activation is close to the central feature.",Prediction error co-occurs with reviewed border/background attention; no localization metric or causal claim.,TENTATIVE
+IMD105,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD105,low-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.3629,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD199,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD199,low-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.4965,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD204,low-confidence correct prediction,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.3438,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD207,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD207,low-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.4700,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD367,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> mel,Observed incorrect seven-class prediction.,DIRECT
+IMD374,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> mel,Observed incorrect seven-class prediction.,DIRECT
+IMD375,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> mel,Observed incorrect seven-class prediction.,DIRECT
+IMD378,low-confidence correct prediction,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.4067,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD379,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> mel,Observed incorrect seven-class prediction.,DIRECT
+IMD384,low-confidence correct prediction,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.4477,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD399,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,nv -> mel,Observed incorrect seven-class prediction.,DIRECT
+IMD399,high-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.8167 (HIGH),Incorrect prediction in the prespecified HIGH or VERY_HIGH band.,DIRECT
+IMD058,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD058,reviewed Grad-CAM case category,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,melanoma to other,Human-reviewed category preserved verbatim.,DIRECT
+IMD058,attention-localization concern,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,Moderate; hotspots occur in separated central and side portions of the visible feature. | Moderate; activation appears in adjacent/peripheral regions as well as over the visible feature.,Prediction error co-occurs with reviewed border/background attention; no localization metric or causal claim.,TENTATIVE
+IMD061,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> nv,Observed incorrect seven-class prediction.,DIRECT
+IMD061,high-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.8215 (HIGH),Incorrect prediction in the prespecified HIGH or VERY_HIGH band.,DIRECT
+IMD061,reviewed Grad-CAM case category,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,melanoma to nv,Human-reviewed category preserved verbatim.,DIRECT
+IMD061,attention-localization concern,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,Substantial; prominent activation follows the lower image border and extends up the right side. | Substantial peripheral activation is visible; whether it lies outside the lesion is uncertain without a mask.,Prediction error co-occurs with reviewed border/background attention; no localization metric or causal claim.,TENTATIVE
+IMD063,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> nv,Observed incorrect seven-class prediction.,DIRECT
+IMD063,reviewed Grad-CAM case category,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,melanoma to nv,Human-reviewed category preserved verbatim.,DIRECT
+IMD063,attention-localization concern,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,"Substantial; several hotspots approach the left, right, and lower image margins. | Moderate to substantial; some response extends into peripheral areas, but no lesion mask is available to define the boundary.",Prediction error co-occurs with reviewed border/background attention; no localization metric or causal claim.,TENTATIVE
+IMD064,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> nv,Observed incorrect seven-class prediction.,DIRECT
+IMD065,low-confidence correct prediction,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.4163,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD065,reviewed Grad-CAM case category,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,correct melanoma,Human-reviewed category preserved verbatim.,DIRECT
+IMD080,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> nv,Observed incorrect seven-class prediction.,DIRECT
+IMD080,low-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.4382,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD085,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD085,reviewed Grad-CAM case category,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,melanoma to other,Human-reviewed category preserved verbatim.,DIRECT
+IMD085,attention-localization concern,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,"Substantial for the true-class map because activation appears near the lower image edge. | UNCERTAIN; the lower-edge response may be outside the visible lesion, but the boundary is ambiguous in this image.",Prediction error co-occurs with reviewed border/background attention; no localization metric or causal claim.,TENTATIVE
+IMD088,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD090,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD090,low-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.3462,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD091,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> df,Observed incorrect seven-class prediction.,DIRECT
+IMD168,low-confidence correct prediction,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.3990,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD168,reviewed Grad-CAM case category,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,correct melanoma,Human-reviewed category preserved verbatim.,DIRECT
+IMD211,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> nv,Observed incorrect seven-class prediction.,DIRECT
+IMD211,high-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.8199 (HIGH),Incorrect prediction in the prespecified HIGH or VERY_HIGH band.,DIRECT
+IMD240,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> nv,Observed incorrect seven-class prediction.,DIRECT
+IMD285,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> nv,Observed incorrect seven-class prediction.,DIRECT
+IMD285,high-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.8095 (HIGH),Incorrect prediction in the prespecified HIGH or VERY_HIGH band.,DIRECT
+IMD348,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> nv,Observed incorrect seven-class prediction.,DIRECT
+IMD403,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD404,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD404,high-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.8098 (HIGH),Incorrect prediction in the prespecified HIGH or VERY_HIGH band.,DIRECT
+IMD407,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD409,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> nv,Observed incorrect seven-class prediction.,DIRECT
+IMD409,low-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.4826,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD410,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> nv,Observed incorrect seven-class prediction.,DIRECT
+IMD413,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD417,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD417,low-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.4250,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD418,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> nv,Observed incorrect seven-class prediction.,DIRECT
+IMD418,high-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.7755 (HIGH),Incorrect prediction in the prespecified HIGH or VERY_HIGH band.,DIRECT
+IMD419,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> nv,Observed incorrect seven-class prediction.,DIRECT
+IMD406,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> nv,Observed incorrect seven-class prediction.,DIRECT
+IMD406,high-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.9455 (VERY_HIGH),Incorrect prediction in the prespecified HIGH or VERY_HIGH band.,DIRECT
+IMD411,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> nv,Observed incorrect seven-class prediction.,DIRECT
+IMD411,high-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.8206 (HIGH),Incorrect prediction in the prespecified HIGH or VERY_HIGH band.,DIRECT
+IMD420,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> bkl,Observed incorrect seven-class prediction.,DIRECT
+IMD420,low-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.4715,Observed LOW confidence band; this is not a clinical uncertainty threshold.,DIRECT
+IMD423,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> nv,Observed incorrect seven-class prediction.,DIRECT
+IMD423,high-confidence misclassification,analysis/uncertainty_calibration_exp5/ph2_uncertainty_predictions.csv,0.8288 (HIGH),Incorrect prediction in the prespecified HIGH or VERY_HIGH band.,DIRECT
+IMD424,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> vasc,Observed incorrect seven-class prediction.,DIRECT
+IMD425,class-confusion failure,analysis/ph2_external_validation_exp5/ph2_predictions.csv,mel -> bkl,Observed incorrect seven-class prediction.,DIRECT

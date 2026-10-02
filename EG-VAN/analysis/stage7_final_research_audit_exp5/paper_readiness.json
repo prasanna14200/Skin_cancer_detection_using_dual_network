@@ -1,0 +1,38 @@
+{
+  "status": "REQUIRES_CRITICAL_EXPERIMENT",
+  "central_claim_scope": "External validity and reliability of the original full dual-branch EG-VAN",
+  "critical_gaps": [
+    {
+      "candidate": "Full EG-VAN architecture external evaluation",
+      "classification": "CRITICAL",
+      "reason": "Required only if the central paper claim remains an external-validity extension of the original dual-branch EG-VAN; current checkpoint is single-branch baseline.",
+      "required_inputs": "Implemented ResNet50+SCGA+Non-Local+MFF/fusion; frozen HAM split; original preprocessing; PH² mapping",
+      "expected_outputs": "Frozen dual-branch checkpoint, internal/external predictions, metrics and provenance",
+      "frozen_predictions_sufficient": "NO",
+      "new_inference_required": "YES",
+      "retraining_required": "YES"
+    }
+  ],
+  "baseline_only_alternative": "Existing evidence is adequate to begin a narrower paper explicitly about a paper-informed EfficientNetV2S baseline, without claiming full EG-VAN reproduction or validation.",
+  "optional_improvements": [
+    "Architecture/component ablations",
+    "Preprocessing ablation",
+    "Confidence intervals / bootstrap uncertainty",
+    "MCC",
+    "Parameter count / FLOPs / inference latency",
+    "External dataset expansion",
+    "Subgroup analysis"
+  ],
+  "central_paper_contribution_supported_now": "A frozen, reproducible EfficientNetV2S baseline evaluated across internal HAM and external PH² cohorts, with saved domain descriptors, uncertainty/calibration, high-confidence errors, and fixed-case human-reviewed Grad-CAM synthesis.",
+  "unresolved_claim": "Whether the original dual-branch EG-VAN architecture behaves similarly under external shift is untested.",
+  "frozen_counts": {
+    "ham_test_n": 1014,
+    "ph2_n": 120,
+    "ph2_nv_n": 80,
+    "ph2_mel_n": 40,
+    "ph2_correct": 75,
+    "ph2_errors": 45,
+    "ph2_high_confidence_errors": 11,
+    "fixed_gradcam_cases": 12
+  }
+}

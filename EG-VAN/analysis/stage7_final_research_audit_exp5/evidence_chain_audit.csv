@@ -1,0 +1,9 @@
+from_node,to_node,status,evidence_path,rationale
+Frozen Experiment #5,Internal HAM evaluation,SUPPORTED,experiments/efficientnetv2s_controlled_exp5/test_metrics.json,"Manifest ties selected checkpoint and frozen split to 1,014 held-out HAM predictions."
+Internal HAM evaluation,External PH² evaluation,SUPPORTED,analysis/ph2_external_validation_exp5/external_validation_config.json,Same frozen Experiment #5 checkpoint and seven-class mapping; cohorts differ and PH² had prior project use.
+External PH² evaluation,Observed performance degradation,SUPPORTED,analysis/stage6_failure_mode_synthesis_exp5/ham_vs_ph2_failure_context.csv,"Saved accuracy is 0.8333 HAM versus 0.6250 PH²; this arrow denotes comparison, not cause."
+Observed performance degradation,Domain/image-quality shift,PARTIALLY SUPPORTED,analysis/domain_shift_exp5/domain_shift_metrics.json,"Measured domain descriptors differ, but cohort composition and acquisition confound causal attribution."
+Domain/image-quality shift,Uncertainty/calibration behavior,PARTIALLY SUPPORTED,analysis/uncertainty_calibration_exp5/calibration_metrics.json,Metrics differ across cohorts; no controlled test shows descriptors caused reliability changes.
+Uncertainty/calibration behavior,High-confidence errors,SUPPORTED,analysis/stage6_failure_mode_synthesis_exp5/stage6_summary.json,Eleven PH² errors occur in prespecified HIGH/VERY_HIGH bands.
+High-confidence errors,Grad-CAM + fixed human review,PARTIALLY SUPPORTED,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,Twelve frozen stratified cases have reviews; they are not a representative sample of all 11 high-confidence errors.
+Grad-CAM + fixed human review,Stage 6 failure-mode synthesis,SUPPORTED,analysis/stage6_failure_mode_synthesis_exp5/ph2_master_evidence.csv,"Twelve cases join across reviewed, Grad-CAM, uncertainty and prediction artifacts; interpretations remain descriptive."

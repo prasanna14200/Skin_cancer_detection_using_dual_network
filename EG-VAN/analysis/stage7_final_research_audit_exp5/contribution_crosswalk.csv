@@ -1,0 +1,13 @@
+project_part,classification,evidence_path,rationale
+EfficientNetV2S backbone,A. ORIGINAL EG-VAN REPRODUCTION,src/models/baseline_effnet.py,"Backbone family exists in paper, but only standalone branch is implemented."
+Standalone seven-class classifier and frozen Experiment #5,B. IMPLEMENTATION ADAPTATION,experiments/efficientnetv2s_controlled_exp5/experiment_manifest.json,"Paper architecture is not reproduced; model, split and selection protocol are project-specific."
+Hair removal / Gray World / Retinex implementation,B. IMPLEMENTATION ADAPTATION,docs/DEVIATIONS.md,Paper-informed sequence with explicitly chosen numerical parameters.
+"Training augmentation, focal loss, class sampler",B. IMPLEMENTATION ADAPTATION,experiments/efficientnetv2s_controlled_exp5/config.json,Concrete project settings differ from or extend underspecified paper procedures.
+Internal HAM held-out evaluation,D. SUPPORTING ANALYSIS,experiments/efficientnetv2s_controlled_exp5/test_metrics.json,Establishes the frozen baseline's internal context.
+PH² follow-up evaluation,C. NEW EXTENSION,analysis/ph2_external_validation_exp5/ph2_metrics.json,"External evidence for the baseline, subject to prior PH² use and mapped subset."
+Cross-domain image descriptors,C. NEW EXTENSION,analysis/domain_shift_exp5/domain_shift_metrics.json,Saved comparative domain and image-quality evidence.
+Uncertainty and calibration,C. NEW EXTENSION,analysis/uncertainty_calibration_exp5/calibration_metrics.json,Saved-probability reliability analysis.
+High-confidence error and Stage 6 synthesis,C. NEW EXTENSION,analysis/stage6_failure_mode_synthesis_exp5/stage6_summary.json,Joint descriptive audit across frozen artifacts.
+Grad-CAM and fixed human review,D. SUPPORTING ANALYSIS,analysis/domain_shift_exp5/stage3_synthesis/stage3_case_comparison_reviewed.csv,"Qualitative, selected-case evidence rather than population inference."
+"Modified ResNet50, SCGA, Non-Local Block, MFF and fusion",E. NOT IMPLEMENTED,docs/PROJECT_STATUS.md,The defining full EG-VAN architecture is absent.
+Original component ablations and efficiency benchmark,E. NOT IMPLEMENTED,docs/PROJECT_STATUS.md,No matched component experiments or controlled Experiment #5 cost measure.

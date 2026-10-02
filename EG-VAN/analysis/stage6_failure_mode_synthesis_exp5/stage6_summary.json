@@ -1,0 +1,97 @@
+{
+  "experiment_identity": "efficientnetv2s_controlled_exp5",
+  "checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "ham_n": 1014,
+  "ph2_n": 120,
+  "ham_accuracy": 0.8333333333333334,
+  "ph2_accuracy": 0.625,
+  "ham_ece": 0.03902529465141144,
+  "ph2_ece": 0.07407586202025412,
+  "ham_brier": 0.24080385533247994,
+  "ph2_brier": 0.5171478217825385,
+  "ham_nll": 0.4756915879590499,
+  "ph2_nll": 0.9838183003555673,
+  "ph2_error_count": 45,
+  "ph2_high_confidence_error_count": 11,
+  "dominant_error_transitions": [
+    {
+      "transition": "mel -> nv",
+      "count": 15
+    },
+    {
+      "transition": "mel -> bkl",
+      "count": 11
+    },
+    {
+      "transition": "nv -> bkl",
+      "count": 9
+    },
+    {
+      "transition": "nv -> mel",
+      "count": 8
+    },
+    {
+      "transition": "mel -> df",
+      "count": 1
+    },
+    {
+      "transition": "mel -> vasc",
+      "count": 1
+    }
+  ],
+  "fixed_gradcam_case_count": 12,
+  "fixed_gradcam_join_count": 12,
+  "image_quality_evidence_available": true,
+  "per_image_quality_join_available": true,
+  "failure_mode_counts": {
+    "class-confusion failure": 45,
+    "reviewed Grad-CAM case category": 12,
+    "high-confidence misclassification": 11,
+    "low-confidence misclassification": 10,
+    "attention-localization concern": 7,
+    "low-confidence correct prediction": 7
+  },
+  "major_observations": [
+    "HAM accuracy 0.833; PH² accuracy 0.625; cohorts differ in class composition.",
+    "PH² has 45 errors; 11 are HIGH or VERY_HIGH confidence.",
+    "PH² image descriptors exist for all 120 cases in saved domain_features.csv."
+  ],
+  "supported_inferences": [
+    "Saved PH² predictions have lower accuracy and higher ECE/Brier/NLL than the HAM held-out test.",
+    "Human-reviewed attention concerns co-occur with some fixed-case errors, without establishing cause."
+  ],
+  "unsupported_hypotheses": [
+    "Domain shift alone caused the accuracy difference.",
+    "Image quality caused individual errors.",
+    "Grad-CAM attention caused misclassification or tracks clinical reasoning.",
+    "These findings establish clinical readiness or generalization to other external datasets."
+  ],
+  "limitations": [
+    "PH² was previously used in project preprocessing diagnostics and an earlier evaluation.",
+    "PH² includes mapped NV/MEL truth only; HAM test covers seven classes.",
+    "Grad-CAM cases are a frozen, deliberately stratified set of 12 and cannot estimate population prevalence.",
+    "Image descriptors are proxies, not clinical quality scores; no lesion masks or localization accuracy metric exist."
+  ],
+  "recommended_next_step": "Evaluate a separately prespecified, untouched external cohort with matched NV/MEL composition and independently assessed image quality and lesion localization.",
+  "skipped_optional_outputs": [],
+  "quality_mean_difference_incorrect_minus_correct": {
+    "brightness": 21.310613697193297,
+    "contrast": 2.1572202824891065,
+    "sharpness": 86.97073386701666,
+    "saturation": -0.0272937072591381,
+    "dark_pixel_ratio": -0.1677283468364198,
+    "bright_pixel_ratio": 0.002228009259259256,
+    "entropy": 0.4236264675500072,
+    "illumination_variation": -0.18751632736110768
+  }
+}
