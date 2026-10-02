@@ -1,0 +1,20 @@
+EG-VAN Stage 8 reconstruction (synthetic verification only)
+Paper: https://doi.org/10.1109/ACCESS.2025.3561240
+Architecture: four paired EfficientNetV2S and modified-ResNet50 taps; SA/GMA→separable stride-2 conv→BN→SCGA per scale; aligned fusion→GAP→linear logits
+Verification input size: repository 384×384; paper operational input size not established
+Counts (total / trainable):
+  EfficientNetV2S baseline: 20,186,455 / 20,186,455
+  ResNet50 baseline: 25,557,032 / 25,557,032
+  modified ResNet50: 34,066,114 / 34,066,114
+  full EG-VAN reconstruction: 55,545,201 / 55,545,201
+  EGVAN.efficient: 20,177,488 / 20,177,488
+  EGVAN.resnet: 34,066,114 / 34,066,114
+  EGVAN.fusions: 1,235,160 / 1,235,160
+  EGVAN.aggregate: 65,536 / 65,536
+  EGVAN.pool: 0 / 0
+  EGVAN.classifier: 903 / 903
+MACs/FLOPs: not reported; a full and consistently scoped profiler was unavailable. Paper efficiency equivalence is unverified.
+Synthetic forward: batch 1 at 384² PASS; batch 2 at 128² PASS
+Synthetic backward: batch 1 at 64² PASS; no optimizer step
+Architecture reconstruction != paper's nine-class result reproduction
+No training and no HAM/PH2 dataset inference

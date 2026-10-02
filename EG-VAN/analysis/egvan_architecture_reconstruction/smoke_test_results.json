@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "training_performed": false,
+  "dataset_inference_performed": false,
+  "pretrained_weights_downloaded": false,
+  "optimizer_step_performed": false,
+  "forward_checks": [
+    {
+      "batch": 1,
+      "input_shape": [
+        1,
+        3,
+        384,
+        384
+      ],
+      "logits_shape": [
+        1,
+        7
+      ],
+      "finite": true
+    },
+    {
+      "batch": 2,
+      "input_shape": [
+        2,
+        3,
+        128,
+        128
+      ],
+      "logits_shape": [
+        2,
+        7
+      ],
+      "finite": true
+    }
+  ],
+  "backward_check": {
+    "input_shape": [
+      1,
+      3,
+      64,
+      64
+    ],
+    "loss": "logits.mean()",
+    "finite_gradients": true,
+    "all_trainable_parameter_tensors_have_gradients": true,
+    "trainable_parameter_tensor_count": 756,
+    "efficient_stem_gradient": true,
+    "resnet_stem_gradient": true,
+    "mff_gradient": true,
+    "classifier_gradient": true
+  },
+  "local_runtime": {
+    "torch": "2.11.0+cpu",
+    "device": "cpu"
+  }
+}

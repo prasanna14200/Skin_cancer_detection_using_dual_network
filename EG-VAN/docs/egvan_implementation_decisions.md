@@ -1,0 +1,54 @@
+# Stage 8 implementation decisions and paper ambiguities
+
+Source: [EG-VAN, IEEE Access 2025](https://doi.org/10.1109/ACCESS.2025.3561240). Status vocabulary: **EXPLICIT** = stated operator/order; **INFERRED** = defensible mapping of text to standard backbone; **ASSUMED** = one of several valid implementations; **UNRESOLVED** = no safe paper-exact answer. None of these decisions changes Experiment #5.
+
+| Status | Paper statement → implementation problem | Chosen interpretation | Justification | Possible alternative | Experimental consequence |
+|---|---|---|---|---|---|
+| INFERRED | Successive EfficientNet and ResNet blocks enter MFF → tap indices unspecified | EfficientNet features 2/3/5/7 paired with ResNet layers 1/2/3/4 | Four compatible scales 1/4, 1/8, 1/16, 1/32 | Other EfficientNet stages; fewer/more pairs | Changes receptive fields, MFF size and parameter count |
+| INFERRED | SCGA in first two ResNet blocks, NLB in later blocks → “block” level ambiguous | SCGA after layer1/layer2; NLB after layer3/layer4 | Literal four-stage interpretation of Figure 6 text | Insert inside individual bottlenecks or after different stages | Changes representational path and compute |
+| ASSUMED | SCGA GMA equal groups → group count absent | Eight groups, requiring divisible channels | Divides all chosen ResNet and fusion widths | Four or sixteen groups | Changes pooling granularity and parameter count |
+| ASSUMED | Equations 17–22 describe directional statistics but convolution detail is incomplete | Width mean/max produce horizontal H×1 maps; height mean/max produce vertical 1×W maps; each group uses shared per-group 1×1 projections | Preserves axes, group dimensions and stated operation order | Per-group unshared projections; different axis names | Changes attention parameters and orientation |
+| EXPLICIT | SCGA spatial path lists 1×1 layers 64→16(dilation 2)→8→sigmoid mask | Implement those literal 1×1 layers | Direct textual match | Interpret dilation as implying larger kernel | Literal 1×1 dilation has no receptive-field effect |
+| ASSUMED | Final spatial mask expanded by fixed all-ones convolution → initialization/freeze unclear | Fixed non-trainable 1×1 projection of one mask channel to C channels | Honors “fixed weights” and channel expansion | Repeated broadcast or trainable projection | Fixed version adds no trainable parameters |
+| ASSUMED | NLB key/value subsampling allowed, factor absent | Average-pool keys/values by two when possible | Equation 28 explicitly permits reduction | Max-pool or no reduction | Alters global context and memory |
+| ASSUMED | NLB embedding width and output initialization absent | C/2 projection, learned residual output projection | Conventional compact embedded-Gaussian block | C/4, zero-initialized output | Changes parameter count and first-step behavior |
+| ASSUMED | MFF separable convolution stride 2 stated, kernel/width absent | Depthwise 3×3 stride 2 plus pointwise 1×1 to 128 channels | Standard separable convolution with stated downsampling | Different kernel or width | Changes output detail, compute and parameters |
+| ASSUMED | Paired feature maps may differ in height/width → alignment absent | Resize both to the lower common spatial dimensions using bilinear interpolation only when needed | Makes mismatch explicit; actual chosen taps already match | Pad, crop, nearest interpolation | Affects spatial evidence and fusion |
+| ASSUMED | Concatenate outputs from all MFFs before GAP → different spatial sizes | Resize four MFF outputs to smallest fused map, concatenate, 1×1 reduce, GAP | Implements stated concatenation and GAP with defined tensor operations | Per-scale GAP then vector concatenation | Changes information retained from fine scales |
+| INFERRED | Paper ends in dense softmax → training module output convention | Return logits and apply softmax externally | Stable cross-entropy/focal-loss contract; same probability mapping | Return probabilities | Numerical training behavior changes if softmax duplicated |
+| UNRESOLVED | Table 1/Figure 3 do not supply a fully executable topology in accessible paper text | Treat author-code identity as unverified | Exact layer-to-layer and fusion wiring cannot be established | Obtain original code or author clarification | Prevents “exact reproduction” claim |
+| UNRESOLVED | Figure 3 and Table 1 are images in the paper PDF → their visual details were inaccessible during Stage 8 | Keep visual paper check open; do not certify paper-faithful training readiness yet | Full text and captions cannot substitute for visual inspection of wiring/table entries | User supplies local PDF path or attachment | Could require revision of stage taps, module placement, or fusion topology |
+| UNRESOLVED | Paper top-hat equation highlights bright features while target hair is dark; repository uses blackhat | Preserve repository preprocessing unchanged | Stage 8 verifies architecture only | Implement top-hat version after controlled protocol decision | Different hair masks and model inputs |
+| UNRESOLVED | Paper mentions crop, model size, and 20 augmentations without operational parameters | Do not add crop or new transforms; use 384 only for synthetic compatibility check | Avoid fabricated values | Author parameters or separately prespecified design | Future training protocol must declare deviations |
+| ASSUMED | EfficientNet is explicitly pretrained; ResNet pretrained status unclear | Both constructors allow pretrained weights but Stage 8 verification uses `False` | Prevents network download and separates structure from weights | Initialize either/both from ImageNet in Stage 9 | Affects future optimization and comparability |
+
+## Preprocessing crosswalk
+
+| Paper operation | Existing implementation | Exact match? | Approximation? | Missing? | Parameter differences | Recommended action |
+|---|---|---:|---:|---:|---|---|
+| Hair removal, morphology and Telea | `src/preprocessing.py:remove_hair`: grayscale blackhat, threshold, Telea | No | Yes | No | Paper prints bright top-hat; code uses dark blackhat; code fixes 17×17 ellipse, threshold 10, radius 1.0 | Preserve frozen cache; predeclare any comparison in Stage 9 |
+| Gray World | `gray_world`: per-image BGR gains | No exact-code evidence | Yes | No | Channel order, clipping and gain interpretation selected locally | Report numerical choices |
+| Retinex | `retinex`: three Gaussian scales, weighted log combination | No | Yes | No | Sigmas 15/80/250, equal weights, epsilon and percentile normalization selected locally | Report numerical choices |
+| Combined color balancing | `preprocess_image`: remove_hair → gray_world → retinex | Sequence aligned | Yes | No | Final output normalization is implementation-specific | Use frozen outputs only under explicit protocol |
+| Crop | No crop in cached processing | No | No | Yes | Paper omits crop size/location | Obtain author detail or prespecify a separate training choice |
+| Resize/model dimensions | `src/train.py` uses 384×384 | Unverifiable | Yes | No | Paper gives no operational size; input aspect ratio changes | Decide before training and record |
+| Normalization | ImageNet mean/std from torchvision weights | Unverifiable | Yes | No | Paper does not fix values | State in Stage 9 protocol |
+| Augmentation | Horizontal/vertical flip and ±15° rotation | No | Yes | Partial | Paper refers to 20 transforms without list | Do not describe as paper-exact |
+
+**Architecture reconstruction ≠ reproduction of the paper's nine-class result.** Seven-class dummy output verification tests only module wiring. It does not establish accuracy, efficiency or clinical validity.
+
+## Stage 8B corrections after visual PDF inspection
+
+The original Stage 8 decisions above are retained as a historical record. The local PDF at the workspace parent was visually checked on pages 7–10. Its SHA256 is recorded in the Stage 8B crosswalk provenance. The following decisions supersede the earlier entries where stated.
+
+| Status | Paper statement / visual evidence → implementation problem | Stage 8B action | Remaining assumption or consequence |
+|---|---|---|---|
+| EXPLICIT visual topology; ASSUMED operator | Figure 3 connects successive MFF boxes horizontally; Stage 8 used independent MFFs | Added previous MFF output as a carry input to the next MFF, concatenated with that scale's SA/GMA maps before separable convolution | Figure 3 inset names only two branch inputs, so exact carry combination is not specified. Additional carry channels increase parameters. |
+| EXPLICIT visual operator; ASSUMED weight policy | Figure 4 shows a separate 1×1 convolution on the input feature path; Stage 8 multiplied the unprojected input | Added trainable 1×1 input projection before masking | Paper text calls it the input tensor and does not specify projection initialization or freezing. This correction increases trainable parameters. |
+| EXPLICIT table | Table 1 gives ResNet stage channels 256/512/1024/2048 and SCGA/SCGA/NLB/NLB sequence | Verified current post-stage placement and measured output shapes; no code change | Internal bottleneck placement is not indicated by the table; post-stage insertion remains a consistent mapping. |
+| EXPLICIT table channels; ASSUMED taps | Table 1 gives EfficientNet stage outputs 48, 64, 128, 160, 256, 1280 at stages 2–7 | Verified selected 2/3/5/7 tap channels against table | Figure 3 draws representative early/intermediate/final links but does not number them; tap subset remains a declared assumption. |
+| EXPLICIT diagram and equations | Figure 5 shows Q/K/V 1×1 projections, softmax affinity, weighted values, output projection and residual | Verified existing NLB; no code change | Key/value reduction factor 2 and embedding width C/2 remain assumptions based on equation 28. |
+| PAPER-UNDERSPECIFIED | Figure 3 ends in concatenation → GAP → classification, but fused scales have different spatial sizes | Retained documented bilinear alignment and 1×1 reduction before GAP | Other alignments/aggregation could change output and parameter count. |
+| CLAIM NOT REPRODUCED | Paper text says modified ResNet50 retains the original parameter count | Counted every locally instantiated module in `parameter_count_breakdown.csv`; did not remove modules to force agreement | Our modified ResNet adds trainable attention and exceeds a classifier-free ResNet trunk; author parameter accounting and implementation details are not provided. |
+
+The visual PDF check closes the Stage 8 source-access gate. It does **not** establish exact author-code identity. The reconstruction's remaining choices are paper-consistent assumptions for a prespecified Stage 9 protocol, not recovered author hyperparameters.

@@ -1,0 +1,14 @@
+section,scale,batch,channels,height,width
+efficient,1,1,48,96,96
+efficient,2,1,64,48,48
+efficient,3,1,160,24,24
+efficient,4,1,1280,12,12
+resnet,1,1,256,96,96
+resnet,2,1,512,48,48
+resnet,3,1,1024,24,24
+resnet,4,1,2048,12,12
+fused,1,1,128,48,48
+fused,2,1,128,24,24
+fused,3,1,128,12,12
+fused,4,1,128,6,6
+combined,0,1,128,6,6

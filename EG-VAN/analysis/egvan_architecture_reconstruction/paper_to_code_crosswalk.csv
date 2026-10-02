@@ -1,0 +1,14 @@
+paper_component,paper_section_equation_figure,implementation_file,implementation_class_or_function,status,confidence,notes
+hair removal,III-A equations 1–7,src/preprocessing.py,remove_hair,EXISTING_APPROXIMATION,MEDIUM,Paper top-hat/blackhat ambiguity; no preprocessing changed
+Gray World,III-A equations 8–9,src/preprocessing.py,gray_world,EXISTING_APPROXIMATION,MEDIUM,Numerical gains/clipping choices documented
+Retinex,III-A equations 10–13,src/preprocessing.py,retinex,EXISTING_APPROXIMATION,MEDIUM,Paper omits scales/normalization
+crop,III-A equation 14,,,UNRESOLVED,LOW,No paper crop size/location; not added
+EfficientNetV2S,III-C-1; Table 1; Figure 3,src/models/egvan/efficientnet_branch.py,EfficientNetBranch,IMPLEMENTED_WITH_TAP_ASSUMPTION,MEDIUM,torchvision stages 2/3/5/7
+ResNet50,III-C-1; Table 1; Figure 6,src/models/egvan/modified_resnet50.py,ModifiedResNet50,IMPLEMENTED_WITH_PLACEMENT_ASSUMPTION,MEDIUM,SCGA after stages 1/2; NLB after stages 3/4
+Spatial Attention,III-C-2; Figure 4,src/models/egvan/spatial_attention.py,SpatialAttention,IMPLEMENTED,HIGH,Literal 64/16/8/filter sequence
+GMA,III-C-2 equations 16–22,src/models/egvan/scga.py,GroupMeanMaxAttention,IMPLEMENTED_WITH_GROUP_ASSUMPTION,MEDIUM,Eight channel groups and directional mean/max
+SCGA,III-C-2; Figure 4,src/models/egvan/scga.py,SCGA,IMPLEMENTED,MEDIUM,Spatial path followed by GMA
+Non-Local Block,III-C-3 equations 23–28; Figure 5,src/models/egvan/non_local.py,NonLocalBlock,IMPLEMENTED_WITH_REDUCTION_ASSUMPTION,MEDIUM,Embedded Gaussian; subsampled keys/values
+MFF,III-C-5 equations 29–30; Figure 3,src/models/egvan/mff.py,MFF,IMPLEMENTED_WITH_ALIGNMENT_ASSUMPTION,MEDIUM,"SA/GMA, concatenate, separable stride 2, BN, SCGA"
+GAP,III-C-6; Figure 3,src/models/egvan/egvan.py,EGVAN.pool,IMPLEMENTED,HIGH,Global average pool after aligned fusion
+classifier,III-C-6; Figure 3,src/models/egvan/egvan.py,EGVAN.classifier,IMPLEMENTED_WITH_LOGIT_CONVENTION,HIGH,Linear logits; softmax external

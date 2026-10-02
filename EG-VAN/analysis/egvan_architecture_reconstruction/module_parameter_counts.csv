@@ -1,0 +1,11 @@
+module,total_parameters,trainable_parameters,method
+EfficientNetV2S baseline,20186455,20186455,sum(p.numel()) on locally instantiated torchvision/PyTorch module; no weights download
+ResNet50 baseline,25557032,25557032,sum(p.numel()) on locally instantiated torchvision/PyTorch module; no weights download
+modified ResNet50,34066114,34066114,sum(p.numel()) on locally instantiated torchvision/PyTorch module; no weights download
+full EG-VAN reconstruction,55545201,55545201,sum(p.numel()) on locally instantiated torchvision/PyTorch module; no weights download
+EGVAN.efficient,20177488,20177488,component count; rows overlap with full total
+EGVAN.resnet,34066114,34066114,component count; rows overlap with full total
+EGVAN.fusions,1235160,1235160,component count; rows overlap with full total
+EGVAN.aggregate,65536,65536,component count; rows overlap with full total
+EGVAN.pool,0,0,component count; rows overlap with full total
+EGVAN.classifier,903,903,component count; rows overlap with full total
