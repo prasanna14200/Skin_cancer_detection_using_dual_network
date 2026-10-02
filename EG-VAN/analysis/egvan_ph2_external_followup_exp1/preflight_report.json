@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "checkpoint_epoch": 15,
+  "egvan_best_checkpoint_sha256": "60f34ea4cfa6cbf3dce69e8d8bcc82292d8d8813af30f33b2f666a4f06340de0",
+  "frozen_split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "experiment5_checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+  "ph2_cohort_manifest_sha256": "3c130b3b44dcc1052ae29656510a95a4e91df4b8f65c121838941efb375d3842",
+  "baseline_ph2_prediction_sha256": "7663e0eb8a2fea96873005a4780f0008bcf9b81ae3d74ce413b197912aa9c5bc",
+  "stage10_metric_sha256": "8cba58f7eadd5722bdc479f8063c57422673984f74a403b4f521868171649e3e",
+  "ph2_total": 200,
+  "included": 120,
+  "true_ham_counts": {"nv": 80, "mel": 40},
+  "excluded_atypical": 80,
+  "baseline_id_match": "120/120",
+  "missing_source_images": 0,
+  "preprocessing_matches_diagnostic_one_image_exactly": true,
+  "baseline_metric_logic_reproduced": true,
+  "local_cuda_available": false,
+  "ph2_inference_performed": false
+}

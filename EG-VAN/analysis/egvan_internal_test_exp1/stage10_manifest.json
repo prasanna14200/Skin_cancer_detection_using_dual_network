@@ -1,0 +1,66 @@
+{
+  "status": "COMPLETE",
+  "egvan_checkpoint_path": "experiments/egvan_reconstruction_controlled_exp1/best_checkpoint.pt",
+  "egvan_checkpoint_sha256": "60f34ea4cfa6cbf3dce69e8d8bcc82292d8d8813af30f33b2f666a4f06340de0",
+  "selected_epoch": 15,
+  "frozen_split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "test_sample_count": 1014,
+  "runtime": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu130",
+    "torchvision": "0.26.0+cu130",
+    "cuda": "13.0",
+    "gpu": "Tesla T4"
+  },
+  "gpu": "Tesla T4",
+  "evaluation_preprocessing": "processed RGB JPEG -> Resize((384,384)) -> ToTensor -> EfficientNet_V2_S_Weights.DEFAULT mean/std; no augmentation or TTA",
+  "source_artifact_hashes": {
+    "egvan_best_checkpoint": "60f34ea4cfa6cbf3dce69e8d8bcc82292d8d8813af30f33b2f666a4f06340de0",
+    "experiment5_checkpoint": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+    "frozen_split": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "experiment5_test_metrics": "b3632a5fa736ad4057a9ecd2f601bd4fbc5c3611fb827c2a2231be5a152711db",
+    "experiment5_test_predictions": "a33db393a50dd3184ac387724aca4299ac6945fa6c71655c8e54bc9a73ccef06",
+    "egvan_config": "3524ec4d04cc58ea033ae4540116c3a6b1d2407dec6356d243921a2abf0f4ccb",
+    "evaluation_script": "4073083e9200eb8171fc3b4a3ecd798bf70ba1e8752ab52bf316773d81ffe8ae",
+    "train_transforms_source": "c195142d2f924b83374c0d6a8d4d93061ecf2e77e947710e6a3a8eb8264686bc",
+    "egvan_model_source": "f5f5217d6cced6ccc9c1a2d17a5691701bfe454eb46bf52bf97468030cc7b44f"
+  },
+  "generated_artifact_hashes": {
+    "test_predictions.csv": "c290aebcaba0309c4e7a0ea472d7628593772a1587719c8a02e59f6d33a6ec69",
+    "test_metrics.json": "8cba58f7eadd5722bdc479f8063c57422673984f74a403b4f521868171649e3e",
+    "per_class_metrics.csv": "497e35581915e2ecfb3092ab82fbfa1dd7ac6567fd320ff8a0caf40cf057c830",
+    "confusion_matrix.csv": "acc6a9e1b31fe2a3d1c7079be6dcd95c2823c2741596cd131bacc492cebfa794",
+    "confusion_matrix.png": "35bc45f0f5a60cce29378e780fc0a71107c64a326f4d61f640ebedb6a84869c2",
+    "normalized_confusion_matrix.png": "734bc5045fd590a6ab24cc06b95fd7694f6fde529eaba79a9097e98e9b759e6b",
+    "egvan_vs_exp5_comparison.csv": "0f79bbc40e63233fd285031e67aa9850f4d62c36df59c33d93241251f64b97cf",
+    "stage10_internal_test_report.md": "587a168665bcea78bdcfa821bd3c2b0e25b3ad350886dbb0fa0c96610022e1d7"
+  },
+  "prediction_integrity": {
+    "status": "PASS",
+    "prediction_rows": 1014,
+    "unique_ids": 1014,
+    "probabilities_valid": true,
+    "recomputed_metrics_equal_saved": true
+  },
+  "paired_correctness": {
+    "both_correct": 796,
+    "egvan_only_correct": 40,
+    "experiment5_only_correct": 49,
+    "both_wrong": 129
+  },
+  "mcnemar_exact_test": "not_performed",
+  "training_performed": false,
+  "fine_tuning_performed": false,
+  "threshold_tuning": false,
+  "checkpoint_selection_using_test": false,
+  "ph2_accessed": false
+}

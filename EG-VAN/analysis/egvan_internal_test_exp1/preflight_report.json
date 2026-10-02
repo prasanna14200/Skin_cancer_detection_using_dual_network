@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "egvan_best_checkpoint_sha256": "60f34ea4cfa6cbf3dce69e8d8bcc82292d8d8813af30f33b2f666a4f06340de0",
+  "experiment5_checkpoint_sha256": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+  "frozen_split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "checkpoint_epoch": 15,
+  "class_order": ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"],
+  "test_sample_count": 1014,
+  "test_class_counts": {"akiec": 40, "bcc": 58, "bkl": 104, "df": 11, "mel": 107, "nv": 676, "vasc": 18},
+  "unique_lesions": 7470,
+  "crossing_lesions": 0,
+  "test_image_overlap": 0,
+  "missing_test_images": 0,
+  "evaluation_preprocessing": "processed RGB JPEG -> Resize((384,384)) -> ToTensor -> EfficientNet_V2_S_Weights.DEFAULT mean/std; no augmentation or TTA",
+  "local_cuda_available": false,
+  "test_inference_performed": false
+}
