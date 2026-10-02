@@ -20,7 +20,9 @@ class EGVAN(nn.Module):
             MFF(ec, rc, fusion_channels, carry_channels=0 if index == 0 else fusion_channels)
             for index, (ec, rc) in enumerate(zip(self.efficient.output_channels, self.resnet.output_channels))
         ])
-        self.aggregate = nn.Conv2d(4 * fusion_channels, fusion_channels, 1, bias=False)
+        # Figure 3 routes both terminal branch maps and the MFF sequence to C.
+        terminal_channels = self.efficient.output_channels[-1] + self.resnet.output_channels[-1]
+        self.aggregate = nn.Conv2d(4 * fusion_channels + terminal_channels, fusion_channels, 1, bias=False)
         self.pool = nn.AdaptiveAvgPool2d(1)
         self.classifier = nn.Linear(fusion_channels, num_classes)
 
@@ -34,7 +36,8 @@ class EGVAN(nn.Module):
             fused_list.append(carry)
         fused = tuple(fused_list)
         target = tuple(min(t.shape[-d] for t in fused) for d in (2, 1))
-        aligned = [F.interpolate(t, size=target, mode="bilinear", align_corners=False) if t.shape[-2:] != target else t for t in fused]
+        final_sources = (*fused, efficient[-1], resnet[-1])
+        aligned = [F.interpolate(t, size=target, mode="bilinear", align_corners=False) if t.shape[-2:] != target else t for t in final_sources]
         combined = self.aggregate(torch.cat(aligned, dim=1))
         return {"efficient": efficient, "resnet": resnet, "fused": fused, "combined": combined}
 

@@ -1,0 +1,18 @@
+component,parameter_count,trainable_parameter_count,paper_expectation,interpretation
+EfficientNetV2S baseline (7-class),20186455,20186455,Paper backbone family; local baseline head,Standalone baseline count
+ResNet50 baseline (1000-class torchvision),25557032,25557032,Paper says modified branch retains ResNet50 parameter count,Includes unused ImageNet classifier; not directly matched to feature-only branch
+ResNet50 ImageNet classifier excluded from modified branch,2049000,2049000,No classifier in intermediate feature branch,Subtract before comparing trunk and attention
+ResNet50 feature trunk in modified branch,23508032,23508032,Standard ResNet50 feature stages,Classifier excluded
+Modified ResNet50 SCGA after layer1,87329,87329,Table 1 SCGA after 256-channel stage,Adds trainable spatial/GMA/input-projection weights
+Modified ResNet50 SCGA after layer2,312673,312673,Table 1 SCGA after 512-channel stage,Adds trainable spatial/GMA/input-projection weights
+Modified ResNet50 Non-Local after layer3,2097152,2097152,Table 1 NLB after 1024-channel stage,Q/K/V and output projections add parameters
+Modified ResNet50 Non-Local after layer4,8388608,8388608,Table 1 NLB after 2048-channel stage,Q/K/V and output projections add parameters
+Modified ResNet50 total,34393794,34393794,Paper claims unchanged ResNet50 count,Measured count exceeds classifier-free trunk and 1000-class baseline
+EfficientNetV2S feature branch,20177488,20177488,Paper pretrained EfficientNetV2S,Classifier removed; synthetic weights only
+MFF 1,79570,79570,Figure 3 serial MFF; Section III-C-5 operator order,"Contains spatial, GMA, separable convolution, BN and SCGA"
+MFF 2 with prior-scale carry,149538,149538,Figure 3 serial MFF; Section III-C-5 operator order,"Contains spatial, GMA, separable convolution, BN and SCGA"
+MFF 3 with prior-scale carry,309762,309762,Figure 3 serial MFF; Section III-C-5 operator order,"Contains spatial, GMA, separable convolution, BN and SCGA"
+MFF 4 with prior-scale carry,2484834,2484834,Figure 3 serial MFF; Section III-C-5 operator order,"Contains spatial, GMA, separable convolution, BN and SCGA"
+Final aggregation 1x1,491520,491520,Figure 3 concatenation before GAP,Alignment/reduction assumed
+Seven-class linear head,903,903,Paper K-class dense/softmax,Returns logits; softmax external
+Full EG-VAN reconstruction,58087409,58087409,Paper claims computational efficiency,Local count only; not author implementation equivalence
