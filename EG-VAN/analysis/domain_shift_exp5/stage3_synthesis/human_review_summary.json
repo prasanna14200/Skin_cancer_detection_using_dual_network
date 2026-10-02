@@ -1,0 +1,28 @@
+{
+  "total_cases_reviewed": 12,
+  "correct_cases": 4,
+  "incorrect_cases": 8,
+  "counts_by_case_category": {
+    "correct melanoma": 2,
+    "melanoma to nv": 2,
+    "melanoma to other": 2,
+    "correct nevus": 2,
+    "nevus to melanoma": 2,
+    "nevus to other": 2
+  },
+  "mainly_lesion_associated_activation_count": 5,
+  "noticeable_border_or_background_activation_count": 11,
+  "misclassified_cases_with_visibly_different_predicted_and_true_maps": 5,
+  "remaining_uncertain_case_count": 1,
+  "remaining_uncertain_case_ids": [
+    "IMD085"
+  ],
+  "qualitative_visual_judgments": true,
+  "judgment_basis": "Human visual review of the existing Stage 2 PH2 category panels and existing HAM-versus-PH2 comparison panels only.",
+  "limitations": [
+    "No lesion masks used; lesion boundaries are visually estimated.",
+    "No localization accuracy metric calculated.",
+    "Grad-CAM is exploratory and does not establish causal reasoning or clinical validity.",
+    "PH2 is an external follow-up dataset previously used in project analyses."
+  ]
+}

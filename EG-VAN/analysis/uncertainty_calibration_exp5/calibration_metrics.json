@@ -1,0 +1,139 @@
+{
+  "ece_definition": "10 fixed equal-width confidence bins over [0,1]; ECE=sum_b(n_b/N)*abs(acc_b-conf_b); empty bins retained and contribute zero.",
+  "ece_bin_count": 10,
+  "brier_definition": "Mean over samples of sum over all seven classes (p_k-y_k)^2; not divided by class count.",
+  "nll_definition": "Negative mean ln true-class probability, lower clipped at 1e-12 only for numerical log stability.",
+  "entropy_definition": "Natural-log entropy -sum(p_k*ln(max(p_k,1e-12))); saved probabilities unchanged.",
+  "confidence_bands": {
+    "LOW": "0<=confidence<0.50",
+    "MODERATE": "0.50<=confidence<0.75",
+    "HIGH": "0.75<=confidence<0.90",
+    "VERY_HIGH": "0.90<=confidence<=1.00"
+  },
+  "HAM10000": {
+    "sample_count": 1014,
+    "correct_count": 845,
+    "incorrect_count": 169,
+    "accuracy": 0.8333333333333334,
+    "mean_confidence": 0.8099129057729973,
+    "median_confidence": 0.8751373589038849,
+    "confidence_q25": 0.6798233389854431,
+    "confidence_q75": 0.95811527967453,
+    "mean_confidence_correct": 0.8485623944793227,
+    "mean_confidence_incorrect": 0.6166654622413703,
+    "median_confidence_correct": 0.9123317003250122,
+    "median_confidence_incorrect": 0.5978579521179199,
+    "mean_entropy": 0.5139908226794957,
+    "median_entropy": 0.46905196980202124,
+    "entropy_q25": 0.20554070218459514,
+    "entropy_q75": 0.7539246792059688,
+    "mean_entropy_correct": 0.4363573192306147,
+    "mean_entropy_incorrect": 0.9021583399239004,
+    "mean_top1_top2_margin_correct": 0.7326054210426043,
+    "mean_top1_top2_margin_incorrect": 0.3499202562121333,
+    "ece": 0.03902529465141144,
+    "brier_score": 0.24080385533247967,
+    "nll": 0.4756915879590498,
+    "high_confidence_error_count": 38
+  },
+  "PH2": {
+    "sample_count": 120,
+    "correct_count": 75,
+    "incorrect_count": 45,
+    "accuracy": 0.625,
+    "mean_confidence": 0.6899409713844459,
+    "median_confidence": 0.7042019069194794,
+    "confidence_q25": 0.5815091133117676,
+    "confidence_q75": 0.8115543574094772,
+    "mean_confidence_correct": 0.7231814797719319,
+    "mean_confidence_incorrect": 0.6345401240719689,
+    "median_confidence_correct": 0.7437450885772705,
+    "median_confidence_incorrect": 0.6555670499801636,
+    "mean_entropy": 0.7736897107373644,
+    "median_entropy": 0.7713086653264618,
+    "entropy_q25": 0.6051719102614884,
+    "entropy_q75": 0.9595983678287288,
+    "mean_entropy_correct": 0.7124909941457719,
+    "mean_entropy_incorrect": 0.8756875717233523,
+    "mean_top1_top2_margin_correct": 0.5294169081669922,
+    "mean_top1_top2_margin_incorrect": 0.37669811497131983,
+    "ece": 0.07407586202025412,
+    "brier_score": 0.5171478217825387,
+    "nll": 0.9838183003555666,
+    "high_confidence_error_count": 11
+  },
+  "confidence_band_error_summary": [
+    {
+      "dataset": "HAM10000",
+      "confidence_band": "LOW",
+      "sample_count": 64,
+      "fraction_all_samples": 0.0631163708086785,
+      "correct_count": 21,
+      "incorrect_count": 43,
+      "percentage_of_all_errors": 0.25443786982248523
+    },
+    {
+      "dataset": "HAM10000",
+      "confidence_band": "MODERATE",
+      "sample_count": 259,
+      "fraction_all_samples": 0.25542406311637084,
+      "correct_count": 171,
+      "incorrect_count": 88,
+      "percentage_of_all_errors": 0.5207100591715976
+    },
+    {
+      "dataset": "HAM10000",
+      "confidence_band": "HIGH",
+      "sample_count": 231,
+      "fraction_all_samples": 0.22781065088757396,
+      "correct_count": 202,
+      "incorrect_count": 29,
+      "percentage_of_all_errors": 0.17159763313609466
+    },
+    {
+      "dataset": "HAM10000",
+      "confidence_band": "VERY_HIGH",
+      "sample_count": 460,
+      "fraction_all_samples": 0.4536489151873767,
+      "correct_count": 451,
+      "incorrect_count": 9,
+      "percentage_of_all_errors": 0.05325443786982249
+    },
+    {
+      "dataset": "PH2",
+      "confidence_band": "LOW",
+      "sample_count": 17,
+      "fraction_all_samples": 0.14166666666666666,
+      "correct_count": 7,
+      "incorrect_count": 10,
+      "percentage_of_all_errors": 0.2222222222222222
+    },
+    {
+      "dataset": "PH2",
+      "confidence_band": "MODERATE",
+      "sample_count": 57,
+      "fraction_all_samples": 0.475,
+      "correct_count": 33,
+      "incorrect_count": 24,
+      "percentage_of_all_errors": 0.5333333333333333
+    },
+    {
+      "dataset": "PH2",
+      "confidence_band": "HIGH",
+      "sample_count": 35,
+      "fraction_all_samples": 0.2916666666666667,
+      "correct_count": 25,
+      "incorrect_count": 10,
+      "percentage_of_all_errors": 0.2222222222222222
+    },
+    {
+      "dataset": "PH2",
+      "confidence_band": "VERY_HIGH",
+      "sample_count": 11,
+      "fraction_all_samples": 0.09166666666666666,
+      "correct_count": 10,
+      "incorrect_count": 1,
+      "percentage_of_all_errors": 0.022222222222222223
+    }
+  ]
+}
