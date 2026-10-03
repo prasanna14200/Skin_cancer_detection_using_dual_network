@@ -1,0 +1,7 @@
+claim,supported,evidence,limitation,safe_paper_wording
+EG-VAN had higher PH2 mapped-cohort accuracy,descriptive yes,81/120 vs 75/120; paired b=13 c=7,Mapped two-class cohort with prior PH2 exposure; exact McNemar p=0.2632,"On the mapped PH2 follow-up cohort, EG-VAN accuracy was 0.675 versus 0.625 for the baseline."
+EG-VAN is statistically superior,no,Exact PH2 paired McNemar p=0.26317596435546875,No statistically supported superiority; small exposed cohort,The observed paired PH2 accuracy difference did not establish superiority.
+EG-VAN improves melanoma detection,no,HAM MEL recall 56/107 vs 59/107; PH2 MEL recall 11/40 vs 12/40,Both are lower for EG-VAN; precision and F1 may move differently,EG-VAN did not improve melanoma recall in either saved evaluation.
+EG-VAN had a smaller HAM-to-PH2 accuracy decrease,descriptive yes,Drops 0.14946 EG-VAN vs 0.20833 baseline,Seven-class HAM and mapped NV/MEL PH2 populations differ; not causal domain-shift magnitude,The descriptive accuracy difference between HAM and PH2 was smaller for EG-VAN in these cohorts.
+EG-VAN had a smaller HAM-to-PH2 nevus recall decrease,descriptive yes,Drops 0.06435 EG-VAN vs 0.14445 baseline,Different datasets and class compositions; no causal attribution,The descriptive NV recall decrease was smaller for EG-VAN.
+EG-VAN generalizes clinically,no,HAM and one prior-exposed PH2 follow-up only,No untouched external confirmation or clinical deployment study,These results motivate further evaluation on an untouched external cohort.

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "stage9_best_checkpoint_sha256": "60f34ea4cfa6cbf3dce69e8d8bcc82292d8d8813af30f33b2f666a4f06340de0",
+  "frozen_split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "train_samples": 8015,
+  "validation_samples": 986,
+  "stage9_validation_reference": {
+    "accuracy": 0.8225152129817445,
+    "macro_f1": 0.6709124104985493,
+    "mel_recall": 0.5794392523364486,
+    "nv_recall": 0.947209653092006
+  },
+  "syntax_and_unit_tests": "5 passed",
+  "synthetic_model_parameter_count": 58087409,
+  "local_runtime": {"python": "3.10.11", "torch": "2.11.0+cpu", "torchvision": "0.16.0+cpu", "cuda": null, "gpu": null},
+  "t4_memory_probe_performed": false,
+  "full_training_performed": false,
+  "ham_test_inference_performed": false,
+  "ph2_inference_performed": false
+}

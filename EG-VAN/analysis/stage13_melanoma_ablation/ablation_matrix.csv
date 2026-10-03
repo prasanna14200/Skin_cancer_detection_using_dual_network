@@ -1,0 +1,4 @@
+variant,role,loss_alpha,loss_gamma,train_true_mel_loss_multiplier,train_mel_sampler_weight,other_sampler_weight,sampler_draws,changed_from_A,justification
+A,control,0.25,2.0,1.0,1.5630495442733532,1.0,8015,none,Exact Stage9 loss and sampler
+B,objective_only,0.25,2.0,1.5630495442733532,1.5630495442733532,1.0,8015,true-MEL loss multiplier only,Fourth-root train NV/MEL count ratio 5366/899 prespecified
+C,sampler_only,0.25,2.0,1.0,2.4431238778531372,1.0,8015,MEL sampler weight only,Square-root train NV/MEL count ratio 5366/899 prespecified

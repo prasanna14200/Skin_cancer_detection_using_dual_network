@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "analysis_only": true,
+  "training_performed": false,
+  "inference_performed": false,
+  "checkpoint_modified": false,
+  "source_artifact_hashes": {
+    "egvan_checkpoint": "60f34ea4cfa6cbf3dce69e8d8bcc82292d8d8813af30f33b2f666a4f06340de0",
+    "experiment5_checkpoint": "81d567f533d08286d5e599b90512d96e92c413ad74c7f4f941d81fc7bb46de3a",
+    "frozen_split": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "egvan_ham_predictions": "c290aebcaba0309c4e7a0ea472d7628593772a1587719c8a02e59f6d33a6ec69",
+    "egvan_ham_metrics": "8cba58f7eadd5722bdc479f8063c57422673984f74a403b4f521868171649e3e",
+    "experiment5_ham_predictions": "a33db393a50dd3184ac387724aca4299ac6945fa6c71655c8e54bc9a73ccef06",
+    "experiment5_ham_metrics": "b3632a5fa736ad4057a9ecd2f601bd4fbc5c3611fb827c2a2231be5a152711db",
+    "egvan_ph2_predictions": "87e4ae44fd8721ba87d098008254d1946673f2a37aae8d5dc5f0a9bcd98052b6",
+    "egvan_ph2_metrics": "232ce91c5d85d210c56489202a2437250a68290d71833a5c4bb49c3853b92141",
+    "experiment5_ph2_predictions": "7663e0eb8a2fea96873005a4780f0008bcf9b81ae3d74ce413b197912aa9c5bc",
+    "experiment5_ph2_metrics": "08e6d586a0fc82a362a6ec5060ce317f2b82c62b665307116cc64257a1e2091f",
+    "ph2_cohort_manifest": "3c130b3b44dcc1052ae29656510a95a4e91df4b8f65c121838941efb375d3842"
+  },
+  "generated_artifact_hashes": {
+    "stage12_comparison_report.md": "dc28d785780f53c52d07830312f6bc2d3cdc4de9e18ff9166b280c03148b2675",
+    "ham_model_comparison.csv": "e05354c9346ad609ef76bea126098fa383dab44bc74debc3547ebb317bd534d7",
+    "ph2_model_comparison.csv": "57eb0cfe795810370a31fb080d178b3f9f30e1250ea1b9e73d27bf1eeef747fe",
+    "ham_paired_outcomes.csv": "eacbdb84f3b0dacd35b975ffdc03ba7e89fda6ca20ac5cd77a333cdaa498e9d8",
+    "ph2_paired_outcomes.csv": "8c3ae6721ba7fec40bad75e3ed0878a1715d63e9f363e9c19072c5477a493a23",
+    "melanoma_failure_comparison.csv": "d19e3ace6477ff96aa53803e3193b4a1c15b7ee010bcde29eec88fc72d0ae7f4",
+    "external_degradation_comparison.csv": "5ee45af876b21004a3730717e14d8daf35e08802a98af96f7631d1d65ef52b74",
+    "uncertainty_comparison.csv": "a21c9a7f601f8cde4696842978fe312641eb70b46c3926a5ea5a114265342516",
+    "improvement_hypotheses.csv": "bc2c5b603314ce1f8293f6cd7d1a722e2ca96399c8cd9163415248a8dfebdb60",
+    "claim_evidence_matrix.csv": "cb07c815d9d7d44d3153a304ad267c7a03de03830143bbd0438311bec6f9ecfa",
+    "stage12_summary.json": "5987585411f43b4b9390fa6cd7555d5d75ab673c4d1f717f4f8defc70fb997d9"
+  },
+  "rows": {
+    "ham_paired": 1014,
+    "ph2_paired": 120,
+    "melanoma": 147
+  },
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "ph2_limitation": "External follow-up with prior project diagnostic/evaluation exposure; not untouched independent validation."
+}

@@ -1,0 +1,29 @@
+{
+  "registered_before_training": true,
+  "data_boundary": "HAM train and HAM validation only",
+  "within_variant_checkpoint_selection": {
+    "eligible_if_all": {"melanoma_f1_minimum": 0.5757731958762886, "validation_macro_f1_minimum": 0.6316582381362074, "nevus_recall_minimum": 0.9},
+    "select": "minimum unweighted Stage9 focal validation loss among eligible epochs",
+    "tie_break": "earlier epoch",
+    "no_eligible": "variant has no selected checkpoint"
+  },
+  "final_candidate_pool": ["B", "C"],
+  "reference": {
+    "source": "frozen Stage9 epoch-15 HAM validation only",
+    "melanoma_recall": 0.5794392523364486,
+    "melanoma_support": 107,
+    "accuracy": 0.8225152129817445,
+    "macro_f1": 0.6709124104985493,
+    "nevus_recall": 0.947209653092006
+  },
+  "candidate_eligible_if_all": {
+    "melanoma_recall": "at least max(Stage9 MEL recall, A MEL recall) + 1/107; strict gain of one validation melanoma over both controls",
+    "accuracy": ">= Stage9 accuracy - 0.02",
+    "macro_f1": ">= Stage9 macro F1 - 0.02",
+    "nevus_recall": ">= Stage9 NV recall - 0.03",
+    "melanoma_f1": ">= 0.5757731958762886 Stage9 eligibility floor"
+  },
+  "candidate_ranking": ["higher melanoma recall", "higher melanoma F1", "higher macro F1", "higher accuracy", "lower unweighted validation loss", "B before C"],
+  "if_A_unavailable_or_no_B_C_qualifies": "NO_CANDIDATE_SELECTED",
+  "never_use": ["HAM test", "PH2", "Stage10 case outcomes", "Stage11 case outcomes", "Stage12 paired outcomes"]
+}

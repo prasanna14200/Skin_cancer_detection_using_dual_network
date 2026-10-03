@@ -1,0 +1,22 @@
+{
+  "status": "READY_FOR_COLAB_TRAINING",
+  "stage": "13A_preflight",
+  "variants": ["A", "B", "C"],
+  "variant_config_paths": [
+    "experiments/egvan_melanoma_ablation_exp/config_A.json",
+    "experiments/egvan_melanoma_ablation_exp/config_B.json",
+    "experiments/egvan_melanoma_ablation_exp/config_C.json"
+  ],
+  "stage9_control_checkpoint_sha256": "60f34ea4cfa6cbf3dce69e8d8bcc82292d8d8813af30f33b2f666a4f06340de0",
+  "frozen_split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "class_order": ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"],
+  "pre_registered_selection_rule": "analysis/stage13_melanoma_ablation/selection_rule.json",
+  "local_tests": "5 passed",
+  "local_gpu": null,
+  "training_performed": false,
+  "test_inference_performed": false,
+  "ph2_inference_performed": false,
+  "ham_test_accessed_for_performance_analysis": false,
+  "ph2_accessed_for_performance_analysis": false,
+  "post_training_outputs_pending": ["validation_ablation_comparison.csv", "per_class_validation_comparison.csv", "training_stability_comparison.csv", "selected_candidate.json", "stage13_results_report.md"]
+}

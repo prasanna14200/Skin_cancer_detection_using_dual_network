@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "allowed_partitions": ["train", "val"],
+  "train_samples": 8015,
+  "validation_samples": 986,
+  "train_counts": {"akiec": 257, "bcc": 398, "bkl": 891, "df": 95, "mel": 899, "nv": 5366, "vasc": 109},
+  "validation_counts": {"akiec": 30, "bcc": 58, "bkl": 104, "df": 9, "mel": 107, "nv": 663, "vasc": 15},
+  "frozen_split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "unique_lesions": 7470,
+  "crossing_lesions": 0,
+  "missing_train_or_val_images": 0,
+  "stage9_validation_reference_recomputed": true,
+  "train_path_loaders": ["HAM10000Dataset(..., 'train')", "HAM10000Dataset(..., 'val')"],
+  "test_loader_present": false,
+  "ph2_loader_present": false,
+  "ham_test_performance_inspected_for_stage13_design": false,
+  "ph2_performance_inspected_for_stage13_design": false,
+  "test_inference_performed": false,
+  "ph2_inference_performed": false
+}
