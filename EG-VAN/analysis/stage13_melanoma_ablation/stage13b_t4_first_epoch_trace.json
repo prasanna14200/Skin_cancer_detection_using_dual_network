@@ -1,0 +1,225 @@
+{
+  "A": {
+    "variant": "A",
+    "configuration": {
+      "variant": "A",
+      "description": "Stage 9 objective and sampler control",
+      "architecture": "stage8b_egvan_four_mff_serial_terminal_branches",
+      "seed": 42,
+      "classes": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "image_size": 384,
+      "epochs": 25,
+      "physical_batch_size": 16,
+      "gradient_accumulation_steps": 1,
+      "effective_batch_size": 16,
+      "num_workers": 2,
+      "amp": "cuda_fp16_grad_scaler",
+      "initialization": {
+        "efficientnet": "EfficientNet_V2_S_Weights.DEFAULT",
+        "resnet50": "random",
+        "attention_fusion_classifier": "PyTorch defaults"
+      },
+      "optimizer": {
+        "name": "Adamax",
+        "learning_rate": 0.001,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0.0001
+      },
+      "scheduler": {
+        "name": "ReduceLROnPlateau",
+        "mode": "min",
+        "factor": 0.5,
+        "patience": 1
+      },
+      "loss": {
+        "name": "Stage9 focal",
+        "alpha": 0.25,
+        "gamma": 2.0,
+        "mel_multiplier": 1.0
+      },
+      "sampler": {
+        "name": "WeightedRandomSampler",
+        "replacement": true,
+        "num_samples": 8015,
+        "seed": 42,
+        "mel_weight": 1.5630495442733532,
+        "other_weight": 1.0
+      },
+      "checkpoint_rule": "Stage9 validation eligibility gates then minimum common unweighted validation focal loss"
+    },
+    "initial_model_sha256": "3151c00f259baa031ac123944b5f9688a4dfe68957e11d350912edc496577973",
+    "batches": [],
+    "first_nonfinite": {
+      "variant": "A",
+      "epoch": 1,
+      "batch_index": 1,
+      "target_class_distribution": {
+        "bkl": 4,
+        "nv": 8,
+        "bcc": 2,
+        "mel": 2
+      },
+      "contains_mel": true,
+      "amp_scale": 65536.0,
+      "input_sha256": "9444dd6b46ce85903643cfaae88de0e713dcfee2988b238d526cc700a49be4e3",
+      "labels_sha256": "a4c62cc9f6d0419b5f12d981163fcf48f9c6fdccf17f7ff6266aa82f623e2632",
+      "affected_tensor": "gradient_before_optimizer_step/resnet.conv1.weight.grad",
+      "finite": false,
+      "dtype": "torch.float32",
+      "shape": [
+        64,
+        3,
+        7,
+        7
+      ],
+      "nan_count": 216,
+      "inf_count": 685,
+      "finite_min": -65216.0,
+      "finite_max": 64704.0
+    },
+    "max_batches": 1,
+    "training_checkpoint_saved": false,
+    "ham_test_accessed": false,
+    "ph2_accessed": false
+  },
+  "B": {
+    "variant": "B",
+    "configuration": {
+      "variant": "B",
+      "description": "Melanoma loss-weight ablation only",
+      "architecture": "stage8b_egvan_four_mff_serial_terminal_branches",
+      "seed": 42,
+      "classes": [
+        "akiec",
+        "bcc",
+        "bkl",
+        "df",
+        "mel",
+        "nv",
+        "vasc"
+      ],
+      "image_size": 384,
+      "epochs": 25,
+      "physical_batch_size": 16,
+      "gradient_accumulation_steps": 1,
+      "effective_batch_size": 16,
+      "num_workers": 2,
+      "amp": "cuda_fp16_grad_scaler",
+      "initialization": {
+        "efficientnet": "EfficientNet_V2_S_Weights.DEFAULT",
+        "resnet50": "random",
+        "attention_fusion_classifier": "PyTorch defaults"
+      },
+      "optimizer": {
+        "name": "Adamax",
+        "learning_rate": 0.001,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0.0001
+      },
+      "scheduler": {
+        "name": "ReduceLROnPlateau",
+        "mode": "min",
+        "factor": 0.5,
+        "patience": 1
+      },
+      "loss": {
+        "name": "Stage9 focal with true-MEL multiplier",
+        "alpha": 0.25,
+        "gamma": 2.0,
+        "mel_multiplier": 1.5630495442733532
+      },
+      "sampler": {
+        "name": "WeightedRandomSampler",
+        "replacement": true,
+        "num_samples": 8015,
+        "seed": 42,
+        "mel_weight": 1.5630495442733532,
+        "other_weight": 1.0
+      },
+      "checkpoint_rule": "Stage9 validation eligibility gates then minimum common unweighted validation focal loss"
+    },
+    "initial_model_sha256": "3151c00f259baa031ac123944b5f9688a4dfe68957e11d350912edc496577973",
+    "batches": [],
+    "first_nonfinite": {
+      "variant": "B",
+      "epoch": 1,
+      "batch_index": 1,
+      "target_class_distribution": {
+        "bkl": 4,
+        "nv": 8,
+        "bcc": 2,
+        "mel": 2
+      },
+      "contains_mel": true,
+      "amp_scale": 65536.0,
+      "input_sha256": "9444dd6b46ce85903643cfaae88de0e713dcfee2988b238d526cc700a49be4e3",
+      "labels_sha256": "a4c62cc9f6d0419b5f12d981163fcf48f9c6fdccf17f7ff6266aa82f623e2632",
+      "affected_tensor": "gradient_before_optimizer_step/resnet.conv1.weight.grad",
+      "finite": false,
+      "dtype": "torch.float32",
+      "shape": [
+        64,
+        3,
+        7,
+        7
+      ],
+      "nan_count": 295,
+      "inf_count": 840,
+      "finite_min": -65088.0,
+      "finite_max": 64288.0
+    },
+    "max_batches": 10,
+    "training_checkpoint_saved": false,
+    "ham_test_accessed": false,
+    "ph2_accessed": false
+  },
+  "comparison": {
+    "same_initial_model": true,
+    "matching_finite_batch_inputs_and_labels": true,
+    "matched_finite_batches": 0,
+    "B_first_nonfinite": {
+      "variant": "B",
+      "epoch": 1,
+      "batch_index": 1,
+      "target_class_distribution": {
+        "bkl": 4,
+        "nv": 8,
+        "bcc": 2,
+        "mel": 2
+      },
+      "contains_mel": true,
+      "amp_scale": 65536.0,
+      "input_sha256": "9444dd6b46ce85903643cfaae88de0e713dcfee2988b238d526cc700a49be4e3",
+      "labels_sha256": "a4c62cc9f6d0419b5f12d981163fcf48f9c6fdccf17f7ff6266aa82f623e2632",
+      "affected_tensor": "gradient_before_optimizer_step/resnet.conv1.weight.grad",
+      "finite": false,
+      "dtype": "torch.float32",
+      "shape": [
+        64,
+        3,
+        7,
+        7
+      ],
+      "nan_count": 295,
+      "inf_count": 840,
+      "finite_min": -65088.0,
+      "finite_max": 64288.0
+    }
+  }
+}

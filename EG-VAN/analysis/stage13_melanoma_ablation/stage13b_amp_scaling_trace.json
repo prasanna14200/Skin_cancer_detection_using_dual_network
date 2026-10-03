@@ -1,0 +1,1469 @@
+{
+  "context": {
+    "seed": 42,
+    "batch_index": 1,
+    "input_sha256": "9444dd6b46ce85903643cfaae88de0e713dcfee2988b238d526cc700a49be4e3",
+    "labels_sha256": "a4c62cc9f6d0419b5f12d981163fcf48f9c6fdccf17f7ff6266aa82f623e2632",
+    "initial_model_sha256": "3151c00f259baa031ac123944b5f9688a4dfe68957e11d350912edc496577973",
+    "target_class_distribution": {
+      "bkl": 4,
+      "nv": 8,
+      "bcc": 2,
+      "mel": 2
+    },
+    "contains_mel": true,
+    "input_status": {
+      "finite": true,
+      "nan_count": 0,
+      "inf_count": 0,
+      "finite_min": -2.1179039478302,
+      "finite_max": 2.640000104904175,
+      "finite_max_abs": 2.640000104904175,
+      "dtype": "torch.float32",
+      "shape": [
+        16,
+        3,
+        384,
+        384
+      ]
+    },
+    "labels": [
+      2,
+      2,
+      5,
+      2,
+      5,
+      5,
+      1,
+      1,
+      2,
+      5,
+      5,
+      5,
+      4,
+      4,
+      5,
+      5
+    ]
+  },
+  "config_isolation_verified": true,
+  "paths": [
+    {
+      "variant": "A",
+      "forward_mode": "cuda_amp_fp16",
+      "amp_scale": 65536,
+      "input_sha256": "9444dd6b46ce85903643cfaae88de0e713dcfee2988b238d526cc700a49be4e3",
+      "labels_sha256": "a4c62cc9f6d0419b5f12d981163fcf48f9c6fdccf17f7ff6266aa82f623e2632",
+      "stages": {
+        "logits": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -0.42919921875,
+          "finite_max": 0.3232421875,
+          "finite_max_abs": 0.42919921875,
+          "dtype": "torch.float16",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.09160679578781128,
+          "finite_max": 0.19555778801441193,
+          "finite_max_abs": 0.19555778801441193,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "log_softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -2.390249729156494,
+          "finite_max": -1.631899356842041,
+          "finite_max_abs": 2.390249729156494,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "cross_entropy": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 1.669921875,
+          "finite_max": 2.244140625,
+          "finite_max_abs": 2.244140625,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "p_true": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.10595596581697464,
+          "finite_max": 0.18830080330371857,
+          "finite_max_abs": 0.18830080330371857,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "base_focal_per_example": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mel_multiplier_application": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "final_per_example_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mean_batch_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.3791278600692749,
+          "finite_max": 0.3791278600692749,
+          "finite_max_abs": 0.3791278600692749,
+          "dtype": "torch.float32",
+          "shape": []
+        },
+        "amp_scaled_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 24846.5234375,
+          "finite_max": 24846.5234375,
+          "finite_max_abs": 24846.5234375,
+          "dtype": "torch.float32",
+          "shape": []
+        }
+      },
+      "gradient_before_unscale": {
+        "all_finite": false,
+        "first_nonfinite_parameter": {
+          "parameter": "resnet.conv1.weight.grad",
+          "finite": false,
+          "nan_count": 216,
+          "inf_count": 685,
+          "finite_min": -65216.0,
+          "finite_max": 64704.0,
+          "finite_max_abs": 65216.0,
+          "dtype": "torch.float32",
+          "shape": [
+            64,
+            3,
+            7,
+            7
+          ]
+        },
+        "finite_gradient_min": -65216.0,
+        "finite_gradient_max": 64704.0,
+        "maximum_absolute_finite_gradient": 65216.0
+      },
+      "gradient_after_unscale": {
+        "all_finite": false,
+        "first_nonfinite_parameter": {
+          "parameter": "resnet.conv1.weight.grad",
+          "finite": false,
+          "nan_count": 216,
+          "inf_count": 685,
+          "finite_min": -0.9951171875,
+          "finite_max": 0.9873046875,
+          "finite_max_abs": 0.9951171875,
+          "dtype": "torch.float32",
+          "shape": [
+            64,
+            3,
+            7,
+            7
+          ]
+        },
+        "finite_gradient_min": -0.9951171875,
+        "finite_gradient_max": 0.9873046875,
+        "maximum_absolute_finite_gradient": 0.9951171875
+      },
+      "first_nonfinite_operation": "backward_gradient_before_unscale",
+      "optimizer_step_performed": false,
+      "amp_scale_after_unscale": 65536.0,
+      "optimizer_state_is_empty": true
+    },
+    {
+      "variant": "A",
+      "forward_mode": "cuda_amp_fp16",
+      "amp_scale": 32768,
+      "input_sha256": "9444dd6b46ce85903643cfaae88de0e713dcfee2988b238d526cc700a49be4e3",
+      "labels_sha256": "a4c62cc9f6d0419b5f12d981163fcf48f9c6fdccf17f7ff6266aa82f623e2632",
+      "stages": {
+        "logits": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -0.42919921875,
+          "finite_max": 0.3232421875,
+          "finite_max_abs": 0.42919921875,
+          "dtype": "torch.float16",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.09160679578781128,
+          "finite_max": 0.19555778801441193,
+          "finite_max_abs": 0.19555778801441193,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "log_softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -2.390249729156494,
+          "finite_max": -1.631899356842041,
+          "finite_max_abs": 2.390249729156494,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "cross_entropy": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 1.669921875,
+          "finite_max": 2.244140625,
+          "finite_max_abs": 2.244140625,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "p_true": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.10595596581697464,
+          "finite_max": 0.18830080330371857,
+          "finite_max_abs": 0.18830080330371857,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "base_focal_per_example": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mel_multiplier_application": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "final_per_example_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mean_batch_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.3791278600692749,
+          "finite_max": 0.3791278600692749,
+          "finite_max_abs": 0.3791278600692749,
+          "dtype": "torch.float32",
+          "shape": []
+        },
+        "amp_scaled_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 12423.26171875,
+          "finite_max": 12423.26171875,
+          "finite_max_abs": 12423.26171875,
+          "dtype": "torch.float32",
+          "shape": []
+        }
+      },
+      "gradient_before_unscale": {
+        "all_finite": false,
+        "first_nonfinite_parameter": {
+          "parameter": "resnet.conv1.weight.grad",
+          "finite": false,
+          "nan_count": 0,
+          "inf_count": 178,
+          "finite_min": -46208.0,
+          "finite_max": 65280.0,
+          "finite_max_abs": 65280.0,
+          "dtype": "torch.float32",
+          "shape": [
+            64,
+            3,
+            7,
+            7
+          ]
+        },
+        "finite_gradient_min": -46208.0,
+        "finite_gradient_max": 65280.0,
+        "maximum_absolute_finite_gradient": 65280.0
+      },
+      "gradient_after_unscale": {
+        "all_finite": false,
+        "first_nonfinite_parameter": {
+          "parameter": "resnet.conv1.weight.grad",
+          "finite": false,
+          "nan_count": 0,
+          "inf_count": 178,
+          "finite_min": -1.41015625,
+          "finite_max": 1.9921875,
+          "finite_max_abs": 1.9921875,
+          "dtype": "torch.float32",
+          "shape": [
+            64,
+            3,
+            7,
+            7
+          ]
+        },
+        "finite_gradient_min": -1.41015625,
+        "finite_gradient_max": 1.9921875,
+        "maximum_absolute_finite_gradient": 1.9921875
+      },
+      "first_nonfinite_operation": "backward_gradient_before_unscale",
+      "optimizer_step_performed": false,
+      "amp_scale_after_unscale": 32768.0,
+      "optimizer_state_is_empty": true
+    },
+    {
+      "variant": "A",
+      "forward_mode": "cuda_amp_fp16",
+      "amp_scale": 16384,
+      "input_sha256": "9444dd6b46ce85903643cfaae88de0e713dcfee2988b238d526cc700a49be4e3",
+      "labels_sha256": "a4c62cc9f6d0419b5f12d981163fcf48f9c6fdccf17f7ff6266aa82f623e2632",
+      "stages": {
+        "logits": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -0.42919921875,
+          "finite_max": 0.3232421875,
+          "finite_max_abs": 0.42919921875,
+          "dtype": "torch.float16",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.09160679578781128,
+          "finite_max": 0.19555778801441193,
+          "finite_max_abs": 0.19555778801441193,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "log_softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -2.390249729156494,
+          "finite_max": -1.631899356842041,
+          "finite_max_abs": 2.390249729156494,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "cross_entropy": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 1.669921875,
+          "finite_max": 2.244140625,
+          "finite_max_abs": 2.244140625,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "p_true": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.10595596581697464,
+          "finite_max": 0.18830080330371857,
+          "finite_max_abs": 0.18830080330371857,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "base_focal_per_example": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mel_multiplier_application": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "final_per_example_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mean_batch_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.3791278600692749,
+          "finite_max": 0.3791278600692749,
+          "finite_max_abs": 0.3791278600692749,
+          "dtype": "torch.float32",
+          "shape": []
+        },
+        "amp_scaled_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 6211.630859375,
+          "finite_max": 6211.630859375,
+          "finite_max_abs": 6211.630859375,
+          "dtype": "torch.float32",
+          "shape": []
+        }
+      },
+      "gradient_before_unscale": {
+        "all_finite": true,
+        "first_nonfinite_parameter": null,
+        "finite_gradient_min": -23104.0,
+        "finite_gradient_max": 44064.0,
+        "maximum_absolute_finite_gradient": 44064.0
+      },
+      "gradient_after_unscale": {
+        "all_finite": true,
+        "first_nonfinite_parameter": null,
+        "finite_gradient_min": -1.41015625,
+        "finite_gradient_max": 2.689453125,
+        "maximum_absolute_finite_gradient": 2.689453125
+      },
+      "first_nonfinite_operation": null,
+      "optimizer_step_performed": false,
+      "amp_scale_after_unscale": 16384.0,
+      "optimizer_state_is_empty": true
+    },
+    {
+      "variant": "A",
+      "forward_mode": "cuda_amp_fp16",
+      "amp_scale": 8192,
+      "input_sha256": "9444dd6b46ce85903643cfaae88de0e713dcfee2988b238d526cc700a49be4e3",
+      "labels_sha256": "a4c62cc9f6d0419b5f12d981163fcf48f9c6fdccf17f7ff6266aa82f623e2632",
+      "stages": {
+        "logits": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -0.42919921875,
+          "finite_max": 0.3232421875,
+          "finite_max_abs": 0.42919921875,
+          "dtype": "torch.float16",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.09160679578781128,
+          "finite_max": 0.19555778801441193,
+          "finite_max_abs": 0.19555778801441193,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "log_softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -2.390249729156494,
+          "finite_max": -1.631899356842041,
+          "finite_max_abs": 2.390249729156494,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "cross_entropy": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 1.669921875,
+          "finite_max": 2.244140625,
+          "finite_max_abs": 2.244140625,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "p_true": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.10595596581697464,
+          "finite_max": 0.18830080330371857,
+          "finite_max_abs": 0.18830080330371857,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "base_focal_per_example": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mel_multiplier_application": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "final_per_example_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mean_batch_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.3791278600692749,
+          "finite_max": 0.3791278600692749,
+          "finite_max_abs": 0.3791278600692749,
+          "dtype": "torch.float32",
+          "shape": []
+        },
+        "amp_scaled_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 3105.8154296875,
+          "finite_max": 3105.8154296875,
+          "finite_max_abs": 3105.8154296875,
+          "dtype": "torch.float32",
+          "shape": []
+        }
+      },
+      "gradient_before_unscale": {
+        "all_finite": true,
+        "first_nonfinite_parameter": null,
+        "finite_gradient_min": -11560.0,
+        "finite_gradient_max": 22048.0,
+        "maximum_absolute_finite_gradient": 22048.0
+      },
+      "gradient_after_unscale": {
+        "all_finite": true,
+        "first_nonfinite_parameter": null,
+        "finite_gradient_min": -1.4111328125,
+        "finite_gradient_max": 2.69140625,
+        "maximum_absolute_finite_gradient": 2.69140625
+      },
+      "first_nonfinite_operation": null,
+      "optimizer_step_performed": false,
+      "amp_scale_after_unscale": 8192.0,
+      "optimizer_state_is_empty": true
+    },
+    {
+      "variant": "A",
+      "forward_mode": "cuda_amp_fp16",
+      "amp_scale": 4096,
+      "input_sha256": "9444dd6b46ce85903643cfaae88de0e713dcfee2988b238d526cc700a49be4e3",
+      "labels_sha256": "a4c62cc9f6d0419b5f12d981163fcf48f9c6fdccf17f7ff6266aa82f623e2632",
+      "stages": {
+        "logits": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -0.42919921875,
+          "finite_max": 0.3232421875,
+          "finite_max_abs": 0.42919921875,
+          "dtype": "torch.float16",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.09160679578781128,
+          "finite_max": 0.19555778801441193,
+          "finite_max_abs": 0.19555778801441193,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "log_softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -2.390249729156494,
+          "finite_max": -1.631899356842041,
+          "finite_max_abs": 2.390249729156494,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "cross_entropy": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 1.669921875,
+          "finite_max": 2.244140625,
+          "finite_max_abs": 2.244140625,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "p_true": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.10595596581697464,
+          "finite_max": 0.18830080330371857,
+          "finite_max_abs": 0.18830080330371857,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "base_focal_per_example": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mel_multiplier_application": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "final_per_example_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mean_batch_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.3791278600692749,
+          "finite_max": 0.3791278600692749,
+          "finite_max_abs": 0.3791278600692749,
+          "dtype": "torch.float32",
+          "shape": []
+        },
+        "amp_scaled_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 1552.90771484375,
+          "finite_max": 1552.90771484375,
+          "finite_max_abs": 1552.90771484375,
+          "dtype": "torch.float32",
+          "shape": []
+        }
+      },
+      "gradient_before_unscale": {
+        "all_finite": true,
+        "first_nonfinite_parameter": null,
+        "finite_gradient_min": -5768.0,
+        "finite_gradient_max": 11024.0,
+        "maximum_absolute_finite_gradient": 11024.0
+      },
+      "gradient_after_unscale": {
+        "all_finite": true,
+        "first_nonfinite_parameter": null,
+        "finite_gradient_min": -1.408203125,
+        "finite_gradient_max": 2.69140625,
+        "maximum_absolute_finite_gradient": 2.69140625
+      },
+      "first_nonfinite_operation": null,
+      "optimizer_step_performed": false,
+      "amp_scale_after_unscale": 4096.0,
+      "optimizer_state_is_empty": true
+    },
+    {
+      "variant": "A",
+      "forward_mode": "full_fp32",
+      "amp_scale": null,
+      "input_sha256": "9444dd6b46ce85903643cfaae88de0e713dcfee2988b238d526cc700a49be4e3",
+      "labels_sha256": "a4c62cc9f6d0419b5f12d981163fcf48f9c6fdccf17f7ff6266aa82f623e2632",
+      "stages": {
+        "logits": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -0.43557804822921753,
+          "finite_max": 0.33384937047958374,
+          "finite_max_abs": 0.43557804822921753,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.0916445255279541,
+          "finite_max": 0.19322587549686432,
+          "finite_max_abs": 0.19322587549686432,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "log_softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -2.3898379802703857,
+          "finite_max": -1.6438953876495361,
+          "finite_max_abs": 2.3898379802703857,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "cross_entropy": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 1.6695595979690552,
+          "finite_max": 2.2468528747558594,
+          "finite_max_abs": 2.2468528747558594,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "p_true": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.10573147237300873,
+          "finite_max": 0.18832999467849731,
+          "finite_max_abs": 0.18832999467849731,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "base_focal_per_example": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2749798893928528,
+          "finite_max": 0.44921115040779114,
+          "finite_max_abs": 0.44921115040779114,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mel_multiplier_application": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2749798893928528,
+          "finite_max": 0.44921115040779114,
+          "finite_max_abs": 0.44921115040779114,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "final_per_example_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2749798893928528,
+          "finite_max": 0.44921115040779114,
+          "finite_max_abs": 0.44921115040779114,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mean_batch_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.37881988286972046,
+          "finite_max": 0.37881988286972046,
+          "finite_max_abs": 0.37881988286972046,
+          "dtype": "torch.float32",
+          "shape": []
+        },
+        "fp32_backward_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.37881988286972046,
+          "finite_max": 0.37881988286972046,
+          "finite_max_abs": 0.37881988286972046,
+          "dtype": "torch.float32",
+          "shape": []
+        }
+      },
+      "gradient_before_unscale": {
+        "all_finite": true,
+        "first_nonfinite_parameter": null,
+        "finite_gradient_min": -2.6466102600097656,
+        "finite_gradient_max": 1.7798705101013184,
+        "maximum_absolute_finite_gradient": 2.6466102600097656
+      },
+      "gradient_after_unscale": {
+        "all_finite": true,
+        "first_nonfinite_parameter": null,
+        "finite_gradient_min": -2.6466102600097656,
+        "finite_gradient_max": 1.7798705101013184,
+        "maximum_absolute_finite_gradient": 2.6466102600097656,
+        "note": "unscale not applicable to FP32"
+      },
+      "first_nonfinite_operation": null,
+      "optimizer_step_performed": false,
+      "optimizer_state_is_empty": true
+    },
+    {
+      "variant": "B",
+      "forward_mode": "cuda_amp_fp16",
+      "amp_scale": 65536,
+      "input_sha256": "9444dd6b46ce85903643cfaae88de0e713dcfee2988b238d526cc700a49be4e3",
+      "labels_sha256": "a4c62cc9f6d0419b5f12d981163fcf48f9c6fdccf17f7ff6266aa82f623e2632",
+      "stages": {
+        "logits": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -0.42919921875,
+          "finite_max": 0.3232421875,
+          "finite_max_abs": 0.42919921875,
+          "dtype": "torch.float16",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.09160679578781128,
+          "finite_max": 0.19555778801441193,
+          "finite_max_abs": 0.19555778801441193,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "log_softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -2.390249729156494,
+          "finite_max": -1.631899356842041,
+          "finite_max_abs": 2.390249729156494,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "cross_entropy": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 1.669921875,
+          "finite_max": 2.244140625,
+          "finite_max_abs": 2.244140625,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "p_true": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.10595596581697464,
+          "finite_max": 0.18830080330371857,
+          "finite_max_abs": 0.18830080330371857,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "base_focal_per_example": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mel_multiplier_application": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.33396121859550476,
+          "finite_max": 0.49365973472595215,
+          "finite_max_abs": 0.49365973472595215,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "final_per_example_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.33396121859550476,
+          "finite_max": 0.49365973472595215,
+          "finite_max_abs": 0.49365973472595215,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mean_batch_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.3999216556549072,
+          "finite_max": 0.3999216556549072,
+          "finite_max_abs": 0.3999216556549072,
+          "dtype": "torch.float32",
+          "shape": []
+        },
+        "amp_scaled_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 26209.265625,
+          "finite_max": 26209.265625,
+          "finite_max_abs": 26209.265625,
+          "dtype": "torch.float32",
+          "shape": []
+        }
+      },
+      "gradient_before_unscale": {
+        "all_finite": false,
+        "first_nonfinite_parameter": {
+          "parameter": "resnet.conv1.weight.grad",
+          "finite": false,
+          "nan_count": 295,
+          "inf_count": 840,
+          "finite_min": -65088.0,
+          "finite_max": 64288.0,
+          "finite_max_abs": 65088.0,
+          "dtype": "torch.float32",
+          "shape": [
+            64,
+            3,
+            7,
+            7
+          ]
+        },
+        "finite_gradient_min": -65088.0,
+        "finite_gradient_max": 64288.0,
+        "maximum_absolute_finite_gradient": 65088.0
+      },
+      "gradient_after_unscale": {
+        "all_finite": false,
+        "first_nonfinite_parameter": {
+          "parameter": "resnet.conv1.weight.grad",
+          "finite": false,
+          "nan_count": 295,
+          "inf_count": 840,
+          "finite_min": -0.9931640625,
+          "finite_max": 0.98095703125,
+          "finite_max_abs": 0.9931640625,
+          "dtype": "torch.float32",
+          "shape": [
+            64,
+            3,
+            7,
+            7
+          ]
+        },
+        "finite_gradient_min": -0.9931640625,
+        "finite_gradient_max": 0.98095703125,
+        "maximum_absolute_finite_gradient": 0.9931640625
+      },
+      "first_nonfinite_operation": "backward_gradient_before_unscale",
+      "optimizer_step_performed": false,
+      "amp_scale_after_unscale": 65536.0,
+      "optimizer_state_is_empty": true
+    },
+    {
+      "variant": "B",
+      "forward_mode": "cuda_amp_fp16",
+      "amp_scale": 16384,
+      "input_sha256": "9444dd6b46ce85903643cfaae88de0e713dcfee2988b238d526cc700a49be4e3",
+      "labels_sha256": "a4c62cc9f6d0419b5f12d981163fcf48f9c6fdccf17f7ff6266aa82f623e2632",
+      "stages": {
+        "logits": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -0.42919921875,
+          "finite_max": 0.3232421875,
+          "finite_max_abs": 0.42919921875,
+          "dtype": "torch.float16",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.09160679578781128,
+          "finite_max": 0.19555778801441193,
+          "finite_max_abs": 0.19555778801441193,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "log_softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -2.390249729156494,
+          "finite_max": -1.631899356842041,
+          "finite_max_abs": 2.390249729156494,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "cross_entropy": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 1.669921875,
+          "finite_max": 2.244140625,
+          "finite_max_abs": 2.244140625,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "p_true": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.10595596581697464,
+          "finite_max": 0.18830080330371857,
+          "finite_max_abs": 0.18830080330371857,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "base_focal_per_example": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2750593423843384,
+          "finite_max": 0.4484436810016632,
+          "finite_max_abs": 0.4484436810016632,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mel_multiplier_application": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.33396121859550476,
+          "finite_max": 0.49365973472595215,
+          "finite_max_abs": 0.49365973472595215,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "final_per_example_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.33396121859550476,
+          "finite_max": 0.49365973472595215,
+          "finite_max_abs": 0.49365973472595215,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mean_batch_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.3999216556549072,
+          "finite_max": 0.3999216556549072,
+          "finite_max_abs": 0.3999216556549072,
+          "dtype": "torch.float32",
+          "shape": []
+        },
+        "amp_scaled_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 6552.31640625,
+          "finite_max": 6552.31640625,
+          "finite_max_abs": 6552.31640625,
+          "dtype": "torch.float32",
+          "shape": []
+        }
+      },
+      "gradient_before_unscale": {
+        "all_finite": true,
+        "first_nonfinite_parameter": null,
+        "finite_gradient_min": -25568.0,
+        "finite_gradient_max": 43328.0,
+        "maximum_absolute_finite_gradient": 43328.0
+      },
+      "gradient_after_unscale": {
+        "all_finite": true,
+        "first_nonfinite_parameter": null,
+        "finite_gradient_min": -1.560546875,
+        "finite_gradient_max": 2.64453125,
+        "maximum_absolute_finite_gradient": 2.64453125
+      },
+      "first_nonfinite_operation": null,
+      "optimizer_step_performed": false,
+      "amp_scale_after_unscale": 16384.0,
+      "optimizer_state_is_empty": true
+    },
+    {
+      "variant": "B",
+      "forward_mode": "full_fp32",
+      "amp_scale": null,
+      "input_sha256": "9444dd6b46ce85903643cfaae88de0e713dcfee2988b238d526cc700a49be4e3",
+      "labels_sha256": "a4c62cc9f6d0419b5f12d981163fcf48f9c6fdccf17f7ff6266aa82f623e2632",
+      "stages": {
+        "logits": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -0.43557804822921753,
+          "finite_max": 0.33384937047958374,
+          "finite_max_abs": 0.43557804822921753,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.0916445255279541,
+          "finite_max": 0.19322587549686432,
+          "finite_max_abs": 0.19322587549686432,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "log_softmax": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": -2.3898379802703857,
+          "finite_max": -1.6438953876495361,
+          "finite_max_abs": 2.3898379802703857,
+          "dtype": "torch.float32",
+          "shape": [
+            16,
+            7
+          ]
+        },
+        "cross_entropy": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 1.6695595979690552,
+          "finite_max": 2.2468528747558594,
+          "finite_max_abs": 2.2468528747558594,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "p_true": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.10573147237300873,
+          "finite_max": 0.18832999467849731,
+          "finite_max_abs": 0.18832999467849731,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "base_focal_per_example": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.2749798893928528,
+          "finite_max": 0.44921115040779114,
+          "finite_max_abs": 0.44921115040779114,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mel_multiplier_application": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.33797845244407654,
+          "finite_max": 0.4933851361274719,
+          "finite_max_abs": 0.4933851361274719,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "final_per_example_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.33797845244407654,
+          "finite_max": 0.4933851361274719,
+          "finite_max_abs": 0.4933851361274719,
+          "dtype": "torch.float32",
+          "shape": [
+            16
+          ]
+        },
+        "mean_batch_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.3996046781539917,
+          "finite_max": 0.3996046781539917,
+          "finite_max_abs": 0.3996046781539917,
+          "dtype": "torch.float32",
+          "shape": []
+        },
+        "fp32_backward_loss": {
+          "finite": true,
+          "nan_count": 0,
+          "inf_count": 0,
+          "finite_min": 0.3996046781539917,
+          "finite_max": 0.3996046781539917,
+          "finite_max_abs": 0.3996046781539917,
+          "dtype": "torch.float32",
+          "shape": []
+        }
+      },
+      "gradient_before_unscale": {
+        "all_finite": true,
+        "first_nonfinite_parameter": null,
+        "finite_gradient_min": -2.951169013977051,
+        "finite_gradient_max": 1.9582866430282593,
+        "maximum_absolute_finite_gradient": 2.951169013977051
+      },
+      "gradient_after_unscale": {
+        "all_finite": true,
+        "first_nonfinite_parameter": null,
+        "finite_gradient_min": -2.951169013977051,
+        "finite_gradient_max": 1.9582866430282593,
+        "maximum_absolute_finite_gradient": 2.951169013977051,
+        "note": "unscale not applicable to FP32"
+      },
+      "first_nonfinite_operation": null,
+      "optimizer_step_performed": false,
+      "optimizer_state_is_empty": true
+    }
+  ],
+  "reference_trace_sha256": "cd84f34d9a832ee7ef7698673690e0704bc3ef232e4715c2b6da83de8735a899",
+  "reference_model_and_first_batch_match": true,
+  "optimizer_step_performed": false,
+  "full_training_performed": false,
+  "ham_test_accessed": false,
+  "ph2_accessed": false,
+  "A_finite_tested_scales": [
+    16384,
+    8192,
+    4096
+  ],
+  "A_lowest_tested_finite_scale": 4096,
+  "A_highest_tested_finite_scale": 16384
+}

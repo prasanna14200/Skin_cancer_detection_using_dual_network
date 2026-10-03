@@ -1,0 +1,43 @@
+{
+  "status": "PREPARED_AWAITING_T4_RESULT",
+  "source_t4_trace_path": "analysis/stage13_melanoma_ablation/stage13b_t4_first_epoch_trace.json",
+  "source_t4_trace_available_locally": false,
+  "user_reported_prior_trace": {
+    "same_initial_model": true,
+    "same_first_batch_and_labels": true,
+    "batch_index": 1,
+    "first_recorded_nonfinite_tensor": "gradient_before_optimizer_step/resnet.conv1.weight.grad",
+    "amp_scale": 65536,
+    "A": {"nan_count": 216, "inf_count": 685},
+    "B": {"nan_count": 295, "inf_count": 840},
+    "finite_gradient_values_approximately": "-65000 to +65000",
+    "optimizer_step_before_failure": false,
+    "interpretation": "Both A and B fail in scaled backward before optimizer update; consistent with AMP backward overflow but not yet distinguished from FP16 forward/backward instability without lower-scale and FP32 controls."
+  },
+  "new_diagnostic_script": "analysis/stage13_melanoma_ablation/diagnose_amp_scaling_colab.py",
+  "new_diagnostic_requires_matching_model_input_and_label_hashes_from_prior_trace": true,
+  "new_diagnostic_t4_output_path": "analysis/stage13_melanoma_ablation/stage13b_amp_t4_run.json",
+  "new_diagnostic_t4_executed": false,
+  "paths_requested": [
+    "A AMP GradScaler 65536 before and after unscale",
+    "A AMP GradScaler 32768 before and after unscale",
+    "A AMP GradScaler 16384 before and after unscale",
+    "A AMP GradScaler 8192 before and after unscale",
+    "A AMP GradScaler 4096 before and after unscale",
+    "A full FP32 forward/loss/backward",
+    "B AMP GradScaler 65536 before and after unscale",
+    "B AMP GradScaler at highest tested A-finite scale when applicable",
+    "B full FP32 forward/loss/backward"
+  ],
+  "a_fp32_status": "NOT_RUN",
+  "a_amp_65536_status": "NONFINITE_SCALED_GRADIENT_USER_REPORTED",
+  "a_lowest_tested_finite_amp_scale": null,
+  "b_confirmation_status": "NONFINITE_SCALED_GRADIENT_AT_65536_USER_REPORTED",
+  "first_nonfinite_operation": "scaled_backward_gradient_at_resnet.conv1.weight.grad (user-reported prior trace)",
+  "root_cause_conclusion": "B multiplier not sufficient to explain initial failure; exact AMP scaling mechanism awaits lower-scale and FP32 diagnostic",
+  "research_config_changed": false,
+  "optimizer_step_performed_in_new_diagnostic": false,
+  "full_training_performed_in_this_investigation": false,
+  "ham_test_accessed": false,
+  "ph2_accessed": false
+}

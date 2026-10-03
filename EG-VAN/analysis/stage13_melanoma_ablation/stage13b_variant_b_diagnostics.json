@@ -1,0 +1,143 @@
+{
+  "disposition": "B_ROOT_CAUSE_UNRESOLVED",
+  "inventory": {
+    "downloaded_colab_experiment_folder": {
+      "path": "colab_artifacts/egvan_melanoma_ablation_exp",
+      "A": ["last_checkpoint.pt"],
+      "B": ["last_checkpoint.pt"],
+      "C": ["last_checkpoint.pt"],
+      "B_failed_original_20261003": null,
+      "other_files": []
+    },
+    "repository_experiment_folder": {
+      "path": "experiments/egvan_melanoma_ablation_exp",
+      "A": null,
+      "B": null,
+      "C": null,
+      "B_failed_original_20261003": null,
+      "top_level_files": ["config_A.json", "config_B.json", "config_C.json", "train_ablation.py", "test_ablation.py", "diagnose_first_epoch.py", "audit_ac_artifacts.py"]
+    },
+    "earlier_separate_original_B_archive": {
+      "path": "colab_artifacts/stage13_failed_B",
+      "files": ["config.json", "experiment_manifest.json", "training_history.csv", "last_checkpoint.pt"]
+    }
+  },
+  "checkpoint_audit": {
+    "A_last": {
+      "sha256": "1fb2daf381772d49455ac59345243a7c9c16c9c2eef507c844870aa8f0a70863",
+      "embedded_variant": "A",
+      "checkpoint_epoch": 25,
+      "embedded_history_epochs": 25,
+      "history_epoch_numbering_complete": true,
+      "all_embedded_train_val_losses_and_metrics_finite": true,
+      "eligible_epochs": [15, 16, 23],
+      "selected_epoch": 15,
+      "selected_validation_loss": 0.08285253810857822,
+      "selected_epoch_matches_minimum_loss_among_eligible": true,
+      "configuration_matches_preregistered_A": true,
+      "model_tensors_all_finite": true,
+      "optimizer_tensors_all_finite": true,
+      "scheduler_best_finite": true,
+      "grad_scaler_scale": 131072.0,
+      "grad_scaler_valid": true,
+      "best_checkpoint_available": false,
+      "validation_predictions_available": false,
+      "validation_metrics_file_available": false,
+      "status": "INCOMPLETE"
+    },
+    "C_last": {
+      "sha256": "a19ac7aaa663c3f1a5a91b4f2c11183cb5a60ccde1b290ae608c1bb668b044bc",
+      "embedded_variant": "C",
+      "checkpoint_epoch": 25,
+      "embedded_history_epochs": 25,
+      "history_epoch_numbering_complete": true,
+      "all_embedded_train_val_losses_and_metrics_finite": true,
+      "eligible_epochs": [],
+      "selected_epoch": null,
+      "configuration_matches_preregistered_C": true,
+      "model_tensors_all_finite": true,
+      "optimizer_tensors_all_finite": true,
+      "scheduler_best_finite": true,
+      "grad_scaler_scale": 131072.0,
+      "grad_scaler_valid": true,
+      "best_checkpoint_available": false,
+      "no_best_consistent_with_no_eligible_epoch": true,
+      "validation_predictions_available": false,
+      "validation_metrics_file_available": false,
+      "status": "INCOMPLETE"
+    },
+    "original_B_separate_archive": {
+      "sha256": "2c95e409c15dd4aec411820dbced9a89748a24a437de963d0e6d2ed85ea330f2",
+      "embedded_variant": "B",
+      "checkpoint_epoch": 25,
+      "first_nonfinite_saved_epoch": 1,
+      "eligible_epochs": [],
+      "model_nan_elements": 58295425,
+      "optimizer_nan_elements": 116174818,
+      "grad_scaler_scale": 0.0,
+      "status": "INVALID"
+    },
+    "original_B_pre_resume_epoch18_copy": {
+      "artifact_path": "colab_artifacts/egvan_melanoma_ablation_exp/B/last_checkpoint.pt",
+      "sha256": "9a7f460058b89244e8f795b3f01a0b90bc410e8e5696f4e1cb12d4ea6f6ffd41",
+      "embedded_variant": "B",
+      "checkpoint_epoch": 18,
+      "first_nonfinite_saved_epoch": 1,
+      "eligible_epochs": [],
+      "model_nan_elements": 58295425,
+      "optimizer_nan_elements": 116174818,
+      "grad_scaler_scale": 0.0,
+      "history_rows_1_to_18_match_original_epoch25_checkpoint": true,
+      "model_float_tensors_bitwise_matching_original_epoch25_checkpoint": "1110/1110",
+      "optimizer_tensors_bitwise_matching_original_epoch25_checkpoint": "2298/2298",
+      "provenance": "Same original failed-run lineage; not evidence of the fresh rerun or bounded diagnostic",
+      "status": "INVALID"
+    },
+    "fresh_B": {
+      "source": "user-provided fresh-initialization epoch-1 Colab log",
+      "reported_first_nonfinite_saved_epoch": 1,
+      "checkpoint_file_available_locally": false,
+      "fresh_run_directory_available_locally": false,
+      "status": "INCOMPLETE"
+    }
+  },
+  "batch_diagnostic": {
+    "t4_execution_reported_by_user": true,
+    "t4_trace_audited": false,
+    "first_nonfinite_stage": null,
+    "user_reported_first_nonfinite": {
+      "epoch": 1,
+      "batch": 1,
+      "tensor": "gradient_before_optimizer_step/resnet.conv1.weight.grad",
+      "amp_scale": 65536,
+      "A_nan_count": 216,
+      "A_inf_count": 685,
+      "B_nan_count": 295,
+      "B_inf_count": 840,
+      "optimizer_step_before_detection": false,
+      "raw_trace_independently_audited": false
+    },
+    "expected_t4_trace_path": "analysis/stage13_melanoma_ablation/stage13b_t4_first_epoch_trace.json",
+    "t4_trace_available_locally": false,
+    "local_cuda_available": false,
+    "local_cpu_ham_train_input_check": {
+      "batches": 8,
+      "batch_size": 16,
+      "num_workers": 0,
+      "all_inputs_finite": true,
+      "all_labels_valid": true,
+      "limitation": "not the exact T4 AMP training sequence"
+    },
+    "a_b_only_active_code_path_difference": "true-MEL focal loss multiplier 1.0 versus 1.5630495442733532",
+    "colab_entry_point": "analysis/stage13_melanoma_ablation/diagnose_variant_b_colab.py",
+    "colab_instructions": "analysis/stage13_melanoma_ablation/colab_variant_b_diagnostic_instructions.md"
+  },
+  "data_boundary": {
+    "ham_test_accessed": false,
+    "ph2_accessed": false,
+    "test_or_external_inference": false,
+    "historical_a_c_run_boundary_independently_verified": false
+  },
+  "existing_training_artifacts_modified": false,
+  "new_full_b_training_started": false
+}
