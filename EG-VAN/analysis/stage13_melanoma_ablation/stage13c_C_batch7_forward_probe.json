@@ -1,0 +1,331 @@
+{
+  "status": "EXCEPTION",
+  "scope": "HAM train only; C batches 1-6, batch-7 forward only",
+  "seed": 42,
+  "initial_scale": 8192.0,
+  "prior_gate_sha256": "ccdfe75250492878f759d6e95feda59afc1ad1ea88bdb25b3227eca0b0268c56",
+  "script_sha256": "2581ec5e72bba2c086f198bfc582731255fa9d4b4868b5d16b6d5d35f14d8038",
+  "source_sha256": {
+    "analysis/stage13_melanoma_ablation/stage13c_abc_8192_gate.py": "6fb8eef5be5f19497393bddeae88d3f7c36e0a04d0443519223cf5297904bb63",
+    "experiments/egvan_melanoma_ablation_exp/train_ablation.py": "56a71821c1f944028874a76febf00ea68b3b152e481e6450ddd5bd94606e5389",
+    "src/models/egvan/egvan.py": "f5f5217d6cced6ccc9c1a2d17a5691701bfe454eb46bf52bf97468030cc7b44f"
+  },
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "config_C_sha256": "318f778b662f25d82f53c1c5529af56012da32a96efb53bdd3e83c2da5732616",
+  "runtime": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu130",
+    "torchvision": "0.26.0+cu130",
+    "cuda": "13.0",
+    "gpu": "Tesla T4"
+  },
+  "initial_model_sha256": "5ae6990a94c0a78a0204b52b47ba59eb67734c737b44c2427943e4fc5cd1d2b1",
+  "replayed_batches": [
+    {
+      "batch_index": 1,
+      "input_sha256": "799ee6069a61fb609102654de81886606e3f7c9bd58fc3d084f4d0209202ebae",
+      "labels_sha256": "df6ebac4204ff481ae2f5a1911e690f9b779fc443ff273ecc197dd3d88a21e59",
+      "loss": 0.3723886013031006,
+      "scale_before": 8192.0,
+      "scaled_gradients": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "unscaled_gradients": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "optimizer_step_performed": true,
+      "optimizer_step_skipped": false,
+      "scale_after": 8192.0,
+      "model_after_batch": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "optimizer_after_batch": {
+        "finite": true,
+        "first_nonfinite": null
+      }
+    },
+    {
+      "batch_index": 2,
+      "input_sha256": "3263ffe38728f7f6a249eca047daa3f18f0fa6cca3df38126476c188f128a28e",
+      "labels_sha256": "0ed84432b1e54392361e22650913a043c7c2f669c268531daeb44c3650c29c36",
+      "loss": 1.9468905925750732,
+      "scale_before": 8192.0,
+      "scaled_gradients": {
+        "finite": false,
+        "first_nonfinite": {
+          "tensor": "resnet.conv1.weight",
+          "finite": false,
+          "nan_count": 9408,
+          "inf_count": 0,
+          "finite_min": null,
+          "finite_max": null,
+          "dtype": "torch.float32",
+          "shape": [
+            64,
+            3,
+            7,
+            7
+          ]
+        }
+      },
+      "unscaled_gradients": {
+        "finite": false,
+        "first_nonfinite": {
+          "tensor": "resnet.conv1.weight",
+          "finite": false,
+          "nan_count": 9408,
+          "inf_count": 0,
+          "finite_min": null,
+          "finite_max": null,
+          "dtype": "torch.float32",
+          "shape": [
+            64,
+            3,
+            7,
+            7
+          ]
+        }
+      },
+      "optimizer_step_performed": false,
+      "optimizer_step_skipped": true,
+      "scale_after": 4096.0,
+      "model_after_batch": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "optimizer_after_batch": {
+        "finite": true,
+        "first_nonfinite": null
+      }
+    },
+    {
+      "batch_index": 3,
+      "input_sha256": "342531d8c4a1edfb36df49295d603883297013e63282f62c6587f44c3a38ae15",
+      "labels_sha256": "e7f012e9c36ba5ac67eef879869f805f1fdf3ed88e61af250e6335d2d3983c4a",
+      "loss": 1.699584722518921,
+      "scale_before": 4096.0,
+      "scaled_gradients": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "unscaled_gradients": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "optimizer_step_performed": true,
+      "optimizer_step_skipped": false,
+      "scale_after": 4096.0,
+      "model_after_batch": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "optimizer_after_batch": {
+        "finite": true,
+        "first_nonfinite": null
+      }
+    },
+    {
+      "batch_index": 4,
+      "input_sha256": "172a28dbbbed4c4a54c098acbb3f81ce9754666a87541806d131983e639b48ca",
+      "labels_sha256": "6553ced8e9219f4a0b055227a0b3fa852c1ecd3488bafd4d872d605e4ddb026d",
+      "loss": 1.2606167793273926,
+      "scale_before": 4096.0,
+      "scaled_gradients": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "unscaled_gradients": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "optimizer_step_performed": true,
+      "optimizer_step_skipped": false,
+      "scale_after": 4096.0,
+      "model_after_batch": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "optimizer_after_batch": {
+        "finite": true,
+        "first_nonfinite": null
+      }
+    },
+    {
+      "batch_index": 5,
+      "input_sha256": "6a5f8a86a921ad9c1c65afc220147066a0b08875e1e5c9dda515a2ffa93d54ea",
+      "labels_sha256": "79c133d593a22ed41d5ad7e77ddbaec11ff774464d12aa0a9a35d539b887e4db",
+      "loss": 0.6714112758636475,
+      "scale_before": 4096.0,
+      "scaled_gradients": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "unscaled_gradients": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "optimizer_step_performed": true,
+      "optimizer_step_skipped": false,
+      "scale_after": 4096.0,
+      "model_after_batch": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "optimizer_after_batch": {
+        "finite": true,
+        "first_nonfinite": null
+      }
+    },
+    {
+      "batch_index": 6,
+      "input_sha256": "9ba7716c11339a2c5821ef8826e90ee1efc8fb1394024cdd27e957739cfa60e9",
+      "labels_sha256": "961c2ae4a8d212ee1cbfa7bb88e896d0dad6fd4faa939b5c245a104c161afba7",
+      "loss": 1.610490322113037,
+      "scale_before": 4096.0,
+      "scaled_gradients": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "unscaled_gradients": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "optimizer_step_performed": true,
+      "optimizer_step_skipped": false,
+      "scale_after": 4096.0,
+      "model_after_batch": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "optimizer_after_batch": {
+        "finite": true,
+        "first_nonfinite": null
+      }
+    }
+  ],
+  "batch7": {
+    "batch_index": 7,
+    "input_sha256": "f99b5661444fdb17475a95d6a9cc764e4b57b4b716352c5fd53296d059949005",
+    "labels_sha256": "8e9569eabecb8e6bed2111ad3f2422a3fe2cf58822d0b6a31932f652a295e62c",
+    "target_class_distribution": {
+      "nv": 12,
+      "bkl": 1,
+      "bcc": 1,
+      "mel": 2
+    },
+    "scale_before": 4096.0,
+    "model_before_forward": {
+      "finite": true,
+      "first_nonfinite": null
+    },
+    "model_state_parts_before_forward": {
+      "parameters": {
+        "finite": true,
+        "first_nonfinite": null
+      },
+      "buffers": {
+        "finite": true,
+        "first_nonfinite": null
+      }
+    },
+    "optimizer_before_forward": {
+      "finite": true,
+      "first_nonfinite": null
+    },
+    "model_sha256_before_forward": "ece5c2db1d132c4e43ea3beda5217e5f1ef03ffa992f9f929885d44ce99ee6ce",
+    "amp_forward": {
+      "mode": "amp",
+      "first_nonfinite_leaf_input": {
+        "tensor": "resnet.nonlocal3.project/input[0]",
+        "finite": false,
+        "nan_count": 1536,
+        "inf_count": 0,
+        "finite_min": -28.8125,
+        "finite_max": 31.078125,
+        "dtype": "torch.float16",
+        "shape": [
+          16,
+          512,
+          24,
+          24
+        ]
+      },
+      "first_nonfinite_leaf_output": {
+        "tensor": "resnet.nonlocal3.project/output",
+        "finite": false,
+        "nan_count": 3072,
+        "inf_count": 0,
+        "finite_min": -26.640625,
+        "finite_max": 25.96875,
+        "dtype": "torch.float16",
+        "shape": [
+          16,
+          1024,
+          24,
+          24
+        ]
+      },
+      "logits_finite": false,
+      "logits_nonfinite": {
+        "tensor": "logits",
+        "finite": false,
+        "nan_count": 112,
+        "inf_count": 0,
+        "finite_min": null,
+        "finite_max": null,
+        "dtype": "torch.float16",
+        "shape": [
+          16,
+          7
+        ]
+      },
+      "model_after_forward": {
+        "finite": false,
+        "first_nonfinite": {
+          "tensor": "resnet.layer4.0.bn1.running_mean",
+          "finite": false,
+          "nan_count": 512,
+          "inf_count": 0,
+          "finite_min": null,
+          "finite_max": null,
+          "dtype": "torch.float32",
+          "shape": [
+            512
+          ]
+        }
+      },
+      "model_state_parts_after_forward": {
+        "parameters": {
+          "finite": true,
+          "first_nonfinite": null
+        },
+        "buffers": {
+          "finite": false,
+          "first_nonfinite": {
+            "tensor": "resnet.layer4.0.bn1.running_mean",
+            "finite": false,
+            "nan_count": 512,
+            "inf_count": 0,
+            "finite_min": null,
+            "finite_max": null,
+            "dtype": "torch.float32",
+            "shape": [
+              512
+            ]
+          }
+        }
+      }
+    }
+  },
+  "research_checkpoint_saved": false,
+  "full_training_performed": false,
+  "ham_test_accessed": false,
+  "ph2_accessed": false,
+  "exception": {
+    "type": "OutOfMemoryError",
+    "message": "CUDA out of memory. Tried to allocate 26.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 23.81 MiB is free. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 13.72 GiB is allocated by PyTorch, and 686.66 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)"
+  }
+}

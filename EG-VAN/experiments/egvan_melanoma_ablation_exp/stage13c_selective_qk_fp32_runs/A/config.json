@@ -1,0 +1,58 @@
+{
+  "variant": "A",
+  "description": "Stage 9 objective and sampler control",
+  "architecture": "stage8b_egvan_four_mff_serial_terminal_branches",
+  "seed": 42,
+  "classes": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "image_size": 384,
+  "epochs": 25,
+  "physical_batch_size": 16,
+  "gradient_accumulation_steps": 1,
+  "effective_batch_size": 16,
+  "num_workers": 2,
+  "amp": "cuda_fp16_grad_scaler",
+  "initialization": {
+    "efficientnet": "EfficientNet_V2_S_Weights.DEFAULT",
+    "resnet50": "random",
+    "attention_fusion_classifier": "PyTorch defaults"
+  },
+  "optimizer": {
+    "name": "Adamax",
+    "learning_rate": 0.001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001
+  },
+  "scheduler": {
+    "name": "ReduceLROnPlateau",
+    "mode": "min",
+    "factor": 0.5,
+    "patience": 1
+  },
+  "loss": {
+    "name": "Stage9 focal",
+    "alpha": 0.25,
+    "gamma": 2.0,
+    "mel_multiplier": 1.0
+  },
+  "sampler": {
+    "name": "WeightedRandomSampler",
+    "replacement": true,
+    "num_samples": 8015,
+    "seed": 42,
+    "mel_weight": 1.5630495442733532,
+    "other_weight": 1.0
+  },
+  "checkpoint_rule": "Stage9 validation eligibility gates then minimum common unweighted validation focal loss"
+}

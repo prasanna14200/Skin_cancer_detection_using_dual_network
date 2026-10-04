@@ -1,0 +1,37 @@
+[
+  {
+    "variant": "A",
+    "epoch": 21,
+    "batch_index": 98,
+    "scale_before": 262144.0,
+    "scale_after": 131072.0,
+    "step_skipped": true,
+    "scaled_first_nonfinite_gradient": "efficient.features.0.0.weight",
+    "unscaled_first_nonfinite_gradient": "efficient.features.0.0.weight",
+    "target_class_distribution": {
+      "mel": 2,
+      "nv": 10,
+      "bcc": 2,
+      "bkl": 1,
+      "akiec": 1
+    },
+    "contains_mel": true
+  },
+  {
+    "variant": "A",
+    "epoch": 25,
+    "batch_index": 208,
+    "scale_before": 262144.0,
+    "scale_after": 131072.0,
+    "step_skipped": true,
+    "scaled_first_nonfinite_gradient": "efficient.features.0.0.weight",
+    "unscaled_first_nonfinite_gradient": "efficient.features.0.0.weight",
+    "target_class_distribution": {
+      "bkl": 2,
+      "bcc": 2,
+      "mel": 2,
+      "nv": 10
+    },
+    "contains_mel": true
+  }
+]

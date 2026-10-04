@@ -1,0 +1,10 @@
+{
+  "name": "Stage13C selective nonlocal3 qk FP32 under normal CUDA AMP",
+  "initial_scale": 8192.0,
+  "dynamic_GradScaler_updates": true,
+  "recoverable_overflow_skip": true,
+  "gradient_clipping": null,
+  "scientific_variant": "A",
+  "gate_sha256": "721eeaf6c64740d7dd8d7cdb06890a2ffa1c1be49c336f4d07033e4d172cdb00",
+  "runner_sha256": "4662a13bfd7a524584ae977f86513ab0bbffeeee0d57b36b2f083b2dd1374fbe"
+}

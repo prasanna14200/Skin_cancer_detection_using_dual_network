@@ -1,0 +1,24 @@
+{
+  "status": "FAIL_NO_ELIGIBLE_CHECKPOINT",
+  "variant": "A",
+  "epochs": 25,
+  "selected_epoch": null,
+  "best_validation_loss": null,
+  "best_checkpoint_sha256": null,
+  "last_checkpoint_sha256": "4b911c64b1df8da0dbd6d0355961ec73cc78b9c9ec21187842ec7f5049013168",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "stage9_control_sha256": "60f34ea4cfa6cbf3dce69e8d8bcc82292d8d8813af30f33b2f666a4f06340de0",
+  "numerical_protocol": "Stage13C selective nonlocal3 qk FP32 under normal CUDA AMP",
+  "numerical_events": 2,
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "ham_test_accessed": false,
+  "ph2_accessed": false
+}
