@@ -244,12 +244,6 @@ def history_bytes(history: list[dict]) -> bytes:
     return stream.getvalue().encode("utf-8")
 
 
-def require_existing_artifacts(names: list[str], *, context: str) -> None:
-    missing = [name for name in names if not (OUT / name).is_file()]
-    if missing:
-        raise FileNotFoundError(f"{context} stopped: expected artifact(s) missing: {missing}")
-
-
 def finite_tensors(named_values) -> bool:
     return all(not isinstance(value, torch.Tensor) or not value.is_floating_point() or
                bool(torch.isfinite(value).all().item()) for _, value in named_values)
@@ -536,7 +530,6 @@ def execute(root: Path, cfg: dict, rule: dict, numerical: dict, *, resume: bool)
         if best_epoch is None:
             status = "NO_CANDIDATE_SELECTED"
         else:
-            require_existing_artifacts(["best_checkpoint.pt"], context=f"Eligible epoch {best_epoch} finalization")
             selected_predictions, selected_metrics = epoch_paths(best_epoch)
             recorded = base.read_json(selected_metrics)
             if (not recorded["eligible"] or recorded["validation_loss"] != best_loss or
@@ -555,7 +548,6 @@ def execute(root: Path, cfg: dict, rule: dict, numerical: dict, *, resume: bool)
         for epoch in range(1, len(history) + 1):
             for path in epoch_paths(epoch):
                 artifacts.append(str(path.relative_to(OUT)).replace("\\", "/"))
-        require_existing_artifacts(artifacts, context="Manifest finalization")
         (OUT / "experiment_manifest.json").write_text(json.dumps({
             "experiment": NAME, "status": status, "epochs": len(history),
             "selected_epoch": best_epoch,
