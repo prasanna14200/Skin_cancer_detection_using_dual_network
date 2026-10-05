@@ -1,0 +1,19 @@
+{
+  "experiment": "stage14_single_mel_objective_exp1",
+  "registered_before_training": true,
+  "reference": "frozen Stage9 epoch-15 HAM validation only",
+  "melanoma_support": 107,
+  "stage9_correct_melanomas": 62,
+  "eligible_if_all": {
+    "melanoma_correct_minimum": 63,
+    "melanoma_recall_minimum": 0.5887850467289719,
+    "melanoma_f1_minimum": 0.5757731958762886,
+    "macro_f1_minimum": 0.6509124104985493,
+    "accuracy_minimum": 0.8025152129817445,
+    "nevus_recall_minimum": 0.917209653092006
+  },
+  "checkpoint_selection": "minimum common unweighted validation focal loss among eligible epochs; earlier epoch breaks exact ties",
+  "if_none_eligible": "NO_CANDIDATE_SELECTED",
+  "candidate_interpretation": "exploratory validation-only candidate, not causal proof or external confirmation",
+  "never_use_for_training_or_selection": ["HAM test", "PH2", "Stage12 test/external outcomes"]
+}

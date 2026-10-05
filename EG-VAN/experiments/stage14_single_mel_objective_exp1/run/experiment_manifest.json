@@ -1,0 +1,31 @@
+{
+  "experiment": "stage14_single_mel_objective_exp1",
+  "status": "NO_CANDIDATE_SELECTED",
+  "epochs": 25,
+  "selected_epoch": null,
+  "best_validation_loss": null,
+  "config_sha256": "b9a83c4f281f747fa6dea5a8c5f64732a880452386864dcbf8f38446fb5a0de9",
+  "selection_rule_sha256": "41b0b30641458799c9b1c8697a1494bdbfbe4f41f657df17b0f205d36161cb32",
+  "numerical_protocol_sha256": "5329ad4a11af4ad6865f4c21ea9ca9c46f28bf4ea601cceff9a230a793d7e6ea",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "stage9_reference_checkpoint_sha256": "60f34ea4cfa6cbf3dce69e8d8bcc82292d8d8813af30f33b2f666a4f06340de0",
+  "numerical_gate_sha256": "721eeaf6c64740d7dd8d7cdb06890a2ffa1c1be49c336f4d07033e4d172cdb00",
+  "runner_sha256": "ec52468e26b36241a794955b4e2ad2d4c3438959cbb69da20d4ce2e767ba8845",
+  "artifact_sha256": {
+    "config.json": "b9a83c4f281f747fa6dea5a8c5f64732a880452386864dcbf8f38446fb5a0de9",
+    "selection_rule.json": "41b0b30641458799c9b1c8697a1494bdbfbe4f41f657df17b0f205d36161cb32",
+    "numerical_protocol.json": "5329ad4a11af4ad6865f4c21ea9ca9c46f28bf4ea601cceff9a230a793d7e6ea",
+    "training_history.csv": "33d419d79087954c0b5fdeec89b71dcfd1565b79d0f6742506180005cac2c367",
+    "last_checkpoint.pt": "3faa3d1390182e05268ad20e19f4f78f312497b0665b2888d9f7bce9676ed60c",
+    "numerical_events.json": "cccbdda9085492cb3c01f6bd8da62a829cd02c8a112ee9e811ed45e92a9d7f1e"
+  },
+  "runtime": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu130",
+    "torchvision": "0.26.0+cu130",
+    "cuda": "13.0",
+    "gpu": "Tesla T4"
+  },
+  "ham_test_accessed": false,
+  "ph2_accessed": false
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "variant": "stage15_single_candidate_exp1",
+    "epoch": 17,
+    "batch_index": 294,
+    "scale_before": 131072.0,
+    "scale_after": 65536.0,
+    "step_skipped": true,
+    "scaled_first_nonfinite_gradient": "efficient.features.0.0.weight",
+    "unscaled_first_nonfinite_gradient": "efficient.features.0.0.weight",
+    "target_class_distribution": {
+      "akiec": 1,
+      "mel": 3,
+      "bkl": 2,
+      "bcc": 2,
+      "nv": 7,
+      "df": 1
+    },
+    "contains_mel": true
+  }
+]
