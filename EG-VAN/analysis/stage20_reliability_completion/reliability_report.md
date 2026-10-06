@@ -1,6 +1,6 @@
 # Stage 20 frozen-probability reliability analysis
 
-**Status:** saved-probability analysis complete; final-model Grad-CAM and a validated quality gate remain pending. No training, model inference, temperature fitting, result replacement, or Stage 16 threshold change was performed. The Stage 15 recovered epoch-16 checkpoint SHA256 was independently rechecked as `85fcad4b184da16dd741f2d539a05f8a1f0c8d1d015298f4ce5aadf7ef4d16d5`. All Stage 16 output hashes still match their manifests.
+**Status:** saved-probability analysis and bounded final-model Grad-CAM audit complete; a validated quality gate remains pending. No training, temperature fitting, result replacement, or Stage 16 threshold change was performed. This report's CPU probability analysis did not rerun inference; a separate bounded Colab final-model forward/backward pass generated the eight Grad-CAM maps. The Stage 15 recovered epoch-16 checkpoint SHA256 was independently rechecked as `85fcad4b184da16dd741f2d539a05f8a1f0c8d1d015298f4ce5aadf7ef4d16d5`. All Stage 16 output hashes still match their manifests.
 
 The [preregistration](preregistration.md) was created before Stage 20 validation calculations. The validation-only rule was then written to [uncertainty_protocol.json](uncertainty_protocol.json) (SHA256 `5423ef77097d1215f60cd9f9d08246b0aab0a94aab000bcf3e16919bd93a1197`) **before** computing HAM or PH² review outcomes. The analysis script uses existing saved probabilities only. These are exploratory analyses added after Stage 16 outcomes were already known to the project; they are not newly untouched confirmatory tests.
 
@@ -35,3 +35,7 @@ Validation MEL false-negative counts by low/middle/high sharpness were 21/14/9. 
 ## Provenance and limits
 
 Source hashes and full precision results are in [validation_reliability.json](validation_reliability.json), [reliability_analysis.json](reliability_analysis.json), [quality_analysis.json](quality_analysis.json), and the frozen rule JSON. The final checkpoint's original in-memory epoch-16 weights are unavailable, despite exact observable recovery replay; the recovered checkpoint is the frozen final model. PH² had prior project use. Existing Stage 16 predictions and metrics are unmodified. No claim of clinical safety, causal image-quality effects, or improved underlying classifier accuracy follows from this analysis.
+
+## Bounded final-model Grad-CAM
+
+The [Grad-CAM audit](gradcam_audit.md) verifies exactly eight fixed HAM cases, eight non-degenerate `384×384` maps and their overlays, source/output hashes, labels, predicted-class targets, and replayed probabilities. Every map was visually reviewed. Seven maps show broad high response around a conspicuous central region at `resnet.nonlocal3`; the BCC map is more focal. These are **qualitative attention visualizations of one layer**, not clinical lesion-localization evidence or a proof of the full model's causal reasoning. The bounded Colab pass loaded the frozen checkpoint for map generation; it was not training or a new HAM classification evaluation. The image-quality gate remains unvalidated.

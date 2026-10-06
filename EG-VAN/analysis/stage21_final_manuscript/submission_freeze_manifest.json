@@ -1,0 +1,26 @@
+{
+  "status": "AUTHOR_REVIEW_DRAFT_NOT_SUBMITTED",
+  "checkpoint_sha256": "85fcad4b184da16dd741f2d539a05f8a1f0c8d1d015298f4ce5aadf7ef4d16d5",
+  "files_sha256": {
+    "manuscript/egvan_reconstruction_final.md": "fc9eb7637f2ce4d4176c676d81f4d738690a879f2f2b5f2e55a6b12e876ce4fe",
+    "manuscript/submission/plos_one/manuscript_source.md": "2738a12741d7340d0881e38a0091001fcca7caccb2af4fd37707c12500586606",
+    "manuscript/submission/plos_one/cover_letter.md": "0700341f1bc57a8a8a7169aaafdd54b6446496b42f0eb3aae5058e6ecfa5f86a",
+    "manuscript/submission/plos_one/conversion_instructions.md": "e76c38e1e9845e5b5d897b51daa7161ce5523ab6a5b44f604efea642a4317fd2",
+    "analysis/stage21_final_manuscript/egvan_plus_pipeline.png": "151f7795dae2c02bdf6ee979f3264e6abc7689512be6c3063fff545151839964",
+    "analysis/stage20_reliability_completion/uncertainty_protocol.json": "5423ef77097d1215f60cd9f9d08246b0aab0a94aab000bcf3e16919bd93a1197",
+    "analysis/stage20_reliability_completion/final_stage20_audit.md": "682f8042ea03a70e7fdd88bbd66eab3447c19a045f328f0c30fc496656e3d9d0",
+    "analysis/stage16_final_evaluation/final_ham_test_manifest.json": "96a7e6a6d0a242254c496d4ada97b2b267e9bcad0c2a216e30d3c7221d1f5445",
+    "analysis/stage16_final_evaluation/final_ph2_manifest.json": "4ba5a9183b75705ddf79d3103bc8eb39d77159798009a8e7469dd8755e4245d3",
+    "manuscript/submission/plos_one/figures/Fig1.tif": "b9dfda4b59e0e65e0a233a1d86e03c2e35fa823c77866dfcc58f13d3a5a66a20",
+    "manuscript/submission/plos_one/figures/Fig2.tif": "1fab08611173b066dff72ee4d59808cab527db1e5108b04fea689edd4082f63a",
+    "manuscript/submission/plos_one/figures/Fig3.tif": "ea29276142ed9b70d072eb9eefc101dd295232fe950c671eb733b2cd8e0d00b2",
+    "manuscript/submission/plos_one/figures/Fig4.tif": "1c271847dbae27edeaee79654f1be07db34df3de0947e43d5f3905e9bdd1720c",
+    "manuscript/submission/plos_one/figures/Fig5.tif": "153d76c76beb9f0fa95f4b02d15993e4f63a563839029854753b968e48540bb1",
+    "manuscript/submission/plos_one/figures/Fig6.tif": "b8894910da1326dd7bcec28eb8ce7e82d1d4c2d2933d58f3adf6a3814a86e573",
+    "manuscript/submission/plos_one/figures/Fig7.tif": "1ac8aa61db28a51a901daa00648ccd1a45b7724120862c543eb5d9654301dead",
+    "manuscript/submission/plos_one/figures/Fig8.tif": "b975d1b391dbef6d0c247e0c7e5b783f4ef1c3a3431423b9688ba494c75c77b4"
+  },
+  "submission_performed": false,
+  "training_performed": false,
+  "new_classification_inference_performed": false
+}
