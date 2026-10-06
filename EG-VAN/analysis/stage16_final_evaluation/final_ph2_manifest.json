@@ -1,0 +1,46 @@
+{
+  "status": "COMPLETE",
+  "checkpoint_sha256": "85fcad4b184da16dd741f2d539a05f8a1f0c8d1d015298f4ce5aadf7ef4d16d5",
+  "checkpoint_epoch": 16,
+  "ph2_manifest_sha256": "3c130b3b44dcc1052ae29656510a95a4e91df4b8f65c121838941efb375d3842",
+  "evaluation_script_sha256": "3ac0fbecd61623f1df0cf21942079e9f066311f4196d769100248086bfde6b55",
+  "source_sha256": {
+    "experiments/stage16_final_evaluation/evaluate_ph2.py": "3ac0fbecd61623f1df0cf21942079e9f066311f4196d769100248086bfde6b55",
+    "experiments/stage16_final_evaluation/common.py": "ae2871ffdf2615fda96dc0f387c05d63562bc24f8808a2d54c78dafb7fa59c2f",
+    "experiments/stage15_single_candidate_exp1/stage15_single_candidate_exp1/recovery_epoch16/best_checkpoint.pt": "85fcad4b184da16dd741f2d539a05f8a1f0c8d1d015298f4ce5aadf7ef4d16d5",
+    "data/splits/split_leakage_aware.csv": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "experiments/stage15_single_candidate_exp1/config.json": "3ad8c205e06cde8203a869be0a6cc9643ed0ca5b6beb553b57d53d4dce9d25f2",
+    "experiments/stage15_single_candidate_exp1/selection_rule.json": "daf07a1bac3538b5a35ed59121bd5561aba4797a6889e852fd0ca07ad88be735",
+    "experiments/stage15_single_candidate_exp1/numerical_protocol.json": "f59010b7e2509c0bf1633b7126ff1d8d629afab39b515f57e95012fb78eb0196",
+    "src/models/egvan/egvan.py": "f5f5217d6cced6ccc9c1a2d17a5691701bfe454eb46bf52bf97468030cc7b44f",
+    "src/dataset.py": "02c6d280e468a8c83719bffd7b6bc042b138893d7badd794d0ecfa9291ec8cad",
+    "src/train.py": "c195142d2f924b83374c0d6a8d4d93061ecf2e77e947710e6a3a8eb8264686bc",
+    "analysis/stage13_melanoma_ablation/stage13c_abc_selective_qk_fp32_gate.py": "198769909e0572b0d5959c849731bb7c7613d578e6c231fd0040580b3519fcff",
+    "analysis/ph2_external_validation_exp5/ph2_manifest.csv": "3c130b3b44dcc1052ae29656510a95a4e91df4b8f65c121838941efb375d3842",
+    "src/preprocessing.py": "cf0a176a610b52ba45b0e91761b027a560252234f81f7b6fd572f02d8baab6ed",
+    "analysis/egvan_ph2_external_followup_exp1/evaluate_stage11.py": "d154ba3e02feef7c8ad1547f2f72a5c66ff91c883db32820149730e543fadb3a",
+    "analysis/ph2_external_validation_exp5/external_validation_config.json": "410162f26af0ff11d54ba943436c3573d43f91cdba767d790f9236aa7540dcf8"
+  },
+  "numerical_protocol": "CUDA FP16 autocast with resnet.nonlocal3 q@k torch.bmm in FP32",
+  "mapping": {
+    "common nevus": "nv",
+    "melanoma": "mel",
+    "atypical nevus": null
+  },
+  "runtime": {
+    "timestamp_utc": "2026-10-06T01:47:24.068802+00:00",
+    "python": "3.13.15",
+    "torch": "2.11.0+cu130",
+    "torchvision": "0.26.0+cu130",
+    "cuda": "13.0",
+    "gpu": "Tesla T4"
+  },
+  "artifact_sha256": {
+    "final_ph2_predictions.csv": "77a1cff140138e4c2a09da576c4024c5610618c6ba1fb278b82f86b494a082e7",
+    "final_ph2_metrics.json": "573fda59b1bba0097cd00e04912217598724737fe727f6339bb61d5dcf56996f",
+    "final_ph2_confusion_matrix.csv": "37c3e6eeb2172ac15d42b0c4853a7aa1a7a1872844ede8a6ed9edca766bedb3a"
+  },
+  "training_performed": false,
+  "ham_test_not_used_for_selection": true,
+  "limitation": "Prior PH2 use in project; external follow-up only."
+}

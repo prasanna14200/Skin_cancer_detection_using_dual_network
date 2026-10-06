@@ -1,0 +1,37 @@
+{
+  "status": "COMPLETE",
+  "checkpoint_sha256": "85fcad4b184da16dd741f2d539a05f8a1f0c8d1d015298f4ce5aadf7ef4d16d5",
+  "checkpoint_epoch": 16,
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "evaluation_script_sha256": "85f74d984fd2f2834017216d451ab7509a695f30f04e16ea1bc0a6aeb4cd4055",
+  "source_sha256": {
+    "experiments/stage16_final_evaluation/evaluate_ham.py": "85f74d984fd2f2834017216d451ab7509a695f30f04e16ea1bc0a6aeb4cd4055",
+    "experiments/stage16_final_evaluation/common.py": "ae2871ffdf2615fda96dc0f387c05d63562bc24f8808a2d54c78dafb7fa59c2f",
+    "experiments/stage15_single_candidate_exp1/stage15_single_candidate_exp1/recovery_epoch16/best_checkpoint.pt": "85fcad4b184da16dd741f2d539a05f8a1f0c8d1d015298f4ce5aadf7ef4d16d5",
+    "data/splits/split_leakage_aware.csv": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "experiments/stage15_single_candidate_exp1/config.json": "3ad8c205e06cde8203a869be0a6cc9643ed0ca5b6beb553b57d53d4dce9d25f2",
+    "experiments/stage15_single_candidate_exp1/selection_rule.json": "daf07a1bac3538b5a35ed59121bd5561aba4797a6889e852fd0ca07ad88be735",
+    "experiments/stage15_single_candidate_exp1/numerical_protocol.json": "f59010b7e2509c0bf1633b7126ff1d8d629afab39b515f57e95012fb78eb0196",
+    "src/models/egvan/egvan.py": "f5f5217d6cced6ccc9c1a2d17a5691701bfe454eb46bf52bf97468030cc7b44f",
+    "src/dataset.py": "02c6d280e468a8c83719bffd7b6bc042b138893d7badd794d0ecfa9291ec8cad",
+    "src/train.py": "c195142d2f924b83374c0d6a8d4d93061ecf2e77e947710e6a3a8eb8264686bc",
+    "analysis/stage13_melanoma_ablation/stage13c_abc_selective_qk_fp32_gate.py": "198769909e0572b0d5959c849731bb7c7613d578e6c231fd0040580b3519fcff"
+  },
+  "numerical_protocol": "CUDA FP16 autocast with resnet.nonlocal3 q@k torch.bmm in FP32",
+  "runtime": {
+    "timestamp_utc": "2026-10-06T01:43:38.191005+00:00",
+    "python": "3.13.15",
+    "torch": "2.11.0+cu130",
+    "torchvision": "0.26.0+cu130",
+    "cuda": "13.0",
+    "gpu": "Tesla T4"
+  },
+  "artifact_sha256": {
+    "final_ham_test_predictions.csv": "a8d325f1b8417f148659077ec75567f49dd13034ea8c43cf4b1a87abe6611dfc",
+    "final_ham_test_metrics.json": "d39932ff875fe5c50ea17bc54a2f228b70ffee12380110d284807b66116dacd0",
+    "final_ham_test_confusion_matrix.csv": "f50e0bc7efd3e99c13759f9cde86e2376ecebc60cac6afb28ab325695251fd7c",
+    "final_ham_test_classwise_metrics.csv": "33780a7edf3d40b0336a8828d11469f9ee83f2afd6a986f6cc1da17008f399bd"
+  },
+  "training_performed": false,
+  "ph2_accessed": false
+}

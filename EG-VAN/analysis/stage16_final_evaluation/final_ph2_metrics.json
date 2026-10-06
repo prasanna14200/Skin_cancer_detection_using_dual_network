@@ -1,0 +1,57 @@
+{
+  "sample_count": 120,
+  "true_rows": [
+    "nv",
+    "mel"
+  ],
+  "predicted_columns": [
+    "nv",
+    "mel",
+    "other"
+  ],
+  "confusion_matrix": [
+    [
+      69,
+      5,
+      6
+    ],
+    [
+      18,
+      11,
+      11
+    ]
+  ],
+  "other_policy": "Other seven-class predictions remain other and count as incorrect.",
+  "accuracy": 0.6666666666666666,
+  "balanced_accuracy": 0.5687500000000001,
+  "per_class": {
+    "nv": {
+      "support": 80,
+      "tp": 69,
+      "fp": 18,
+      "fn": 11,
+      "precision": 0.7931034482758621,
+      "recall": 0.8625,
+      "f1": 0.8263473053892216
+    },
+    "mel": {
+      "support": 40,
+      "tp": 11,
+      "fp": 5,
+      "fn": 29,
+      "precision": 0.6875,
+      "recall": 0.275,
+      "f1": 0.3928571428571429
+    }
+  },
+  "mel_recall": 0.275,
+  "mel_precision": 0.6875,
+  "mel_f1": 0.3928571428571429,
+  "nv_recall": 0.8625,
+  "melanoma_probability_roc_auc": {
+    "status": "computed",
+    "value": 0.5428125000000001,
+    "reason": null
+  },
+  "limitation": "PH2 was previously used in this project; external follow-up, not untouched validation."
+}
