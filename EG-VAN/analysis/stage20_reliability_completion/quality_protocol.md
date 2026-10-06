@@ -1,0 +1,7 @@
+# Stage 20 technical image-quality protocol
+
+The repository's `src/image_quality.py` already computes eight deterministic **technical proxies** on processed HAM images: grayscale mean brightness, grayscale-standard-deviation contrast, Laplacian-variance sharpness, mean HSV saturation, gray-pixel fraction below 30, gray-pixel fraction above 225, histogram entropy, and spatial illumination variation from 16×16 cell means. `experiments/image_quality/image_quality.csv` contains all 10,015 processed HAM images. Thresholds 30 and 225 specify intensity counts only; no earlier verified clinical-quality acceptability threshold or human quality label exists.
+
+This stage may report a **quality-risk profile**, not an accurate quality classifier. It will join the 986 frozen epoch-16 validation prediction IDs to the existing measurements, describe error/confidence/entropy associations, and avoid causal claims. It will not reject images, revise predictions, or define a binary acceptable/unacceptable gate from the already-open HAM test. A true pre-inference flag requires a separately specified raw-image acquisition point, quality labels or justified reference criteria, train/validation-derived cutoffs, and evaluation of false flags and coverage. Existing measurements occur after preprocessing and therefore do not establish a raw-image screen before classification.
+
+Until those requirements are met, the operational quality-gate status is **NOT VALIDATED**. A descriptive proxy score or risk flag must never be called a clinical quality judgment.

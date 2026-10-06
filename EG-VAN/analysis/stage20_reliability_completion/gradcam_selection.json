@@ -1,0 +1,66 @@
+{
+  "status": "CASES_FROZEN_BEFORE_VISUALIZATION",
+  "source_predictions_sha256": "a8d325f1b8417f148659077ec75567f49dd13034ea8c43cf4b1a87abe6611dfc",
+  "selection_rule": "Lexicographically first IDs: 2 correct MEL, 2 MEL->NV, 2 correct NV, 1 correct BKL, 1 correct BCC",
+  "target_layer": "model.resnet.nonlocal3",
+  "target_class": "saved predicted class",
+  "cases": [
+    {
+      "group": "correct_mel",
+      "image_id": "ISIC_0024367",
+      "true_class": "mel",
+      "predicted_class": "mel",
+      "saved_probability": 0.7031724452972412
+    },
+    {
+      "group": "correct_mel",
+      "image_id": "ISIC_0024516",
+      "true_class": "mel",
+      "predicted_class": "mel",
+      "saved_probability": 0.7367258667945862
+    },
+    {
+      "group": "mel_to_nv",
+      "image_id": "ISIC_0025248",
+      "true_class": "mel",
+      "predicted_class": "nv",
+      "saved_probability": 0.5219709873199463
+    },
+    {
+      "group": "mel_to_nv",
+      "image_id": "ISIC_0025472",
+      "true_class": "mel",
+      "predicted_class": "nv",
+      "saved_probability": 0.8333533406257629
+    },
+    {
+      "group": "correct_nv",
+      "image_id": "ISIC_0024308",
+      "true_class": "nv",
+      "predicted_class": "nv",
+      "saved_probability": 0.9411607384681702
+    },
+    {
+      "group": "correct_nv",
+      "image_id": "ISIC_0024309",
+      "true_class": "nv",
+      "predicted_class": "nv",
+      "saved_probability": 0.9527904391288757
+    },
+    {
+      "group": "correct_bkl",
+      "image_id": "ISIC_0024336",
+      "true_class": "bkl",
+      "predicted_class": "bkl",
+      "saved_probability": 0.46404194831848145
+    },
+    {
+      "group": "correct_bcc",
+      "image_id": "ISIC_0024403",
+      "true_class": "bcc",
+      "predicted_class": "bcc",
+      "saved_probability": 0.598196268081665
+    }
+  ],
+  "checkpoint_sha256": "85fcad4b184da16dd741f2d539a05f8a1f0c8d1d015298f4ce5aadf7ef4d16d5"
+}

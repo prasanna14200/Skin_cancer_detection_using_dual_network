@@ -1,0 +1,40 @@
+{
+  "checkpoint_sha256": "85fcad4b184da16dd741f2d539a05f8a1f0c8d1d015298f4ce5aadf7ef4d16d5",
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "validation_predictions": "experiments\\stage15_single_candidate_exp1\\stage15_single_candidate_exp1\\run\\validation_epochs\\epoch_016_predictions.csv",
+  "validation_predictions_sha256": "d0510c792d36c9cd3132d9495d70be204fa228c8eb4f2a016bcc4dc2a725e148",
+  "metric": "entropy",
+  "selection": "higher validation error-detection AUROC of 1-MSP vs entropy; exact tie=1-MSP",
+  "coverage_target": 0.8,
+  "threshold": 0.7675495327940953,
+  "accept_if": "uncertainty_score <= threshold; ties accepted",
+  "validation_auroc": {
+    "one_minus_msp": 0.8218586605851597,
+    "entropy": 0.8273862498609411
+  },
+  "validation_operating_point": {
+    "n": 986,
+    "accepted": 789,
+    "reviewed": 197,
+    "coverage": 0.8002028397565923,
+    "review_rate": 0.1997971602434077,
+    "retained_accuracy": 0.8846641318124208,
+    "retained_error_rate": 0.11533586818757921,
+    "all_errors": 178,
+    "errors_reviewed": 87,
+    "fraction_errors_reviewed": 0.4887640449438202,
+    "mel_cases": 107,
+    "mel_cases_reviewed": 24,
+    "mel_false_negatives": 44,
+    "mel_false_negatives_reviewed": 5
+  },
+  "test_or_ph2_used_for_selection": false
+}

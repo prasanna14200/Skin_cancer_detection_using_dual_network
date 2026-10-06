@@ -1,0 +1,217 @@
+{
+  "protocol_sha256": "5423ef77097d1215f60cd9f9d08246b0aab0a94aab000bcf3e16919bd93a1197",
+  "datasets": {
+    "ham": {
+      "predictions_sha256": "a8d325f1b8417f148659077ec75567f49dd13034ea8c43cf4b1a87abe6611dfc",
+      "calibration": {
+        "n": 1014,
+        "correct": 835,
+        "accuracy": 0.8234714003944773,
+        "ece_10_bins": 0.029678457234738134,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.1,
+            "count": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.1,
+            "upper": 0.2,
+            "count": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.3,
+            "count": 1,
+            "mean_confidence": 0.2534500062465668,
+            "accuracy": 0.0
+          },
+          {
+            "lower": 0.3,
+            "upper": 0.4,
+            "count": 16,
+            "mean_confidence": 0.3695463687181473,
+            "accuracy": 0.3125
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.5,
+            "count": 56,
+            "mean_confidence": 0.45453423421297756,
+            "accuracy": 0.4107142857142857
+          },
+          {
+            "lower": 0.5,
+            "upper": 0.6,
+            "count": 94,
+            "mean_confidence": 0.5536680101080144,
+            "accuracy": 0.6063829787234043
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.7,
+            "count": 108,
+            "mean_confidence": 0.6488832362272121,
+            "accuracy": 0.6018518518518519
+          },
+          {
+            "lower": 0.7,
+            "upper": 0.8,
+            "count": 110,
+            "mean_confidence": 0.7491445075381886,
+            "accuracy": 0.8
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.9,
+            "count": 176,
+            "mean_confidence": 0.8514585654166612,
+            "accuracy": 0.8579545454545454
+          },
+          {
+            "lower": 0.9,
+            "upper": 1.0,
+            "count": 453,
+            "mean_confidence": 0.963130566458039,
+            "accuracy": 0.9845474613686535
+          }
+        ],
+        "brier_7class_sum": 0.25601806118545134,
+        "nll": 0.5076470505242224,
+        "error_detection_auroc": {
+          "one_minus_msp": 0.8489746763456328,
+          "entropy": 0.8588833506172013
+        },
+        "mean_confidence_correct": 0.851632904328272,
+        "mean_confidence_incorrect": 0.6211819347389583
+      },
+      "frozen_review_rule": {
+        "n": 1014,
+        "accepted": 805,
+        "reviewed": 209,
+        "coverage": 0.7938856015779092,
+        "review_rate": 0.20611439842209073,
+        "retained_accuracy": 0.9093167701863354,
+        "retained_error_rate": 0.0906832298136646,
+        "all_errors": 179,
+        "errors_reviewed": 106,
+        "fraction_errors_reviewed": 0.5921787709497207,
+        "mel_cases": 107,
+        "mel_cases_reviewed": 40,
+        "mel_false_negatives": 51,
+        "mel_false_negatives_reviewed": 23
+      },
+      "interpretation": "Held-out HAM; post-Stage-16 exploratory reliability analysis"
+    },
+    "ph2": {
+      "predictions_sha256": "77a1cff140138e4c2a09da576c4024c5610618c6ba1fb278b82f86b494a082e7",
+      "calibration": {
+        "n": 120,
+        "correct": 80,
+        "accuracy": 0.6666666666666666,
+        "ece_10_bins": 0.06017753407359124,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.1,
+            "count": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.1,
+            "upper": 0.2,
+            "count": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.3,
+            "count": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.3,
+            "upper": 0.4,
+            "count": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.5,
+            "count": 5,
+            "mean_confidence": 0.4567001640796661,
+            "accuracy": 0.6
+          },
+          {
+            "lower": 0.5,
+            "upper": 0.6,
+            "count": 30,
+            "mean_confidence": 0.5428164581457774,
+            "accuracy": 0.43333333333333335
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.7,
+            "count": 18,
+            "mean_confidence": 0.6525001790788438,
+            "accuracy": 0.5
+          },
+          {
+            "lower": 0.7,
+            "upper": 0.8,
+            "count": 28,
+            "mean_confidence": 0.748972196664129,
+            "accuracy": 0.75
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.9,
+            "count": 23,
+            "mean_confidence": 0.8443828717522,
+            "accuracy": 0.8260869565217391
+          },
+          {
+            "lower": 0.9,
+            "upper": 1.0,
+            "count": 16,
+            "mean_confidence": 0.9391077123582363,
+            "accuracy": 0.9375
+          }
+        ],
+        "brier_7class_sum": 0.49162658480200533,
+        "nll": 0.9262397939927671,
+        "error_detection_auroc": {
+          "one_minus_msp": 0.7184375,
+          "entropy": 0.766875
+        },
+        "mean_confidence_correct": 0.7519922871142626,
+        "mean_confidence_incorrect": 0.6392841443419457
+      },
+      "frozen_review_rule": {
+        "n": 120,
+        "accepted": 71,
+        "reviewed": 49,
+        "coverage": 0.5916666666666667,
+        "review_rate": 0.4083333333333333,
+        "retained_accuracy": 0.8309859154929577,
+        "retained_error_rate": 0.16901408450704225,
+        "all_errors": 40,
+        "errors_reviewed": 28,
+        "fraction_errors_reviewed": 0.7,
+        "mel_cases": 40,
+        "mel_cases_reviewed": 28,
+        "mel_false_negatives": 29,
+        "mel_false_negatives_reviewed": 20
+      },
+      "interpretation": "PH2 mapped NV/MEL cohort; other HAM predictions count incorrect; exploratory external follow-up"
+    }
+  }
+}
