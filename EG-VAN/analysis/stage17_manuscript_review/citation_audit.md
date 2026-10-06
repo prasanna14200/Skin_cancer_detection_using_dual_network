@@ -1,0 +1,23 @@
+# Literature and citation audit (pre-edit)
+
+The pre-edit manuscript had only one reference, the published EG-VAN paper. The literature coverage is therefore insufficient for a submission draft. The sources below were checked against the original local PDF or primary publication records before citation. These references establish dataset/model/loss provenance; they do **not** support a superiority or clinical-performance claim for this reconstruction.
+
+| Topic/claim requiring support | Pre-edit citation | Verified primary source | Editorial action |
+|---|---|---|---|
+| Original EG-VAN architecture and color-balancing concept | [1] present | Local IEEE Access PDF, DOI `10.1109/ACCESS.2025.3561240`; Saeed, Shehzad, Ahmed, Azar | Complete authors and bibliographic detail; distinguish independent reconstruction and seven-class scope. |
+| HAM10000 dataset provenance and imbalance | Missing | Tschandl, Rosendahl, Kittler, *Scientific Data* 5:180161 (2018), DOI `10.1038/sdata.2018.161`; [primary full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC6091241/) | Add dataset citation [2]. The actual split counts remain this repository's own evidence. |
+| PH² database and 200-image scope | Missing | Mendonça et al., IEEE EMBC 2013, DOI `10.1109/EMBC.2013.6610779`; [publication record](https://pubmed.ncbi.nlm.nih.gov/24110966/) | Add [3]. The 120-case mapping and exclusion are this project's frozen protocol, not a claim by the source article. |
+| EfficientNetV2-S backbone | Missing | Tan and Le, *EfficientNetV2: Smaller Models and Faster Training*, ICML/PMLR 139 (2021), pp. 10096–10106; [publisher proceedings](https://proceedings.mlr.press/v139/tan21a.html) | Add [4]. |
+| ResNet backbone | Missing | He, Zhang, Ren, Sun, *Deep Residual Learning for Image Recognition*, CVPR 2016; [CVF open access](https://openaccess.thecvf.com/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html) | Add [5]. |
+| Generic non-local attention concept | Missing | Wang, Girshick, Gupta, He, *Non-Local Neural Networks*, CVPR 2018; [CVF open access](https://openaccess.thecvf.com/content_cvpr_2018/html/Wang_Non-Local_Neural_Networks_CVPR_2018_paper.html) | Add [6]. The exact FP32 precision island is project evidence, not a literature result. |
+| Focal loss concept | Missing | Lin, Goyal, Girshick, He, Dollár, *Focal Loss for Dense Object Detection*, ICCV 2017; [CVF open access](https://openaccess.thecvf.com/content_iccv_2017/html/Lin_Focal_Loss_for_ICCV_2017_paper.html) | Add [7]. The true-MEL multiplier is this project's registered variant. |
+| Skin-lesion classification background | No explicit support | HAM10000 source [2] and original EG-VAN source [1] support the dataset and task context | Cite [1,2] and avoid unsupported prevalence/clinical claims. |
+| Attention/fusion specifics | Only [1] | EG-VAN source [1], Stage 8B code-to-paper audit for local reconstruction choices; generic non-local source [6] | Cite [1,6]; state any unresolved architectural details as reconstruction choices. |
+| Evaluation metrics (F1, ROC-AUC) | Missing | Standard metric definitions; final values computed directly from frozen prediction probabilities | Define OVR and fixed argmax in Methods; no external empirical claim requires a citation. |
+| Gray World/Retinex historical origins | Missing | Not independently verified in this audit | Avoid a historical invention claim. If a later journal version discusses their original discovery, add **[CITATION REQUIRED]** after verifying primary sources. |
+
+**Citation status before edit:** MAJOR gap; no fabricated reference should be inserted. All added numbered references must point to the verified primary publications above. A separate comprehensive systematic literature review is outside the evidence available here and must not be implied.
+
+## Post-edit citation check
+
+The manuscript now cites seven verified publications as [1]–[7], and each number has one matching reference entry. Dataset provenance is cited to HAM10000 [2] and PH² [3]; the architecture source to [1]; EfficientNetV2-S, ResNet, and non-local attention to [4]–[6]; and focal loss to [7]. The manuscript attributes exact split counts, selected metrics, thresholds, and selective precision behavior to the repository's frozen artifacts rather than to those publications. The original paper's nine-class task is distinguished from this seven-class study. No unverified bibliographic entry or unsupported historical Gray World/Retinex origin claim was added. No remaining citation gap blocks this evidence-focused draft; journal-specific literature breadth and reference style remain editorial submission work.
