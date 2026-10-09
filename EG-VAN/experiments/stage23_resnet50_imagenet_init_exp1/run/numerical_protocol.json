@@ -1,0 +1,10 @@
+{
+  "name": "Stage23 selective nonlocal3 qk FP32 under normal CUDA AMP; copied unchanged from Stage15",
+  "precision_island": "only resnet.nonlocal3 torch.bmm(q.float(), k.float()) with CUDA autocast disabled",
+  "surrounding_model": "normal CUDA AMP",
+  "initial_grad_scaler_scale": 8192.0,
+  "dynamic_grad_scaler_updates": true,
+  "recoverable_overflow": "GradScaler skips/backoffs are logged and allowed only while model and optimizer remain finite",
+  "gradient_clipping": null,
+  "reference_bounded_gate_sha256": "721eeaf6c64740d7dd8d7cdb06890a2ffa1c1be49c336f4d07033e4d172cdb00"
+}

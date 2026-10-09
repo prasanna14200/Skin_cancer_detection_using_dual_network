@@ -1,0 +1,85 @@
+{
+  "experiment": "stage25_conservative_backbone_lr_exp1",
+  "description": "One-factor conservative pretrained ResNet50 trunk learning-rate policy versus Stage23; full trunk trainable from epoch 1",
+  "architecture": "stage8b_egvan_four_mff_serial_terminal_branches",
+  "seed": 42,
+  "classes": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "data": {
+    "split_csv": "data/splits/split_leakage_aware.csv",
+    "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "lesion_isolation_required": true,
+    "train_count": 8015,
+    "validation_count": 986
+  },
+  "image_size": 384,
+  "epochs": 25,
+  "physical_batch_size": 16,
+  "gradient_accumulation_steps": 1,
+  "effective_batch_size": 16,
+  "num_workers": 2,
+  "amp": "cuda_fp16_grad_scaler",
+  "initialization": {
+    "efficientnet": "EfficientNet_V2_S_Weights.DEFAULT",
+    "resnet50": "torchvision.models.ResNet50_Weights.IMAGENET1K_V2",
+    "attention_fusion_classifier": "PyTorch defaults"
+  },
+  "optimizer": {
+    "name": "Adamax",
+    "learning_rate": 0.001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "parameter_groups": [
+      {
+        "name": "new_and_non_resnet",
+        "initial_learning_rate": 0.001,
+        "lr_multiplier": 1.0
+      },
+      {
+        "name": "pretrained_resnet_trunk",
+        "initial_learning_rate": 0.0001,
+        "lr_multiplier": 0.1,
+        "prefixes": [
+          "resnet.conv1.",
+          "resnet.bn1.",
+          "resnet.layer1.",
+          "resnet.layer2.",
+          "resnet.layer3.",
+          "resnet.layer4."
+        ]
+      }
+    ]
+  },
+  "scheduler": {
+    "name": "ReduceLROnPlateau",
+    "mode": "min",
+    "factor": 0.5,
+    "patience": 1
+  },
+  "loss": {
+    "name": "Stage9 focal with true-MEL multiplier",
+    "alpha": 0.25,
+    "gamma": 2.0,
+    "mel_multiplier": 1.2815247721366766
+  },
+  "sampler": {
+    "name": "WeightedRandomSampler",
+    "replacement": true,
+    "num_samples": 8015,
+    "seed": 42,
+    "mel_weight": 1.5630495442733532,
+    "other_weight": 1.0
+  },
+  "checkpoint_rule": "Stage15 registered validation eligibility then minimum common unweighted validation focal loss"
+}

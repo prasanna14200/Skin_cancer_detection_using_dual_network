@@ -25,6 +25,20 @@ Stage15 original history CSV persists epochs 1–24; its recovered epoch16 was t
 
 Frozen Stage16 confusion matrix: MEL→NV 41, MEL→BKL 5, BKL→MEL 13, NV→MEL 18; MEL precision 56/(56+34)=0.6222 and recall 56/107=0.5234. MEL→NV accounts for 41/51=80.39% of MEL false negatives and 41/107=38.32% of all test melanomas. The aggregate test accuracy is dominated by NV support (676/1014), so report macro F1 and MEL sensitivity alongside accuracy. The Stage20 entropy review sends 23/51 MEL false negatives to review, leaving 28 unflagged; this is not a substitute for melanoma accuracy.
 
+All-class comparison from the frozen Stage15 epoch-16 validation metrics and Stage16 test classwise report:
+
+| Class | Validation support | Validation recall | Validation F1 | HAM test support | HAM test recall | HAM test F1 |
+|---|---:|---:|---:|---:|---:|---:|
+| AKIEC | 30 | 43.33% | 0.4483 | 40 | 60.00% | 0.5854 |
+| BCC | 58 | 60.34% | 0.6863 | 58 | 68.97% | 0.7080 |
+| BKL | 104 | 54.81% | 0.5938 | 104 | 55.77% | 0.6042 |
+| DF | 9 | 44.44% | 0.5714 | 11 | 63.64% | 0.7778 |
+| MEL | 107 | 58.88% | 0.6029 | 107 | 52.34% | 0.5685 |
+| NV | 663 | 93.97% | 0.9128 | 676 | 94.08% | 0.9164 |
+| VASC | 15 | 86.67% | 0.8125 | 18 | 77.78% | 0.7368 |
+
+The test table is quoted from the already frozen Stage16 classwise report; no test predictions were rerun or retuned for Stage22. Validation support differs by class from test support, as expected for the existing partitions.
+
 Stage20 calibration/review and processed-image quality proxies are observational. ECE validation/HAM/PH² is 0.019574/0.029678/0.060178; entropy review retains 805/1014 at 90.93% conditional accuracy. Low-sharpness validation tercile error 22.19% versus 14.33% middle and 17.63% high is non-monotonic and does not identify a causal preprocessing defect.
 
 **Conclusion:** protocol non-comparability is the strongest explanation for the apparent 98.20% versus 82.35% gap. Within our protocol, minority-class confusion and a widening train/validation gap are the strongest measured limitations. The contribution of each architecture/preprocessing/training difference remains unquantified until a prespecified controlled experiment on training/validation data. No existing evidence warrants a promise of 95% full-cohort accuracy.

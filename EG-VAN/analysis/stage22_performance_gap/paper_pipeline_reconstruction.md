@@ -19,7 +19,11 @@ The paper combines **seven HAM10000 diagnoses** with two additional **ISIC 2017 
 | Benign | ISIC 2017 | 1,800 | 180 | 1,620 | 6,380 |
 | **Sum** | Combined | **13,312** | **1,332** | **11,980** | **34,554** |
 
+The reported counts imply a 10% original-image test partition (1,332/13,312) and an approximately 85/15 train/validation division of the stated 44,569 post-augmentation images. These are arithmetic implications of the reported counts, not a fully specified split algorithm; exact randomization, stratification, and partition IDs are **NOT SPECIFIED IN PAPER**.
+
 **Internal count discrepancy:** Table 2 implies 11,980 original non-test images + 34,554 augmented = **46,534** potential train/validation images. The methods state **37,883 train + 6,686 validation = 44,569**, a difference of **1,965**. Exclusions, deduplication, and exact partition membership are **NOT SPECIFIED IN PAPER**. The paper says it first held out 1,332 original test images, augmented training data, then divided that into train and validation; it explicitly says both train and validation contained originals and augmented images. Whether transformed siblings of a single original crossed the train/validation boundary is **NOT SPECIFIED IN PAPER**. The exact 20 transformations are **NOT SPECIFIED IN PAPER**. Lesion- or patient-isolated partitioning, cross-dataset duplicate checks, and an executable split manifest are **NOT SPECIFIED IN PAPER**. A held-out original test set is described, but its source-image/lesion overlap with augmented training is **NOT SPECIFIED IN PAPER**. These gaps create leakage *risk*, not proof of leakage.
+
+**Augmentation-count discrepancy:** The augmentation equation refers to 20 transformations, while the later preprocessing discussion says thirteen augmentation techniques were employed on the nine-class dataset. The exact operators and actual executed count are **NOT SPECIFIED IN PAPER**. Table 2 also reports zero augmented images for NV. These statements are preserved as reported and are not reconciled by inference.
 
 ## Processing and model
 

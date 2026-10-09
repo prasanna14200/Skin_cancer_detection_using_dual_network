@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "model_identifier": "EGVAN_STAGE23_FINAL",
+  "freeze_timestamp_utc": "2026-10-09T01:18:58Z",
+  "freeze_decision": "Stage23 epoch 14 retained as final validation-selected EG-VAN+ classifier for melanoma-sensitive objective",
+  "checkpoint_storage": "reference_original_no_copy",
+  "original_checkpoint_path": "experiments/stage23_resnet50_imagenet_init_exp1/run/best_checkpoint.pt",
+  "original_checkpoint_sha256": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "frozen_checkpoint_path": "experiments/stage23_resnet50_imagenet_init_exp1/run/best_checkpoint.pt",
+  "frozen_checkpoint_sha256": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "model_registry_path": "models/frozen_stage23/model_registry.json",
+  "model_registry_sha256": "66ba9fd3f9e013cb018b596c1d70eb5e7d8d79067ebe3ef6400bec549c38b92e",
+  "configuration_sha256": "67a9d77d8464ef51d94f5861004084b179c3c42159e172c680d85952514d7afa",
+  "selection_rule_sha256": "a03213d5db62af968a425f3557773aa14c85adeabdbaeb8e6d46bf4d5481111d",
+  "numerical_protocol_sha256": "06222c374635f15ad99642e1bdbeaf4c6c69959dd753d6b332cdb753b87abdfb",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "implementation_source_sha256": {
+    "experiments/stage23_resnet50_imagenet_init_exp1/initialization.py": "56a5b767c4c204eac64fbbc8a4c91c1ee7694fdcc3e87ed50bdaf9e0d7b483be",
+    "experiments/stage23_resnet50_imagenet_init_exp1/train.py": "d009803461a52818014f82a0d791650a86abf3737e98fb0d198eb4224136e967",
+    "src/train.py": "c195142d2f924b83374c0d6a8d4d93061ecf2e77e947710e6a3a8eb8264686bc",
+    "src/dataset.py": "02c6d280e468a8c83719bffd7b6bc042b138893d7badd794d0ecfa9291ec8cad",
+    "src/models/egvan/egvan.py": "f5f5217d6cced6ccc9c1a2d17a5691701bfe454eb46bf52bf97468030cc7b44f",
+    "src/models/egvan/modified_resnet50.py": "5f9a79d4de988f0e2e046bc5b38d90d62dc7c28273c7c922edad6e64f76caeba",
+    "src/models/egvan/efficientnet_branch.py": "e9f25b66247349ff0597ff76a1e4d3dc86a80d8358ad9f63ef1bf4e96cb98b0e",
+    "src/models/egvan/mff.py": "ad97108386f6b749bf30d6624d3db88663635393519d0cb6a519e65f96bbcb06",
+    "src/models/egvan/scga.py": "6d8a72871c7ae46de12d52f3b0fe973cf75b022434678161b6ab801ffa900d11",
+    "src/models/egvan/non_local.py": "d1795018519ae6650a130c44a17aac88fcc58b2ece4336879caf703c24c45c3a",
+    "src/models/egvan/spatial_attention.py": "34600fbd2207040de06baff88532d1df684852dcf9086e49789856352cf52ae7",
+    "analysis/stage13_melanoma_ablation/stage13c_abc_selective_qk_fp32_gate.py": "198769909e0572b0d5959c849731bb7c7613d578e6c231fd0040580b3519fcff",
+    "models/frozen_stage23/load_frozen.py": "2a851a2c9f2eb59e15f9fe9e2f325c7dbd496d302437be5c7a74d37e2525aa37",
+    "models/frozen_stage23/verify_freeze.py": "bffda782d9f210c676bfedb96bbe3e3dd41cdca2e72e0d44f8285773fccb6c9a",
+    "src/models/egvan/__init__.py": "e858a0996e67168ab50bd5524a2ee3609d90db2fec86109ce5ce0273a3e61449",
+    "src/models/baseline_effnet.py": "0045e74f4ca447a2a4fedb280cd9867de32fc4cf9f93f021c04346186d218524",
+    "experiments/egvan_melanoma_ablation_exp/train_ablation.py": "56a71821c1f944028874a76febf00ea68b3b152e481e6450ddd5bd94606e5389",
+    "experiments/egvan_melanoma_ablation_exp/stage13c_guarded.py": "93e2318afafff8ad1c6907752781d61856cdf3bbde3a614b29686686dac0340d",
+    "analysis/stage13_melanoma_ablation/stage13c_multistep_amp_diagnostic.py": "4f3b09ba3267ba56b0f3c504e4bd5f6af0ce2c16a51afc1740b9d8ddf281ba3a"
+  },
+  "validation_and_decision_artifact_sha256": {
+    "experiments/stage23_resnet50_imagenet_init_exp1/run/experiment_manifest.json": "48e7fe9d75ac9b4b35750c8d632e3cced5939574e0080b3f12026ea959d44076",
+    "experiments/stage24_staged_finetuning_exp1/run/experiment_manifest.json": "b8776cf3140aa9dfb3d60d63b7fca6643405b97ff64e6115ad20f6bf0b318526",
+    "experiments/stage25_conservative_backbone_lr_exp1/run/experiment_manifest.json": "f5cc09ce2de3fd23b24a15c0e0aeb56cc26d501ab90ca01772721152b9832adb",
+    "experiments/stage23_resnet50_imagenet_init_exp1/run/validation_metrics.json": "beaebb91d9b7043698b5b4580d4af606eac477a985512589e4eb8e99e16af058",
+    "experiments/stage23_resnet50_imagenet_init_exp1/run/validation_predictions.csv": "b3f5d2e43b26fb63916d4e29ab597fde4183b3c76e75d4d0a7caeaccc88a368a",
+    "analysis/stage25_conservative_backbone_lr_exp1/final_stage25_scientific_audit.md": "24c95cf0dcbd3c9c405890ef93272ce2a9608a720f624b8e986382fab41703b0",
+    "analysis/final_model_freeze/evaluation_boundary_audit.md": "ad3485804ff09c5695d2d0c3b53918ca9bc7766b06befcf013571918d5f8e1b9"
+  },
+  "verification_results": {
+    "original_checkpoint_sha256_match": true,
+    "selected_epoch_and_eligible_history": true,
+    "selected_validation_metrics_reproduced_from_saved_predictions": true,
+    "state_dict_strict_load_no_missing_or_unexpected_keys": true,
+    "synthetic_cpu_output_shape": [
+      1,
+      7
+    ],
+    "synthetic_cpu_output_finite": true,
+    "deterministic_eval_transform_verified": true,
+    "checkpoint_copy_created": false,
+    "new_ham_test_inference": false,
+    "new_ph2_inference": false,
+    "training_performed": false
+  },
+  "known_limitations": [
+    "Selection and comparison are validation-only; no new independent test result for Stage23.",
+    "HAM test had previous Stage16/20 exposure, and Stage22 reviewed outcomes before later research planning.",
+    "PH2 had prior project use and is external follow-up, not untouched validation.",
+    "No genuinely untouched external/held-out cohort verified for this frozen classifier.",
+    "CPU smoke test on synthetic input verifies loading and output shape only, not clinical performance."
+  ],
+  "idempotence": "Verification re-hashes the original checkpoint and registry; no checkpoint copy or weight rewrite is performed."
+}

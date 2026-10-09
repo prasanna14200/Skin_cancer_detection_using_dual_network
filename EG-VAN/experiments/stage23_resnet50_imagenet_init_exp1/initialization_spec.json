@@ -1,0 +1,16 @@
+{
+  "status": "PREREGISTERED_NOT_YET_LOADED",
+  "old_resnet50_initialization": "torchvision resnet50(weights=None), seeded random initialization",
+  "new_resnet50_initialization": "torchvision.models.ResNet50_Weights.IMAGENET1K_V2",
+  "verified_local_torchvision": "0.29.0+cpu",
+  "verified_enum_default": "IMAGENET1K_V2",
+  "official_weight_url": "https://download.pytorch.org/models/resnet50-11ad3fa6.pth",
+  "loader": "ResNet50_Weights.IMAGENET1K_V2.get_state_dict(progress=True, check_hash=True)",
+  "loaded_backbone_prefixes": ["conv1.", "bn1.", "layer1.", "layer2.", "layer3.", "layer4."],
+  "intentionally_not_loaded_source_keys": ["fc.weight", "fc.bias"],
+  "new_or_modified_branch_modules_keep_seeded_initialization": ["scga1.", "scga2.", "nonlocal3.", "nonlocal4."],
+  "expected_shape_mismatches": [],
+  "project_specific_dermoscopy_pretraining": false,
+  "ham_test_or_ph2_used_for_initialization": false,
+  "note": "This is an initialization specification only. The runtime initialization report is emitted before the first epoch on the training host; this file does not claim weights have already been downloaded or loaded."
+}

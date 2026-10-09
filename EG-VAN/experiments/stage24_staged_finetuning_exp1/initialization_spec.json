@@ -1,0 +1,13 @@
+{
+  "status": "PREREGISTERED_NOT_YET_LOADED",
+  "resnet_weight_enum": "torchvision.models.ResNet50_Weights.IMAGENET1K_V2",
+  "official_weight_url": "https://download.pytorch.org/models/resnet50-11ad3fa6.pth",
+  "loader": "ResNet50_Weights.IMAGENET1K_V2.get_state_dict(progress=True, check_hash=True)",
+  "efficientnet_weight_enum": "torchvision.models.EfficientNet_V2_S_Weights.DEFAULT",
+  "stage23_trained_checkpoint_loaded": false,
+  "stage23_selected_checkpoint_sha256_reference_only": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "project_specific_dermoscopy_pretraining": false,
+  "intentionally_not_loaded_resnet_source_keys": ["fc.weight", "fc.bias"],
+  "loaded_resnet_backbone_prefixes": ["conv1.", "bn1.", "layer1.", "layer2.", "layer3.", "layer4."],
+  "newly_initialized_egvan_modules": ["resnet.scga1", "resnet.scga2", "resnet.nonlocal3", "resnet.nonlocal4", "fusions", "aggregate", "classifier"]
+}

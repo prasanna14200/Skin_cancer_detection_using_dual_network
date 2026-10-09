@@ -1,0 +1,51 @@
+[
+  {
+    "variant": "stage24_staged_finetuning_exp1",
+    "epoch": 9,
+    "batch_index": 196,
+    "scale_before": 32768.0,
+    "scale_after": 16384.0,
+    "step_skipped": true,
+    "scaled_first_nonfinite_gradient": "resnet.scga1.spatial.conv64.weight",
+    "unscaled_first_nonfinite_gradient": "resnet.scga1.spatial.conv64.weight",
+    "target_class_distribution": {
+      "nv": 14,
+      "mel": 2
+    },
+    "contains_mel": true
+  },
+  {
+    "variant": "stage24_staged_finetuning_exp1",
+    "epoch": 21,
+    "batch_index": 267,
+    "scale_before": 131072.0,
+    "scale_after": 65536.0,
+    "step_skipped": true,
+    "scaled_first_nonfinite_gradient": "resnet.scga1.spatial.conv64.weight",
+    "unscaled_first_nonfinite_gradient": "resnet.scga1.spatial.conv64.weight",
+    "target_class_distribution": {
+      "nv": 14,
+      "bkl": 1,
+      "mel": 1
+    },
+    "contains_mel": true
+  },
+  {
+    "variant": "stage24_staged_finetuning_exp1",
+    "epoch": 25,
+    "batch_index": 380,
+    "scale_before": 131072.0,
+    "scale_after": 65536.0,
+    "step_skipped": true,
+    "scaled_first_nonfinite_gradient": "resnet.scga1.spatial.conv64.weight",
+    "unscaled_first_nonfinite_gradient": "resnet.scga1.spatial.conv64.weight",
+    "target_class_distribution": {
+      "nv": 9,
+      "mel": 2,
+      "bcc": 3,
+      "bkl": 1,
+      "vasc": 1
+    },
+    "contains_mel": true
+  }
+]

@@ -1,0 +1,97 @@
+{
+  "registered_before_training": true,
+  "single_scientific_change": "ResNet50 trunk fine-tuning policy",
+  "max_epochs": 25,
+  "phase_a": {
+    "epochs": [1, 5],
+    "requires_grad_false": [
+      "resnet.conv1",
+      "resnet.bn1",
+      "resnet.layer1",
+      "resnet.layer2"
+    ],
+    "requires_grad_true": [
+      "efficient",
+      "resnet.layer3",
+      "resnet.layer4",
+      "resnet.scga1",
+      "resnet.scga2",
+      "resnet.nonlocal3",
+      "resnet.nonlocal4",
+      "fusions",
+      "aggregate",
+      "classifier"
+    ],
+    "frozen_batchnorm_eval": [
+      "resnet.bn1",
+      "all BatchNorm modules under resnet.layer1",
+      "all BatchNorm modules under resnet.layer2"
+    ]
+  },
+  "phase_b": {
+    "epochs": [6, 25],
+    "requires_grad_false": [
+      "resnet.conv1",
+      "resnet.bn1",
+      "resnet.layer1"
+    ],
+    "requires_grad_true": [
+      "efficient",
+      "resnet.layer2",
+      "resnet.layer3",
+      "resnet.layer4",
+      "resnet.scga1",
+      "resnet.scga2",
+      "resnet.nonlocal3",
+      "resnet.nonlocal4",
+      "fusions",
+      "aggregate",
+      "classifier"
+    ],
+    "frozen_batchnorm_eval": [
+      "resnet.bn1",
+      "all BatchNorm modules under resnet.layer1"
+    ]
+  },
+  "optimizer_groups": [
+    {
+      "name": "non_resnet_and_new_modules",
+      "members": ["efficient", "resnet.scga1", "resnet.scga2", "resnet.nonlocal3", "resnet.nonlocal4", "fusions", "aggregate", "classifier"],
+      "lr_multiplier": 1.0,
+      "initial_learning_rate": 0.001
+    },
+    {
+      "name": "resnet.layer3",
+      "members": ["resnet.layer3"],
+      "lr_multiplier": 0.1,
+      "initial_learning_rate": 0.0001
+    },
+    {
+      "name": "resnet.layer4",
+      "members": ["resnet.layer4"],
+      "lr_multiplier": 0.1,
+      "initial_learning_rate": 0.0001
+    },
+    {
+      "name": "resnet.layer2",
+      "members": ["resnet.layer2"],
+      "lr_multiplier": 0.05,
+      "initial_learning_rate": 0.00005,
+      "phase_a_optimizer_group_present_but_parameters_frozen": true,
+      "phase_b_unfreeze_epoch": 6
+    }
+  ],
+  "excluded_from_optimizer": ["resnet.conv1", "resnet.bn1", "resnet.layer1"],
+  "scheduler": {
+    "class": "ReduceLROnPlateau",
+    "mode": "min",
+    "factor": 0.5,
+    "patience": 1,
+    "eps": 1e-8,
+    "relative_lr_maintenance": "set every active/reserved group lr to current group-0 lr multiplied by that group's fixed lr_multiplier after scheduler.step; update scheduler._last_lr accordingly"
+  },
+  "optimizer_transition": "Create all four groups at initialization. Keep layer2 requires_grad=False in phase A. At epoch 6 set requires_grad=True without recreating optimizer or scheduler; Adamax initializes state for layer2 parameters lazily on their first optimizer step.",
+  "resume_phase_rule": "For a checkpoint saved after epoch e, configure the model for next epoch e+1: next epoch <= 5 is phase A; next epoch >= 6 is phase B.",
+  "bn_mode_rule": "Stage24 model.train(mode=True) calls the normal EGVAN train-mode recursion and then restores frozen BN modules to eval mode according to the current phase.",
+  "no_sweep": true
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "variant": "stage23_resnet50_imagenet_init_exp1",
+    "epoch": 21,
+    "batch_index": 374,
+    "scale_before": 262144.0,
+    "scale_after": 131072.0,
+    "step_skipped": true,
+    "scaled_first_nonfinite_gradient": "efficient.features.0.0.weight",
+    "unscaled_first_nonfinite_gradient": "efficient.features.0.0.weight",
+    "target_class_distribution": {
+      "mel": 4,
+      "nv": 9,
+      "bcc": 2,
+      "bkl": 1
+    },
+    "contains_mel": true
+  }
+]

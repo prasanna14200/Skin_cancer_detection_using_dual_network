@@ -1,0 +1,36 @@
+{
+  "registered_before_training": true,
+  "single_scientific_change": "Adamax learning-rate policy versus Stage23",
+  "all_resnet_trunk_trainable_from_epoch": 1,
+  "through_epoch": 25,
+  "frozen_layers": [],
+  "forced_batchnorm_eval": false,
+  "optimizer_groups": [
+    {
+      "name": "new_and_non_resnet",
+      "initial_learning_rate": 0.001,
+      "lr_multiplier": 1.0
+    },
+    {
+      "name": "pretrained_resnet_trunk",
+      "initial_learning_rate": 0.0001,
+      "lr_multiplier": 0.1,
+      "prefixes": [
+        "resnet.conv1.",
+        "resnet.bn1.",
+        "resnet.layer1.",
+        "resnet.layer2.",
+        "resnet.layer3.",
+        "resnet.layer4."
+      ]
+    }
+  ],
+  "scheduler": {
+    "name": "ReduceLROnPlateau",
+    "mode": "min",
+    "factor": 0.5,
+    "patience": 1,
+    "group_ratio_after_step": "new_and_non_resnet / pretrained_resnet_trunk = 10; synchronize trunk to 0.1 * new-group LR after scheduler.step"
+  },
+  "no_sweep": true
+}

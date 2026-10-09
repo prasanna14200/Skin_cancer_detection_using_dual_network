@@ -4,7 +4,7 @@ Source: [paper](https://doi.org/10.1109/ACCESS.2025.3561240), Sections III-B and
 
 | Setting | Paper | Frozen Stage15 implementation | Assessment |
 |---|---|---|---|
-| Pretrained weights | EfficientNetV2S explicitly pretrained; ResNet status not fully specified | EfficientNetV2S ImageNet default; ResNet50 random | EfficientNet match; ResNet unresolved |
+| Pretrained weights | EfficientNetV2S is described as pretrained, but the optimization section also says model parameters are initialized randomly; scope of that statement is unresolved. ResNet status is NOT SPECIFIED IN PAPER. | EfficientNetV2S ImageNet default; ResNet50 random | PAPER AMBIGUOUS for initialization; ResNet choice cannot be called paper-exact |
 | Frozen/unfrozen layers | NOT SPECIFIED IN PAPER | Both branches trained | Unverifiable |
 | Optimizer/LR | Adamax, initial 0.001 | Adamax, 0.001, β=(.9,.999), ε=1e-8, decay .0001 | Named method matches; decay not paper-fixed |
 | LR scheduler | Halve after one epoch no validation-loss improvement; stop patience 3 described | ReduceLROnPlateau mode min, factor .5, patience 1 | Close; exact stop behavior differs/unclear |

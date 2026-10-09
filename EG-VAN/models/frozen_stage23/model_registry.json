@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "model_identifier": "EGVAN_STAGE23_FINAL",
+  "freeze_timestamp_utc": "2026-10-09T01:18:58Z",
+  "experiment": "stage23_resnet50_imagenet_init_exp1",
+  "selection_scope": "HAM train/validation only; final validation-selected research classifier",
+  "selected_epoch": 14,
+  "checkpoint": {
+    "path": "experiments/stage23_resnet50_imagenet_init_exp1/run/best_checkpoint.pt",
+    "sha256": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+    "storage": "immutable reference to original experiment artifact; no copied weights"
+  },
+  "architecture": {
+    "identifier": "stage8b_egvan_four_mff_serial_terminal_branches",
+    "implementation": "src/models/egvan/egvan.py",
+    "class_name": "EGVAN",
+    "classifier_head": "AdaptiveAvgPool2d(1) followed by Linear(128,7)",
+    "class_count": 7,
+    "load_mode": "strict state_dict"
+  },
+  "initialization": {
+    "resnet50": "ResNet50_Weights.IMAGENET1K_V2",
+    "official_weight_url": "https://download.pytorch.org/models/resnet50-11ad3fa6.pth",
+    "download_hash_check": true,
+    "loaded_backbone_parameter_tensors": 159,
+    "efficientnet": "EfficientNet_V2_S_Weights.DEFAULT",
+    "new_modules": "seeded PyTorch defaults",
+    "random_seed": 42,
+    "provenance_report": "experiments/stage23_resnet50_imagenet_init_exp1/run/initialization_report.json"
+  },
+  "preprocessing": {
+    "source": "src/train.py:make_transforms",
+    "source_validation_loader": "experiments/stage23_resnet50_imagenet_init_exp1/initialization.py",
+    "color_mode": "RGB",
+    "evaluation_transform_order": [
+      "Resize((384,384))",
+      "ToTensor()",
+      "Normalize(mean,std)"
+    ],
+    "resize_pixels": [
+      384,
+      384
+    ],
+    "normalization_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "normalization_std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "normalization_source": "EfficientNet_V2_S_Weights.DEFAULT.transforms()",
+    "deterministic": true,
+    "training_augmentation_excluded": true
+  },
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "class_to_index": {
+    "akiec": 0,
+    "bcc": 1,
+    "bkl": 2,
+    "df": 3,
+    "mel": 4,
+    "nv": 5,
+    "vasc": 6
+  },
+  "input_size": [
+    3,
+    384,
+    384
+  ],
+  "output_semantics": {
+    "shape": "N x 7",
+    "values": "raw logits; softmax gives seven-class probabilities",
+    "default_label": "argmax probability in frozen class order",
+    "calibration_or_decision_threshold": "none registered for this classifier freeze"
+  },
+  "numerical_execution": {
+    "cuda": "FP16 autocast except resnet.nonlocal3 q@k torch.bmm in FP32",
+    "cpu": "full FP32 inference; selective q@k policy remains installed",
+    "source": "analysis/stage13_melanoma_ablation/stage13c_abc_selective_qk_fp32_gate.py"
+  },
+  "validation_split": {
+    "path": "data/splits/split_leakage_aware.csv",
+    "sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "validation_samples": 986,
+    "melanoma_support": 107,
+    "lesion_isolation_required": true
+  },
+  "training_configuration": {
+    "path": "experiments/stage23_resnet50_imagenet_init_exp1/config.json",
+    "sha256": "67a9d77d8464ef51d94f5861004084b179c3c42159e172c680d85952514d7afa",
+    "optimizer": {
+      "name": "Adamax",
+      "learning_rate": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0001
+    },
+    "scheduler": {
+      "name": "ReduceLROnPlateau",
+      "mode": "min",
+      "factor": 0.5,
+      "patience": 1
+    },
+    "loss": {
+      "name": "Stage9 focal with true-MEL multiplier",
+      "alpha": 0.25,
+      "gamma": 2.0,
+      "mel_multiplier": 1.2815247721366767
+    },
+    "sampler": {
+      "name": "WeightedRandomSampler",
+      "replacement": true,
+      "num_samples": 8015,
+      "seed": 42,
+      "mel_weight": 1.5630495442733532,
+      "other_weight": 1.0
+    }
+  },
+  "selected_validation_metrics": {
+    "loss": 0.07410776640362206,
+    "accuracy": 0.8296146044624746,
+    "balanced_accuracy": 0.6574259626092767,
+    "macro_f1": 0.6712537990687111,
+    "mel_tp": 70,
+    "mel_fn": 37,
+    "mel_recall": 0.6542056074766355,
+    "mel_f1": 0.6334841628959277,
+    "nv_recall": 0.942684766214178,
+    "sample_count": 986
+  },
+  "selection_rationale": {
+    "eligible_epochs": [
+      14,
+      15,
+      19
+    ],
+    "checkpoint_rule": "minimum common unweighted validation focal loss among epochs passing all frozen gates",
+    "stage24": "NO_CANDIDATE_SELECTED",
+    "stage25": "MIXED_VALIDATION_RESULT; aggregate gains accompanied by lower melanoma recall/F1",
+    "final_choice": "retain Stage23 selected epoch 14 for melanoma-sensitive objective; validation choice, not test superiority"
+  },
+  "source_artifact_sha256": {
+    "experiments/stage23_resnet50_imagenet_init_exp1/run/best_checkpoint.pt": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+    "experiments/stage23_resnet50_imagenet_init_exp1/config.json": "67a9d77d8464ef51d94f5861004084b179c3c42159e172c680d85952514d7afa",
+    "experiments/stage23_resnet50_imagenet_init_exp1/selection_rule.json": "a03213d5db62af968a425f3557773aa14c85adeabdbaeb8e6d46bf4d5481111d",
+    "experiments/stage23_resnet50_imagenet_init_exp1/numerical_protocol.json": "06222c374635f15ad99642e1bdbeaf4c6c69959dd753d6b332cdb753b87abdfb",
+    "experiments/stage23_resnet50_imagenet_init_exp1/initialization.py": "56a5b767c4c204eac64fbbc8a4c91c1ee7694fdcc3e87ed50bdaf9e0d7b483be",
+    "experiments/stage23_resnet50_imagenet_init_exp1/train.py": "d009803461a52818014f82a0d791650a86abf3737e98fb0d198eb4224136e967",
+    "experiments/stage23_resnet50_imagenet_init_exp1/run/experiment_manifest.json": "48e7fe9d75ac9b4b35750c8d632e3cced5939574e0080b3f12026ea959d44076",
+    "experiments/stage23_resnet50_imagenet_init_exp1/run/initialization_report.json": "c86113181d9a84ecb7f3dd38e2e43f1e2926b564a682ed3162a16e7f0b4e5fb9",
+    "experiments/stage23_resnet50_imagenet_init_exp1/run/validation_metrics.json": "beaebb91d9b7043698b5b4580d4af606eac477a985512589e4eb8e99e16af058",
+    "experiments/stage23_resnet50_imagenet_init_exp1/run/validation_predictions.csv": "b3f5d2e43b26fb63916d4e29ab597fde4183b3c76e75d4d0a7caeaccc88a368a",
+    "data/splits/split_leakage_aware.csv": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "src/train.py": "c195142d2f924b83374c0d6a8d4d93061ecf2e77e947710e6a3a8eb8264686bc",
+    "src/dataset.py": "02c6d280e468a8c83719bffd7b6bc042b138893d7badd794d0ecfa9291ec8cad",
+    "src/models/egvan/egvan.py": "f5f5217d6cced6ccc9c1a2d17a5691701bfe454eb46bf52bf97468030cc7b44f",
+    "src/models/egvan/modified_resnet50.py": "5f9a79d4de988f0e2e046bc5b38d90d62dc7c28273c7c922edad6e64f76caeba",
+    "src/models/egvan/efficientnet_branch.py": "e9f25b66247349ff0597ff76a1e4d3dc86a80d8358ad9f63ef1bf4e96cb98b0e",
+    "src/models/egvan/mff.py": "ad97108386f6b749bf30d6624d3db88663635393519d0cb6a519e65f96bbcb06",
+    "src/models/egvan/scga.py": "6d8a72871c7ae46de12d52f3b0fe973cf75b022434678161b6ab801ffa900d11",
+    "src/models/egvan/non_local.py": "d1795018519ae6650a130c44a17aac88fcc58b2ece4336879caf703c24c45c3a",
+    "src/models/egvan/spatial_attention.py": "34600fbd2207040de06baff88532d1df684852dcf9086e49789856352cf52ae7",
+    "analysis/stage13_melanoma_ablation/stage13c_abc_selective_qk_fp32_gate.py": "198769909e0572b0d5959c849731bb7c7613d578e6c231fd0040580b3519fcff",
+    "models/frozen_stage23/load_frozen.py": "2a851a2c9f2eb59e15f9fe9e2f325c7dbd496d302437be5c7a74d37e2525aa37",
+    "models/frozen_stage23/verify_freeze.py": "bffda782d9f210c676bfedb96bbe3e3dd41cdca2e72e0d44f8285773fccb6c9a",
+    "src/models/egvan/__init__.py": "e858a0996e67168ab50bd5524a2ee3609d90db2fec86109ce5ce0273a3e61449",
+    "src/models/baseline_effnet.py": "0045e74f4ca447a2a4fedb280cd9867de32fc4cf9f93f021c04346186d218524",
+    "experiments/egvan_melanoma_ablation_exp/train_ablation.py": "56a71821c1f944028874a76febf00ea68b3b152e481e6450ddd5bd94606e5389",
+    "experiments/egvan_melanoma_ablation_exp/stage13c_guarded.py": "93e2318afafff8ad1c6907752781d61856cdf3bbde3a614b29686686dac0340d",
+    "analysis/stage13_melanoma_ablation/stage13c_multistep_amp_diagnostic.py": "4f3b09ba3267ba56b0f3c504e4bd5f6af0ce2c16a51afc1740b9d8ddf281ba3a"
+  },
+  "git_commit_hash": "fededfe2854c83059305e61182d19ab1c0ffd765",
+  "git_worktree_note": "Repository contains untracked project artifacts; source-file hashes, not commit alone, define this freeze.",
+  "limitations_and_evaluation_boundary": {
+    "historical_test_exposure": "Stage16 HAM test and Stage20 test-derived reliability outcomes were viewed before Stage23?25 research direction was selected; they are not untouched confirmation for this classifier.",
+    "ph2": "Previously used in project; external follow-up only, not untouched external validation.",
+    "stage23_ham_test_status": "No new Stage23 HAM test inference verified in this freeze.",
+    "future_untouched_evaluation_data": "Unverified; none designated in current repository evidence.",
+    "inference_smoke_test": "Synthetic inputs only; no clinical validation.",
+    "not_clinical_approval": true
+  },
+  "loader": {
+    "path": "models/frozen_stage23/load_frozen.py",
+    "entry_points": [
+      "verify_registry",
+      "load_classifier",
+      "predict_rgb_image"
+    ],
+    "checkpoint_hash_verified_before_load": true,
+    "state_dict_strict": true,
+    "pretrained_weights_downloaded_on_load": false
+  },
+  "training_runtime": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu130",
+    "torchvision": "0.26.0+cu130",
+    "cuda": "13.0",
+    "gpu": "Tesla T4"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "experiment": "stage23_resnet50_imagenet_init_exp1",
+  "registered_before_training": true,
+  "reference": "frozen Stage15 epoch-16 HAM validation only; identical split and class order",
+  "melanoma_support": 107,
+  "stage9_correct_melanomas": 62,
+  "eligible_if_all": {
+    "melanoma_correct_minimum": 63,
+    "melanoma_recall_minimum": 0.5887850467289719,
+    "melanoma_f1_minimum": 0.5757731958762886,
+    "macro_f1_minimum": 0.6509124104985493,
+    "accuracy_minimum": 0.8025152129817445,
+    "nevus_recall_minimum": 0.917209653092006
+  },
+  "checkpoint_selection": "minimum common unweighted validation focal loss among eligible epochs; earlier epoch breaks exact ties",
+  "if_none_eligible": "NO_CANDIDATE_SELECTED",
+  "candidate_interpretation": "one-factor exploratory validation-only candidate, not causal proof or external confirmation",
+  "comparison_metrics": [
+    "accuracy",
+    "balanced_accuracy",
+    "macro_precision",
+    "macro_recall",
+    "macro_f1",
+    "weighted_f1",
+    "per_class_precision_recall_f1",
+    "mel_tp_fn_recall_f1",
+    "nv_recall",
+    "confusion_matrix"
+  ],
+  "never_use_for_training_or_selection": [
+    "HAM test",
+    "PH2",
+    "any external test set",
+    "Stage12 test/external outcomes"
+  ],
+  "decision_logic": {
+    "CLEAR_VALIDATION_IMPROVEMENT": "The eligible Stage23 candidate is no worse than Stage15 on every registered aggregate and classwise validation metric (higher-is-better metrics) and has strictly lower validation focal loss or at least one strict metric improvement, with no metric regression.",
+    "MIXED_VALIDATION_RESULT": "The eligible Stage23 candidate strictly improves at least one of accuracy, macro F1, MEL recall, or MEL F1, but also regresses on another registered comparison metric or fails full non-regression.",
+    "NO_MEANINGFUL_IMPROVEMENT": "The eligible Stage23 candidate does not strictly improve any of accuracy, macro F1, MEL recall, or MEL F1 over Stage15 validation and does not satisfy the clear-improvement rule.",
+    "NO_CANDIDATE_SELECTED": "No Stage23 epoch satisfies every unchanged Stage15 eligibility gate.",
+    "EXPERIMENT_INVALID": "Any frozen protocol, provenance, data-boundary, numerical, or artifact-integrity check fails."
+  }
+}

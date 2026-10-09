@@ -1,0 +1,7 @@
+# Evaluation and interpretation boundaries
+
+Stage 23 epoch 14 is a **validation-selected** model. The Stage 16 HAM test and PH2 external follow-up results were generated for the earlier Stage 15 recovered checkpoint and cannot be assigned to Stage 23. HAM test outcomes were viewed in Stage 16/20 and used in broader later project planning; PH2 had prior project use. Neither is an untouched confirmation cohort for Stage 23. No untouched independent cohort is verified in this repository. See the [freeze evaluation-boundary audit](../../analysis/final_model_freeze/evaluation_boundary_audit.md).
+
+The local interface exposes raw softmax scores and Shannon entropy, not calibrated clinical probabilities. Stage 20's 0.7675495327940953 entropy review cutoff was derived for the older Stage 15 checkpoint. No Stage 23-specific validated review rule is registered, so the interface makes **no retain/review decision**. Calibration metrics saved for Stage 15 also cannot establish Stage 23 calibration.
+
+Quality measures are technical proxies on a resized image; no verified quality labels or accept/reject threshold exist. The app never discards an image based on them. Grad-CAM is a qualitative visualization of one model layer, not proof of lesion localization or diagnostic correctness. Small class supports, class imbalance, and the prior external-domain melanoma gap warrant caution. The local viewer is for research demonstration only, not patient triage, diagnosis, or treatment.
