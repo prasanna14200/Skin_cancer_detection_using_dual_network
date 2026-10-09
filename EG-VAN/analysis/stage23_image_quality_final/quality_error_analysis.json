@@ -1,0 +1,1046 @@
+{
+  "scope": "Stage 23 selected HAM validation only; observational and exploratory",
+  "provenance": {
+    "source_sha256": {
+      "checkpoint": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+      "validation_predictions": "b3f5d2e43b26fb63916d4e29ab597fde4183b3c76e75d4d0a7caeaccc88a368a",
+      "validation_metrics": "beaebb91d9b7043698b5b4580d4af606eac477a985512589e4eb8e99e16af058",
+      "frozen_split": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+      "model_registry": "66ba9fd3f9e013cb018b596c1d70eb5e7d8d79067ebe3ef6400bec549c38b92e"
+    },
+    "historical_processed_quality_table_sha256": "439310249e0cf1a731b41204c41314adf626e1fb35891dec4a52ba0b695284a7",
+    "metadata_sha256": "19917805e2fa94bb6bf7c189628d433188c86bfb99039e142fb3973b72e89878",
+    "validation_images": 986,
+    "raw_images_readable": 986,
+    "processed_images_readable": 986,
+    "raw_image_hashes_recorded": true,
+    "processed_image_hashes_recorded": true,
+    "processed_measurements_match_historical_table": true,
+    "missing_or_duplicate_joins": 0,
+    "measurement_views": {
+      "raw": "Original 600x450 JPEG as saved in data/raw/images; RGB decoding via OpenCV quality function",
+      "processed": "EG-VAN paper-informed output JPEG before Stage 23 resize; matches historical table",
+      "model_view": "Processed JPEG decoded RGB and PIL bilinear resized to 384x384 before tensor/normalization"
+    }
+  },
+  "definitions": {
+    "sharpness": "Variance of cv2.Laplacian(grayscale, CV_64F); higher usually means more edges, not a validated blur label",
+    "brightness": "Mean grayscale intensity on 0..255 scale",
+    "contrast": "Standard deviation of grayscale intensity",
+    "underexposure_indicator": "Fraction of grayscale pixels <30 (raw_dark_pixel_ratio)",
+    "overexposure_indicator": "Fraction of grayscale pixels >225 (raw_bright_pixel_ratio)",
+    "saturation": "Mean HSV saturation /255",
+    "other": "8-bit grayscale histogram entropy; 16x16-grid spatial illumination variation",
+    "artifact_detection": "Not implemented: no validated hair/ruler/occlusion ground truth or defensible detector",
+    "band_rule": "Exploratory equal-count terciles from validation feature ranks; image_id breaks ties; no clinical cutoffs",
+    "interval_rule": "Wilson 95% binomial intervals for descriptive error rates; no multiplicity correction"
+  },
+  "n": 986,
+  "errors": 168,
+  "quality_by_correctness_and_view": {
+    "raw": {
+      "brightness": {
+        "correct": {
+          "n": 818,
+          "mean": 157.10690566874945,
+          "median": 157.86027407407408,
+          "q25": 143.40667222222223,
+          "q75": 171.04656574074073
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 160.34420401234567,
+          "median": 159.33529074074073,
+          "q25": 148.52682314814814,
+          "q75": 171.95269074074076
+        },
+        "spearman_with_confidence": 0.019127814396537098,
+        "spearman_with_predictive_entropy": -0.031029203097605606
+      },
+      "contrast": {
+        "correct": {
+          "n": 818,
+          "mean": 28.074824061867353,
+          "median": 26.538294134676704,
+          "q25": 20.35231776513382,
+          "q75": 33.8855711041104
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 29.418557473565183,
+          "median": 25.976087508237235,
+          "q25": 19.376599267315754,
+          "q75": 36.73576525505672
+        },
+        "spearman_with_confidence": -0.056328212020420494,
+        "spearman_with_predictive_entropy": 0.0068883521320457315
+      },
+      "sharpness": {
+        "correct": {
+          "n": 818,
+          "mean": 78.26971852815008,
+          "median": 51.90958510085048,
+          "q25": 35.57162212072703,
+          "q75": 93.84538477998626
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 110.7805006459439,
+          "median": 52.765886715054876,
+          "q25": 33.86410282312414,
+          "q75": 96.49864345764402
+        },
+        "spearman_with_confidence": -0.07319770227400041,
+        "spearman_with_predictive_entropy": 0.0639677657134933
+      },
+      "saturation": {
+        "correct": {
+          "n": 818,
+          "mean": 0.32257044988130174,
+          "median": 0.3307184822076979,
+          "q25": 0.22025472403776325,
+          "q75": 0.414220174291939
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 0.24433233798457657,
+          "median": 0.2384268554829339,
+          "q25": 0.18897503994190268,
+          "q75": 0.29329555555555553
+        },
+        "spearman_with_confidence": 0.4356665794234242,
+        "spearman_with_predictive_entropy": -0.4307349566668772
+      },
+      "dark_pixel_ratio": {
+        "correct": {
+          "n": 818,
+          "mean": 0.0036967852938513085,
+          "median": 0.0,
+          "q25": 0.0,
+          "q75": 0.00011759259259259259
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 0.008783112874779541,
+          "median": 3.518518518518518e-05,
+          "q25": 0.0,
+          "q75": 0.0023694444444444444
+        },
+        "spearman_with_confidence": -0.40507374875952046,
+        "spearman_with_predictive_entropy": 0.3903676886699979
+      },
+      "bright_pixel_ratio": {
+        "correct": {
+          "n": 818,
+          "mean": 0.006907344018835461,
+          "median": 0.0,
+          "q25": 0.0,
+          "q75": 0.0
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 0.02052204585537919,
+          "median": 0.0,
+          "q25": 0.0,
+          "q75": 6.574074074074074e-05
+        },
+        "spearman_with_confidence": -0.22178174018533997,
+        "spearman_with_predictive_entropy": 0.21507164517178431
+      },
+      "entropy": {
+        "correct": {
+          "n": 818,
+          "mean": 6.139254570261613,
+          "median": 6.147400022470927,
+          "q25": 5.765352081865236,
+          "q75": 6.514722979861006
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 6.285495830202734,
+          "median": 6.307860855575795,
+          "q25": 5.874497252273125,
+          "q75": 6.651641079135143
+        },
+        "spearman_with_confidence": -0.2519202177185737,
+        "spearman_with_predictive_entropy": 0.2458865071925289
+      },
+      "illumination_variation": {
+        "correct": {
+          "n": 818,
+          "mean": 0.17280470191219385,
+          "median": 0.15876075709974152,
+          "q25": 0.11537237858632601,
+          "q75": 0.20873007255895315
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 0.17498169632627217,
+          "median": 0.14191936334504385,
+          "q25": 0.10669993144073651,
+          "q75": 0.22058325405329057
+        },
+        "spearman_with_confidence": -0.0229477226869162,
+        "spearman_with_predictive_entropy": -0.02196643806808973
+      }
+    },
+    "processed": {
+      "brightness": {
+        "correct": {
+          "n": 818,
+          "mean": 58.54334438558363,
+          "median": 57.32632777777778,
+          "q25": 42.07776851851852,
+          "q75": 73.08531481481481
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 58.285708972663144,
+          "median": 54.8412537037037,
+          "q25": 43.2600962962963,
+          "q75": 73.07603888888889
+        },
+        "spearman_with_confidence": -0.011317195931036927,
+        "spearman_with_predictive_entropy": 0.05197827208243258
+      },
+      "contrast": {
+        "correct": {
+          "n": 818,
+          "mean": 48.96181801573847,
+          "median": 48.464106777699655,
+          "q25": 42.97690316065882,
+          "q75": 54.8200422914026
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 46.25133465580724,
+          "median": 45.56027435919667,
+          "q25": 40.37894621538684,
+          "q75": 52.016340059835464
+        },
+        "spearman_with_confidence": 0.1778603377249243,
+        "spearman_with_predictive_entropy": -0.20444049848637721
+      },
+      "sharpness": {
+        "correct": {
+          "n": 818,
+          "mean": 620.9703822364513,
+          "median": 460.02903877181757,
+          "q25": 265.81502352978055,
+          "q75": 778.3456607717455
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 544.5531557001083,
+          "median": 353.94333062561043,
+          "q25": 191.7161153009636,
+          "q75": 682.3444458647701
+        },
+        "spearman_with_confidence": 0.15949084789384246,
+        "spearman_with_predictive_entropy": -0.12829657010749823
+      },
+      "saturation": {
+        "correct": {
+          "n": 818,
+          "mean": 0.3757585405358377,
+          "median": 0.3697187073347858,
+          "q25": 0.3137803594771242,
+          "q75": 0.42039533405954976
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 0.3777987522910399,
+          "median": 0.36450344226579523,
+          "q25": 0.304611688453159,
+          "q75": 0.4388321060275962
+        },
+        "spearman_with_confidence": 0.013293159922183998,
+        "spearman_with_predictive_entropy": -0.015564672264025367
+      },
+      "dark_pixel_ratio": {
+        "correct": {
+          "n": 818,
+          "mean": 0.37605053427510643,
+          "median": 0.3118685185185185,
+          "q25": 0.16260185185185186,
+          "q75": 0.5817787037037037
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 0.3594305114638448,
+          "median": 0.28939629629629626,
+          "q25": 0.13221018518518518,
+          "q75": 0.5597083333333333
+        },
+        "spearman_with_confidence": 0.03308340152269619,
+        "spearman_with_predictive_entropy": -0.0880874550474181
+      },
+      "bright_pixel_ratio": {
+        "correct": {
+          "n": 818,
+          "mean": 0.01968451507742461,
+          "median": 0.01864814814814815,
+          "q25": 0.015321296296296295,
+          "q75": 0.02291666666666667
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 0.0172640873015873,
+          "median": 0.016174074074074073,
+          "q25": 0.0133,
+          "q75": 0.020212037037037035
+        },
+        "spearman_with_confidence": 0.2915671545198141,
+        "spearman_with_predictive_entropy": -0.31669193904808407
+      },
+      "entropy": {
+        "correct": {
+          "n": 818,
+          "mean": 6.765548083321859,
+          "median": 6.8839396177367576,
+          "q25": 6.371676722871274,
+          "q75": 7.276102891004766
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 6.742167592366475,
+          "median": 6.9315944548895185,
+          "q25": 6.4896784472252556,
+          "q75": 7.30133646223383
+        },
+        "spearman_with_confidence": -0.05167028038129606,
+        "spearman_with_predictive_entropy": 0.09080420441282645
+      },
+      "illumination_variation": {
+        "correct": {
+          "n": 818,
+          "mean": 0.868986050321195,
+          "median": 0.8237549452574688,
+          "q25": 0.6227952552246171,
+          "q75": 1.0496201711567008
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 0.8658077079098082,
+          "median": 0.7353142101362418,
+          "q25": 0.5736792953437416,
+          "q75": 0.9972711859109287
+        },
+        "spearman_with_confidence": 0.10636137185935673,
+        "spearman_with_predictive_entropy": -0.1663369940339205
+      }
+    },
+    "model_view": {
+      "brightness": {
+        "correct": {
+          "n": 818,
+          "mean": 58.542606725798976,
+          "median": 57.32651774088542,
+          "q25": 42.076794094509545,
+          "q75": 73.08033243815105
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 58.285987409965074,
+          "median": 54.83558824327257,
+          "q25": 43.25813293457031,
+          "q75": 73.07873026529948
+        },
+        "spearman_with_confidence": -0.011345900762590233,
+        "spearman_with_predictive_entropy": 0.05201680390603532
+      },
+      "contrast": {
+        "correct": {
+          "n": 818,
+          "mean": 48.535727212550924,
+          "median": 48.02066660740735,
+          "q25": 42.38791297794125,
+          "q75": 54.50523092510694
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 45.84177150323379,
+          "median": 45.01088019701568,
+          "q25": 39.83059557157464,
+          "q75": 51.24510869993961
+        },
+        "spearman_with_confidence": 0.17696328983157633,
+        "spearman_with_predictive_entropy": -0.20467011210188127
+      },
+      "sharpness": {
+        "correct": {
+          "n": 818,
+          "mean": 216.98583375798805,
+          "median": 176.52061847509975,
+          "q25": 105.1277185467957,
+          "q75": 271.6145777246558
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 200.05768352094708,
+          "median": 138.23474949593714,
+          "q25": 86.00925514390578,
+          "q75": 253.917647980073
+        },
+        "spearman_with_confidence": 0.1436614539898511,
+        "spearman_with_predictive_entropy": -0.11185133050430716
+      },
+      "saturation": {
+        "correct": {
+          "n": 818,
+          "mean": 0.3677091620324281,
+          "median": 0.360597711035369,
+          "q25": 0.305619762146395,
+          "q75": 0.412865698986843
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 0.37111249160489573,
+          "median": 0.3581239787581699,
+          "q25": 0.29737186473439203,
+          "q75": 0.4342083301419526
+        },
+        "spearman_with_confidence": 0.002680146211871389,
+        "spearman_with_predictive_entropy": -0.005199486530276572
+      },
+      "dark_pixel_ratio": {
+        "correct": {
+          "n": 818,
+          "mean": 0.3740309238822458,
+          "median": 0.3096584743923611,
+          "q25": 0.1556633843315972,
+          "q75": 0.5893605550130209
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 0.35686339524687916,
+          "median": 0.2864820692274306,
+          "q25": 0.1300726996527778,
+          "q75": 0.5575069851345485
+        },
+        "spearman_with_confidence": 0.029031244260970125,
+        "spearman_with_predictive_entropy": -0.08364229286896904
+      },
+      "bright_pixel_ratio": {
+        "correct": {
+          "n": 818,
+          "mean": 0.01886820359192475,
+          "median": 0.018046061197916664,
+          "q25": 0.014889187282986112,
+          "q75": 0.02190314398871528
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 0.016655735237888557,
+          "median": 0.015482584635416666,
+          "q25": 0.012971666124131944,
+          "q75": 0.019315931532118056
+        },
+        "spearman_with_confidence": 0.2900214743074481,
+        "spearman_with_predictive_entropy": -0.3160031191519454
+      },
+      "entropy": {
+        "correct": {
+          "n": 818,
+          "mean": 6.7226987985454,
+          "median": 6.842549619597517,
+          "q25": 6.320708660446653,
+          "q75": 7.247423411548884
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 6.717304513867042,
+          "median": 6.917466566156472,
+          "q25": 6.469073731531528,
+          "q75": 7.264042510785926
+        },
+        "spearman_with_confidence": -0.07077849712680975,
+        "spearman_with_predictive_entropy": 0.10977511867579469
+      },
+      "illumination_variation": {
+        "correct": {
+          "n": 818,
+          "mean": 0.8693836988970085,
+          "median": 0.8244687160491135,
+          "q25": 0.6234811012370425,
+          "q75": 1.0509486592700852
+        },
+        "incorrect": {
+          "n": 168,
+          "mean": 0.8658296258219864,
+          "median": 0.7347789826749713,
+          "q25": 0.5740663056066362,
+          "q75": 0.9946806184827185
+        },
+        "spearman_with_confidence": 0.10689089025005596,
+        "spearman_with_predictive_entropy": -0.16691741248789743
+      }
+    }
+  },
+  "classwise_distributions": {
+    "true_class": {
+      "akiec": {
+        "n": 30,
+        "error_count": 15,
+        "error_rate": 0.5,
+        "raw_feature_medians": {
+          "brightness": 168.67646296296294,
+          "contrast": 20.460199494352416,
+          "sharpness": 50.10504593563098,
+          "saturation": 0.2807142774146696,
+          "dark_pixel_ratio": 3.7037037037037037e-06,
+          "bright_pixel_ratio": 0.0,
+          "entropy": 6.265609139760505,
+          "illumination_variation": 0.10845196571477572
+        }
+      },
+      "bcc": {
+        "n": 58,
+        "error_count": 22,
+        "error_rate": 0.3793103448275862,
+        "raw_feature_medians": {
+          "brightness": 167.50326851851852,
+          "contrast": 20.549897274079427,
+          "sharpness": 41.29142549903978,
+          "saturation": 0.2361816339869281,
+          "dark_pixel_ratio": 5.555555555555556e-06,
+          "bright_pixel_ratio": 0.0,
+          "entropy": 6.054518148795576,
+          "illumination_variation": 0.11041611962943584
+        }
+      },
+      "bkl": {
+        "n": 104,
+        "error_count": 49,
+        "error_rate": 0.47115384615384615,
+        "raw_feature_medians": {
+          "brightness": 156.3098222222222,
+          "contrast": 22.215098595267982,
+          "sharpness": 65.60231702116597,
+          "saturation": 0.2340396441539579,
+          "dark_pixel_ratio": 0.0,
+          "bright_pixel_ratio": 0.0,
+          "entropy": 6.211954274600624,
+          "illumination_variation": 0.13070414661014246
+        }
+      },
+      "df": {
+        "n": 9,
+        "error_count": 4,
+        "error_rate": 0.4444444444444444,
+        "raw_feature_medians": {
+          "brightness": 165.96203703703705,
+          "contrast": 19.560209147706033,
+          "sharpness": 90.67913952257886,
+          "saturation": 0.3641014233841685,
+          "dark_pixel_ratio": 0.0,
+          "bright_pixel_ratio": 1.1111111111111112e-05,
+          "entropy": 6.225527458205283,
+          "illumination_variation": 0.1199080143119061
+        }
+      },
+      "mel": {
+        "n": 107,
+        "error_count": 37,
+        "error_rate": 0.34579439252336447,
+        "raw_feature_medians": {
+          "brightness": 151.2643111111111,
+          "contrast": 31.605500107363326,
+          "sharpness": 81.12310461331961,
+          "saturation": 0.2604528395061728,
+          "dark_pixel_ratio": 0.00034074074074074074,
+          "bright_pixel_ratio": 0.0,
+          "entropy": 6.495980029791897,
+          "illumination_variation": 0.19881392574610937
+        }
+      },
+      "nv": {
+        "n": 663,
+        "error_count": 38,
+        "error_rate": 0.05731523378582202,
+        "raw_feature_medians": {
+          "brightness": 157.78988148148147,
+          "contrast": 27.2546974234455,
+          "sharpness": 48.87708842796982,
+          "saturation": 0.3620239651416122,
+          "dark_pixel_ratio": 0.0,
+          "bright_pixel_ratio": 0.0,
+          "entropy": 6.099236080374448,
+          "illumination_variation": 0.16486465628366975
+        }
+      },
+      "vasc": {
+        "n": 15,
+        "error_count": 3,
+        "error_rate": 0.2,
+        "raw_feature_medians": {
+          "brightness": 175.78765555555555,
+          "contrast": 22.788941284826695,
+          "sharpness": 39.021054771138544,
+          "saturation": 0.22431283950617284,
+          "dark_pixel_ratio": 0.0,
+          "bright_pixel_ratio": 7.4074074074074075e-06,
+          "entropy": 5.730461669454725,
+          "illumination_variation": 0.13231022172333073
+        }
+      }
+    },
+    "predicted_class": {
+      "akiec": {
+        "n": 24,
+        "error_count": 9,
+        "error_rate": 0.375,
+        "raw_feature_medians": {
+          "brightness": 166.47586481481483,
+          "contrast": 20.04681578397271,
+          "sharpness": 43.37646698803155,
+          "saturation": 0.2732036165577342,
+          "dark_pixel_ratio": 0.0,
+          "bright_pixel_ratio": 0.0,
+          "entropy": 6.265609139760505,
+          "illumination_variation": 0.1035877628810445
+        }
+      },
+      "bcc": {
+        "n": 47,
+        "error_count": 11,
+        "error_rate": 0.23404255319148937,
+        "raw_feature_medians": {
+          "brightness": 167.09415925925927,
+          "contrast": 20.311246291426517,
+          "sharpness": 51.46810677331962,
+          "saturation": 0.25391488743645607,
+          "dark_pixel_ratio": 3.7037037037037037e-06,
+          "bright_pixel_ratio": 3.7037037037037037e-06,
+          "entropy": 6.0555790298984205,
+          "illumination_variation": 0.10581795144534296
+        }
+      },
+      "bkl": {
+        "n": 78,
+        "error_count": 23,
+        "error_rate": 0.2948717948717949,
+        "raw_feature_medians": {
+          "brightness": 155.4454074074074,
+          "contrast": 24.218749808443235,
+          "sharpness": 79.58753719464335,
+          "saturation": 0.2557000290486565,
+          "dark_pixel_ratio": 0.0,
+          "bright_pixel_ratio": 0.0,
+          "entropy": 6.326908402666352,
+          "illumination_variation": 0.13586473529461102
+        }
+      },
+      "df": {
+        "n": 10,
+        "error_count": 5,
+        "error_rate": 0.5,
+        "raw_feature_medians": {
+          "brightness": 166.3685796296296,
+          "contrast": 20.209236970514567,
+          "sharpness": 85.69218903626202,
+          "saturation": 0.2359082207697894,
+          "dark_pixel_ratio": 3.7037037037037037e-06,
+          "bright_pixel_ratio": 9.259259259259259e-06,
+          "entropy": 6.262003174308994,
+          "illumination_variation": 0.12013792100588053
+        }
+      },
+      "mel": {
+        "n": 114,
+        "error_count": 44,
+        "error_rate": 0.38596491228070173,
+        "raw_feature_medians": {
+          "brightness": 153.57919444444445,
+          "contrast": 30.887840790487573,
+          "sharpness": 82.21667548803154,
+          "saturation": 0.24379442992011618,
+          "dark_pixel_ratio": 0.000562962962962963,
+          "bright_pixel_ratio": 0.0,
+          "entropy": 6.5107161737630115,
+          "illumination_variation": 0.17195195570742905
+        }
+      },
+      "nv": {
+        "n": 697,
+        "error_count": 72,
+        "error_rate": 0.10329985652797705,
+        "raw_feature_medians": {
+          "brightness": 158.54767037037038,
+          "contrast": 26.896803802452055,
+          "sharpness": 48.13909529629629,
+          "saturation": 0.35703991285403053,
+          "dark_pixel_ratio": 0.0,
+          "bright_pixel_ratio": 0.0,
+          "entropy": 6.092369627501487,
+          "illumination_variation": 0.16270617859694309
+        }
+      },
+      "vasc": {
+        "n": 16,
+        "error_count": 4,
+        "error_rate": 0.25,
+        "raw_feature_medians": {
+          "brightness": 156.77817407407406,
+          "contrast": 25.784759711681296,
+          "sharpness": 36.993206819307275,
+          "saturation": 0.22798763979665942,
+          "dark_pixel_ratio": 0.0,
+          "bright_pixel_ratio": 0.0,
+          "entropy": 5.911346398227947,
+          "illumination_variation": 0.14642996959447155
+        }
+      }
+    }
+  },
+  "exploratory_quality_bands": {
+    "raw_sharpness": {
+      "low": {
+        "n": 329,
+        "feature_min": 9.136587646076816,
+        "feature_max": 39.816792517476,
+        "errors": 56,
+        "error_rate": 0.1702127659574468,
+        "error_rate_wilson_95": [
+          0.13346530693001118,
+          0.21457264252237168
+        ],
+        "mel_cases": 18,
+        "mel_false_negatives": 11,
+        "mel_to_nv": 9,
+        "mean_entropy": 0.5165008978952859,
+        "mean_confidence": 0.8079502693969066
+      },
+      "middle": {
+        "n": 328,
+        "feature_min": 39.83562874463649,
+        "feature_max": 76.60765736185184,
+        "errors": 56,
+        "error_rate": 0.17073170731707318,
+        "error_rate_wilson_95": [
+          0.1338799664522713,
+          0.2152067909178722
+        ],
+        "mel_cases": 33,
+        "mel_false_negatives": 15,
+        "mel_to_nv": 12,
+        "mean_entropy": 0.5540266081450262,
+        "mean_confidence": 0.7871870480296088
+      },
+      "high": {
+        "n": 329,
+        "feature_min": 76.78982510253773,
+        "feature_max": 3473.1909506606858,
+        "errors": 56,
+        "error_rate": 0.1702127659574468,
+        "error_rate_wilson_95": [
+          0.13346530693001118,
+          0.21457264252237168
+        ],
+        "mel_cases": 56,
+        "mel_false_negatives": 11,
+        "mel_to_nv": 5,
+        "mean_entropy": 0.57279811500256,
+        "mean_confidence": 0.7759352841819311
+      }
+    },
+    "raw_brightness": {
+      "low": {
+        "n": 329,
+        "feature_min": 88.26447407407407,
+        "feature_max": 148.9314777777778,
+        "errors": 47,
+        "error_rate": 0.14285714285714285,
+        "error_rate_wilson_95": [
+          0.10916077347749323,
+          0.18479737454697667
+        ],
+        "mel_cases": 50,
+        "mel_false_negatives": 17,
+        "mel_to_nv": 10,
+        "mean_entropy": 0.5667715231251012,
+        "mean_confidence": 0.7897666257022
+      },
+      "middle": {
+        "n": 328,
+        "feature_min": 148.9795037037037,
+        "feature_max": 166.06835925925927,
+        "errors": 65,
+        "error_rate": 0.19817073170731708,
+        "error_rate_wilson_95": [
+          0.1586339156584218,
+          0.24469561193087644
+        ],
+        "mel_cases": 40,
+        "mel_false_negatives": 13,
+        "mel_to_nv": 11,
+        "mean_entropy": 0.5396633801762456,
+        "mean_confidence": 0.787457796585996
+      },
+      "high": {
+        "n": 329,
+        "feature_min": 166.06941851851852,
+        "feature_max": 229.8860740740741,
+        "errors": 56,
+        "error_rate": 0.1702127659574468,
+        "error_rate_wilson_95": [
+          0.13346530693001118,
+          0.21457264252237168
+        ],
+        "mel_cases": 17,
+        "mel_false_negatives": 7,
+        "mel_to_nv": 5,
+        "mean_entropy": 0.5368470605136564,
+        "mean_confidence": 0.793849002264191
+      }
+    },
+    "raw_contrast": {
+      "low": {
+        "n": 329,
+        "feature_min": 8.162154850937702,
+        "feature_max": 21.930278266521483,
+        "errors": 61,
+        "error_rate": 0.18541033434650456,
+        "error_rate_wilson_95": [
+          0.14713266923670698,
+          0.23094961434229416
+        ],
+        "mel_cases": 20,
+        "mel_false_negatives": 7,
+        "mel_to_nv": 4,
+        "mean_entropy": 0.6009574669399015,
+        "mean_confidence": 0.7744946043179752
+      },
+      "middle": {
+        "n": 328,
+        "feature_min": 21.945776581360676,
+        "feature_max": 31.083028706740826,
+        "errors": 49,
+        "error_rate": 0.14939024390243902,
+        "error_rate_wilson_95": [
+          0.11488095358120684,
+          0.1920169825073719
+        ],
+        "mel_cases": 31,
+        "mel_false_negatives": 11,
+        "mel_to_nv": 6,
+        "mean_entropy": 0.4868427639416055,
+        "mean_confidence": 0.8220134023122672
+      },
+      "high": {
+        "n": 329,
+        "feature_min": 31.09722223243313,
+        "feature_max": 85.48721107757318,
+        "errors": 58,
+        "error_rate": 0.1762917933130699,
+        "error_rate_wilson_95": [
+          0.13891920025018387,
+          0.2211364828528463
+        ],
+        "mel_cases": 56,
+        "mel_false_negatives": 19,
+        "mel_to_nv": 16,
+        "mean_entropy": 0.5553211839479807,
+        "mean_confidence": 0.7746704501583945
+      }
+    },
+    "raw_dark_pixel_ratio": {
+      "low": {
+        "n": 329,
+        "feature_min": 0.0,
+        "feature_max": 0.0,
+        "errors": 40,
+        "error_rate": 0.12158054711246201,
+        "error_rate_wilson_95": [
+          0.09056891509200993,
+          0.1613271651551944
+        ],
+        "mel_cases": 15,
+        "mel_false_negatives": 12,
+        "mel_to_nv": 8,
+        "mean_entropy": 0.4174491449515883,
+        "mean_confidence": 0.8532332514375901
+      },
+      "middle": {
+        "n": 328,
+        "feature_min": 0.0,
+        "feature_max": 2.5925925925925925e-05,
+        "errors": 41,
+        "error_rate": 0.125,
+        "error_rate_wilson_95": [
+          0.09349430802518072,
+          0.1651878323130383
+        ],
+        "mel_cases": 22,
+        "mel_false_negatives": 7,
+        "mel_to_nv": 6,
+        "mean_entropy": 0.4863703929835863,
+        "mean_confidence": 0.8211180082545048
+      },
+      "high": {
+        "n": 329,
+        "feature_min": 2.5925925925925925e-05,
+        "feature_max": 0.26925185185185185,
+        "errors": 87,
+        "error_rate": 0.26443768996960487,
+        "error_rate_wilson_95": [
+          0.21969784799186043,
+          0.31461497304555597
+        ],
+        "mel_cases": 70,
+        "mel_false_negatives": 18,
+        "mel_to_nv": 12,
+        "mean_entropy": 0.7393004411163252,
+        "mean_confidence": 0.6968244755340565
+      }
+    },
+    "raw_bright_pixel_ratio": {
+      "low": {
+        "n": 329,
+        "feature_min": 0.0,
+        "feature_max": 0.0,
+        "errors": 44,
+        "error_rate": 0.1337386018237082,
+        "error_rate_wilson_95": [
+          0.10115584464735389,
+          0.17477570290114502
+        ],
+        "mel_cases": 29,
+        "mel_false_negatives": 10,
+        "mel_to_nv": 8,
+        "mean_entropy": 0.46749980122919366,
+        "mean_confidence": 0.8278392666560176
+      },
+      "middle": {
+        "n": 328,
+        "feature_min": 0.0,
+        "feature_max": 0.0,
+        "errors": 35,
+        "error_rate": 0.10670731707317073,
+        "error_rate_wilson_95": [
+          0.07773134669360707,
+          0.14478894683184215
+        ],
+        "mel_cases": 29,
+        "mel_false_negatives": 11,
+        "mel_to_nv": 7,
+        "mean_entropy": 0.5072532205040137,
+        "mean_confidence": 0.8111944850079897
+      },
+      "high": {
+        "n": 329,
+        "feature_min": 0.0,
+        "feature_max": 0.8317444444444444,
+        "errors": 89,
+        "error_rate": 0.270516717325228,
+        "error_rate_wilson_95": [
+          0.22536813902737712,
+          0.32096241566068656
+        ],
+        "mel_cases": 49,
+        "mel_false_negatives": 16,
+        "mel_to_nv": 11,
+        "mean_entropy": 0.6684304309581723,
+        "mean_confidence": 0.7321118208775041
+      }
+    },
+    "raw_saturation": {
+      "low": {
+        "n": 329,
+        "feature_min": 0.06404922294843864,
+        "feature_max": 0.23787779230210604,
+        "errors": 83,
+        "error_rate": 0.25227963525835867,
+        "error_rate_wilson_95": [
+          0.2083916652296306,
+          0.3018856885064911
+        ],
+        "mel_cases": 39,
+        "mel_false_negatives": 10,
+        "mel_to_nv": 7,
+        "mean_entropy": 0.6922793416625541,
+        "mean_confidence": 0.7212130796039721
+      },
+      "middle": {
+        "n": 328,
+        "feature_min": 0.23795586056644882,
+        "feature_max": 0.3776527087872186,
+        "errors": 76,
+        "error_rate": 0.23170731707317074,
+        "error_rate_wilson_95": [
+          0.18931117058700864,
+          0.2803150761590342
+        ],
+        "mel_cases": 57,
+        "mel_false_negatives": 23,
+        "mel_to_nv": 18,
+        "mean_entropy": 0.641918144719459,
+        "mean_confidence": 0.747795874570928
+      },
+      "high": {
+        "n": 329,
+        "feature_min": 0.3781501670297749,
+        "feature_max": 0.6944211038489471,
+        "errors": 9,
+        "error_rate": 0.02735562310030395,
+        "error_rate_wilson_95": [
+          0.014457336938863155,
+          0.05116387172330772
+        ],
+        "mel_cases": 11,
+        "mel_false_negatives": 4,
+        "mel_to_nv": 1,
+        "mean_entropy": 0.3093952821884408,
+        "mean_confidence": 0.9019439174230338
+      }
+    }
+  },
+  "melanoma_subgroups": {
+    "correct_mel": {
+      "n": 70,
+      "raw_feature_medians": {
+        "brightness": 150.42922407407409,
+        "contrast": 31.459404865259035,
+        "sharpness": 91.88912055318245,
+        "saturation": 0.25125476397966595,
+        "dark_pixel_ratio": 0.0007629629629629629,
+        "bright_pixel_ratio": 0.0,
+        "entropy": 6.504000646373697,
+        "illumination_variation": 0.18751565747071017
+      },
+      "mean_entropy": 0.6814339409279956,
+      "mean_confidence": 0.7103240894419807
+    },
+    "mel_false_negative": {
+      "n": 37,
+      "raw_feature_medians": {
+        "brightness": 152.01442962962963,
+        "contrast": 33.18825298915414,
+        "sharpness": 53.75103683950617,
+        "saturation": 0.27845198257080606,
+        "dark_pixel_ratio": 3.7037037037037037e-06,
+        "bright_pixel_ratio": 0.0,
+        "entropy": 6.4832605201271045,
+        "illumination_variation": 0.21768125219866208
+      },
+      "mean_entropy": 0.7827503276021975,
+      "mean_confidence": 0.67078458779567
+    },
+    "mel_to_nv": {
+      "n": 26,
+      "raw_feature_medians": {
+        "brightness": 153.84418888888888,
+        "contrast": 36.544818553928934,
+        "sharpness": 49.36182739307271,
+        "saturation": 0.26873159767610744,
+        "dark_pixel_ratio": 3.7037037037037037e-06,
+        "bright_pixel_ratio": 0.0,
+        "entropy": 6.4960733154104595,
+        "illumination_variation": 0.22424184161140792
+      },
+      "mean_entropy": 0.6867795518989184,
+      "mean_confidence": 0.6986108731765014
+    }
+  },
+  "interpretation_limit": "Association cannot establish acquisition-quality causation; class and lesion difficulty may confound"
+}

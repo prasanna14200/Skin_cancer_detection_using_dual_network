@@ -1,0 +1,24 @@
+{
+  "scope": "Stage 23 selected epoch-14 validation saved probabilities only",
+  "analysis_source_sha256": "099d05ef22abb9128434725d422cf3a6c1c1be32f947f3b522a63e617ba4e694",
+  "input_sha256": {
+    "checkpoint": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+    "validation_predictions": "b3f5d2e43b26fb63916d4e29ab597fde4183b3c76e75d4d0a7caeaccc88a368a",
+    "validation_metrics": "beaebb91d9b7043698b5b4580d4af606eac477a985512589e4eb8e99e16af058",
+    "frozen_split": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "model_registry": "66ba9fd3f9e013cb018b596c1d70eb5e7d8d79067ebe3ef6400bec549c38b92e"
+  },
+  "output_sha256": {
+    "uncertainty_metrics.json": "d77c11128cd369577087500df9ab14c0c3f35af92e7e7ba68d5ec2a0ae6f5b1d",
+    "risk_coverage.csv": "9d099e3db50619884f909717162c721a77fccdf5b6e2b01830effb19c8b5d9a6",
+    "melanoma_error_analysis.csv": "922fc6ee9394f6638e56a26d185a010dda61e0c8b9361c5b47cf1f2da774ab08",
+    "validation_uncertainty.csv": "63b09e39799315c6e888ff8ab345fa35721a4ec4142f5bd38ee8249da30f2d33",
+    "reliability_diagram.png": "fcab3e59bbc88b8d30b8c18260923ef2c1da66d503baab5c4f2bf4f7442d1700",
+    "risk_coverage.png": "cdffd3f9d205ee9ba198a33bcbfdf440af241caa901a1b117e60bb622e08cede",
+    "uncertainty_distributions.png": "5aaf21a41311b891001531bde370182669e815d2087f8275cc6a23337ad15341"
+  },
+  "training_performed": false,
+  "inference_performed": false,
+  "ham_test_outcomes_accessed": false,
+  "ph2_outcomes_accessed": false
+}

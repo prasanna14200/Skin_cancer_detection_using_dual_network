@@ -1,0 +1,254 @@
+{
+  "scope": "Exploratory Stage 23 validation error ranking, lesion-grouped out-of-fold",
+  "positive_class": "classification error",
+  "error_prevalence": 0.17038539553752535,
+  "quality_features": [
+    "raw_brightness",
+    "raw_contrast",
+    "raw_sharpness",
+    "raw_saturation",
+    "raw_dark_pixel_ratio",
+    "raw_bright_pixel_ratio",
+    "raw_entropy",
+    "raw_illumination_variation"
+  ],
+  "folds": [
+    {
+      "fold": 0,
+      "train_n": 774,
+      "held_n": 212,
+      "train_errors": 129,
+      "held_errors": 39,
+      "group_overlap": 0
+    },
+    {
+      "fold": 1,
+      "train_n": 794,
+      "held_n": 192,
+      "train_errors": 136,
+      "held_errors": 32,
+      "group_overlap": 0
+    },
+    {
+      "fold": 2,
+      "train_n": 791,
+      "held_n": 195,
+      "train_errors": 136,
+      "held_errors": 32,
+      "group_overlap": 0
+    },
+    {
+      "fold": 3,
+      "train_n": 790,
+      "held_n": 196,
+      "train_errors": 134,
+      "held_errors": 34,
+      "group_overlap": 0
+    },
+    {
+      "fold": 4,
+      "train_n": 795,
+      "held_n": 191,
+      "train_errors": 137,
+      "held_errors": 31,
+      "group_overlap": 0
+    }
+  ],
+  "cv": "StratifiedGroupKFold(5, shuffle=True, random_state=42), grouped by lesion_id",
+  "estimator": "StandardScaler fitted on each training fold + LogisticRegression(C=1, class_weight='balanced', solver='lbfgs', max_iter=2000); no tuning",
+  "entropy_direct": "Original saved predictive entropy, no fit",
+  "risk_convention": "Retain lowest predicted error score, exact ties by ascending image_id; ceil(coverage*n); AURC is mean risk at every k=1..n",
+  "methods": {
+    "entropy_direct": {
+      "auroc": 0.8348687274420771,
+      "average_precision": 0.466027159807276,
+      "aurc": 0.04993986134979692,
+      "risk_coverage": {
+        "1.0": {
+          "retained": 986,
+          "reviewed": 0,
+          "retained_error_rate": 0.17038539553752535,
+          "retained_accuracy": 0.8296146044624746,
+          "errors_reviewed": 0,
+          "fraction_errors_reviewed": 0.0
+        },
+        "0.9": {
+          "retained": 888,
+          "reviewed": 98,
+          "retained_error_rate": 0.13063063063063063,
+          "retained_accuracy": 0.8693693693693694,
+          "errors_reviewed": 52,
+          "fraction_errors_reviewed": 0.30952380952380953
+        },
+        "0.8": {
+          "retained": 789,
+          "reviewed": 197,
+          "retained_error_rate": 0.09125475285171103,
+          "retained_accuracy": 0.908745247148289,
+          "errors_reviewed": 96,
+          "fraction_errors_reviewed": 0.5714285714285714
+        },
+        "0.7": {
+          "retained": 691,
+          "reviewed": 295,
+          "retained_error_rate": 0.07091172214182344,
+          "retained_accuracy": 0.9290882778581766,
+          "errors_reviewed": 119,
+          "fraction_errors_reviewed": 0.7083333333333334
+        },
+        "0.6": {
+          "retained": 592,
+          "reviewed": 394,
+          "retained_error_rate": 0.04391891891891892,
+          "retained_accuracy": 0.956081081081081,
+          "errors_reviewed": 142,
+          "fraction_errors_reviewed": 0.8452380952380952
+        },
+        "0.5": {
+          "retained": 493,
+          "reviewed": 493,
+          "retained_error_rate": 0.032454361054766734,
+          "retained_accuracy": 0.9675456389452333,
+          "errors_reviewed": 152,
+          "fraction_errors_reviewed": 0.9047619047619048
+        }
+      }
+    },
+    "quality_only_oof": {
+      "auroc": 0.7238983001513564,
+      "average_precision": 0.2935614019713934,
+      "aurc": 0.07294762652879196,
+      "risk_coverage": {
+        "1.0": {
+          "retained": 986,
+          "reviewed": 0,
+          "retained_error_rate": 0.17038539553752535,
+          "retained_accuracy": 0.8296146044624746,
+          "errors_reviewed": 0,
+          "fraction_errors_reviewed": 0.0
+        },
+        "0.9": {
+          "retained": 888,
+          "reviewed": 98,
+          "retained_error_rate": 0.15202702702702703,
+          "retained_accuracy": 0.847972972972973,
+          "errors_reviewed": 33,
+          "fraction_errors_reviewed": 0.19642857142857142
+        },
+        "0.8": {
+          "retained": 789,
+          "reviewed": 197,
+          "retained_error_rate": 0.13561470215462612,
+          "retained_accuracy": 0.8643852978453739,
+          "errors_reviewed": 61,
+          "fraction_errors_reviewed": 0.3630952380952381
+        },
+        "0.7": {
+          "retained": 691,
+          "reviewed": 295,
+          "retained_error_rate": 0.12735166425470332,
+          "retained_accuracy": 0.8726483357452967,
+          "errors_reviewed": 80,
+          "fraction_errors_reviewed": 0.47619047619047616
+        },
+        "0.6": {
+          "retained": 592,
+          "reviewed": 394,
+          "retained_error_rate": 0.10472972972972973,
+          "retained_accuracy": 0.8952702702702703,
+          "errors_reviewed": 106,
+          "fraction_errors_reviewed": 0.6309523809523809
+        },
+        "0.5": {
+          "retained": 493,
+          "reviewed": 493,
+          "retained_error_rate": 0.07302231237322515,
+          "retained_accuracy": 0.9269776876267748,
+          "errors_reviewed": 132,
+          "fraction_errors_reviewed": 0.7857142857142857
+        }
+      }
+    },
+    "entropy_plus_quality_oof": {
+      "auroc": 0.8403117359413204,
+      "average_precision": 0.45398285353093826,
+      "aurc": 0.046595334629439426,
+      "risk_coverage": {
+        "1.0": {
+          "retained": 986,
+          "reviewed": 0,
+          "retained_error_rate": 0.17038539553752535,
+          "retained_accuracy": 0.8296146044624746,
+          "errors_reviewed": 0,
+          "fraction_errors_reviewed": 0.0
+        },
+        "0.9": {
+          "retained": 888,
+          "reviewed": 98,
+          "retained_error_rate": 0.13175675675675674,
+          "retained_accuracy": 0.8682432432432432,
+          "errors_reviewed": 51,
+          "fraction_errors_reviewed": 0.30357142857142855
+        },
+        "0.8": {
+          "retained": 789,
+          "reviewed": 197,
+          "retained_error_rate": 0.09505703422053231,
+          "retained_accuracy": 0.9049429657794676,
+          "errors_reviewed": 93,
+          "fraction_errors_reviewed": 0.5535714285714286
+        },
+        "0.7": {
+          "retained": 691,
+          "reviewed": 295,
+          "retained_error_rate": 0.0694645441389291,
+          "retained_accuracy": 0.9305354558610709,
+          "errors_reviewed": 120,
+          "fraction_errors_reviewed": 0.7142857142857143
+        },
+        "0.6": {
+          "retained": 592,
+          "reviewed": 394,
+          "retained_error_rate": 0.048986486486486486,
+          "retained_accuracy": 0.9510135135135135,
+          "errors_reviewed": 139,
+          "fraction_errors_reviewed": 0.8273809523809523
+        },
+        "0.5": {
+          "retained": 493,
+          "reviewed": 493,
+          "retained_error_rate": 0.028397565922920892,
+          "retained_accuracy": 0.9716024340770791,
+          "errors_reviewed": 154,
+          "fraction_errors_reviewed": 0.9166666666666666
+        }
+      }
+    }
+  },
+  "bootstrap": {
+    "seed": 142,
+    "requested_repetitions": 1000,
+    "valid_repetitions": 1000,
+    "convention": "Percentile 95% lesion-cluster bootstrap of fixed OOF scores; no model refit or independent cohort",
+    "auroc_95": {
+      "entropy_direct": [
+        0.8002945668316742,
+        0.8678848698396078
+      ],
+      "quality_only_oof": [
+        0.6856758938252535,
+        0.760240744163119
+      ],
+      "entropy_plus_quality_oof": [
+        0.8092451503358833,
+        0.8687223916752356
+      ]
+    },
+    "combined_minus_entropy_auroc_delta": 0.005443008499243285,
+    "combined_minus_entropy_auroc_delta_95": [
+      -0.007946675416174675,
+      0.017554729885228323
+    ]
+  },
+  "interpretation_limit": "OOF is development-only and not an untouched external estimate; no fitted quality warning threshold is deployed"
+}

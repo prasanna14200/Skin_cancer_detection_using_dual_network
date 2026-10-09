@@ -1,0 +1,25 @@
+{
+  "scope": "Stage 23 selected validation images and saved predictions only",
+  "analysis_source_sha256": "8df67cb4e6a40c6891246537070c77e3f955d422430d5bb8f3bcc155e55926d5",
+  "input_sha256": {
+    "checkpoint": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+    "validation_predictions": "b3f5d2e43b26fb63916d4e29ab597fde4183b3c76e75d4d0a7caeaccc88a368a",
+    "validation_metrics": "beaebb91d9b7043698b5b4580d4af606eac477a985512589e4eb8e99e16af058",
+    "frozen_split": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "model_registry": "66ba9fd3f9e013cb018b596c1d70eb5e7d8d79067ebe3ef6400bec549c38b92e"
+  },
+  "historical_processed_quality_table_sha256": "439310249e0cf1a731b41204c41314adf626e1fb35891dec4a52ba0b695284a7",
+  "output_sha256": {
+    "image_quality_metrics.csv": "d11570bbb11451eea37073b849b6b8db7d4c7549d7efcc71652628a20d2d8455",
+    "quality_ranking_oof.csv": "32649c2e8c76d00c959901ff52f42754d7a502c17fd300085073c0bcfb1e9024",
+    "quality_error_analysis.json": "b6c13583fda5572fc07fdd206398c0460c53448557b0a76dfef4ff423dc730bf",
+    "quality_uncertainty_comparison.json": "0e5e7188572aab9f33fea51c81ff5d3a3c606dedcfe1f40f0ab5df6b5858cb43",
+    "quality_error_distributions.png": "33ad1705cb46193ff0f036cbe1b808aa199b66d0f00855c1960112c9024decb7",
+    "quality_vs_entropy.png": "58d5a606869e0e134a8ae8c99d5e21e848316997d3b8942ad8a364ed5f20833e",
+    "quality_error_rate_analysis.png": "2cdc2bba0ea08e5e04634c4e269640b2d94944e080e3dc5b6961e5034e112be0"
+  },
+  "training_performed": false,
+  "inference_performed": false,
+  "ham_test_outcomes_accessed": false,
+  "ph2_accessed": false
+}

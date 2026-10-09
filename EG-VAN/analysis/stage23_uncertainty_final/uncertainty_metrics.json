@@ -1,0 +1,277 @@
+{
+  "integrity": {
+    "sha256": {
+      "checkpoint": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+      "validation_predictions": "b3f5d2e43b26fb63916d4e29ab597fde4183b3c76e75d4d0a7caeaccc88a368a",
+      "validation_metrics": "beaebb91d9b7043698b5b4580d4af606eac477a985512589e4eb8e99e16af058",
+      "frozen_split": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+      "model_registry": "66ba9fd3f9e013cb018b596c1d70eb5e7d8d79067ebe3ef6400bec549c38b92e"
+    },
+    "manifest_sha256": "94cc6916b93d911cbb0b794b478702960d98e4aab5de1e29b67b0eff02800418",
+    "sample_count": 986,
+    "unique_ids": 986,
+    "split_match": true,
+    "true_labels_match_split": true,
+    "class_order": [
+      "akiec",
+      "bcc",
+      "bkl",
+      "df",
+      "mel",
+      "nv",
+      "vasc"
+    ],
+    "accuracy_recomputed": 0.8296146044624746,
+    "mel_tp": 70,
+    "mel_support": 107,
+    "probability_checks": "all finite, in [0,1], row sums within 1e-5"
+  },
+  "metrics": {
+    "scope": "Stage 23 selected epoch-14 HAM validation only; exploratory",
+    "classification_accuracy": 0.8296146044624746,
+    "errors": 168,
+    "error_prevalence": 0.17038539553752535,
+    "multiclass_brier_sum": 0.2574454247086721,
+    "brier_convention": "Mean over images of sum over seven classes (p_k - 1[y=k])^2; unnormalized seven-class sum",
+    "negative_log_likelihood_nats": 0.5238764496271348,
+    "top_label_ece_10_equal_width": 0.039768377133847246,
+    "ece_convention": "10 bins [i/10,(i+1)/10), last includes 1; sum n_bin/n * abs(mean max-softmax - observed top-label accuracy); empty bins contribute 0",
+    "calibration_bins": [
+      {
+        "lower": 0.0,
+        "upper": 0.1,
+        "upper_inclusive": false,
+        "count": 0,
+        "mean_confidence": null,
+        "empirical_accuracy": null
+      },
+      {
+        "lower": 0.1,
+        "upper": 0.2,
+        "upper_inclusive": false,
+        "count": 0,
+        "mean_confidence": null,
+        "empirical_accuracy": null
+      },
+      {
+        "lower": 0.2,
+        "upper": 0.3,
+        "upper_inclusive": false,
+        "count": 4,
+        "mean_confidence": 0.2600987181067467,
+        "empirical_accuracy": 0.5
+      },
+      {
+        "lower": 0.3,
+        "upper": 0.4,
+        "upper_inclusive": false,
+        "count": 28,
+        "mean_confidence": 0.36348531927381245,
+        "empirical_accuracy": 0.42857142857142855
+      },
+      {
+        "lower": 0.4,
+        "upper": 0.5,
+        "upper_inclusive": false,
+        "count": 65,
+        "mean_confidence": 0.4627799515540783,
+        "empirical_accuracy": 0.5230769230769231
+      },
+      {
+        "lower": 0.5,
+        "upper": 0.6,
+        "upper_inclusive": false,
+        "count": 96,
+        "mean_confidence": 0.5516318585723639,
+        "empirical_accuracy": 0.5625
+      },
+      {
+        "lower": 0.6,
+        "upper": 0.7,
+        "upper_inclusive": false,
+        "count": 109,
+        "mean_confidence": 0.653703296950104,
+        "empirical_accuracy": 0.6513761467889908
+      },
+      {
+        "lower": 0.7,
+        "upper": 0.8,
+        "upper_inclusive": false,
+        "count": 125,
+        "mean_confidence": 0.7511553001403809,
+        "empirical_accuracy": 0.88
+      },
+      {
+        "lower": 0.8,
+        "upper": 0.9,
+        "upper_inclusive": false,
+        "count": 167,
+        "mean_confidence": 0.8542093131356611,
+        "empirical_accuracy": 0.9041916167664671
+      },
+      {
+        "lower": 0.9,
+        "upper": 1.0,
+        "upper_inclusive": true,
+        "count": 392,
+        "mean_confidence": 0.9623452362661459,
+        "empirical_accuracy": 0.9795918367346939
+      }
+    ],
+    "error_detection": {
+      "positive_class": "misclassification",
+      "average_precision_baseline": 0.17038539553752535,
+      "entropy": {
+        "auroc": 0.8348687274420771,
+        "average_precision": 0.466027159807276
+      },
+      "one_minus_msp": {
+        "auroc": 0.8381796483874724,
+        "average_precision": 0.4750066984055202
+      }
+    },
+    "confidence_by_correctness": {
+      "correct": {
+        "n": 818,
+        "mean": 0.8299581031417497,
+        "median": 0.8878068625926971,
+        "q25": 0.7341403663158417,
+        "q75": 0.9668332785367966,
+        "min": 0.2631554901599884,
+        "max": 0.9999624490737915
+      },
+      "incorrect": {
+        "n": 168,
+        "mean": 0.5975593482809407,
+        "median": 0.575910359621048,
+        "q25": 0.48657534271478653,
+        "q75": 0.6943793892860413,
+        "min": 0.22472801804542542,
+        "max": 0.9897330403327942
+      }
+    },
+    "entropy_by_correctness": {
+      "correct": {
+        "n": 818,
+        "mean": 0.46795150660909,
+        "median": 0.4083677403219478,
+        "q25": 0.1696643512253898,
+        "q75": 0.6940672696115104,
+        "min": 0.00046134160994339244,
+        "max": 1.62235294578845
+      },
+      "incorrect": {
+        "n": 168,
+        "mean": 0.936403394694787,
+        "median": 0.9531971174986844,
+        "q25": 0.6961909097443413,
+        "q75": 1.1523174573560797,
+        "min": 0.06289606386033379,
+        "max": 1.7445136856567105
+      }
+    },
+    "normalized_entropy_definition": "Shannon entropy in nats divided by ln(7)",
+    "normalized_entropy_by_correctness": {
+      "correct": {
+        "n": 818,
+        "mean": 0.24047950355583878,
+        "median": 0.20985950482872978,
+        "q25": 0.087190228853967,
+        "q75": 0.35668001934645405,
+        "min": 0.00023708268861610148,
+        "max": 0.8337244895793665
+      },
+      "incorrect": {
+        "n": 168,
+        "mean": 0.4812161523230585,
+        "median": 0.4898464186341984,
+        "q25": 0.35777135449050573,
+        "q75": 0.5921740312190152,
+        "min": 0.03232218295940752,
+        "max": 0.8965026913003279
+      }
+    },
+    "interpretation": "Softmax scores are uncalibrated research scores, not clinical probabilities; all results reuse the selection validation set"
+  },
+  "selective_prediction": {
+    "scope": "Exploratory Stage 23 validation selective prediction; no cutoff promoted",
+    "coverage_targets": [
+      1.0,
+      0.9,
+      0.8,
+      0.7,
+      0.6,
+      0.5
+    ],
+    "retained_count_rule": "ceil(target_coverage * 986), therefore actual coverage is at least target",
+    "score_and_order": "Retain lowest entropy or lowest 1-max-softmax; exact ties broken by ascending image_id",
+    "retained_macro_f1_convention": "Fixed seven-class macro F1; absent classes have F1=0 via zero_division=0",
+    "retained_mel_recall_denominator": "Number of true MEL cases retained, shown in retained_mel_true_count; null if zero. Not 107 unless coverage=100%.",
+    "aurc_convention": "Discrete mean of retained error rate for every prefix k=1..N, i.e. sum_{k=1}^N risk(k)/N; no k=0 point or trapezoidal interpolation",
+    "aurc": {
+      "entropy": 0.04993986134979692,
+      "maximum_softmax_confidence": 0.049692303445287966,
+      "random_review_mean": 0.17077327258298994
+    },
+    "random_baseline": {
+      "seed": 42,
+      "repetitions": 500,
+      "order": "Uniform permutation of fixed saved-prediction row order per repetition; averages reported",
+      "expected_risk_at_each_coverage": 0.17038539553752535
+    }
+  },
+  "melanoma": {
+    "mel_total": 107,
+    "mel_correct": 70,
+    "mel_false_negatives": 37,
+    "mel_to_nv": 26,
+    "correct_mel_confidence": {
+      "n": 70,
+      "mean": 0.7103240894419807,
+      "median": 0.7197273075580597,
+      "q25": 0.5572320818901062,
+      "q75": 0.8712090700864792,
+      "min": 0.3373417258262634,
+      "max": 0.9803609251976013
+    },
+    "false_negative_confidence": {
+      "n": 37,
+      "mean": 0.67078458779567,
+      "median": 0.6892240047454834,
+      "q25": 0.5472148656845093,
+      "q75": 0.7786198854446411,
+      "min": 0.31293773651123047,
+      "max": 0.9897330403327942
+    },
+    "correct_mel_entropy": {
+      "n": 70,
+      "mean": 0.6814339409279955,
+      "median": 0.6810532709819709,
+      "q25": 0.46396340153291965,
+      "q75": 0.8176591219869529,
+      "min": 0.11230002949172667,
+      "max": 1.6107369533815326
+    },
+    "false_negative_entropy": {
+      "n": 37,
+      "mean": 0.7827503276021973,
+      "median": 0.7157814848280941,
+      "q25": 0.5525791554903534,
+      "q75": 0.960394215003646,
+      "min": 0.06289606386033379,
+      "max": 1.5282836580211772
+    },
+    "mel_error_detection": {
+      "entropy_auroc_for_mel_false_negative_vs_correct_mel": 0.5926640926640927,
+      "entropy_average_precision_for_mel_false_negative_vs_correct_mel": 0.43418528210894203,
+      "comparison_scope": "Among 107 true MEL only; positive means MEL false negative"
+    },
+    "low_entropy_false_negatives_vs_correct_mel_median": 15,
+    "median_entropy_correct_mel": 0.6810532709819709,
+    "low_entropy_definition": "FN entropy <= median entropy of correctly classified true MEL; descriptive overlap, not review cutoff"
+  },
+  "training_performed": false,
+  "inference_performed": false,
+  "ham_test_outcomes_accessed": false,
+  "ph2_outcomes_accessed": false
+}
