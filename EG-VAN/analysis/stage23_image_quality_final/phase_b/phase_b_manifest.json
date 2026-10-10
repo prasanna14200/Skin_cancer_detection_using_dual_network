@@ -1,0 +1,40 @@
+{
+  "status": "COMPLETE_BOUNDED_SAMPLE",
+  "input_and_source_sha256": {
+    "checkpoint": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+    "frozen_split": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "validation_predictions": "b3f5d2e43b26fb63916d4e29ab597fde4183b3c76e75d4d0a7caeaccc88a368a",
+    "model_registry": "66ba9fd3f9e013cb018b596c1d70eb5e7d8d79067ebe3ef6400bec549c38b92e",
+    "preprocessing_source": "cf0a176a610b52ba45b0e91761b027a560252234f81f7b6fd572f02d8baab6ed",
+    "frozen_loader_source": "2a851a2c9f2eb59e15f9fe9e2f325c7dbd496d302437be5c7a74d37e2525aa37",
+    "protocol": "9334e1ab58c9c2ac530488cbddcfd66a96018310067b8ff24dc59194fa8d4169",
+    "runner": "025c97b9425f7c3ff9029b964c843db15e178a82025a53e285cb66ed7101274b",
+    "analysis": "af4f71d8809efaaf667512f9b4c858ff268b2e9a66e439a4f9353197d0004547",
+    "protocol_markdown": "d78000c97abc0a206b7f5ea6e28aa0ae40e7a00a602657ca6ddb714e18583981",
+    "protocol_freezer": "50de199f2657a7b3e8b5d7100266ef5890050ff5ab4a0562bc4ab1c0f4f16b72"
+  },
+  "output_sha256": {
+    "phase_b_predictions.csv": "0f4f5c270a6edee4eda40bc38bb6bf2644e0e048bd62ff85d082a2d72f93d66d",
+    "phase_b_summary.csv": "935855769a605211729da61d5cbb27a8dad17ba814f4ff408c11c39d533727da",
+    "phase_b_melanoma_analysis.csv": "839df9b7bce6952624743e0add6d82d93da09eac3a57e7ee1a728422d19915e4",
+    "phase_b_statistical_results.json": "75c0b60ce55ff90ab545db06c25eeb419e32407b2b18c3da6fdcc3ce88c45abd",
+    "phase_b_robustness_curves.png": "959e50caf06a01bb0681ad49a16c035dadcf9c2c01da80c01df1f24bb3e2ab60",
+    "phase_b_prediction_transitions.png": "8266048e901f37aab8f16e8c288ac4615b21cc9c7cf6166acd812fa9cdc3a913",
+    "phase_b_melanoma_robustness.png": "25c2c888b7a50a79d50e5f56f5edcb82daec1ad73c0bbb352a68db95f84eb4ef",
+    "FINAL_PHASE_B_REPORT.md": "f97a20b60dd5a268e8cdcbdb392e27855abdfc52884f61b1b5c0a8e9311c155f"
+  },
+  "sample_size": 21,
+  "distinct_lesions": 21,
+  "conditions": [
+    "baseline",
+    "blur_r1",
+    "blur_r2",
+    "underexposure_070",
+    "overexposure_130",
+    "contrast_070",
+    "jpeg_q40"
+  ],
+  "predictions": 147,
+  "training_performed": false,
+  "test_or_ph2_accessed": false
+}

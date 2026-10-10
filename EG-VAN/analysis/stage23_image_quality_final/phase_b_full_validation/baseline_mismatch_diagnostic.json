@@ -1,0 +1,487 @@
+{
+  "scope": "controlled validation-only diagnosis",
+  "device": "cpu",
+  "torch_version": "2.11.0+cpu",
+  "checkpoint_sha256_before": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "cases": {
+    "ISIC_0029017": {
+      "true_class": "mel",
+      "lesion_id": "HAM_0004980",
+      "raw_sha256": "77f39913ea8c76193c3a519ff7eee8f63c5b5abc4c72eecea1fa5a7ad5109185",
+      "processed_sha256": "9b99b67bf09ab0ddb48b5a469a5b7518b7bd98c830a68ba4b6a53bf06a3b6a6e",
+      "raw_shape": [
+        450,
+        600,
+        3
+      ],
+      "processed_shape": [
+        450,
+        600,
+        3
+      ],
+      "regenerated_processed_pixel_identical": true,
+      "regenerated_processed_max_pixel_delta": 0,
+      "reference": {
+        "probabilities": {
+          "akiec": 1.8035003677141503e-06,
+          "bcc": 3.722844849107787e-05,
+          "bkl": 0.0002874412457458675,
+          "df": 1.3430684703052975e-05,
+          "mel": 0.5212307572364807,
+          "nv": 0.4783082604408264,
+          "vasc": 0.00012111744581488892
+        },
+        "predicted_class": "mel",
+        "top_two": [
+          {
+            "class": "mel",
+            "probability": 0.5212307572364807
+          },
+          {
+            "class": "nv",
+            "probability": 0.4783082604408264
+          }
+        ],
+        "top_two_margin": 0.0429224967956543
+      },
+      "raw_replay": [
+        {
+          "probabilities": {
+            "akiec": 1.8106280776919448e-06,
+            "bcc": 3.719139931490645e-05,
+            "bkl": 0.00028924114303663373,
+            "df": 1.3345051229407545e-05,
+            "mel": 0.52067631483078,
+            "nv": 0.47886210680007935,
+            "vasc": 0.000119960997835733
+          },
+          "predicted_class": "mel",
+          "top_two": [
+            {
+              "class": "mel",
+              "probability": 0.52067631483078
+            },
+            {
+              "class": "nv",
+              "probability": 0.47886210680007935
+            }
+          ],
+          "top_two_margin": 0.041814208030700684
+        },
+        {
+          "probabilities": {
+            "akiec": 1.8106280776919448e-06,
+            "bcc": 3.719139931490645e-05,
+            "bkl": 0.00028924114303663373,
+            "df": 1.3345051229407545e-05,
+            "mel": 0.52067631483078,
+            "nv": 0.47886210680007935,
+            "vasc": 0.000119960997835733
+          },
+          "predicted_class": "mel",
+          "top_two": [
+            {
+              "class": "mel",
+              "probability": 0.52067631483078
+            },
+            {
+              "class": "nv",
+              "probability": 0.47886210680007935
+            }
+          ],
+          "top_two_margin": 0.041814208030700684
+        }
+      ],
+      "direct_processed_replay": [
+        {
+          "probabilities": {
+            "akiec": 1.8106280776919448e-06,
+            "bcc": 3.719139931490645e-05,
+            "bkl": 0.00028924114303663373,
+            "df": 1.3345051229407545e-05,
+            "mel": 0.52067631483078,
+            "nv": 0.47886210680007935,
+            "vasc": 0.000119960997835733
+          },
+          "predicted_class": "mel",
+          "top_two": [
+            {
+              "class": "mel",
+              "probability": 0.52067631483078
+            },
+            {
+              "class": "nv",
+              "probability": 0.47886210680007935
+            }
+          ],
+          "top_two_margin": 0.041814208030700684
+        },
+        {
+          "probabilities": {
+            "akiec": 1.8106280776919448e-06,
+            "bcc": 3.719139931490645e-05,
+            "bkl": 0.00028924114303663373,
+            "df": 1.3345051229407545e-05,
+            "mel": 0.52067631483078,
+            "nv": 0.47886210680007935,
+            "vasc": 0.000119960997835733
+          },
+          "predicted_class": "mel",
+          "top_two": [
+            {
+              "class": "mel",
+              "probability": 0.52067631483078
+            },
+            {
+              "class": "nv",
+              "probability": 0.47886210680007935
+            }
+          ],
+          "top_two_margin": 0.041814208030700684
+        }
+      ],
+      "max_abs_probability_delta": 0.0005544424057006836,
+      "raw_repeats_exact": true,
+      "direct_repeats_exact": true,
+      "raw_equals_direct": true
+    },
+    "ISIC_0029026": {
+      "true_class": "nv",
+      "lesion_id": "HAM_0002905",
+      "raw_sha256": "12db355827e7056441e62a1d9b9fa98274ff32cdb51091f6e1f777006617a5e2",
+      "processed_sha256": "f3ab1591eb8e82f6c9430aa5d8aeefdab9f58e90a9f5d77f2f12873f3ddd9469",
+      "raw_shape": [
+        450,
+        600,
+        3
+      ],
+      "processed_shape": [
+        450,
+        600,
+        3
+      ],
+      "regenerated_processed_pixel_identical": true,
+      "regenerated_processed_max_pixel_delta": 0,
+      "reference": {
+        "probabilities": {
+          "akiec": 0.03324944153428078,
+          "bcc": 0.055154673755168915,
+          "bkl": 0.4337192475795746,
+          "df": 0.0005138191627338529,
+          "mel": 0.04075547680258751,
+          "nv": 0.4345671534538269,
+          "vasc": 0.0020401482470333576
+        },
+        "predicted_class": "nv",
+        "top_two": [
+          {
+            "class": "nv",
+            "probability": 0.4345671534538269
+          },
+          {
+            "class": "bkl",
+            "probability": 0.4337192475795746
+          }
+        ],
+        "top_two_margin": 0.0008479058742523193
+      },
+      "raw_replay": [
+        {
+          "probabilities": {
+            "akiec": 0.03326711431145668,
+            "bcc": 0.0547126866877079,
+            "bkl": 0.436536967754364,
+            "df": 0.0005110913189128041,
+            "mel": 0.040547873824834824,
+            "nv": 0.43240123987197876,
+            "vasc": 0.0020231197122484446
+          },
+          "predicted_class": "bkl",
+          "top_two": [
+            {
+              "class": "bkl",
+              "probability": 0.436536967754364
+            },
+            {
+              "class": "nv",
+              "probability": 0.43240123987197876
+            }
+          ],
+          "top_two_margin": 0.004135727882385254
+        },
+        {
+          "probabilities": {
+            "akiec": 0.03326711431145668,
+            "bcc": 0.0547126866877079,
+            "bkl": 0.436536967754364,
+            "df": 0.0005110913189128041,
+            "mel": 0.040547873824834824,
+            "nv": 0.43240123987197876,
+            "vasc": 0.0020231197122484446
+          },
+          "predicted_class": "bkl",
+          "top_two": [
+            {
+              "class": "bkl",
+              "probability": 0.436536967754364
+            },
+            {
+              "class": "nv",
+              "probability": 0.43240123987197876
+            }
+          ],
+          "top_two_margin": 0.004135727882385254
+        },
+        {
+          "probabilities": {
+            "akiec": 0.03326711431145668,
+            "bcc": 0.0547126866877079,
+            "bkl": 0.436536967754364,
+            "df": 0.0005110913189128041,
+            "mel": 0.040547873824834824,
+            "nv": 0.43240123987197876,
+            "vasc": 0.0020231197122484446
+          },
+          "predicted_class": "bkl",
+          "top_two": [
+            {
+              "class": "bkl",
+              "probability": 0.436536967754364
+            },
+            {
+              "class": "nv",
+              "probability": 0.43240123987197876
+            }
+          ],
+          "top_two_margin": 0.004135727882385254
+        }
+      ],
+      "direct_processed_replay": [
+        {
+          "probabilities": {
+            "akiec": 0.03326711431145668,
+            "bcc": 0.0547126866877079,
+            "bkl": 0.436536967754364,
+            "df": 0.0005110913189128041,
+            "mel": 0.040547873824834824,
+            "nv": 0.43240123987197876,
+            "vasc": 0.0020231197122484446
+          },
+          "predicted_class": "bkl",
+          "top_two": [
+            {
+              "class": "bkl",
+              "probability": 0.436536967754364
+            },
+            {
+              "class": "nv",
+              "probability": 0.43240123987197876
+            }
+          ],
+          "top_two_margin": 0.004135727882385254
+        },
+        {
+          "probabilities": {
+            "akiec": 0.03326711431145668,
+            "bcc": 0.0547126866877079,
+            "bkl": 0.436536967754364,
+            "df": 0.0005110913189128041,
+            "mel": 0.040547873824834824,
+            "nv": 0.43240123987197876,
+            "vasc": 0.0020231197122484446
+          },
+          "predicted_class": "bkl",
+          "top_two": [
+            {
+              "class": "bkl",
+              "probability": 0.436536967754364
+            },
+            {
+              "class": "nv",
+              "probability": 0.43240123987197876
+            }
+          ],
+          "top_two_margin": 0.004135727882385254
+        },
+        {
+          "probabilities": {
+            "akiec": 0.03326711431145668,
+            "bcc": 0.0547126866877079,
+            "bkl": 0.436536967754364,
+            "df": 0.0005110913189128041,
+            "mel": 0.040547873824834824,
+            "nv": 0.43240123987197876,
+            "vasc": 0.0020231197122484446
+          },
+          "predicted_class": "bkl",
+          "top_two": [
+            {
+              "class": "bkl",
+              "probability": 0.436536967754364
+            },
+            {
+              "class": "nv",
+              "probability": 0.43240123987197876
+            }
+          ],
+          "top_two_margin": 0.004135727882385254
+        }
+      ],
+      "max_abs_probability_delta": 0.0028177201747894287,
+      "raw_repeats_exact": true,
+      "direct_repeats_exact": true,
+      "raw_equals_direct": true
+    },
+    "ISIC_0029036": {
+      "true_class": "bkl",
+      "lesion_id": "HAM_0000955",
+      "raw_sha256": "88bc9a4ac18d63429684b48cae839bb1580db77d05e10555a7a6796b6414223f",
+      "processed_sha256": "bfeaea661cadf35fb51cdb2429a3b2f0ce4985aa05b12d59b4a9a4e704ccdb4b",
+      "raw_shape": [
+        450,
+        600,
+        3
+      ],
+      "processed_shape": [
+        450,
+        600,
+        3
+      ],
+      "regenerated_processed_pixel_identical": true,
+      "regenerated_processed_max_pixel_delta": 0,
+      "reference": {
+        "probabilities": {
+          "akiec": 0.004406298045068979,
+          "bcc": 0.00020611044601537287,
+          "bkl": 0.9553360342979431,
+          "df": 0.0001370312529616058,
+          "mel": 0.012031779624521732,
+          "nv": 0.02785206027328968,
+          "vasc": 3.075549102504738e-05
+        },
+        "predicted_class": "bkl",
+        "top_two": [
+          {
+            "class": "bkl",
+            "probability": 0.9553360342979431
+          },
+          {
+            "class": "nv",
+            "probability": 0.02785206027328968
+          }
+        ],
+        "top_two_margin": 0.9274839740246534
+      },
+      "raw_replay": [
+        {
+          "probabilities": {
+            "akiec": 0.00441081915050745,
+            "bcc": 0.00020640074217226356,
+            "bkl": 0.95536869764328,
+            "df": 0.0001368614612147212,
+            "mel": 0.012063805013895035,
+            "nv": 0.027782775461673737,
+            "vasc": 3.071078390348703e-05
+          },
+          "predicted_class": "bkl",
+          "top_two": [
+            {
+              "class": "bkl",
+              "probability": 0.95536869764328
+            },
+            {
+              "class": "nv",
+              "probability": 0.027782775461673737
+            }
+          ],
+          "top_two_margin": 0.9275859221816063
+        },
+        {
+          "probabilities": {
+            "akiec": 0.00441081915050745,
+            "bcc": 0.00020640074217226356,
+            "bkl": 0.95536869764328,
+            "df": 0.0001368614612147212,
+            "mel": 0.012063805013895035,
+            "nv": 0.027782775461673737,
+            "vasc": 3.071078390348703e-05
+          },
+          "predicted_class": "bkl",
+          "top_two": [
+            {
+              "class": "bkl",
+              "probability": 0.95536869764328
+            },
+            {
+              "class": "nv",
+              "probability": 0.027782775461673737
+            }
+          ],
+          "top_two_margin": 0.9275859221816063
+        }
+      ],
+      "direct_processed_replay": [
+        {
+          "probabilities": {
+            "akiec": 0.00441081915050745,
+            "bcc": 0.00020640074217226356,
+            "bkl": 0.95536869764328,
+            "df": 0.0001368614612147212,
+            "mel": 0.012063805013895035,
+            "nv": 0.027782775461673737,
+            "vasc": 3.071078390348703e-05
+          },
+          "predicted_class": "bkl",
+          "top_two": [
+            {
+              "class": "bkl",
+              "probability": 0.95536869764328
+            },
+            {
+              "class": "nv",
+              "probability": 0.027782775461673737
+            }
+          ],
+          "top_two_margin": 0.9275859221816063
+        },
+        {
+          "probabilities": {
+            "akiec": 0.00441081915050745,
+            "bcc": 0.00020640074217226356,
+            "bkl": 0.95536869764328,
+            "df": 0.0001368614612147212,
+            "mel": 0.012063805013895035,
+            "nv": 0.027782775461673737,
+            "vasc": 3.071078390348703e-05
+          },
+          "predicted_class": "bkl",
+          "top_two": [
+            {
+              "class": "bkl",
+              "probability": 0.95536869764328
+            },
+            {
+              "class": "nv",
+              "probability": 0.027782775461673737
+            }
+          ],
+          "top_two_margin": 0.9275859221816063
+        }
+      ],
+      "max_abs_probability_delta": 6.928481161594391e-05,
+      "raw_repeats_exact": true,
+      "direct_repeats_exact": true,
+      "raw_equals_direct": true
+    }
+  },
+  "checkpoint_sha256_after": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab"
+}

@@ -1,0 +1,2 @@
+image_id,lesion_id,true_class,condition,predicted_class,correct,confidence,entropy_nats,probabilities,baseline_reference_predicted_class,baseline_max_abs_probability_delta,processing_status
+ISIC_0024321,HAM_0003511,nv,baseline,nv,1,0.85562419891357422,0.54353892494979161,"[0.006838480941951275, 0.10760959982872009, 0.0056642876006662846, 0.01820824109017849, 0.0011750463163480163, 0.8556241989135742, 0.0048801954835653305]",nv,0.00019735842943191528,success

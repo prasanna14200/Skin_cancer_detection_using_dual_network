@@ -1,0 +1,714 @@
+{
+  "status": "COMPLETE_BOUNDED_SAMPLE",
+  "scope": "21 class-balanced validation images, 21 lesions; raw pre-preprocessing synthetic degradations",
+  "baseline": {
+    "argmax_matches_saved": 21,
+    "max_abs_probability_delta": 0.001466155052185,
+    "processed_pixel_identity": "required and passed for all 21 by inference runner"
+  },
+  "conditions": [
+    {
+      "condition": "baseline",
+      "images": 21,
+      "lesions": 21,
+      "accuracy": 0.7142857142857143,
+      "correct": 15,
+      "accuracy_delta_from_baseline": 0.0,
+      "mel_support": 3,
+      "mel_recall": 1.0,
+      "mel_correct": 3,
+      "mel_false_negatives": 0,
+      "mel_to_nv": 0,
+      "prediction_flips": 0,
+      "prediction_flip_rate": 0.0,
+      "correct_to_incorrect": 0,
+      "incorrect_to_correct": 0,
+      "mean_entropy_nats": 0.6957560057621232,
+      "median_entropy_nats": 0.7802840651339078,
+      "mean_entropy_delta": 0.0,
+      "median_entropy_delta": 0.0
+    },
+    {
+      "condition": "blur_r1",
+      "images": 21,
+      "lesions": 21,
+      "accuracy": 0.3333333333333333,
+      "correct": 7,
+      "accuracy_delta_from_baseline": -0.38095238095238093,
+      "mel_support": 3,
+      "mel_recall": 0.3333333333333333,
+      "mel_correct": 1,
+      "mel_false_negatives": 2,
+      "mel_to_nv": 2,
+      "prediction_flips": 10,
+      "prediction_flip_rate": 0.47619047619047616,
+      "correct_to_incorrect": 8,
+      "incorrect_to_correct": 0,
+      "mean_entropy_nats": 0.6742271036402653,
+      "median_entropy_nats": 0.7334611853316123,
+      "mean_entropy_delta": -0.021528902121857846,
+      "median_entropy_delta": 0.032042051026676906
+    },
+    {
+      "condition": "blur_r2",
+      "images": 21,
+      "lesions": 21,
+      "accuracy": 0.23809523809523808,
+      "correct": 5,
+      "accuracy_delta_from_baseline": -0.47619047619047616,
+      "mel_support": 3,
+      "mel_recall": 0.0,
+      "mel_correct": 0,
+      "mel_false_negatives": 3,
+      "mel_to_nv": 3,
+      "prediction_flips": 12,
+      "prediction_flip_rate": 0.5714285714285714,
+      "correct_to_incorrect": 10,
+      "incorrect_to_correct": 0,
+      "mean_entropy_nats": 0.9357955699806153,
+      "median_entropy_nats": 1.0435584504552011,
+      "mean_entropy_delta": 0.24003956421849207,
+      "median_entropy_delta": 0.04107893430947518
+    },
+    {
+      "condition": "underexposure_070",
+      "images": 21,
+      "lesions": 21,
+      "accuracy": 0.6666666666666666,
+      "correct": 14,
+      "accuracy_delta_from_baseline": -0.047619047619047616,
+      "mel_support": 3,
+      "mel_recall": 0.6666666666666666,
+      "mel_correct": 2,
+      "mel_false_negatives": 1,
+      "mel_to_nv": 1,
+      "prediction_flips": 3,
+      "prediction_flip_rate": 0.14285714285714285,
+      "correct_to_incorrect": 1,
+      "incorrect_to_correct": 0,
+      "mean_entropy_nats": 0.6908924475743108,
+      "median_entropy_nats": 0.7107902680190334,
+      "mean_entropy_delta": -0.0048635581878123495,
+      "median_entropy_delta": 0.0064341543143817
+    },
+    {
+      "condition": "overexposure_130",
+      "images": 21,
+      "lesions": 21,
+      "accuracy": 0.6666666666666666,
+      "correct": 14,
+      "accuracy_delta_from_baseline": -0.047619047619047616,
+      "mel_support": 3,
+      "mel_recall": 1.0,
+      "mel_correct": 3,
+      "mel_false_negatives": 0,
+      "mel_to_nv": 0,
+      "prediction_flips": 5,
+      "prediction_flip_rate": 0.23809523809523808,
+      "correct_to_incorrect": 2,
+      "incorrect_to_correct": 1,
+      "mean_entropy_nats": 0.8248353547744542,
+      "median_entropy_nats": 0.8883005580167507,
+      "mean_entropy_delta": 0.12907934901233137,
+      "median_entropy_delta": 0.038953916893539775
+    },
+    {
+      "condition": "contrast_070",
+      "images": 21,
+      "lesions": 21,
+      "accuracy": 0.6666666666666666,
+      "correct": 14,
+      "accuracy_delta_from_baseline": -0.047619047619047616,
+      "mel_support": 3,
+      "mel_recall": 0.6666666666666666,
+      "mel_correct": 2,
+      "mel_false_negatives": 1,
+      "mel_to_nv": 1,
+      "prediction_flips": 3,
+      "prediction_flip_rate": 0.14285714285714285,
+      "correct_to_incorrect": 1,
+      "incorrect_to_correct": 0,
+      "mean_entropy_nats": 0.6406031757339659,
+      "median_entropy_nats": 0.6942649917829302,
+      "mean_entropy_delta": -0.05515283002815717,
+      "median_entropy_delta": 0.004216520906490495
+    },
+    {
+      "condition": "jpeg_q40",
+      "images": 21,
+      "lesions": 21,
+      "accuracy": 0.5714285714285714,
+      "correct": 12,
+      "accuracy_delta_from_baseline": -0.14285714285714285,
+      "mel_support": 3,
+      "mel_recall": 0.6666666666666666,
+      "mel_correct": 2,
+      "mel_false_negatives": 1,
+      "mel_to_nv": 1,
+      "prediction_flips": 6,
+      "prediction_flip_rate": 0.2857142857142857,
+      "correct_to_incorrect": 4,
+      "incorrect_to_correct": 1,
+      "mean_entropy_nats": 0.9633629055440368,
+      "median_entropy_nats": 0.9032176427894046,
+      "mean_entropy_delta": 0.2676068997819138,
+      "median_entropy_delta": 0.21519826945088627
+    }
+  ],
+  "paired_lesion_bootstrap_95": {
+    "baseline": {
+      "all_lesions": {
+        "accuracy_delta": [
+          0.0,
+          0.0
+        ],
+        "flip_rate": [
+          0.0,
+          0.0
+        ],
+        "mean_entropy_delta": [
+          0.0,
+          0.0
+        ]
+      },
+      "melanoma_lesions": {
+        "accuracy_delta": [
+          0.0,
+          0.0
+        ],
+        "flip_rate": [
+          0.0,
+          0.0
+        ],
+        "mean_entropy_delta": [
+          0.0,
+          0.0
+        ],
+        "mel_recall_delta": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "blur_r1": {
+      "all_lesions": {
+        "accuracy_delta": [
+          -0.5714285714285714,
+          -0.19047619047619047
+        ],
+        "flip_rate": [
+          0.2857142857142857,
+          0.6666666666666666
+        ],
+        "mean_entropy_delta": [
+          -0.21944595762869934,
+          0.18632585973382682
+        ]
+      },
+      "melanoma_lesions": {
+        "accuracy_delta": [
+          -1.0,
+          0.0
+        ],
+        "flip_rate": [
+          0.0,
+          1.0
+        ],
+        "mean_entropy_delta": [
+          -0.04682287980229549,
+          0.6099461827623399
+        ],
+        "mel_recall_delta": [
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    "blur_r2": {
+      "all_lesions": {
+        "accuracy_delta": [
+          -0.7142857142857143,
+          -0.23809523809523808
+        ],
+        "flip_rate": [
+          0.3333333333333333,
+          0.8095238095238095
+        ],
+        "mean_entropy_delta": [
+          -0.03307643822851167,
+          0.5210782212649129
+        ]
+      },
+      "melanoma_lesions": {
+        "accuracy_delta": [
+          -1.0,
+          -1.0
+        ],
+        "flip_rate": [
+          1.0,
+          1.0
+        ],
+        "mean_entropy_delta": [
+          -0.1608010471133713,
+          0.9097685390676041
+        ],
+        "mel_recall_delta": [
+          -1.0,
+          -1.0
+        ]
+      }
+    },
+    "underexposure_070": {
+      "all_lesions": {
+        "accuracy_delta": [
+          -0.14285714285714285,
+          0.0
+        ],
+        "flip_rate": [
+          0.0,
+          0.2857142857142857
+        ],
+        "mean_entropy_delta": [
+          -0.10175829915515529,
+          0.09527550452075703
+        ]
+      },
+      "melanoma_lesions": {
+        "accuracy_delta": [
+          -1.0,
+          0.0
+        ],
+        "flip_rate": [
+          0.0,
+          1.0
+        ],
+        "mean_entropy_delta": [
+          0.07480296849719781,
+          0.22811995364301252
+        ],
+        "mel_recall_delta": [
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    "overexposure_130": {
+      "all_lesions": {
+        "accuracy_delta": [
+          -0.19047619047619047,
+          0.09523809523809523
+        ],
+        "flip_rate": [
+          0.047619047619047616,
+          0.42857142857142855
+        ],
+        "mean_entropy_delta": [
+          -0.09126177182807332,
+          0.37100256383375796
+        ]
+      },
+      "melanoma_lesions": {
+        "accuracy_delta": [
+          0.0,
+          0.0
+        ],
+        "flip_rate": [
+          0.0,
+          0.0
+        ],
+        "mean_entropy_delta": [
+          0.0016044485970573008,
+          0.18560668467270436
+        ],
+        "mel_recall_delta": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "contrast_070": {
+      "all_lesions": {
+        "accuracy_delta": [
+          -0.14285714285714285,
+          0.0
+        ],
+        "flip_rate": [
+          0.0,
+          0.2857142857142857
+        ],
+        "mean_entropy_delta": [
+          -0.15849212303641064,
+          0.04568807206575144
+        ]
+      },
+      "melanoma_lesions": {
+        "accuracy_delta": [
+          -1.0,
+          0.0
+        ],
+        "flip_rate": [
+          0.0,
+          1.0
+        ],
+        "mean_entropy_delta": [
+          0.05827769226109458,
+          0.21512266463833843
+        ],
+        "mel_recall_delta": [
+          -1.0,
+          0.0
+        ]
+      }
+    },
+    "jpeg_q40": {
+      "all_lesions": {
+        "accuracy_delta": [
+          -0.3333333333333333,
+          0.047619047619047616
+        ],
+        "flip_rate": [
+          0.09523809523809523,
+          0.47619047619047616
+        ],
+        "mean_entropy_delta": [
+          0.06889106475892204,
+          0.4510691131344479
+        ]
+      },
+      "melanoma_lesions": {
+        "accuracy_delta": [
+          -1.0,
+          0.0
+        ],
+        "flip_rate": [
+          0.0,
+          1.0
+        ],
+        "mean_entropy_delta": [
+          0.0027161792258009188,
+          0.1308974682087287
+        ],
+        "mel_recall_delta": [
+          -1.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "per_class": {
+    "baseline": {
+      "akiec": {
+        "n": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "flips": 0
+      },
+      "bcc": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "flips": 0
+      },
+      "bkl": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "flips": 0
+      },
+      "df": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "flips": 0
+      },
+      "mel": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "flips": 0
+      },
+      "nv": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "flips": 0
+      },
+      "vasc": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "flips": 0
+      }
+    },
+    "blur_r1": {
+      "akiec": {
+        "n": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "flips": 1
+      },
+      "bcc": {
+        "n": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "flips": 2
+      },
+      "bkl": {
+        "n": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "flips": 3
+      },
+      "df": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333,
+        "flips": 1
+      },
+      "mel": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333,
+        "flips": 2
+      },
+      "nv": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "flips": 0
+      },
+      "vasc": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "flips": 1
+      }
+    },
+    "blur_r2": {
+      "akiec": {
+        "n": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "flips": 1
+      },
+      "bcc": {
+        "n": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "flips": 2
+      },
+      "bkl": {
+        "n": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "flips": 3
+      },
+      "df": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333,
+        "flips": 1
+      },
+      "mel": {
+        "n": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "flips": 3
+      },
+      "nv": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "flips": 0
+      },
+      "vasc": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333,
+        "flips": 2
+      }
+    },
+    "underexposure_070": {
+      "akiec": {
+        "n": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "flips": 1
+      },
+      "bcc": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "flips": 0
+      },
+      "bkl": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "flips": 1
+      },
+      "df": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "flips": 0
+      },
+      "mel": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "flips": 1
+      },
+      "nv": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "flips": 0
+      },
+      "vasc": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "flips": 0
+      }
+    },
+    "overexposure_130": {
+      "akiec": {
+        "n": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "flips": 1
+      },
+      "bcc": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333,
+        "flips": 1
+      },
+      "bkl": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333,
+        "flips": 2
+      },
+      "df": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "flips": 1
+      },
+      "mel": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "flips": 0
+      },
+      "nv": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "flips": 0
+      },
+      "vasc": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "flips": 0
+      }
+    },
+    "contrast_070": {
+      "akiec": {
+        "n": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "flips": 1
+      },
+      "bcc": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "flips": 0
+      },
+      "bkl": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "flips": 1
+      },
+      "df": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "flips": 0
+      },
+      "mel": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "flips": 1
+      },
+      "nv": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "flips": 0
+      },
+      "vasc": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "flips": 0
+      }
+    },
+    "jpeg_q40": {
+      "akiec": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333,
+        "flips": 1
+      },
+      "bcc": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333,
+        "flips": 1
+      },
+      "bkl": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333,
+        "flips": 2
+      },
+      "df": {
+        "n": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333,
+        "flips": 1
+      },
+      "mel": {
+        "n": 3,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "flips": 1
+      },
+      "nv": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "flips": 0
+      },
+      "vasc": {
+        "n": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "flips": 0
+      }
+    }
+  },
+  "bootstrap_seed": 2310,
+  "bootstrap_repetitions": 1000,
+  "interpretation": "Exploratory small class-balanced sample; not an unbiased 986-image validation estimate, not clinical image-quality validation",
+  "training_performed": false,
+  "ham_test_outcomes_accessed": false,
+  "ph2_accessed": false
+}

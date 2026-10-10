@@ -1,0 +1,124 @@
+{
+  "scope": "Stage 23 frozen validation only",
+  "input_sha256": {
+    "image_quality_metrics.csv": "d11570bbb11451eea37073b849b6b8db7d4c7549d7efcc71652628a20d2d8455",
+    "quality_ranking_oof.csv": "32649c2e8c76d00c959901ff52f42754d7a502c17fd300085073c0bcfb1e9024",
+    "frozen_split": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "checkpoint": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+    "validation_predictions": "b3f5d2e43b26fb63916d4e29ab597fde4183b3c76e75d4d0a7caeaccc88a368a"
+  },
+  "images": 986,
+  "lesions": 743,
+  "errors": 168,
+  "class_counts": {
+    "nv": 663,
+    "mel": 107,
+    "bkl": 104,
+    "bcc": 58,
+    "akiec": 30,
+    "vasc": 15,
+    "df": 9
+  },
+  "class_errors": {
+    "akiec": 15,
+    "bcc": 22,
+    "bkl": 49,
+    "df": 4,
+    "mel": 37,
+    "nv": 38,
+    "vasc": 3
+  },
+  "features": {
+    "raw_brightness": {
+      "odds_ratio_per_full_cohort_SD": 1.1578712267313378,
+      "cluster_bootstrap_95": [
+        0.9343572976648175,
+        1.415601710385828
+      ],
+      "valid_replicates": 400,
+      "full_cohort_SD": 19.833744527523425
+    },
+    "raw_contrast": {
+      "odds_ratio_per_full_cohort_SD": 1.2772719074730123,
+      "cluster_bootstrap_95": [
+        1.0049566417636615,
+        1.614429385695586
+      ],
+      "valid_replicates": 400,
+      "full_cohort_SD": 11.346216240479208
+    },
+    "raw_sharpness": {
+      "odds_ratio_per_full_cohort_SD": 1.2025571864889448,
+      "cluster_bootstrap_95": [
+        0.6226409866408005,
+        1.5337477483644382
+      ],
+      "valid_replicates": 400,
+      "full_cohort_SD": 143.58647077999672
+    },
+    "raw_saturation": {
+      "odds_ratio_per_full_cohort_SD": 0.5726570543228695,
+      "cluster_bootstrap_95": [
+        0.4404080272316888,
+        0.7105870940818613
+      ],
+      "valid_replicates": 400,
+      "full_cohort_SD": 0.11846288563965884
+    },
+    "raw_dark_pixel_ratio": {
+      "odds_ratio_per_full_cohort_SD": 1.1783380912753152,
+      "cluster_bootstrap_95": [
+        0.9859421601632442,
+        1.683534566933905
+      ],
+      "valid_replicates": 400,
+      "full_cohort_SD": 0.02031131191381448
+    },
+    "raw_bright_pixel_ratio": {
+      "odds_ratio_per_full_cohort_SD": 1.2407037822557847,
+      "cluster_bootstrap_95": [
+        1.1277045567991066,
+        1.60872341363803
+      ],
+      "valid_replicates": 400,
+      "full_cohort_SD": 0.05870051913013879
+    },
+    "raw_entropy": {
+      "odds_ratio_per_full_cohort_SD": 1.1925892038869825,
+      "cluster_bootstrap_95": [
+        0.9297858321125958,
+        1.5632177922636705
+      ],
+      "valid_replicates": 400,
+      "full_cohort_SD": 0.5442617631276473
+    },
+    "raw_illumination_variation": {
+      "odds_ratio_per_full_cohort_SD": 1.1841364579089397,
+      "cluster_bootstrap_95": [
+        0.9618614872887077,
+        1.458303837025748
+      ],
+      "valid_replicates": 400,
+      "full_cohort_SD": 0.08148670735716511
+    }
+  },
+  "melanoma": {
+    "mel_total": 107,
+    "mel_correct": 70,
+    "mel_false_negatives": 37,
+    "mel_to_nv": 26,
+    "high_confidence_fn_definition": "saved maximum softmax >= 0.9; descriptive, not review cutoff",
+    "high_confidence_fn_count": 2,
+    "high_confidence_fn_ids": [
+      "ISIC_0026296",
+      "ISIC_0032862"
+    ],
+    "correct_confidence_median": 0.7197273075580596,
+    "fn_confidence_median": 0.6892240047454834,
+    "correct_entropy_median": 0.6810532709819708,
+    "fn_entropy_median": 0.7157814848280941
+  },
+  "method": "Raw proxy, rank-biserial=2*AUROC(feature,error)-1; lesion-cluster percentile bootstrap 400 draws; separate one-feature L2 logistic models adjusted for true class (C=1); per full-cohort SD; exploratory, no causal interpretation",
+  "seed": 2405,
+  "bootstrap_repetitions": 400
+}

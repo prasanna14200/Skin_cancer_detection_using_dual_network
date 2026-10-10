@@ -66,3 +66,14 @@ def test_degradation_protocol_is_fixed_and_validation_only():
     assert len(protocol["cases"]) == 7 and len(protocol["variants"]) == 7
     assert "data/processed/images" in protocol["input"]
     assert protocol["checkpoint_sha256"] == module.day1.CHECKPOINT_SHA
+
+
+def test_complete_bounded_degradation_pilot_and_checkpoint_immutability():
+    table = pd.read_csv(BASE / "degradation_results.csv")
+    summary = json.loads((BASE / "degradation_summary.json").read_text(encoding="utf-8"))
+    assert len(table) == 49 and table.image_id.nunique() == 7
+    assert table.groupby("image_id").variant.nunique().eq(7).all()
+    assert summary["forwards"] == 49 and summary["baseline_argmax_match_count"] == 7
+    assert summary["protocol_sha256"] == module.sha256(BASE / "degradation_protocol.json")
+    assert all(module.sha256(BASE / name) == digest for name, digest in summary["output_sha256"].items())
+    assert module.sha256(module.day1.CHECKPOINT) == module.day1.CHECKPOINT_SHA

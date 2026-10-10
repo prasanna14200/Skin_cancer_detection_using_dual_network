@@ -1,0 +1,111 @@
+{
+  "started_at": "2026-10-09T14:28:52Z",
+  "finished_at": null,
+  "conditions": {
+    "blur_r1": {
+      "condition": "blur_r1",
+      "processed": 0,
+      "skipped": 1,
+      "chunks": 0
+    },
+    "blur_r2": {
+      "condition": "blur_r2",
+      "processed": 0,
+      "skipped": 1,
+      "chunks": 0
+    },
+    "underexposure_070": {
+      "condition": "underexposure_070",
+      "processed": 0,
+      "skipped": 1,
+      "chunks": 0
+    },
+    "overexposure_130": {
+      "condition": "overexposure_130",
+      "processed": 0,
+      "skipped": 1,
+      "chunks": 0
+    },
+    "contrast_070": {
+      "condition": "contrast_070",
+      "processed": 0,
+      "skipped": 1,
+      "chunks": 0
+    },
+    "jpeg_q40": {
+      "condition": "jpeg_q40",
+      "processed": 0,
+      "skipped": 1,
+      "chunks": 0
+    },
+    "baseline": {
+      "condition": "baseline",
+      "processed": 0,
+      "skipped": 3,
+      "valid_existing": 3
+    }
+  },
+  "peak_rss_mb": 605.96875,
+  "completed_records": 479,
+  "completed_conditions": [],
+  "resume_supported": true,
+  "baseline_completed": false,
+  "baseline_verified": false,
+  "baseline_max_abs_probability_delta": 0.00019735842943191528,
+  "last_condition_runtime_seconds": 0.019,
+  "total_expected_records": 6902,
+  "final_results_available": false,
+  "last_error": {
+    "at": "2026-10-09T18:14:23Z",
+    "type": "ValueError",
+    "message": "Baseline argmax mismatch for ISIC_0029026"
+  },
+  "execution_scope_images": 986,
+  "execution_scope_is_full_validation": true,
+  "expected_scope_records": 6902,
+  "last_durable_chunk": "baseline_chunk_0049.csv",
+  "last_progress_at": "2026-10-09T18:12:37Z",
+  "last_progress": {
+    "condition": "baseline",
+    "valid_records": 473,
+    "total_records": 986,
+    "elapsed_seconds": 11956.959,
+    "estimated_remaining_seconds": 13050.893184979783,
+    "peak_rss_mb": 315.62890625
+  },
+  "baseline_verified_images": 3,
+  "baseline_verified_full_cohort": false,
+  "baseline_only_run": true,
+  "baseline_scope_completed": true,
+  "condition_progress": {
+    "baseline": {
+      "valid_records": 473,
+      "missing_records": 513
+    },
+    "blur_r1": {
+      "valid_records": 1,
+      "missing_records": 985
+    },
+    "blur_r2": {
+      "valid_records": 1,
+      "missing_records": 985
+    },
+    "underexposure_070": {
+      "valid_records": 1,
+      "missing_records": 985
+    },
+    "overexposure_130": {
+      "valid_records": 1,
+      "missing_records": 985
+    },
+    "contrast_070": {
+      "valid_records": 1,
+      "missing_records": 985
+    },
+    "jpeg_q40": {
+      "valid_records": 1,
+      "missing_records": 985
+    }
+  },
+  "completed_scope_conditions": []
+}

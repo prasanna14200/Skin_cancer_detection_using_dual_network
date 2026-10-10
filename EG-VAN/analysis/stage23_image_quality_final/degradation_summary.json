@@ -1,0 +1,95 @@
+{
+  "scope": "Seven predeclared validation images, synthetic degradation after paper preprocessing, CPU FP32 inference",
+  "checkpoint_sha256": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "protocol_sha256": "b331a24322f28dbb4a3fb39412a01516b3df852afedfeb9086e114496e92ff70",
+  "prediction_source_sha256": "b3f5d2e43b26fb63916d4e29ab597fde4183b3c76e75d4d0a7caeaccc88a368a",
+  "script_sha256": "f640b3dea642891abf80d449173259d2d60278db40b144fee812ff20a6b0639d",
+  "python_torch_pillow": {
+    "torch": "2.11.0+cpu",
+    "pillow": "11.3.0"
+  },
+  "pilot_images": 7,
+  "forwards": 49,
+  "baseline_argmax_match_count": 7,
+  "baseline_max_abs_probability_delta": 0.0009397268295288086,
+  "by_variant": [
+    {
+      "variant": "baseline",
+      "n": 7,
+      "correct": 4,
+      "accuracy": 0.5714285714285714,
+      "mean_confidence": 0.7509023249149323,
+      "mean_entropy": 0.6576466077422699,
+      "mean_sharpness": 1216.2607633045113,
+      "mean_brightness": 73.38389682539683
+    },
+    {
+      "variant": "blur_mild",
+      "n": 7,
+      "correct": 3,
+      "accuracy": 0.42857142857142855,
+      "mean_confidence": 0.6766730972698757,
+      "mean_entropy": 0.9066829950455954,
+      "mean_sharpness": 30.952128994005488,
+      "mean_brightness": 72.9154962962963
+    },
+    {
+      "variant": "blur_moderate",
+      "n": 7,
+      "correct": 2,
+      "accuracy": 0.2857142857142857,
+      "mean_confidence": 0.5753574243613652,
+      "mean_entropy": 1.176790415607513,
+      "mean_sharpness": 4.592744818857534,
+      "mean_brightness": 73.37773492063492
+    },
+    {
+      "variant": "brightness_down",
+      "n": 7,
+      "correct": 4,
+      "accuracy": 0.5714285714285714,
+      "mean_confidence": 0.7200487341199603,
+      "mean_entropy": 0.7070842221423609,
+      "mean_sharpness": 598.2989692572094,
+      "mean_brightness": 51.351921164021164
+    },
+    {
+      "variant": "brightness_up",
+      "n": 7,
+      "correct": 5,
+      "accuracy": 0.7142857142857143,
+      "mean_confidence": 0.7279285575662341,
+      "mean_entropy": 0.6507171068277564,
+      "mean_sharpness": 1968.6161613762981,
+      "mean_brightness": 94.12604232804233
+    },
+    {
+      "variant": "contrast_down",
+      "n": 7,
+      "correct": 4,
+      "accuracy": 0.5714285714285714,
+      "mean_confidence": 0.7047442495822906,
+      "mean_entropy": 0.7123208298085315,
+      "mean_sharpness": 598.1872677588752,
+      "mean_brightness": 74.37906666666666
+    },
+    {
+      "variant": "jpeg_q40",
+      "n": 7,
+      "correct": 4,
+      "accuracy": 0.5714285714285714,
+      "mean_confidence": 0.7022441583020347,
+      "mean_entropy": 0.760907422372238,
+      "mean_sharpness": 503.48819573950226,
+      "mean_brightness": 73.3867052910053
+    }
+  ],
+  "interpretation_limit": "Small, non-random within-class lexicographic pilot; post-preprocessing synthetic perturbations, not original acquisition-quality validation or a representative accuracy estimate",
+  "training_performed": false,
+  "ham_test_accessed": false,
+  "ph2_accessed": false,
+  "output_sha256": {
+    "degradation_results.csv": "0c94873a6898e10ecfbbc8c09098cf7875f79e6edff63704f286d38d6de3da77",
+    "degradation_robustness.png": "5a6bb63e98426eb6af0c1f537a4bfea064110dcf5f3af50dbdd5016640ec0156"
+  }
+}

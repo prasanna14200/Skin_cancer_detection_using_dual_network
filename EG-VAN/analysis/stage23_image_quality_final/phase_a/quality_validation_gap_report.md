@@ -1,0 +1,9 @@
+# Quality validation gap
+
+The Stage 23 image-quality component is an **exploratory technical-characterization study**, not a validated image-quality gate. Existing data contain 986 validation images with eight deterministic proxies and saved classifier outcomes. They do not contain independent human technical-adequacy judgments, artifact masks, or acquisition-quality ground truth. The repository search found no Stage 23 reviewer label study; reviewer availability is undocumented. A separate historic domain-shift review is not a Stage 23 technical-quality label set.
+
+Class mix and lesion morphology can produce proxy–error associations without technical defects. The 37 melanoma false negatives support only imprecise subgroup estimates. Lesion-group resampling addresses image dependence but cannot remove unmeasured lesion difficulty or acquisition-center confounding. Eight exploratory feature comparisons and their subgroup analyses were not selected through an independent holdout. The grouped OOF entropy-plus-quality comparison is development-set evidence; paired bootstrap intervals condition on fitted OOF scores, and no independent confirmation of added value exists.
+
+The prior seven-image synthetic-degradation pilot demonstrates sensitivity to controlled perturbations on already processed images. It does not establish realistic acquisition artifacts or a population-level quality threshold. Any Phase B degradation study should predefine perturbations and report effects without tuning the classifier or converting proxy values into a clinical gate. A genuine accept/reject policy requires blinded reviewer labels, reproducible adjudication, an acquisition-stage definition, prespecified operating criteria, and a new independent evaluation boundary.
+
+HAM test and PH2 outcomes were outside the present analysis. No quality threshold, classifier parameter, or frozen prediction was changed.

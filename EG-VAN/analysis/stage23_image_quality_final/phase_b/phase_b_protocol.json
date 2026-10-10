@@ -1,0 +1,163 @@
+{
+  "status": "FROZEN_BEFORE_INFERENCE",
+  "scope": "Stage 23 validation only, class-balanced 21-image CPU-bounded sample",
+  "selection_seed": 2309,
+  "bootstrap_seed": 2310,
+  "bootstrap_repetitions": 1000,
+  "sample_rule": "3 unique lesions per true class, RNG choice from sorted lesion IDs; first sorted validation image per lesion",
+  "checkpoint_sha256": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "validation_predictions_sha256": "b3f5d2e43b26fb63916d4e29ab597fde4183b3c76e75d4d0a7caeaccc88a368a",
+  "preprocessing_source_sha256": "cf0a176a610b52ba45b0e91761b027a560252234f81f7b6fd572f02d8baab6ed",
+  "frozen_loader_source_sha256": "2a851a2c9f2eb59e15f9fe9e2f325c7dbd496d302437be5c7a74d37e2525aa37",
+  "protocol_md_sha256": "d78000c97abc0a206b7f5ea6e28aa0ae40e7a00a602657ca6ddb714e18583981",
+  "cases": [
+    {
+      "image_id": "ISIC_0024539",
+      "lesion_id": "HAM_0002551",
+      "true_class": "akiec"
+    },
+    {
+      "image_id": "ISIC_0026203",
+      "lesion_id": "HAM_0003895",
+      "true_class": "akiec"
+    },
+    {
+      "image_id": "ISIC_0030143",
+      "lesion_id": "HAM_0005978",
+      "true_class": "akiec"
+    },
+    {
+      "image_id": "ISIC_0024432",
+      "lesion_id": "HAM_0002083",
+      "true_class": "bcc"
+    },
+    {
+      "image_id": "ISIC_0031413",
+      "lesion_id": "HAM_0004521",
+      "true_class": "bcc"
+    },
+    {
+      "image_id": "ISIC_0033579",
+      "lesion_id": "HAM_0000394",
+      "true_class": "bcc"
+    },
+    {
+      "image_id": "ISIC_0026069",
+      "lesion_id": "HAM_0000524",
+      "true_class": "bkl"
+    },
+    {
+      "image_id": "ISIC_0027041",
+      "lesion_id": "HAM_0003049",
+      "true_class": "bkl"
+    },
+    {
+      "image_id": "ISIC_0029068",
+      "lesion_id": "HAM_0002761",
+      "true_class": "bkl"
+    },
+    {
+      "image_id": "ISIC_0026629",
+      "lesion_id": "HAM_0004065",
+      "true_class": "df"
+    },
+    {
+      "image_id": "ISIC_0028651",
+      "lesion_id": "HAM_0004496",
+      "true_class": "df"
+    },
+    {
+      "image_id": "ISIC_0031271",
+      "lesion_id": "HAM_0004090",
+      "true_class": "df"
+    },
+    {
+      "image_id": "ISIC_0025546",
+      "lesion_id": "HAM_0007498",
+      "true_class": "mel"
+    },
+    {
+      "image_id": "ISIC_0025835",
+      "lesion_id": "HAM_0001456",
+      "true_class": "mel"
+    },
+    {
+      "image_id": "ISIC_0032248",
+      "lesion_id": "HAM_0002119",
+      "true_class": "mel"
+    },
+    {
+      "image_id": "ISIC_0026304",
+      "lesion_id": "HAM_0007200",
+      "true_class": "nv"
+    },
+    {
+      "image_id": "ISIC_0028967",
+      "lesion_id": "HAM_0001449",
+      "true_class": "nv"
+    },
+    {
+      "image_id": "ISIC_0030127",
+      "lesion_id": "HAM_0004698",
+      "true_class": "nv"
+    },
+    {
+      "image_id": "ISIC_0026393",
+      "lesion_id": "HAM_0005011",
+      "true_class": "vasc"
+    },
+    {
+      "image_id": "ISIC_0029608",
+      "lesion_id": "HAM_0000502",
+      "true_class": "vasc"
+    },
+    {
+      "image_id": "ISIC_0033817",
+      "lesion_id": "HAM_0001249",
+      "true_class": "vasc"
+    }
+  ],
+  "conditions": [
+    {
+      "name": "baseline",
+      "type": "identity"
+    },
+    {
+      "name": "blur_r1",
+      "type": "gaussian_blur",
+      "radius_pixels": 1.0
+    },
+    {
+      "name": "blur_r2",
+      "type": "gaussian_blur",
+      "radius_pixels": 2.0
+    },
+    {
+      "name": "underexposure_070",
+      "type": "brightness",
+      "factor": 0.7
+    },
+    {
+      "name": "overexposure_130",
+      "type": "brightness",
+      "factor": 1.3
+    },
+    {
+      "name": "contrast_070",
+      "type": "contrast",
+      "factor": 0.7
+    },
+    {
+      "name": "jpeg_q40",
+      "type": "jpeg",
+      "quality": 40,
+      "subsampling": 0
+    }
+  ],
+  "primary_application": "raw RGB before frozen paper preprocessing",
+  "expected_predictions": 147,
+  "baseline_argmax_required": "21/21",
+  "baseline_max_abs_probability_delta_tolerance": 0.005,
+  "baseline_processed_decoded_pixels": "exact identity required"
+}

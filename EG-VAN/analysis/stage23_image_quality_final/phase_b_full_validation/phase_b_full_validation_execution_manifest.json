@@ -1,0 +1,62 @@
+{
+  "status": "INCOMPLETE_BASELINE_ONLY_PROGRESS",
+  "reason": "The full 986-image baseline gate is not yet complete. Full CPU execution is estimated to require more than three hours; degradation inference was not started by the latest baseline-only run.",
+  "validation_images": 986,
+  "validation_lesions": 743,
+  "frozen_checkpoint_sha256": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "protocol_path": "analysis/stage23_image_quality_final/phase_b_full_validation/phase_b_full_validation_protocol.json",
+  "protocol_sha256": "df94205ec017fde3c4cc7b8f4094b7432fef0ce2a8cd2b812464d6ccb8c8c90c",
+  "script_path": "analysis/stage23_image_quality_final/phase_b_full_validation/run_phase_b_full_validation.py",
+  "script_sha256": "76d81bb4aba1a7f74ea964bc944f841b70f82661f6bfa802758c291f6384b633",
+  "final_report_path": "analysis/stage23_image_quality_final/phase_b_full_validation/FINAL_PHASE_B_FULL_VALIDATION_REPORT.md",
+  "input_sha256": {
+    "split_leakage_aware.csv": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "validation_predictions.csv": "b3f5d2e43b26fb63916d4e29ab597fde4183b3c76e75d4d0a7caeaccc88a368a"
+  },
+  "runtime_constraints": {
+    "memory_total_gb": 7.68,
+    "memory_free_gb_after_bounded_run": 1.43,
+    "runner_peak_rss_mb": 605.97,
+    "disk_free_gb": 31.59,
+    "cpu": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+    "observed_seconds_per_new_baseline_image": 11.16,
+    "estimated_full_baseline_runtime": "More than 3 hours including baseline processed-pixel verification and model startup"
+  },
+  "progress": {
+    "valid_chunk_records": 9,
+    "condition_record_counts": {
+      "baseline": 3,
+      "blur_r1": 1,
+      "blur_r2": 1,
+      "underexposure_070": 1,
+      "overexposure_130": 1,
+      "contrast_070": 1,
+      "jpeg_q40": 1
+    },
+    "baseline_gate_verified_images": 3,
+    "baseline_gate_full_cohort_passed": false,
+    "baseline_max_abs_probability_delta": 0.000197358429432,
+    "expected_full_records": 6902,
+    "final_full_prediction_table_verified": false,
+    "latest_execution": "3-image baseline-only resume; retained the existing baseline chunk and appended two chunks; no degradation inference launched"
+  },
+  "completed_subset": {
+    "checkpoint_integrity": true,
+    "existing_chunks_validated": true,
+    "existing_chunks_duplicate_free": true,
+    "baseline_resume_test": true,
+    "baseline_gate_full_cohort": false,
+    "full_degradation_run": false,
+    "statistical_summary": false,
+    "figures": false
+  },
+  "tests": {
+    "test_stage23_phase_b_full_validation_runner.py": "3 passed"
+  },
+  "notes": [
+    "The frozen protocol and original 21-image pilot were not modified.",
+    "The single-record degradation chunks predate the latest baseline-only test and remain proof-of-work only.",
+    "Chunk files are the authoritative resumable outputs. Existing merged predictions are not a complete or current full-cohort table.",
+    "The exact continuation command is documented in FINAL_PHASE_B_FULL_VALIDATION_REPORT.md."
+  ]
+}

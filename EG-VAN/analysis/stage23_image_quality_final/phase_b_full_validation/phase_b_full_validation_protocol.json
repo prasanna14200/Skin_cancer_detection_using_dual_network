@@ -1,0 +1,43 @@
+{
+  "status": "FROZEN_BEFORE_INFERENCE",
+  "experiment": "phase_b_full_validation",
+  "scope": "full 986-image Stage 23 validation cohort; lesion groups preserved",
+  "checkpoint_sha256": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "split_path": "data/splits/split_leakage_aware.csv",
+  "split_sha256": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+  "validation_reference_path": "experiments/stage23_resnet50_imagenet_init_exp1/run/validation_predictions.csv",
+  "validation_reference_sha256": "b3f5d2e43b26fb63916d4e29ab597fde4183b3c76e75d4d0a7caeaccc88a368a",
+  "checkpoint_registry_path": "models/frozen_stage23/model_registry.json",
+  "checkpoint_registry_sha256": "66ba9fd3f9e013cb018b596c1d70eb5e7d8d79067ebe3ef6400bec549c38b92e",
+  "preprocessing_source_path": "src/preprocessing.py",
+  "preprocessing_source_sha256": "cf0a176a610b52ba45b0e91761b027a560252234f81f7b6fd572f02d8baab6ed",
+  "frozen_loader_source_path": "models/frozen_stage23/load_frozen.py",
+  "frozen_loader_source_sha256": "2a851a2c9f2eb59e15f9fe9e2f325c7dbd496d302437be5c7a74d37e2525aa37",
+  "selection_rule": "all 986 validation images; no subset sampling",
+  "lesion_grouping": "preserve original validation lesion IDs and lesion grouping from split_leakage_aware.csv",
+  "degradation_conditions": [
+    {"name": "baseline", "type": "identity"},
+    {"name": "blur_r1", "type": "gaussian_blur", "radius_pixels": 1.0},
+    {"name": "blur_r2", "type": "gaussian_blur", "radius_pixels": 2.0},
+    {"name": "underexposure_070", "type": "brightness", "factor": 0.7},
+    {"name": "overexposure_130", "type": "brightness", "factor": 1.3},
+    {"name": "contrast_070", "type": "contrast", "factor": 0.7},
+    {"name": "jpeg_q40", "type": "jpeg", "quality": 40, "subsampling": 0}
+  ],
+  "primary_application": "raw RGB before frozen paper preprocessing",
+  "baseline_max_abs_probability_delta_tolerance": 0.005,
+  "baseline_processed_pixel_identity_required": true,
+  "expected_predictions": 6902,
+  "expected_conditions": 7,
+  "expected_images": 986,
+  "bootstrap_seed": 2310,
+  "bootstrap_repetitions": 1000,
+  "analysis_scope": "full validation cohort extension; original bounded pilot remains separate",
+  "training_performed": false,
+  "ham_test_outcomes_accessed": false,
+  "ph2_accessed": false,
+  "status_notes": [
+    "This file is frozen before inference.",
+    "It documents a separate extension of the original 21-image Phase B pilot and must not be merged with the earlier bounded results."
+  ]
+}

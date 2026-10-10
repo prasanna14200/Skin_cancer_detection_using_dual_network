@@ -1,0 +1,107 @@
+{
+  "checkpoint_sha256_before": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "checkpoint_sha256_after": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "target": "ISIC_0029026",
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "validation_order_index": 130,
+  "batch_start": 128,
+  "batch_size": 16,
+  "target_offset": 2,
+  "batch_image_ids": [
+    "ISIC_0032065",
+    "ISIC_0027351",
+    "ISIC_0029026",
+    "ISIC_0029729",
+    "ISIC_0024807",
+    "ISIC_0027984",
+    "ISIC_0025974",
+    "ISIC_0029593",
+    "ISIC_0024430",
+    "ISIC_0026659",
+    "ISIC_0029584",
+    "ISIC_0031164",
+    "ISIC_0028563",
+    "ISIC_0025042",
+    "ISIC_0028664",
+    "ISIC_0031777"
+  ],
+  "gpu": "Tesla T4",
+  "torch_version": "2.11.0+cu130",
+  "reference_probabilities": [
+    0.03324944153428078,
+    0.055154673755168915,
+    0.4337192475795746,
+    0.0005138191627338529,
+    0.04075547680258751,
+    0.4345671534538269,
+    0.0020401482470333576
+  ],
+  "results": {
+    "cuda_fp16_singleton": {
+      "probabilities": [
+        0.03328562155365944,
+        0.05511367693543434,
+        0.43419116735458374,
+        0.0005133746308274567,
+        0.04067054018378258,
+        0.43419116735458374,
+        0.002034405479207635
+      ],
+      "predicted_class": "nv",
+      "top_two_margin": 0.0,
+      "max_abs_delta_from_reference": 0.0004719197750091553
+    },
+    "cuda_fp16_original_batch": {
+      "probabilities": [
+        0.03324944153428078,
+        0.055154673755168915,
+        0.4337192475795746,
+        0.0005138191627338529,
+        0.04075547680258751,
+        0.4345671534538269,
+        0.0020401482470333576
+      ],
+      "predicted_class": "nv",
+      "top_two_margin": 0.0008479058742523193,
+      "max_abs_delta_from_reference": 0.0
+    },
+    "cuda_fp32_singleton": {
+      "probabilities": [
+        0.033267151564359665,
+        0.054712794721126556,
+        0.4365364611148834,
+        0.0005110921920277178,
+        0.04054787755012512,
+        0.43240147829055786,
+        0.0020231253001838923
+      ],
+      "predicted_class": "bkl",
+      "top_two_margin": 0.0041349828243255615,
+      "max_abs_delta_from_reference": 0.002817213535308838
+    },
+    "cuda_fp32_original_batch": {
+      "probabilities": [
+        0.033267151564359665,
+        0.05471267178654671,
+        0.4365375339984894,
+        0.0005110917263664305,
+        0.04054781794548035,
+        0.43240055441856384,
+        0.002023121574893594
+      ],
+      "predicted_class": "bkl",
+      "top_two_margin": 0.004136979579925537,
+      "max_abs_delta_from_reference": 0.002818286418914795
+    }
+  },
+  "training_performed": false,
+  "test_or_ph2_accessed": false
+}

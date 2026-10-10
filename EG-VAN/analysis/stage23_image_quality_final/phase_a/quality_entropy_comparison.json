@@ -1,0 +1,212 @@
+{
+  "methods": {
+    "entropy_direct": {
+      "auroc": 0.8348687274420771,
+      "average_precision": 0.466027159807276,
+      "aurc": 0.04993986134979692,
+      "risk_coverage": {
+        "1.0": {
+          "retained": 986,
+          "reviewed": 0,
+          "retained_error_rate": 0.17038539553752535,
+          "errors_captured": 0,
+          "mel_false_negatives_captured": 0
+        },
+        "0.9": {
+          "retained": 888,
+          "reviewed": 98,
+          "retained_error_rate": 0.13063063063063063,
+          "errors_captured": 52,
+          "mel_false_negatives_captured": 6
+        },
+        "0.8": {
+          "retained": 789,
+          "reviewed": 197,
+          "retained_error_rate": 0.09125475285171103,
+          "errors_captured": 96,
+          "mel_false_negatives_captured": 15
+        },
+        "0.7": {
+          "retained": 691,
+          "reviewed": 295,
+          "retained_error_rate": 0.07091172214182344,
+          "errors_captured": 119,
+          "mel_false_negatives_captured": 18
+        },
+        "0.6": {
+          "retained": 592,
+          "reviewed": 394,
+          "retained_error_rate": 0.04391891891891892,
+          "errors_captured": 142,
+          "mel_false_negatives_captured": 26
+        },
+        "0.5": {
+          "retained": 493,
+          "reviewed": 493,
+          "retained_error_rate": 0.032454361054766734,
+          "errors_captured": 152,
+          "mel_false_negatives_captured": 30
+        }
+      },
+      "at_80pct_coverage": {
+        "retained": 789,
+        "reviewed": 197,
+        "errors_captured": 96,
+        "error_capture_fraction": 0.5714285714285714,
+        "mel_false_negatives_captured": 15
+      }
+    },
+    "quality_only_oof": {
+      "auroc": 0.7238983001513564,
+      "average_precision": 0.2935614019713934,
+      "aurc": 0.07294762652879196,
+      "risk_coverage": {
+        "1.0": {
+          "retained": 986,
+          "reviewed": 0,
+          "retained_error_rate": 0.17038539553752535,
+          "errors_captured": 0,
+          "mel_false_negatives_captured": 0
+        },
+        "0.9": {
+          "retained": 888,
+          "reviewed": 98,
+          "retained_error_rate": 0.15202702702702703,
+          "errors_captured": 33,
+          "mel_false_negatives_captured": 0
+        },
+        "0.8": {
+          "retained": 789,
+          "reviewed": 197,
+          "retained_error_rate": 0.13561470215462612,
+          "errors_captured": 61,
+          "mel_false_negatives_captured": 4
+        },
+        "0.7": {
+          "retained": 691,
+          "reviewed": 295,
+          "retained_error_rate": 0.12735166425470332,
+          "errors_captured": 80,
+          "mel_false_negatives_captured": 7
+        },
+        "0.6": {
+          "retained": 592,
+          "reviewed": 394,
+          "retained_error_rate": 0.10472972972972973,
+          "errors_captured": 106,
+          "mel_false_negatives_captured": 14
+        },
+        "0.5": {
+          "retained": 493,
+          "reviewed": 493,
+          "retained_error_rate": 0.07302231237322515,
+          "errors_captured": 132,
+          "mel_false_negatives_captured": 22
+        }
+      },
+      "at_80pct_coverage": {
+        "retained": 789,
+        "reviewed": 197,
+        "errors_captured": 61,
+        "error_capture_fraction": 0.3630952380952381,
+        "mel_false_negatives_captured": 4
+      }
+    },
+    "entropy_plus_quality_oof": {
+      "auroc": 0.8403117359413204,
+      "average_precision": 0.45398285353093826,
+      "aurc": 0.046595334629439426,
+      "risk_coverage": {
+        "1.0": {
+          "retained": 986,
+          "reviewed": 0,
+          "retained_error_rate": 0.17038539553752535,
+          "errors_captured": 0,
+          "mel_false_negatives_captured": 0
+        },
+        "0.9": {
+          "retained": 888,
+          "reviewed": 98,
+          "retained_error_rate": 0.13175675675675674,
+          "errors_captured": 51,
+          "mel_false_negatives_captured": 3
+        },
+        "0.8": {
+          "retained": 789,
+          "reviewed": 197,
+          "retained_error_rate": 0.09505703422053231,
+          "errors_captured": 93,
+          "mel_false_negatives_captured": 10
+        },
+        "0.7": {
+          "retained": 691,
+          "reviewed": 295,
+          "retained_error_rate": 0.0694645441389291,
+          "errors_captured": 120,
+          "mel_false_negatives_captured": 19
+        },
+        "0.6": {
+          "retained": 592,
+          "reviewed": 394,
+          "retained_error_rate": 0.048986486486486486,
+          "errors_captured": 139,
+          "mel_false_negatives_captured": 24
+        },
+        "0.5": {
+          "retained": 493,
+          "reviewed": 493,
+          "retained_error_rate": 0.028397565922920892,
+          "errors_captured": 154,
+          "mel_false_negatives_captured": 32
+        }
+      },
+      "at_80pct_coverage": {
+        "retained": 789,
+        "reviewed": 197,
+        "errors_captured": 93,
+        "error_capture_fraction": 0.5535714285714286,
+        "mel_false_negatives_captured": 10
+      }
+    }
+  },
+  "combined_minus_entropy": {
+    "auroc": {
+      "point": 0.005443008499243285,
+      "cluster_bootstrap_95": [
+        -0.007946675416174675,
+        0.017554729885228323
+      ]
+    },
+    "average_precision": {
+      "point": -0.012044306276337735,
+      "cluster_bootstrap_95": [
+        -0.043116049687624725,
+        0.02704524545560472
+      ]
+    },
+    "aurc": {
+      "point": -0.0033445267203574963,
+      "cluster_bootstrap_95": [
+        -0.008376277281654836,
+        0.0008472992271489847
+      ]
+    },
+    "error_capture_fraction": {
+      "point": -0.017857142857142794,
+      "cluster_bootstrap_95": [
+        -0.06452660242982818,
+        0.03848314606741569
+      ]
+    },
+    "mel_fn_capture_fraction": {
+      "point": -0.13513513513513514,
+      "cluster_bootstrap_95": [
+        -0.2727272727272727,
+        0.0
+      ]
+    }
+  },
+  "method": "Existing fixed 5-fold lesion-grouped OOF scores; paired lesion-cluster bootstrap of fixed scores, 1000 draws, seed 142; no re-selection or refitting",
+  "risk_convention": "Retain lowest error score; image ID breaks ties; ceil(0.8*n); AURC = mean prefix error rate k=1..n",
+  "limitation": "Same development validation set; intervals condition on fitted OOF scores and do not include model refit uncertainty; no independent performance claim"
+}
