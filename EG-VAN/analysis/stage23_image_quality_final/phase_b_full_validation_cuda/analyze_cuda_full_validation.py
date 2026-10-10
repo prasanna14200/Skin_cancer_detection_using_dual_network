@@ -1,6 +1,7 @@
 """Analyze complete CUDA Phase B saved predictions; never performs inference."""
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import math
@@ -13,10 +14,71 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import f1_score
 
-from run_cuda_full_validation import (HERE, ROOT, FROZEN, CLASSES, CHECKPOINT_SHA,
+from run_cuda_full_validation import (HERE, ROOT, FROZEN, CLASSES, CHECKPOINT_SHA, CSV_COLUMNS,
     batches, existing_batches, frozen_inputs, sha, complete_baseline_gate)
 
 PREDICTIONS = HERE / "cuda_full_validation_predictions.csv"
+SERIALIZATION_ATOL = 4 * np.finfo(np.float64).eps
+DERIVED_FLOAT_COLUMNS = ("confidence", "entropy_nats", "baseline_max_abs_probability_delta")
+
+
+def assert_same_records(actual: pd.DataFrame, committed: pd.DataFrame, condition: str) -> None:
+    """Compare every field; allow only CSV round-trip noise in derived scalars."""
+    if tuple(actual.columns) != CSV_COLUMNS or tuple(committed.columns) != CSV_COLUMNS:
+        raise ValueError(f"Final/committed column schema differs: {condition}")
+    if len(actual) != len(committed):
+        raise ValueError(f"Final/committed row count differs: {condition}: {len(actual)} vs {len(committed)}")
+    for index in range(len(actual)):
+        for column in CSV_COLUMNS:
+            final_value = actual.at[index, column]
+            batch_value = committed.at[index, column]
+            if column == "probabilities":
+                try:
+                    final_p = np.asarray(json.loads(final_value), dtype=np.float64)
+                    batch_p = np.asarray(json.loads(batch_value), dtype=np.float64)
+                except (TypeError, ValueError) as exc:
+                    raise ValueError(f"Invalid probability JSON: {condition}/{index}") from exc
+                same = (final_p.shape == batch_p.shape == (7,) and
+                        np.isfinite(final_p).all() and np.isfinite(batch_p).all() and
+                        np.array_equal(final_p, batch_p))
+            elif column in DERIVED_FLOAT_COLUMNS:
+                if pd.isna(final_value) or pd.isna(batch_value):
+                    same = bool(pd.isna(final_value) and pd.isna(batch_value))
+                else:
+                    same = (math.isfinite(float(final_value)) and math.isfinite(float(batch_value)) and
+                            math.isclose(float(final_value), float(batch_value),
+                                         rel_tol=0.0, abs_tol=SERIALIZATION_ATOL))
+            else:
+                same = bool(final_value == batch_value and not pd.isna(final_value))
+            if not same:
+                raise ValueError(
+                    f"Final table differs from committed batches: {condition} "
+                    f"row={index} image_id={committed.at[index, 'image_id']} "
+                    f"column={column} committed={batch_value!r} final={final_value!r}"
+                )
+
+
+def validate_final_table(protocol, validation, reference, protocol_sha):
+    """Read-only full artifact validation; no statistics or output writes."""
+    if not PREDICTIONS.is_file():
+        raise FileNotFoundError("Complete 6,902-row inference table is required; no partial analysis")
+    if not (HERE / "baseline_gate.json").is_file():
+        raise FileNotFoundError("Baseline gate artifact is required for read-only analysis")
+    gate = complete_baseline_gate(validation, reference, protocol_sha)
+    table = pd.read_csv(PREDICTIONS, float_precision="round_trip")
+    names = [x["name"] for x in protocol["degradation_conditions"]]
+    if (tuple(table.columns) != CSV_COLUMNS or len(table) != 6902 or
+            table.duplicated(["image_id", "condition"]).any() or
+            table.condition.tolist() != [name for name in names for _ in range(len(validation))]):
+        raise ValueError("Final table schema, order, count or uniqueness invalid")
+    for name in names:
+        committed = existing_batches(name, validation, reference, protocol_sha)
+        if len(committed) != len(batches(validation)):
+            raise ValueError(f"Incomplete committed batch set: {name}")
+        expected = pd.concat([committed[i] for i in range(len(batches(validation)))], ignore_index=True)
+        actual = table.loc[table.condition.eq(name)].reset_index(drop=True)
+        assert_same_records(actual, expected, name)
+    return table, gate
 
 
 def paired_statistics(df, condition, baseline):
@@ -101,24 +163,18 @@ def make_plots(summary):
     fig.savefig(HERE/"cuda_melanoma_robustness.png",dpi=300);plt.close(fig)
 
 
-def main():
+def main(*, check_only=False):
     if not PREDICTIONS.is_file():
         raise FileNotFoundError("Complete 6,902-row inference table is required; no partial analysis")
     protocol, validation, reference, input_hashes = frozen_inputs()
     protocol_sha = sha(FROZEN)
-    gate = complete_baseline_gate(validation,reference,protocol_sha)
-    table = pd.read_csv(PREDICTIONS)
+    table, gate = validate_final_table(protocol, validation, reference, protocol_sha)
+    if check_only:
+        print(json.dumps({"status": "INTEGRITY_PASS", "images_per_condition": len(validation),
+                          "conditions": len(protocol["degradation_conditions"]), "records": len(table),
+                          "final_table_sha256": sha(PREDICTIONS)}, indent=2))
+        return
     names = [x["name"] for x in protocol["degradation_conditions"]]
-    if len(table)!=6902 or table.duplicated(["image_id","condition"]).any():
-        raise ValueError("Final table incomplete or duplicated")
-    for name in names:
-        committed = existing_batches(name,validation,reference,protocol_sha)
-        if len(committed)!=len(batches(validation)):
-            raise ValueError(f"Incomplete committed batch set: {name}")
-        expected = pd.concat([committed[i] for i in range(len(batches(validation)))],ignore_index=True)
-        actual = table.loc[table.condition.eq(name)].reset_index(drop=True)
-        if not actual.equals(expected):
-            raise ValueError(f"Final table differs from committed batches: {name}")
     baseline = table.loc[table.condition.eq("baseline")]
     summaries, intervals, by_class = [], {}, {}
     for i,name in enumerate(names):
@@ -184,4 +240,6 @@ def make_report(summary,gate,manifest,intervals):
 
 
 if __name__=="__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check-only", action="store_true", help="Validate all saved records without writing analysis outputs")
+    main(check_only=parser.parse_args().check_only)

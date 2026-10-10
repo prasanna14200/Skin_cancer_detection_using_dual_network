@@ -1,0 +1,38 @@
+{
+  "status": "COMPLETE_FULL_VALIDATION",
+  "checkpoint_sha256": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "frozen_input_sha256": {
+    "checkpoint": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+    "stage23_config": "67a9d77d8464ef51d94f5861004084b179c3c42159e172c680d85952514d7afa",
+    "cuda_probe": "6df34f972cdac53f32a1b3453ddc15b25f20deae238e4e5e9ed33dc4e14445e8",
+    "split": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "reference": "b3f5d2e43b26fb63916d4e29ab597fde4183b3c76e75d4d0a7caeaccc88a368a",
+    "registry": "66ba9fd3f9e013cb018b596c1d70eb5e7d8d79067ebe3ef6400bec549c38b92e",
+    "preprocessing": "cf0a176a610b52ba45b0e91761b027a560252234f81f7b6fd572f02d8baab6ed",
+    "loader": "2a851a2c9f2eb59e15f9fe9e2f325c7dbd496d302437be5c7a74d37e2525aa37"
+  },
+  "protocol_sha256": "df94205ec017fde3c4cc7b8f4094b7432fef0ce2a8cd2b812464d6ccb8c8c90c",
+  "runner_sha256": "d06fb72ff51daa45b42879db78f5e39cacc385e312748f411b3f120f5c7dc199",
+  "analysis_sha256": "bc46564a8a19cb3a909e709f87e3011facb9fffbb401e44a2ce06da0980de66d",
+  "gpu": {
+    "device": "Tesla T4",
+    "torch_version": "2.11.0+cu130"
+  },
+  "batch_size": 16,
+  "autocast_dtype": "torch.float16",
+  "images": 986,
+  "predictions": 6902,
+  "output_sha256": {
+    "cuda_full_validation_predictions.csv": "ff7c7a454bd896c54628bd4aeb61949789b82d1a69ae3473878690ca11d0d221",
+    "baseline_gate.json": "f20be2817c9f8242b10c50257a344660899f153aa6c5f17f0393b18082ddb99d",
+    "cuda_summary.csv": "e689263e80ec2ceb6c9f301b428bcae81aa6bb95941b38b102e8c11d2e426645",
+    "cuda_melanoma_analysis.csv": "07613ed9da28b6fb383311754db4177ed2141a970c22c882820387edd0425114",
+    "cuda_statistical_results.json": "adefeb1b3dc34e0f2d3dfe3e71dd0e120e1cc77280f0c264db2f1018c7ef1622",
+    "cuda_robustness_curves.png": "52a63247fd8510a1c065b6ad40338ae1a6ca228e03ad7e0e0b08f0c2b7c3aeff",
+    "cuda_prediction_transitions.png": "ce938b76ee28adb94b1c13a69550f54babb662b367ad2645dceb9195d5d622f9",
+    "cuda_melanoma_robustness.png": "dc08f1b2185c5d50a30bbe14e8db7ebf48c7b3b3fc0e2e3f5ed62707ce4557c3",
+    "FINAL_CUDA_PHASE_B_REPORT.md": "ba8275b280fad8a25bbf0a5d856a5b1add35853a929a27128c62612721652d6e"
+  },
+  "training_performed": false,
+  "test_or_ph2_accessed": false
+}
