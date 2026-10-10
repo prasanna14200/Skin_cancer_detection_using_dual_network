@@ -1,0 +1,29 @@
+{
+  "condition": "underexposure_070",
+  "batch_index": 0,
+  "image_ids": [
+    "ISIC_0025339",
+    "ISIC_0030118",
+    "ISIC_0027162",
+    "ISIC_0029195",
+    "ISIC_0029176",
+    "ISIC_0029068",
+    "ISIC_0027041",
+    "ISIC_0026844",
+    "ISIC_0030372",
+    "ISIC_0028404",
+    "ISIC_0028386",
+    "ISIC_0032655",
+    "ISIC_0033620",
+    "ISIC_0025454",
+    "ISIC_0028503",
+    "ISIC_0027275"
+  ],
+  "rows": 16,
+  "records_sha256": "d1f6673884979fad4e1f8196f8e4f91124b4bc4b47c4d7a7c47adb5b5d1470ab",
+  "protocol_sha256": "df94205ec017fde3c4cc7b8f4094b7432fef0ce2a8cd2b812464d6ccb8c8c90c",
+  "checkpoint_sha256": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "batch_size": 16,
+  "gpu": "Tesla T4",
+  "torch_version": "2.11.0+cu130"
+}

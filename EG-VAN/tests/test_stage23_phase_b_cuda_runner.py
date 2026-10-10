@@ -126,12 +126,43 @@ def test_condition_and_output_guards_are_fixed(frozen):
     assert protocol["expected_predictions"] == 6902
 
 
-def test_baseline_replay_matches_saved_pil_image():
-    image_id = "ISIC_0029026"
+@pytest.mark.parametrize("image_id", ["ISIC_0025339", "ISIC_0029026"])
+def test_baseline_replay_matches_saved_pil_image(image_id, monkeypatch):
     baseline = {"name":"baseline","type":"identity"}
+    # The baseline must use the frozen processed JPEG, with no raw replay or
+    # degradation. The historical hash and pixel checks still run.
+    monkeypatch.setattr(runner, "preprocess_image", lambda *_: pytest.fail("baseline reprocessed raw image"))
+    monkeypatch.setattr(runner, "degraded_rgb", lambda *_: pytest.fail("baseline applied degradation"))
     replay = runner.processed_image(image_id,baseline)
     with Image.open(ROOT/"data/processed/images"/f"{image_id}.jpg") as saved:
         assert np.array_equal(np.asarray(replay),np.asarray(saved.convert("RGB")))
+    assert runner.sha(ROOT/"data/processed/images"/f"{image_id}.jpg") == runner.frozen_processed_hashes()[image_id]
+
+
+def test_baseline_rejects_changed_processed_jpeg(tmp_path, monkeypatch):
+    image_id = "ISIC_0025339"
+    target = tmp_path/"data/processed/images"/f"{image_id}.jpg"
+    target.parent.mkdir(parents=True)
+    original = ROOT/"data/processed/images"/f"{image_id}.jpg"
+    target.write_bytes(original.read_bytes() + b"changed")
+    monkeypatch.setattr(runner, "ROOT", tmp_path)
+    with pytest.raises(ValueError, match="Frozen processed JPEG identity changed"):
+        runner.processed_image(image_id, {"name":"baseline","type":"identity"})
+
+
+def test_baseline_rejects_non_identity_condition():
+    with pytest.raises(ValueError, match="Baseline condition changed"):
+        runner.processed_image("ISIC_0025339", {"name":"baseline","type":"gaussian_blur"})
+
+
+def test_baseline_pixel_assertion_rejects_changed_pixels():
+    image_id = "ISIC_0025339"
+    saved_path = ROOT/"data/processed/images"/f"{image_id}.jpg"
+    with Image.open(saved_path) as saved:
+        changed = np.asarray(saved.convert("RGB")).copy()
+    changed[0, 0, 0] ^= 1
+    with pytest.raises(ValueError, match="Baseline preprocessing is not pixel-identical"):
+        runner.assert_baseline_pixel_identity(Image.fromarray(changed), saved_path, image_id)
 
 
 def test_paired_analysis_uses_same_images_and_lesions(frozen):

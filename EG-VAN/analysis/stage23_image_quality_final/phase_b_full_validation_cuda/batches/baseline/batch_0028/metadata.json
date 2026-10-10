@@ -1,0 +1,29 @@
+{
+  "condition": "baseline",
+  "batch_index": 28,
+  "image_ids": [
+    "ISIC_0032241",
+    "ISIC_0029155",
+    "ISIC_0025647",
+    "ISIC_0025323",
+    "ISIC_0026375",
+    "ISIC_0031663",
+    "ISIC_0031883",
+    "ISIC_0031854",
+    "ISIC_0029124",
+    "ISIC_0024861",
+    "ISIC_0028590",
+    "ISIC_0029983",
+    "ISIC_0028281",
+    "ISIC_0027158",
+    "ISIC_0027968",
+    "ISIC_0024368"
+  ],
+  "rows": 16,
+  "records_sha256": "14591c5f5f29d5831170e6375a7cbb3d5078873ff46ac192d3ce758a76c6152c",
+  "protocol_sha256": "df94205ec017fde3c4cc7b8f4094b7432fef0ce2a8cd2b812464d6ccb8c8c90c",
+  "checkpoint_sha256": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "batch_size": 16,
+  "gpu": "Tesla T4",
+  "torch_version": "2.11.0+cu130"
+}

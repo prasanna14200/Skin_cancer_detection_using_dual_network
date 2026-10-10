@@ -1,0 +1,29 @@
+{
+  "condition": "overexposure_130",
+  "batch_index": 26,
+  "image_ids": [
+    "ISIC_0027166",
+    "ISIC_0028427",
+    "ISIC_0028911",
+    "ISIC_0031467",
+    "ISIC_0024783",
+    "ISIC_0027230",
+    "ISIC_0029346",
+    "ISIC_0030924",
+    "ISIC_0028392",
+    "ISIC_0028676",
+    "ISIC_0030018",
+    "ISIC_0030612",
+    "ISIC_0033384",
+    "ISIC_0032830",
+    "ISIC_0030416",
+    "ISIC_0032868"
+  ],
+  "rows": 16,
+  "records_sha256": "d1e475a278e276f33e2c1c56fb9cb01157ab2a36f110e367479726f345348d39",
+  "protocol_sha256": "df94205ec017fde3c4cc7b8f4094b7432fef0ce2a8cd2b812464d6ccb8c8c90c",
+  "checkpoint_sha256": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "batch_size": 16,
+  "gpu": "Tesla T4",
+  "torch_version": "2.11.0+cu130"
+}

@@ -12,6 +12,7 @@ import os
 import re
 import sys
 import tempfile
+from functools import lru_cache
 from pathlib import Path
 
 import cv2
@@ -24,6 +25,8 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 FROZEN = ROOT / "analysis/stage23_image_quality_final/phase_b_full_validation/phase_b_full_validation_protocol.json"
 PROBE = ROOT / "analysis/stage23_image_quality_final/phase_b_full_validation/cuda_baseline_mismatch_probe.json"
+QUALITY_MANIFEST = ROOT / "analysis/stage23_image_quality_final/quality_analysis_manifest.json"
+QUALITY_TABLE = ROOT / "analysis/stage23_image_quality_final/image_quality_metrics.csv"
 CLASSES = ("akiec", "bcc", "bkl", "df", "mel", "nv", "vasc")
 CHECKPOINT_SHA = "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab"
 BATCH_SIZE = 16
@@ -49,6 +52,19 @@ def write_json_new(path: Path, obj: dict) -> None:
     with path.open("x", encoding="utf-8") as stream:
         json.dump(obj, stream, indent=2, allow_nan=False)
         stream.write("\n")
+
+
+@lru_cache(maxsize=1)
+def frozen_processed_hashes() -> dict[str, str]:
+    """Previously audited Stage 23 validation JPEG identities, not new image processing."""
+    manifest = json.loads(QUALITY_MANIFEST.read_text(encoding="utf-8"))
+    expected = manifest["output_sha256"]["image_quality_metrics.csv"]
+    if sha(QUALITY_TABLE) != expected:
+        raise ValueError("Frozen validation image-hash table changed")
+    table = pd.read_csv(QUALITY_TABLE, usecols=["image_id", "processed_sha256"])
+    if len(table) != 986 or table.image_id.duplicated().any():
+        raise ValueError("Frozen validation image-hash table is incomplete or duplicated")
+    return dict(zip(table.image_id, table.processed_sha256))
 
 
 def frozen_inputs():
@@ -103,10 +119,16 @@ def frozen_inputs():
         raise ValueError("Validation split/reference mismatch")
     if tuple(json.loads(files["registry"].read_text())["class_order"]) != CLASSES:
         raise ValueError("Class order changed")
+    processed_hashes = frozen_processed_hashes()
+    if set(processed_hashes) != set(validation.image_id):
+        raise ValueError("Frozen processed-image identities differ from validation split")
     for image_id in validation.image_id:
         for view in ("raw", "processed"):
             if not (ROOT / "data" / view / "images" / f"{image_id}.jpg").is_file():
                 raise FileNotFoundError(f"Missing {view} validation image: {image_id}")
+        processed_path = ROOT / "data/processed/images" / f"{image_id}.jpg"
+        if sha(processed_path) != processed_hashes[image_id]:
+            raise ValueError(f"Frozen processed JPEG identity changed: {image_id}")
     for value in reference.probabilities:
         p = np.asarray(json.loads(value), dtype=float)
         if p.shape != (7,) or not np.isfinite(p).all() or (p < 0).any() or not np.isclose(p.sum(), 1, atol=1e-5):
@@ -142,7 +164,27 @@ def degraded_rgb(rgb: np.ndarray, condition: dict) -> np.ndarray:
     return np.clip(np.rint(arr), 0, 255).astype(np.uint8)
 
 
+def assert_baseline_pixel_identity(candidate: Image.Image, saved_path: Path, image_id: str) -> None:
+    """Require the actual RGB input to equal the historical Stage 23 JPEG pixels."""
+    with Image.open(saved_path) as reference:
+        reference_rgb = reference.convert("RGB")
+    if not np.array_equal(np.asarray(candidate), np.asarray(reference_rgb)):
+        raise ValueError(f"Baseline preprocessing is not pixel-identical: {image_id}")
+
+
 def processed_image(image_id: str, condition: dict) -> Image.Image:
+    if condition["name"] == "baseline":
+        if condition != {"name": "baseline", "type": "identity"}:
+            raise ValueError("Baseline condition changed")
+        saved_path = ROOT / "data/processed/images" / f"{image_id}.jpg"
+        if sha(saved_path) != frozen_processed_hashes()[image_id]:
+            raise ValueError(f"Frozen processed JPEG identity changed: {image_id}")
+        # Stage 23 validation read this exact JPEG with PIL. The baseline must
+        # not preprocess or re-encode it on a different OpenCV/JPEG runtime.
+        with Image.open(saved_path) as saved:
+            image = saved.convert("RGB")
+        assert_baseline_pixel_identity(image, saved_path, image_id)
+        return image
     raw_path = ROOT / "data/raw/images" / f"{image_id}.jpg"
     raw_bgr = cv2.imread(str(raw_path), cv2.IMREAD_COLOR)
     if raw_bgr is None or raw_bgr.shape[:2] != (450, 600):
@@ -155,15 +197,6 @@ def processed_image(image_id: str, condition: dict) -> Image.Image:
     decoded = cv2.imdecode(encoded, cv2.IMREAD_COLOR)
     if decoded is None:
         raise ValueError(f"Processed JPEG decoding failed: {image_id}")
-    if condition["name"] == "baseline":
-        saved_path = ROOT / "data/processed/images" / f"{image_id}.jpg"
-        saved = cv2.imread(str(saved_path), cv2.IMREAD_COLOR)
-        if saved is None or not np.array_equal(decoded, saved):
-            raise ValueError(f"Baseline preprocessing is not pixel-identical: {image_id}")
-        # The original Stage 23 validation Dataset decoded this file with PIL.
-        # Read the same bytes after verifying the raw preprocessing replay.
-        with Image.open(saved_path) as image:
-            return image.convert("RGB")
     return Image.fromarray(cv2.cvtColor(decoded, cv2.COLOR_BGR2RGB), "RGB")
 
 
