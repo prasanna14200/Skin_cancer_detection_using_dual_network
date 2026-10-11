@@ -1,0 +1,16 @@
+{
+  "scope": "Stage 23 validation-only final Phase B reporting",
+  "original_cuda_execution_manifest_sha256": "0b0ce6adb2ecca37775a0c7a1e868d42d82296ab44bc70a55b13ce4746f6fc81",
+  "original_prediction_table_sha256": "ff7c7a454bd896c54628bd4aeb61949789b82d1a69ae3473878690ca11d0d221",
+  "report_and_builder_sha256": {
+    "PHASE_B_FINAL_RESEARCH_REPORT.md": "9e8125851cc08062657428bd15503bcadd0cd3526f69b2c535316f0d1f54742c",
+    "PHASE_B_RESULTS_SUMMARY.md": "7290ca8234212b3a28282d31d6fdd8c9d3a52ea8175153a8c53855fc69340ce9",
+    "PHASE_B_ARTIFACT_INVENTORY.md": "447ce036fd008bc735c824620a9dd25ebdb14aadeafb6aec947d2c7371d92aa2",
+    "PHASE_B_REPRODUCIBILITY_AUDIT.md": "fd3fd2a5c3a3886e8165160a0eac5b1e7453b32872087fb6db26c21f1f6f61ec",
+    "build_phase_b_results.py": "d43b8491a5ef7ba650b8f41917548966b29bd03cf92ab18cf76fbb76a151b997",
+    "derived_results_manifest.json": "0071a5169a9e890263348f2748a938a11f66d871de0d9f34e497fa51b2711395"
+  },
+  "training_performed": false,
+  "inference_performed": false,
+  "ham_test_or_ph2_accessed": false
+}

@@ -1,0 +1,15 @@
+stage4d_role,class,images,lesions,fraction_of_original_train_class_images
+development_train,akiec,204,146,0.79377432
+development_train,bcc,325,209,0.81658291
+development_train,bkl,723,466,0.81144781
+development_train,df,72,46,0.75789474
+development_train,mel,736,396,0.81868743
+development_train,nv,4327,3479,0.80637346
+development_train,vasc,90,62,0.82568807
+internal_selection,akiec,53,36,0.20622568
+internal_selection,bcc,73,52,0.18341709
+internal_selection,bkl,168,115,0.18855219
+internal_selection,df,23,12,0.24210526
+internal_selection,mel,163,95,0.18131257
+internal_selection,nv,1039,843,0.19362654
+internal_selection,vasc,19,16,0.17431193

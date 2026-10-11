@@ -1,0 +1,114 @@
+{
+  "schema": "stage4d_conservative_split_v2",
+  "status": "PROPOSED_CONTAINED_INTERNAL_DEVELOPMENT_BOUNDARY",
+  "policy": "whole-lesion co-location in development training; full closure over refined within-selection edges",
+  "source_sha256": {
+    "stage4b_split_manifest_v1.json": "dd2ce3f2d698ff5cbf392ccc2a8889338fe4cb7b1017dcff677214eec392e649",
+    "stage4b_development_train_v1.csv": "8fbbea0afc03bef91f9398b7208292d01bf30dd699433edddf3aabe3ce8d1058",
+    "stage4b_internal_selection_v1.csv": "a1b63582e069a45fffc71eeaa08af6c89b9fa829030266e621918bc76c28f8c1",
+    "stage4b_phash_refined_candidates_v1.csv": "66b9256855efa525c9b493fdad3b2707d125b6a0f324d3a1b1b920e91c8f2b51",
+    "stage4c_review_manifest.json": "36280b3c21f6d74cbf666e81ed55d2b1077132eb930702c5dece4804d1687a3e",
+    "NEAR_DUPLICATE_PAIR_REVIEW.csv": "95d87e45c428b619091974f5661506fce2420dea4553ef2da13a1e5151a7bcfc",
+    "split_leakage_aware.csv": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "STAGE4D_CONSERVATIVE_SPLIT_PROTOCOL.md": "4abf656b7fac7dd962387c9e8a41e45c44a4adb19368bb88897123297e4aed5b",
+    "build_stage4d_v2.py": "9e1604246c5ac2d32d217c57a7e5440d61e998e62814ae2508ba4d479b2d41ac"
+  },
+  "artifact_sha256": {
+    "stage4d_development_train_v2.csv": "3adc5f781cd0ff4641f1271064e9e24c83f5a045e4e969c1a7c1aecaab91905f",
+    "stage4d_internal_selection_v2.csv": "fae3fd546267226df8211828dca791656bb384470ca06a7d99229dca198429d8",
+    "STAGE4D_CLASS_DISTRIBUTION.csv": "5863372213edf14aba1424c701b030594d873cef3a5ceedcb5b8644a08a511ea",
+    "stage4d_boundary_screen_v2.csv": "6bdc68f5d53db84cf3484b3194e530a94edaaa4273330eb0b5de6449608f5a41"
+  },
+  "original_train_images": 8015,
+  "original_train_lesions": 5973,
+  "original_refined_edges": 40,
+  "original_edge_components": 20,
+  "original_edge_lesions": 59,
+  "initial_selection_lesions": 23,
+  "within_selection_dhash_le4_pairs": 669,
+  "within_selection_refined_phash_le8_pairs": 3,
+  "closure_moved_selection_lesions": 25,
+  "closure_moved_selection_lesion_ids": [
+    "HAM_0000698",
+    "HAM_0000970",
+    "HAM_0000999",
+    "HAM_0001643",
+    "HAM_0001680",
+    "HAM_0001849",
+    "HAM_0002130",
+    "HAM_0002139",
+    "HAM_0002215",
+    "HAM_0002916",
+    "HAM_0003520",
+    "HAM_0003606",
+    "HAM_0003803",
+    "HAM_0003884",
+    "HAM_0004550",
+    "HAM_0004898",
+    "HAM_0005107",
+    "HAM_0005273",
+    "HAM_0005894",
+    "HAM_0006284",
+    "HAM_0006725",
+    "HAM_0006799",
+    "HAM_0006822",
+    "HAM_0007265",
+    "HAM_0007448"
+  ],
+  "closure_moved_selection_images": 52,
+  "counts": {
+    "development_train": {
+      "images": 6477,
+      "lesions": 4804,
+      "images_by_class": {
+        "akiec": 204,
+        "bcc": 325,
+        "bkl": 723,
+        "df": 72,
+        "mel": 736,
+        "nv": 4327,
+        "vasc": 90
+      },
+      "lesions_by_class": {
+        "akiec": 146,
+        "bcc": 209,
+        "bkl": 466,
+        "df": 46,
+        "mel": 396,
+        "nv": 3479,
+        "vasc": 62
+      }
+    },
+    "internal_selection": {
+      "images": 1538,
+      "lesions": 1169,
+      "images_by_class": {
+        "akiec": 53,
+        "bcc": 73,
+        "bkl": 168,
+        "df": 23,
+        "mel": 163,
+        "nv": 1039,
+        "vasc": 19
+      },
+      "lesions_by_class": {
+        "akiec": 36,
+        "bcc": 52,
+        "bkl": 115,
+        "df": 12,
+        "mel": 95,
+        "nv": 843,
+        "vasc": 16
+      }
+    }
+  },
+  "cross_role_dhash_le4_pairs": 5189,
+  "cross_role_refined_phash_le8_pairs": 0,
+  "cross_role_lesion_ids": 0,
+  "cross_role_exact_raw_or_processed_groups": 0,
+  "all_original_train_images_once": true,
+  "human_adjudication_performed": false,
+  "patient_ids_available": false,
+  "model_training_or_inference_performed": false,
+  "original_ham_validation_test_or_ph2_used_for_membership": false
+}

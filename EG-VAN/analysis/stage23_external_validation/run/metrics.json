@@ -1,0 +1,89 @@
+{
+  "sample_count": 120,
+  "class_counts": {
+    "nv": 80,
+    "mel": 40
+  },
+  "true_rows": [
+    "nv",
+    "mel"
+  ],
+  "predicted_columns": [
+    "nv",
+    "mel",
+    "other"
+  ],
+  "confusion_matrix": [
+    [
+      68,
+      5,
+      7
+    ],
+    [
+      13,
+      13,
+      14
+    ]
+  ],
+  "mapped_accuracy": 0.675,
+  "mel_recall": 0.325,
+  "mel_precision": 0.7222222222222222,
+  "mel_f1": 0.44827586206896547,
+  "nv_exact_label_recall": 0.85,
+  "mapped_balanced_accuracy": 0.5875,
+  "binary_mel_specificity": 0.9375,
+  "binary_specificity_note": "NV predicted OTHER is binary-negative but wrong in mapped 2x3 accuracy.",
+  "mel_p_roc_auc": 0.5859375,
+  "mel_p_average_precision": 0.5250237020124024,
+  "mean_entropy_nats": 0.9304551143019272,
+  "mean_confidence": 0.604160585006078,
+  "wilson_95": {
+    "mapped_accuracy": [
+      0.5869018408594733,
+      0.7522414508939805
+    ],
+    "mel_recall": [
+      0.200845022317827,
+      0.47982253810122333
+    ],
+    "nv_exact_label_recall": [
+      0.7558677143867665,
+      0.9120595949383645
+    ],
+    "binary_mel_specificity": [
+      0.8618985123272557,
+      0.973010624329158
+    ]
+  },
+  "uncertainty_unit": "image ID as lesion proxy; patient identifiers unavailable",
+  "entropy_error_detection_auc": 0.7610003165558722,
+  "bootstrap_95": {
+    "method": "stratified image-ID bootstrap; patient groups unavailable",
+    "seed": 42,
+    "repetitions": 2000,
+    "percentile_95": {
+      "mapped_accuracy": [
+        0.6,
+        0.7416666666666667
+      ],
+      "mel_f1": [
+        0.27999999999999997,
+        0.6000793650793647
+      ],
+      "mel_p_roc_auc": [
+        0.4653046875,
+        0.7053359374999999
+      ],
+      "mean_entropy_nats": [
+        0.8771930488901631,
+        0.9806604638323048
+      ]
+    },
+    "undefined_replicates": {
+      "mapped_accuracy": 0,
+      "mel_f1": 0,
+      "mel_p_roc_auc": 0,
+      "mean_entropy_nats": 0
+    }
+  }
+}

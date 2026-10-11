@@ -1,0 +1,22 @@
+# Stage 23 PH2 frozen external follow-up protocol
+
+**Status:** frozen before Stage 23 PH2 inference. Machine-readable contract: [phase23_ph2_protocol.json](phase23_ph2_protocol.json), SHA256 `3e6e31165e6afcb6b270e940f3abfe94dc99e2c805d84e08db2a156a91754ed8`. This is a qualified **external follow-up**, not untouched independent validation, because PH2 has prior project use. The [data audit](STAGE23_PH2_DATA_AUDIT.md) establishes cohort identity and the limit of patient-level independence evidence.
+
+## Model and execution
+
+- Frozen checkpoint: `experiments/stage23_resnet50_imagenet_init_exp1/run/best_checkpoint.pt`, selected epoch 14, SHA256 `42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab`. Strictly load via `models/frozen_stage23/load_frozen.py` with the registered seven-class order.
+- Preserve Stage 23 evaluation transform: RGB, resize to 384×384, tensor conversion, ImageNet mean/std. For PH2 BMP, apply the pre-existing [external preprocessing contract](../ph2_external_validation_exp5/external_validation_config.json): original BMP RGB → BGR → frozen `src/preprocessing.py:preprocess_image` → OpenCV default in-memory JPEG encode/decode → RGB → frozen transform. No ROI, mask, augmentation, TTA or calibration fit.
+- Use Tesla T4, eval mode, `torch.inference_mode()`, physical batch 16 without shuffle, CUDA FP16 autocast, with **only** `resnet.nonlocal3` q@k affinity in FP32; cast logits to FP32 before softmax. Stage 23 [CUDA baseline diagnostic](../stage23_image_quality_final/phase_b_full_validation_cuda/final_research_results/PHASE_B_REPRODUCIBILITY_AUDIT.md) showed batch and precision can change probability vectors or a near-tie argmax; T4 batch-16 is therefore the prespecified reproducibility path. Exact PH2 agreement with a prior Stage 23 reference cannot be checked because no prior Stage 23 PH2 predictions exist.
+- Inference order is the fixed manifest order. Exactly 120 included images, seven finite probabilities summing to one, one record per ID. Refuse a second run or overwrite. Results are staged in a new directory and renamed only after completion. No research checkpoint is saved.
+
+## Endpoints and uncertainty
+
+**Primary:** MEL argmax recall among 40 true melanomas, numerator/40, with two-sided Wilson 95% interval. This endpoint has no post-hoc threshold. **Secondary:** full 2×3 true NV/MEL by predicted NV/MEL/OTHER confusion, mapped accuracy, NV exact-label recall, binary MEL specificity and MEL precision/F1, unmodified `p_mel` one-vs-rest ROC AUC and average precision, maximum softmax and seven-class predictive entropy, and entropy error-detection AUROC where both correct and incorrect cases exist. The binary positive decision is **argmax MEL**; all other argmax outputs are negative. A true NV predicted OTHER is a binary true negative but an error in mapped accuracy. No binary renormalization to `p_mel/(p_mel+p_nv)` is used.
+
+Wilson intervals are planned for mapped accuracy, MEL recall, NV exact recall and binary MEL specificity. Fixed-seed 42, 2,000-replicate stratified image-ID bootstrap percentile intervals are planned for mapped accuracy, MEL F1, `p_mel` ROC AUC and mean entropy. PH2 provides one `IMD` case per image folder but no patient identifier, so this is **not a verified patient-cluster bootstrap**; patient-level dependence and uncertainty underestimation remain possible. No Stage 23 training/validation threshold or Stage 15/20 entropy threshold is imported.
+
+## Frozen decision boundary
+
+Stage 23 checkpoint, preprocessing, class order, mapping and exclusions stay unchanged whatever the outcome. No PH2 outcome may select another checkpoint, hyperparameter, threshold, stop point or image-quality rule. Compare Stage 23 internal validation and PH2 only as **different datasets with different label spaces and denominators**. Prior Stage 15 PH2 metrics are historical context, never Stage 23 results. Report adverse and null findings without exclusions after predictions. A new untouched cohort remains necessary for independent external validation.
+
+The runner performs a read-only preflight before loading any PH2 image for inference: protocol SHA, Stage 23 registry/source/checkpoint SHA, split SHA, Stage 23 train manifest boundary, PH2 manifest/clinical labels, image count/decodability and original-copy hashes. It does not read historical PH2 performance outcomes. After the single run it rechecks checkpoint SHA and writes predictions, metrics, confusion and a provenance manifest to a separate exclusive-create directory.

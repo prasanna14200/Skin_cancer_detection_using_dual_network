@@ -1,0 +1,96 @@
+{
+  "algorithm": "per-class SHA256 sort of stage4b-v1|20261010|class|lesion_id; first floor(0.2*n+0.5) lesion IDs to internal_selection",
+  "artifact_sha256": {
+    "stage4b_development_train_v1.csv": "8fbbea0afc03bef91f9398b7208292d01bf30dd699433edddf3aabe3ce8d1058",
+    "stage4b_internal_selection_v1.csv": "a1b63582e069a45fffc71eeaa08af6c89b9fa829030266e621918bc76c28f8c1",
+    "stage4b_near_duplicate_candidates_v1.csv": "10edd9c8d80fece258691761c135e36b3b3b81088deda3fbc5f1e07a2518907e"
+  },
+  "class_order": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "counts": {
+    "development_train": {
+      "images": 6425,
+      "images_by_class": {
+        "akiec": 204,
+        "bcc": 325,
+        "bkl": 721,
+        "df": 72,
+        "mel": 731,
+        "nv": 4282,
+        "vasc": 90
+      },
+      "lesions": 4779,
+      "lesions_by_class": {
+        "akiec": 146,
+        "bcc": 209,
+        "bkl": 465,
+        "df": 46,
+        "mel": 393,
+        "nv": 3458,
+        "vasc": 62
+      }
+    },
+    "internal_selection": {
+      "images": 1590,
+      "images_by_class": {
+        "akiec": 53,
+        "bcc": 73,
+        "bkl": 170,
+        "df": 23,
+        "mel": 168,
+        "nv": 1084,
+        "vasc": 19
+      },
+      "lesions": 1194,
+      "lesions_by_class": {
+        "akiec": 36,
+        "bcc": 52,
+        "bkl": 116,
+        "df": 12,
+        "mel": 98,
+        "nv": 864,
+        "vasc": 16
+      }
+    }
+  },
+  "frozen_stage23_checkpoint_training_overlap": "all original HAM train images; this split cannot evaluate that checkpoint",
+  "ham_validation_test_or_ph2_outcomes_used_for_assignment": false,
+  "inference_performed": false,
+  "integrity": {
+    "all_train_images_once": true,
+    "cross_role_dhash_le4_different_lesion_candidates": 6192,
+    "cross_role_exact_processed_duplicate_groups": 0,
+    "cross_role_exact_raw_duplicate_groups": 0,
+    "cross_role_lesion_ids": 0,
+    "original_validation_or_test_images_used": false,
+    "within_pool_exact_processed_duplicate_groups": 2,
+    "within_pool_exact_raw_duplicate_groups": 2
+  },
+  "near_duplicate_method": "64-bit raw grayscale horizontal dHash, Hamming <=4, different lesion IDs across roles; candidate screen only",
+  "original_pool": "HAM leakage-aware train only",
+  "original_pool_images": 8015,
+  "original_pool_lesions": 5973,
+  "patient_identifiers_available": false,
+  "schema": "stage4b_development_split_v1",
+  "seed": "20261010",
+  "source_sha256": {
+    "analysis/stage4a_data_governance/CONTROLLED_DEVELOPMENT_PROTOCOL.md": "411f44afe901b5dc5ced42a194e2361187071fe306f32415f8e75abc0047d8b5",
+    "analysis/stage4b_development_split/STAGE4B_SPLIT_PROTOCOL.md": "09d1680048187d18958f63d837f8fade924713c4c3c0805e103585c645873241",
+    "analysis/stage4b_development_split/build_stage4b_split.py": "1eec7a30d895938681dab8229e68c8f30764f0b72f43ca0378c8c6fc2e9c904d",
+    "data/processed/metadata_clean.csv": "19917805e2fa94bb6bf7c189628d433188c86bfb99039e142fb3973b72e89878",
+    "data/splits/split_leakage_aware.csv": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883",
+    "experiments/stage23_resnet50_imagenet_init_exp1/config.json": "67a9d77d8464ef51d94f5861004084b179c3c42159e172c680d85952514d7afa",
+    "src/dataset.py": "02c6d280e468a8c83719bffd7b6bc042b138893d7badd794d0ecfa9291ec8cad",
+    "src/preprocessing.py": "cf0a176a610b52ba45b0e91761b027a560252234f81f7b6fd572f02d8baab6ed",
+    "src/train.py": "c195142d2f924b83374c0d6a8d4d93061ecf2e77e947710e6a3a8eb8264686bc"
+  },
+  "status": "PROPOSED_INTERNAL_SELECTION_BOUNDARY",
+  "training_performed": false
+}

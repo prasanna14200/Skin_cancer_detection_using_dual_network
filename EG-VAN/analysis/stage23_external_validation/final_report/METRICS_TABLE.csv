@@ -1,0 +1,13 @@
+metric,estimate,interval_95_low,interval_95_high,interval_method
+mapped_accuracy,0.675,0.5869018408594733,0.7522414508939805,Wilson
+mel_recall,0.325,0.200845022317827,0.47982253810122333,Wilson
+mel_precision,0.7222222222222222,,,
+mel_f1,0.44827586206896547,0.27999999999999997,0.6000793650793647,independently recomputed 2000-replicate stratified image-ID bootstrap
+nv_exact_label_recall,0.85,0.7558677143867665,0.9120595949383645,Wilson
+mapped_balanced_accuracy,0.5875,0.50625,0.66875,descriptive stratified image-ID bootstrap
+binary_mel_specificity,0.9375,0.8618985123272557,0.973010624329158,Wilson
+mel_p_roc_auc,0.5859375,0.4653046875,0.7053359374999999,independently recomputed 2000-replicate stratified image-ID bootstrap
+mel_p_average_precision,0.5250237020124024,,,
+mean_entropy_nats,0.9304551143019272,0.8771930488901631,0.9806604638323048,independently recomputed 2000-replicate stratified image-ID bootstrap
+mean_confidence,0.604160585006078,,,
+entropy_error_detection_auc,0.7610003165558722,,,

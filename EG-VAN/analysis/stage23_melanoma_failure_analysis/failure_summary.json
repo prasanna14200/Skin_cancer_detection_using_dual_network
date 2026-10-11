@@ -1,0 +1,341 @@
+{
+  "status": "PASS_SAVED_PREDICTION_AND_IMAGE_PROXY_AUDIT",
+  "checkpoint_sha256": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "source_sha256": {
+    "experiments/stage23_resnet50_imagenet_init_exp1/run/validation_predictions.csv": "b3f5d2e43b26fb63916d4e29ab597fde4183b3c76e75d4d0a7caeaccc88a368a",
+    "analysis/stage23_external_validation/run/predictions.csv": "2b131ac9ad0e388036194f463914d5e5a96f3bd1934470a38266051d93f341e4",
+    "analysis/stage23_uncertainty_final/validation_uncertainty.csv": "63b09e39799315c6e888ff8ab345fa35721a4ec4142f5bd38ee8249da30f2d33",
+    "analysis/stage23_image_quality_final/image_quality_metrics.csv": "d11570bbb11451eea37073b849b6b8db7d4c7549d7efcc71652628a20d2d8455",
+    "analysis/ph2_external_validation_exp5/ph2_manifest.csv": "3c130b3b44dcc1052ae29656510a95a4e91df4b8f65c121838941efb375d3842",
+    "data/splits/split_leakage_aware.csv": "f1c04c5ef5b54372c667daf0aebc29e6f24743c6c2cc094f16e2c4e679149883"
+  },
+  "ham": {
+    "mel_total": 107,
+    "mel_correct": 70,
+    "mel_false_negatives": 37,
+    "error_predictions": {
+      "bkl": 3,
+      "nv": 26,
+      "bcc": 3,
+      "vasc": 4,
+      "df": 1
+    },
+    "false_negative_confidence_ge_0_8": 9,
+    "false_negative_confidence_ge_0_9": 2,
+    "entropy_error_auc_within_true_mel": 0.5926640926640927,
+    "one_minus_confidence_error_auc_within_true_mel": 0.5718146718146718,
+    "confidence": {
+      "correct": {
+        "n": 70,
+        "mean": 0.7103240894419807,
+        "median": 0.7197273075580597,
+        "min": 0.3373417258262634,
+        "max": 0.9803609251976013
+      },
+      "false_negative": {
+        "n": 37,
+        "mean": 0.67078458779567,
+        "median": 0.6892240047454834,
+        "min": 0.31293773651123047,
+        "max": 0.9897330403327942
+      }
+    },
+    "p_mel": {
+      "correct": {
+        "n": 70,
+        "mean": 0.7103240894419807,
+        "median": 0.7197273075580597,
+        "min": 0.3373417258262634,
+        "max": 0.9803609251976013
+      },
+      "false_negative": {
+        "n": 37,
+        "mean": 0.2175966453411289,
+        "median": 0.2179107367992401,
+        "min": 0.008397247642278671,
+        "max": 0.43943867087364197
+      }
+    },
+    "entropy_nats": {
+      "correct": {
+        "n": 70,
+        "mean": 0.6814339409279955,
+        "median": 0.6810532709819709,
+        "min": 0.11230002949172667,
+        "max": 1.6107369533815326
+      },
+      "false_negative": {
+        "n": 37,
+        "mean": 0.7827503276021974,
+        "median": 0.7157814848280941,
+        "min": 0.06289606386033379,
+        "max": 1.5282836580211772
+      }
+    },
+    "raw_brightness": {
+      "correct": {
+        "n": 70,
+        "mean": 151.5419352910053,
+        "median": 150.42922407407409,
+        "min": 101.54855555555555,
+        "max": 192.16601481481482
+      },
+      "false_negative": {
+        "n": 37,
+        "mean": 152.9989866866867,
+        "median": 152.01442962962963,
+        "min": 112.18607777777778,
+        "max": 187.10746666666665
+      }
+    },
+    "raw_contrast": {
+      "correct": {
+        "n": 70,
+        "mean": 33.687740964133525,
+        "median": 31.459404865259035,
+        "min": 15.493248749036018,
+        "max": 68.18727210579026
+      },
+      "false_negative": {
+        "n": 37,
+        "mean": 33.86569219172495,
+        "median": 33.18825298915414,
+        "min": 12.357811273437703,
+        "max": 80.61625769471529
+      }
+    },
+    "raw_sharpness": {
+      "correct": {
+        "n": 70,
+        "mean": 135.9938844265091,
+        "median": 91.88912055318245,
+        "min": 23.596022115994515,
+        "max": 759.9553409733331
+      },
+      "false_negative": {
+        "n": 37,
+        "mean": 70.67904659297112,
+        "median": 53.75103683950617,
+        "min": 18.692524556159125,
+        "max": 244.5650884244718
+      }
+    },
+    "raw_saturation": {
+      "correct": {
+        "n": 70,
+        "mean": 0.26601015375038906,
+        "median": 0.25125476397966595,
+        "min": 0.09931355119825708,
+        "max": 0.5060683369644153
+      },
+      "false_negative": {
+        "n": 37,
+        "mean": 0.27893159630218456,
+        "median": 0.27845198257080606,
+        "min": 0.15672745098039215,
+        "max": 0.49755700798838054
+      }
+    },
+    "raw_dark_pixel_ratio": {
+      "correct": {
+        "n": 70,
+        "mean": 0.006525555555555555,
+        "median": 0.0007629629629629629,
+        "min": 0.0,
+        "max": 0.08247777777777777
+      },
+      "false_negative": {
+        "n": 37,
+        "mean": 0.005903403403403403,
+        "median": 3.7037037037037037e-06,
+        "min": 0.0,
+        "max": 0.0718074074074074
+      }
+    },
+    "raw_bright_pixel_ratio": {
+      "correct": {
+        "n": 70,
+        "mean": 0.0028246560846560847,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0825037037037037
+      },
+      "false_negative": {
+        "n": 37,
+        "mean": 0.02162122122122122,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.5040407407407408
+      }
+    },
+    "raw_dimensions": {
+      "600x450": 107
+    }
+  },
+  "ph2": {
+    "mel_total": 40,
+    "mel_correct": 13,
+    "mel_false_negatives": 27,
+    "error_predictions": {
+      "nv": 13,
+      "bkl": 9,
+      "akiec": 1,
+      "df": 4
+    },
+    "false_negative_confidence_ge_0_8": 1,
+    "false_negative_confidence_ge_0_9": 0,
+    "entropy_error_auc_within_true_mel": 0.5754985754985755,
+    "one_minus_confidence_error_auc_within_true_mel": 0.6296296296296297,
+    "confidence": {
+      "correct": {
+        "n": 13,
+        "mean": 0.558019064939939,
+        "median": 0.5503511428833008,
+        "min": 0.3346980810165405,
+        "max": 0.8465939164161682
+      },
+      "false_negative": {
+        "n": 27,
+        "mean": 0.49639567180916117,
+        "median": 0.49094462394714355,
+        "min": 0.2873231768608093,
+        "max": 0.8093377947807312
+      }
+    },
+    "p_mel": {
+      "correct": {
+        "n": 13,
+        "mean": 0.558019064939939,
+        "median": 0.5503511428833008,
+        "min": 0.3346980810165405,
+        "max": 0.8465939164161682
+      },
+      "false_negative": {
+        "n": 27,
+        "mean": 0.19341132044792175,
+        "median": 0.16769109666347504,
+        "min": 0.017417458817362785,
+        "max": 0.4885915219783783
+      }
+    },
+    "entropy_nats": {
+      "correct": {
+        "n": 13,
+        "mean": 1.0513745778974593,
+        "median": 1.0615605687347593,
+        "min": 0.509138564994544,
+        "max": 1.5393528695204073
+      },
+      "false_negative": {
+        "n": 27,
+        "mean": 1.1481681200469658,
+        "median": 1.1524761321074655,
+        "min": 0.6372432669926152,
+        "max": 1.6096209005644142
+      }
+    },
+    "raw_brightness": {
+      "correct": {
+        "n": 13,
+        "mean": 142.5555668582344,
+        "median": 156.2764146592882,
+        "min": 99.63567470664928,
+        "max": 164.35004114221644
+      },
+      "false_negative": {
+        "n": 27,
+        "mean": 121.61081829078357,
+        "median": 118.86509902117004,
+        "min": 65.84712223676556,
+        "max": 163.1979663990162
+      }
+    },
+    "raw_contrast": {
+      "correct": {
+        "n": 13,
+        "mean": 42.466153801370005,
+        "median": 41.78886746101848,
+        "min": 32.8738738703432,
+        "max": 56.544252337396244
+      },
+      "false_negative": {
+        "n": 27,
+        "mean": 38.57898974963406,
+        "median": 35.99937787001774,
+        "min": 24.33480309381965,
+        "max": 57.78073857128389
+      }
+    },
+    "raw_sharpness": {
+      "correct": {
+        "n": 13,
+        "mean": 731.2830275249622,
+        "median": 680.1551880708735,
+        "min": 337.0811601761051,
+        "max": 1341.737107763545
+      },
+      "false_negative": {
+        "n": 27,
+        "mean": 565.9140355860154,
+        "median": 486.5153430673394,
+        "min": 210.7114601350902,
+        "max": 1109.5438099525818
+      }
+    },
+    "raw_saturation": {
+      "correct": {
+        "n": 13,
+        "mean": 0.3524464130561511,
+        "median": 0.3141210707011392,
+        "min": 0.27594880635269153,
+        "max": 0.5281735811085262
+      },
+      "false_negative": {
+        "n": 27,
+        "mean": 0.3832466013614078,
+        "median": 0.3599691130720442,
+        "min": 0.21403233258725943,
+        "max": 0.6943921704080119
+      }
+    },
+    "raw_dark_pixel_ratio": {
+      "correct": {
+        "n": 13,
+        "mean": 0.0025172984709134283,
+        "median": 6.781684027777777e-06,
+        "min": 0.0,
+        "max": 0.009877077168222172
+      },
+      "false_negative": {
+        "n": 27,
+        "mean": 0.004985919967432467,
+        "median": 0.0014373279733449224,
+        "min": 0.0,
+        "max": 0.05113574389179756
+      }
+    },
+    "raw_bright_pixel_ratio": {
+      "correct": {
+        "n": 13,
+        "mean": 0.015153744939927303,
+        "median": 0.005429868344907407,
+        "min": 3.186888231277032e-05,
+        "max": 0.1024486400462963
+      },
+      "false_negative": {
+        "n": 27,
+        "mean": 0.01618756581073562,
+        "median": 0.00010638490511371868,
+        "min": 0.0,
+        "max": 0.26033302589699076
+      }
+    },
+    "raw_dimensions": {
+      "767x576": 15,
+      "764x575": 5,
+      "768x576": 19,
+      "764x576": 1
+    }
+  },
+  "quality_note": "PH2 raw BMP proxies computed read-only; HAM raw JPEG proxies come from saved Stage23 table; format/resolution confound direct comparisons"
+}

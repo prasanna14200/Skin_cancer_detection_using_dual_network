@@ -1,0 +1,20 @@
+{
+  "status": "FROZEN_BEFORE_STAGE23_PH2_INFERENCE",
+  "study_label": "Stage 23 PH2 external follow-up; previously used cohort, not untouched independent validation",
+  "checkpoint_sha256": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "checkpoint_epoch": 14,
+  "class_order": ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"],
+  "ph2_manifest_sha256": "3c130b3b44dcc1052ae29656510a95a4e91df4b8f65c121838941efb375d3842",
+  "cohort": {"total": 200, "included": 120, "common_nevus_as_nv": 80, "melanoma_as_mel": 40, "excluded_atypical_nevus": 80},
+  "exclusion_policy": "Exclude all atypical nevi because the seven-class HAM output has no direct frozen label mapping; no casewise exclusions after predictions",
+  "preprocessing": "PH2 original BMP decoded RGB; convert to BGR; frozen src/preprocessing.py preprocessing; OpenCV default JPEG encode/decode in memory; convert to RGB; Resize 384x384, ToTensor, ImageNet mean/std; no mask/ROI/TTA",
+  "inference": {"device": "Tesla T4 CUDA", "batch_size": 16, "shuffle": false, "model_eval": true, "inference_mode": true, "autocast": "CUDA FP16", "selective_policy": "resnet.nonlocal3 q@k torch.bmm only in FP32", "probabilities": "softmax(float32 logits)"},
+  "prediction_policy": "Seven-class argmax without threshold; nv/mel retained as named classes, all other predictions grouped as OTHER for mapped 2x3 confusion and count as incorrect",
+  "binary_policy": "For binary MEL decision, MEL argmax is positive and every other argmax is negative; continuous ROC/AUC score is unmodified seven-class p_mel. Specificity counts true NV with argmax other than MEL, including OTHER; report this beside the 2x3 table to expose its different meaning.",
+  "primary_endpoint": "MEL argmax recall among 40 true PH2 melanomas, with Wilson 95% interval",
+  "secondary_endpoints": ["mapped accuracy", "2x3 confusion matrix", "NV exact-label recall", "binary MEL specificity", "binary MEL precision and F1", "p_mel ROC AUC and average precision", "seven-class predictive entropy", "maximum softmax score", "top-label error-detection AUROC where defined"],
+  "uncertainty": {"binomial": "Wilson two-sided 95% for MEL recall, NV recall, binary specificity and mapped accuracy", "non_binomial": "fixed-seed 42, 2000 stratified image-ID bootstrap percentile resamples; ID is a lesion proxy, patient linkage unavailable; undefined replicates recorded", "no_interim_selection": true},
+  "output_policy": "One new result directory, exclusive-create outputs, no checkpoint or source-image edits; source/output SHA256 manifest",
+  "selection_policy": "No training, fine-tuning, calibration fit, cutoff selection, checkpoint replacement, preprocessing change or model selection from PH2 outcomes",
+  "independence_limitation": "PH2 was used earlier in this project for diagnostics and older-model evaluations; a new untouched external cohort is required for confirmatory independent validation"
+}

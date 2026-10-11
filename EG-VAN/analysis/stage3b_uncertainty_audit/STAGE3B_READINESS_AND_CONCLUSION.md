@@ -1,0 +1,11 @@
+# Stage 3B readiness and conclusion
+
+**Read-only audit status: COMPLETE. Deployment-review policy status: NOT VALIDATED. Stage 3A status: BLOCKED.** Both saved prediction sets passed their original integrity audits. [Calibration metrics](CALIBRATION_METRICS.csv), [error-detection metrics](ERROR_DETECTION_METRICS.csv), the two [reliability diagrams](ham_reliability_diagram.png), [audit details](stage3b_details.json), and the [reproducible script](analyze_saved_uncertainty.py) are derived outputs; no inference or training ran.
+
+**Reproducible findings:** HAM top-label ECE 0.03977, seven-class Brier sum 0.25745 and NLL 0.52388 nats match the earlier Stage 23 uncertainty analysis. All-class entropy error AUROC is 0.8349 on HAM and 0.7610 on PH2 mapped follow-up. PH2's descriptive ECE is 0.09483, Brier 0.44661 and NLL 0.86310 under the same seven-class score convention, but its truth space and case mix differ. Fixed 10-bin convention and uncertainty intervals are documented in the audit.
+
+**Melanoma-miss detection:** entropy AUROC is only 0.5927 on HAM true-MEL cases and 0.5755 on PH2 true-MEL cases, with wide intervals. Nine HAM melanoma misses have confidence ≥0.8; two are ≥0.9. Entropy is not a reliable safety net for missed melanomas in these cohorts. The historical HAM validation 80%-coverage scenario reviews 15/37 MEL misses and leaves 22/37 retained. This is exploratory, not a deployment rule.
+
+**Required before a generalization or threshold claim:** a new patient-linked, appropriately labeled cohort independent of Stage 23 model selection and prior project evaluations; a prospectively frozen review threshold/coverage target and evaluation protocol; sufficient melanoma cases for precision; patient/lesion-grouped intervals; source and label mapping documented in advance; and assessment of clinically relevant harms by qualified domain reviewers. A threshold cannot be selected from these HAM or PH2 outcomes and then reported as independently validated on them. Technical image-quality validation additionally requires the new cohort and reviewers identified in [Stage 3A readiness](../stage3a_quality_validation/STAGE3A_READINESS.md).
+
+**Stop point:** report the limitations and seek new data. No further Stage 23 score fitting, threshold selection, model change or inference is justified by this audit.

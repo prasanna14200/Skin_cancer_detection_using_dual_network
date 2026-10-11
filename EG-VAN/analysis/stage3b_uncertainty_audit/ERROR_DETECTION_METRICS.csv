@@ -1,0 +1,25 @@
+dataset,scope,score,metric,n,errors,error_prevalence,estimate,ci95_low,ci95_high,valid_bootstrap_replicates,resample_unit
+HAM_validation,all_cases,predictive_entropy,AUROC,986,168,0.17038539553752535,0.8348687274420771,0.8034662327609331,0.867135679025896,1000,lesion_id
+HAM_validation,all_cases,predictive_entropy,average_precision,986,168,0.17038539553752535,0.466027159807276,0.39011170219228886,0.5517272191111584,1000,lesion_id
+HAM_validation,all_cases,one_minus_max_softmax,AUROC,986,168,0.17038539553752535,0.8381796483874724,0.8084843265576558,0.8700130395057607,1000,lesion_id
+HAM_validation,all_cases,one_minus_max_softmax,average_precision,986,168,0.17038539553752535,0.4750066984055202,0.40597668517291396,0.5551354368905603,1000,lesion_id
+HAM_validation,all_cases,negative_top_two_margin,AUROC,986,168,0.17038539553752535,0.8268715799278147,0.7942359707660696,0.8595585352953607,1000,lesion_id
+HAM_validation,all_cases,negative_top_two_margin,average_precision,986,168,0.17038539553752535,0.4343224364374089,0.37039309634988504,0.516306501537238,1000,lesion_id
+HAM_validation,true_melanoma_only,predictive_entropy,AUROC,107,37,0.34579439252336447,0.5926640926640927,0.4761248389515989,0.7071096887550201,1000,lesion_id
+HAM_validation,true_melanoma_only,predictive_entropy,average_precision,107,37,0.34579439252336447,0.43418528210894203,0.3223394116101036,0.5943314236474473,1000,lesion_id
+HAM_validation,true_melanoma_only,one_minus_max_softmax,AUROC,107,37,0.34579439252336447,0.5718146718146718,0.4642035161892152,0.6906257844531838,1000,lesion_id
+HAM_validation,true_melanoma_only,one_minus_max_softmax,average_precision,107,37,0.34579439252336447,0.40782354547290406,0.31492318357524124,0.5409534297851668,1000,lesion_id
+HAM_validation,true_melanoma_only,negative_top_two_margin,AUROC,107,37,0.34579439252336447,0.5590733590733591,0.4438954954735017,0.6760914177468297,1000,lesion_id
+HAM_validation,true_melanoma_only,negative_top_two_margin,average_precision,107,37,0.34579439252336447,0.365812089731841,0.2719194315594605,0.49364169816050996,1000,lesion_id
+PH2_followup,all_cases,predictive_entropy,AUROC,120,39,0.325,0.7610003165558722,0.6690808436459035,0.8480897258341413,1000,image_id; patient IDs unavailable
+PH2_followup,all_cases,predictive_entropy,average_precision,120,39,0.325,0.5628855229873078,0.42858564686774836,0.7438920408771341,1000,image_id; patient IDs unavailable
+PH2_followup,all_cases,one_minus_max_softmax,AUROC,120,39,0.325,0.7901234567901234,0.6948393251052163,0.8715367894486667,1000,image_id; patient IDs unavailable
+PH2_followup,all_cases,one_minus_max_softmax,average_precision,120,39,0.325,0.6294730362000137,0.4777434729719925,0.7859585885129605,1000,image_id; patient IDs unavailable
+PH2_followup,all_cases,negative_top_two_margin,AUROC,120,39,0.325,0.7774612219056665,0.6822935463364777,0.8563171042319748,1000,image_id; patient IDs unavailable
+PH2_followup,all_cases,negative_top_two_margin,average_precision,120,39,0.325,0.5844549259068352,0.44222261966187826,0.7518061224851991,1000,image_id; patient IDs unavailable
+PH2_followup,true_melanoma_only,predictive_entropy,AUROC,40,27,0.675,0.5754985754985755,0.37083333333333335,0.7649210164835165,1000,image_id; patient IDs unavailable
+PH2_followup,true_melanoma_only,predictive_entropy,average_precision,40,27,0.675,0.7546806424005996,0.5862384906441254,0.9100271769345256,1000,image_id; patient IDs unavailable
+PH2_followup,true_melanoma_only,one_minus_max_softmax,AUROC,40,27,0.675,0.6296296296296295,0.4285348922177567,0.8133761755485893,1000,image_id; patient IDs unavailable
+PH2_followup,true_melanoma_only,one_minus_max_softmax,average_precision,40,27,0.675,0.7753030463727559,0.6130589334989766,0.9313610259514172,1000,image_id; patient IDs unavailable
+PH2_followup,true_melanoma_only,negative_top_two_margin,AUROC,40,27,0.675,0.6153846153846154,0.42316442985893415,0.800054945054945,1000,image_id; patient IDs unavailable
+PH2_followup,true_melanoma_only,negative_top_two_margin,average_precision,40,27,0.675,0.7869831080893558,0.6168266503992423,0.9282967124106681,1000,image_id; patient IDs unavailable

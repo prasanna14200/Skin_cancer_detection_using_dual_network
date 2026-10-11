@@ -1,0 +1,8 @@
+condition,mel_support,mel_correct,mel_false_negatives,mel_to_nv,baseline_mel_correct_to_wrong,baseline_mel_wrong_to_correct
+baseline,107,70,37,26,0,0
+blur_r1,107,16,91,74,54,0
+blur_r2,107,2,105,95,68,0
+underexposure_070,107,33,74,53,37,0
+overexposure_130,107,67,40,29,10,7
+contrast_070,107,27,80,55,43,0
+jpeg_q40,107,38,69,51,33,1

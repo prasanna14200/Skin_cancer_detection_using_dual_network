@@ -1,0 +1,18 @@
+{
+  "src/dataset.py": "02c6d280e468a8c83719bffd7b6bc042b138893d7badd794d0ecfa9291ec8cad",
+  "src/train.py": "c195142d2f924b83374c0d6a8d4d93061ecf2e77e947710e6a3a8eb8264686bc",
+  "src/preprocessing.py": "cf0a176a610b52ba45b0e91761b027a560252234f81f7b6fd572f02d8baab6ed",
+  "src/models/egvan/__init__.py": "e858a0996e67168ab50bd5524a2ee3609d90db2fec86109ce5ce0273a3e61449",
+  "src/models/egvan/egvan.py": "f5f5217d6cced6ccc9c1a2d17a5691701bfe454eb46bf52bf97468030cc7b44f",
+  "src/models/egvan/efficientnet_branch.py": "e9f25b66247349ff0597ff76a1e4d3dc86a80d8358ad9f63ef1bf4e96cb98b0e",
+  "src/models/egvan/modified_resnet50.py": "5f9a79d4de988f0e2e046bc5b38d90d62dc7c28273c7c922edad6e64f76caeba",
+  "src/models/egvan/non_local.py": "d1795018519ae6650a130c44a17aac88fcc58b2ece4336879caf703c24c45c3a",
+  "src/models/egvan/scga.py": "6d8a72871c7ae46de12d52f3b0fe973cf75b022434678161b6ab801ffa900d11",
+  "src/models/egvan/spatial_attention.py": "34600fbd2207040de06baff88532d1df684852dcf9086e49789856352cf52ae7",
+  "src/models/egvan/mff.py": "ad97108386f6b749bf30d6624d3db88663635393519d0cb6a519e65f96bbcb06",
+  "experiments/stage23_resnet50_imagenet_init_exp1/initialization.py": "56a5b767c4c204eac64fbbc8a4c91c1ee7694fdcc3e87ed50bdaf9e0d7b483be",
+  "experiments/egvan_melanoma_ablation_exp/train_ablation.py": "56a71821c1f944028874a76febf00ea68b3b152e481e6450ddd5bd94606e5389",
+  "experiments/egvan_melanoma_ablation_exp/stage13c_guarded.py": "93e2318afafff8ad1c6907752781d61856cdf3bbde3a614b29686686dac0340d",
+  "experiments/Stage13_melanoma_ablation/stage13c_selective_qk_fp32_train.py": "d5cdfbade60e834e56acf9d67fbb3f83d90f0c6f96473dff9b9d3dd4c399ef1a",
+  "analysis/stage13_melanoma_ablation/stage13c_abc_selective_qk_fp32_gate.py": "198769909e0572b0d5959c849731bb7c7613d578e6c231fd0040580b3519fcff"
+}

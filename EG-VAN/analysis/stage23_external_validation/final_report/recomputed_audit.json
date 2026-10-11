@@ -1,0 +1,138 @@
+{
+  "status": "PASS",
+  "source": "saved predictions only; no inference",
+  "artifact_sha256": {
+    "predictions.csv": "2b131ac9ad0e388036194f463914d5e5a96f3bd1934470a38266051d93f341e4",
+    "metrics.json": "6aec707298708bb7e3570083489e00a4402b6e02abc823c80b980f333a435356",
+    "confusion_matrix.csv": "26db8800bab80466170d17d0e446ebd0961a7512413d23b968e97f5b290a7e75",
+    "manifest.json": "c8c570582bb06ff16955f2792fc8b65ba5885875a2328bd7052364f7ebc10e4b"
+  },
+  "checkpoint_sha256": "42b018305694392ea874c1e9a4b28457adef780f7be9e740a16506404c9fc5ab",
+  "protocol_sha256": "3e6e31165e6afcb6b270e940f3abfe94dc99e2c805d84e08db2a156a91754ed8",
+  "sample_count": 120,
+  "unique_ids": 120,
+  "class_counts": {
+    "nv": 80,
+    "mel": 40
+  },
+  "confusion_matrix": [
+    [
+      68,
+      5,
+      7
+    ],
+    [
+      13,
+      13,
+      14
+    ]
+  ],
+  "recomputed_metrics": {
+    "mapped_accuracy": 0.675,
+    "mel_recall": 0.325,
+    "mel_precision": 0.7222222222222222,
+    "mel_f1": 0.44827586206896547,
+    "nv_exact_label_recall": 0.85,
+    "mapped_balanced_accuracy": 0.5875,
+    "binary_mel_specificity": 0.9375,
+    "mel_p_roc_auc": 0.5859375,
+    "mel_p_average_precision": 0.5250237020124024,
+    "mean_confidence": 0.604160585006078,
+    "mean_entropy_nats": 0.9304551143019272,
+    "entropy_error_detection_auc": 0.7610003165558722
+  },
+  "verified_wilson_95": {
+    "mapped_accuracy": [
+      0.5869018408594733,
+      0.7522414508939805
+    ],
+    "mel_recall": [
+      0.200845022317827,
+      0.47982253810122333
+    ],
+    "nv_exact_label_recall": [
+      0.7558677143867665,
+      0.9120595949383645
+    ],
+    "binary_mel_specificity": [
+      0.8618985123272557,
+      0.973010624329158
+    ]
+  },
+  "balanced_accuracy_bootstrap_95": [
+    0.50625,
+    0.66875
+  ],
+  "balanced_accuracy_bootstrap_note": "descriptive post-run interval; 2000 class-stratified image-ID draws, seed 42; patient grouping unavailable",
+  "recomputed_bootstrap_95": {
+    "mapped_accuracy": [
+      0.6,
+      0.7416666666666667
+    ],
+    "mel_f1": [
+      0.27999999999999997,
+      0.6000793650793647
+    ],
+    "mel_p_roc_auc": [
+      0.4653046875,
+      0.7053359374999999
+    ],
+    "mean_entropy_nats": [
+      0.8771930488901631,
+      0.9806604638323048
+    ],
+    "mapped_balanced_accuracy": [
+      0.50625,
+      0.66875
+    ]
+  },
+  "saved_bootstrap_95": {
+    "method": "stratified image-ID bootstrap; patient groups unavailable",
+    "seed": 42,
+    "repetitions": 2000,
+    "percentile_95": {
+      "mapped_accuracy": [
+        0.6,
+        0.7416666666666667
+      ],
+      "mel_f1": [
+        0.27999999999999997,
+        0.6000793650793647
+      ],
+      "mel_p_roc_auc": [
+        0.4653046875,
+        0.7053359374999999
+      ],
+      "mean_entropy_nats": [
+        0.8771930488901631,
+        0.9806604638323048
+      ]
+    },
+    "undefined_replicates": {
+      "mapped_accuracy": 0,
+      "mel_f1": 0,
+      "mel_p_roc_auc": 0,
+      "mean_entropy_nats": 0
+    }
+  },
+  "patterns": {
+    "mel_false_negatives": 27,
+    "mel_to_nv": 13,
+    "mel_to_other": 14,
+    "nv_to_mel": 5,
+    "mel_predicted_breakdown": {
+      "nv": 13,
+      "bkl": 9,
+      "akiec": 1,
+      "df": 4,
+      "mel": 13
+    },
+    "nv_predicted_breakdown": {
+      "bkl": 6,
+      "nv": 68,
+      "mel": 5,
+      "df": 1
+    }
+  },
+  "prior_ph2_project_use": true
+}

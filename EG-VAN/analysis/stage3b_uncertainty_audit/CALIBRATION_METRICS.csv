@@ -1,0 +1,7 @@
+dataset,metric,n,estimate,ci95_low,ci95_high,valid_bootstrap_replicates,resample_unit
+HAM_validation,top_label_ece,986,0.039768377133847246,0.02982766945701256,0.06755159356023402,1000,lesion_id
+HAM_validation,multiclass_brier_sum,986,0.2574454247086721,0.2238917685974479,0.2922452581328128,1000,lesion_id
+HAM_validation,negative_log_likelihood_nats,986,0.5238764496271348,0.45281551604311426,0.5949673127597542,1000,lesion_id
+PH2_followup,top_label_ece,120,0.0948258365194003,0.07357835529992977,0.18818719111382956,1000,image_id; patient IDs unavailable
+PH2_followup,multiclass_brier_sum,120,0.4466125484806637,0.383698319524743,0.5213193801346478,1000,image_id; patient IDs unavailable
+PH2_followup,negative_log_likelihood_nats,120,0.8630964693587574,0.7379790988441581,1.017642710987921,1000,image_id; patient IDs unavailable

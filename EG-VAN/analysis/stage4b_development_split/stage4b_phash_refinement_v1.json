@@ -1,0 +1,13 @@
+{
+  "status": "SECOND_PASS_CANDIDATE_SCREEN_ONLY",
+  "source_dhash_candidates": 6192,
+  "unique_source_images": 1243,
+  "phash_hamming_le8_candidates": 40,
+  "phash_hamming_le4_candidates": 4,
+  "minimum_phash_hamming": 2,
+  "method": "OpenCV grayscale raw JPEG, INTER_AREA resize 32x32, float32 DCT, top-left 8x8 excluding DC, median threshold, Hamming <=8 among first-pass candidates",
+  "candidate_status": "requires human review; absence is not proof of patient independence",
+  "first_pass_sha256": "10edd9c8d80fece258691761c135e36b3b3b81088deda3fbc5f1e07a2518907e",
+  "refined_csv_sha256": "66b9256855efa525c9b493fdad3b2707d125b6a0f324d3a1b1b920e91c8f2b51",
+  "script_sha256": "7f0396b7aebee0d872880de29583336786ec8e0362972bb499c24b9e01e7de78"
+}

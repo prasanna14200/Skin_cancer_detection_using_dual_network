@@ -1,0 +1,15 @@
+# Stage 4A readiness decision
+
+## BLOCKED
+
+The repository supports descriptive research and contains 8,015 HAM training images with lesion IDs, so a **prospective exploratory internal control-versus-treatment** study could be designed. It does **not presently support** a clean new model-selection or independent superiority claim over the frozen Stage 23 model:
+
+1. Stage 23 was already trained on **all** original HAM train cases. A new holdout carved from them cannot fairly evaluate the existing frozen Stage 23 checkpoint. A fresh Stage 23-policy control and treatment would have to be retrained on the same smaller training subset under a newly frozen protocol; no such split has been established, and this task forbids resplitting/training.
+2. The 986-case original HAM validation set has repeatedly chosen checkpoints and compared Stage 23–25 and has been used for uncertainty, quality and error analyses. It is not a clean new selection set.
+3. The 1,014-case HAM test has prior baseline and Stage 16/20 exposure; Stage 22 inspected its results. No verified Stage 23 test inference resets that project-level exposure. PH2 is previously used and lacks patient linkage. Neither is an untouched final lockbox.
+4. The current lesion-aware split has no cross-split lesion IDs or **cross-split** exact-byte image duplicate groups, but patient IDs and cross-format/near-duplicate clearance are unavailable. Two duplicate pairs within HAM train and 764 lesion crossings in the separate naive split are documented in [the leakage audit](LEAKAGE_AND_DUPLICATE_AUDIT.md).
+5. No verified new independent, appropriately labelled, patient-linked evaluation cohort is present. Stage 3A remains **BLOCKED** for lack of a new quality-review cohort and two confirmed qualified reviewers. Stage 3B found no independently validated Stage 23 review threshold.
+
+**Minimum prerequisites before model-development authorization:** lock a new lesion-disjoint selection subset from original HAM train for *fresh* control/treatment models, audit patient/near-duplicate overlap and source hashes, preregister one intervention and fixed metrics/selection/stopping rule, and obtain a distinct untouched patient-linked cohort with mapping and sample-size plan for any frozen Stage 23 comparison. If the independent cohort is unavailable, a new run could at most generate exploratory internal evidence and must not replace Stage 23 or claim external generalization. Obtain approvals and data-use rights for any new cohort. No test/PH2 outcome may choose the intervention or cutoff.
+
+**Audit scope:** read split CSVs, metadata, raw canonical image bytes for exact SHA256 duplicate checks, and historical audit/protocol documents. No HAM test prediction or PH2 prediction file was opened in Stage 4A; no model inference, training, resplitting, threshold fitting, or checkpoint modification occurred. The original split/checkpoint/evaluation artifacts and previous reports were preserved. Next action is data/procedural preparation, not training.
